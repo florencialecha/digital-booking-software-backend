@@ -16,7 +16,7 @@ const theme = createTheme({
     }
   },
   typography: {
-    htmlFontSize: 16,
+    htmlFontSize: 12,
     fontFamily: 'Quicksand',
     fontSize: 14,
     fontWeightLight: 300,
@@ -25,23 +25,33 @@ const theme = createTheme({
     fontWeightBold: 700,
     h1: {
       fontFamily: 'Quicksand',
-      fontSize: '6rem'
+      fontWeight: 700,
+      fontSize: 24
     },
     h2: {
       fontFamily: 'Quicksand',
-      fontSize: '3.75rem'
+      fontWeight: 700,
+      fontSize: 20
     },
     h3: {
       fontFamily: 'Quicksand',
-      fontSize: '3rem'
+      fontWeight: 700,
+      fontSize: 16
     },
     h4: {
       fontFamily: 'Quicksand',
-      fontSize: '2.15rem'
+      fontWeight: 700,
+      fontSize: 14
     },
-    h5: {
+    button1: {
       fontFamily: 'Quicksand',
-      fontSize: '1,5rem'
+      fontWeight: 700,
+      fontSize: 14
+    },
+    button2: {
+      fontFamily: 'Quicksand',
+      fontWeight: 700,
+      fontSize: 16
     }
   }
 })
