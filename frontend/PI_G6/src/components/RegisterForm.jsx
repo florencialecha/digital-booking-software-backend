@@ -1,0 +1,128 @@
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
+import * as yup from "yup";
+
+const RegisterForm = () => {
+  const navigate = useNavigate();
+  const onSubmit = async (values, actions) => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    actions.resetForm();
+    console.log(values);
+    return navigate("/login");
+  };
+
+  const schema = yup.object({
+    email: yup
+      .string()
+      .email("El correo electrónico ingresado no es válido")
+      .required("Este campo es obligatorio"),
+    password: yup
+      .string()
+      .min(6, "La contraseña debe contener al menos 6 caracteres")
+      .required("Este campo es obligatorio"),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref("password"), null], "Las contraseñas no coinciden"),
+  });
+
+  const {
+    values,
+    errors,
+    touched,
+    handleSubmit,
+    handleChange,
+    handleBlur,
+    isSubmitting,
+  } = useFormik({
+    initialValues: {
+      name: "",
+      lastName: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
+    validationSchema: schema,
+    onSubmit,
+  });
+  return (
+    <div>
+      <h3>Crear cuenta</h3>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="name">Nombre</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={values.name}
+          onChange={handleChange}
+          onBlur={handleBlur}
+        />
+        <label htmlFor="lastName">Apellido</label>
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          value={values.lastName}
+          onChange={handleChange}
+          onBlur={handleBlur}
+        />
+        <label htmlFor="email">Correo electrónico</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={values.email}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          className={errors.email && touched.email ? "input-error" : ""}
+        />
+
+        {errors.email && touched.email && (
+          <p className="error">{errors.email}</p>
+        )}
+
+        <label htmlFor="password">Contraseña</label>
+        <input
+          type="password"
+          placeholder=""
+          id="password"
+          name="password"
+          value={values.password}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          className={errors.password && touched.password ? "input-error" : ""}
+        />
+        {errors.password && touched.password && (
+          <p className="error">{errors.password}</p>
+        )}
+        <label htmlFor="confirmPassword">Confirmar contraseña</label>
+        <input
+          type="password"
+          placeholder=""
+          id="confirmPassword"
+          name="confirmPassword"
+          value={values.confirmPassword}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          className={
+            errors.confirmPassword && touched.confirmPassword
+              ? "input-error"
+              : ""
+          }
+        />
+        {errors.confirmPassword && touched.confirmPassword && (
+          <p className="error">{errors.confirmPassword}</p>
+        )}
+        <button disabled={isSubmitting} type="submit">
+          Crear cuenta
+        </button>
+        <p>¿Ya tienes una cuenta? </p>
+        <Link to="/login">Iniciar sesión</Link>
+      </form>
+    </div>
+  );
+};
+
+export default RegisterForm;
