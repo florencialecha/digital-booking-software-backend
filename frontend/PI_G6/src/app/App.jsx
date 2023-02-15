@@ -8,15 +8,15 @@ import NotFound from '../routes/NotFound'
 
 function App () {
   return (
-    <Routes>
-      <Route element={<Layout />}>
-        <Route path='/' element={ <Home /> } />
-        <Route path='/home' element={ <Home /> }/>
-        <Route path='/login' element={ <Login /> }/>
-        <Route path='/register' element={ <Register /> }/>
-        <Route path='/*' element={ <NotFound/> }/>
-      </Route>
-    </Routes>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path='/' element={ <Home /> } />
+          <Route path='/home' element={ <Home /> }/>
+          <Route path='/login' element={ <Login /> }/>
+          <Route path='/register' element={ <Register /> }/>
+          <Route path='/*' element={ <NotFound/> }/>
+        </Route>
+      </Routes>
   )
 }
 
