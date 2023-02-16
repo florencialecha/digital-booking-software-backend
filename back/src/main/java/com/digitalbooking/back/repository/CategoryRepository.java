@@ -1,14 +1,14 @@
-package com.digitalbooking.backend.repository;
+package com.digitalbooking.back.repository;
 
-import com.digitalbooking.backend.entity.Category;
+import com.digitalbooking.back.entity.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long> {
-
-    Optional<Category> findByTitle(String title);
+    Optional<List<Category>> findByTitle(String title);
 
 }

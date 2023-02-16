@@ -1,4 +1,4 @@
-package com.digitalbooking.backend.exception;
+package com.digitalbooking.back.exception;
 
 public class ResourceNotFoundException extends Exception {
 
