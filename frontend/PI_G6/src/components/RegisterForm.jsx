@@ -9,8 +9,7 @@ const RegisterForm = () => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     actions.resetForm();
-    console.log(values);
-    return navigate("/login");
+    navigate("/login");
   };
 
   const schema = yup.object({
@@ -47,27 +46,34 @@ const RegisterForm = () => {
     onSubmit,
   });
   return (
-    <div>
-      <h3>Crear cuenta</h3>
+    <div className="registerForm">
+      <h1>Crear cuenta</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Nombre</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={values.name}
-          onChange={handleChange}
-          onBlur={handleBlur}
-        />
-        <label htmlFor="lastName">Apellido</label>
-        <input
-          type="text"
-          id="lastName"
-          name="lastName"
-          value={values.lastName}
-          onChange={handleChange}
-          onBlur={handleBlur}
-        />
+        <div>
+          <div className="nameInput">
+            <label htmlFor="name">Nombre</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={values.name}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+          </div>
+          <div className="lastNameInput">
+            <label htmlFor="lastName">Apellido</label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              value={values.lastName}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+          </div>
+        </div>
+
         <label htmlFor="email">Correo electrónico</label>
         <input
           type="email"
@@ -118,8 +124,9 @@ const RegisterForm = () => {
         <button disabled={isSubmitting} type="submit">
           Crear cuenta
         </button>
-        <p>¿Ya tienes una cuenta? </p>
-        <Link to="/login">Iniciar sesión</Link>
+        <p className="login">
+          ¿Ya tienes una cuenta? <Link to="/login">Iniciar sesión</Link>
+        </p>
       </form>
     </div>
   );

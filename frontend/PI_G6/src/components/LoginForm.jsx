@@ -2,17 +2,15 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import "../index.css";
 
 const LoginForm = () => {
   const navigate = useNavigate();
 
   const onSubmit = async (values, actions) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
-
     actions.resetForm();
-
-    console.log(values);
-    return navigate("/");
+    navigate("/");
   };
 
   const schema = yup.object({
@@ -41,8 +39,8 @@ const LoginForm = () => {
   });
 
   return (
-    <div>
-      <h3>Iniciar sesión</h3>
+    <div className="loginForm">
+      <h1>Iniciar sesión</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Correo electrónico</label>
         <input
@@ -72,9 +70,13 @@ const LoginForm = () => {
         {errors.password && touched.password && (
           <p className="error">{errors.password}</p>
         )}
-        <button type="submit">Ingresar</button>
-        <p>¿Aún no tienes cuenta? </p>
-        <Link to="/register">Registarte</Link>
+        <button disabled={isSubmitting} type="submit">
+          Ingresar
+        </button>
+
+        <p className="register">
+          ¿Aún no tienes cuenta? <Link to="/register">Registarte</Link>
+        </p>
       </form>
     </div>
   );
