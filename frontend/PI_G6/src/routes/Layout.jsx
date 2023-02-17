@@ -5,9 +5,9 @@ import Footer from '../components/Footer'
 
 const Layout = () => {
   return (
-    <div>
+    <div style={{ width: '100 vh' }}>
       <Header />
-        <div style={{ minHeight: '76vh' }}>
+        <div style={{ padding: '50px 50px' }}>
             <Outlet/>
         </div>
       <Footer/>
