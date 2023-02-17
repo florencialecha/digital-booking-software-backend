@@ -17,16 +17,19 @@ const Footer = () => {
         }}
         >
             <Typography
-            // color='secondary'
+            color='secondary.main'
             variant='h6'
-            fontWeight='bold'>
+            fontWeight='bold'
+            sx={{
+              typography: 'h3'
+            }}>
                 ©2023 Digital Booking
             </Typography>
-            <Box>
-              <IconButton role='facebook' href='https://www.facebook.com/' ><Facebook /*color='secondary'*//></IconButton>
-              <IconButton role='instagram' href='https://www.instagram.com/'><Instagram /*color='secondary'*//></IconButton>
-              <IconButton role='LinkedInIcon' href='https://www.LinkedInIcon.com/' ><LinkedInIcon /*color='secondary'*//></IconButton>
-              <IconButton role='tiktok' href='https://www.twitter.com/'><TwitterIcon /*color='secondary'*//></IconButton>
+            <Box >
+              <IconButton role='facebook' href='https://www.facebook.com/' ><Facebook color='error' /></IconButton>
+              <IconButton role='instagram' href='https://www.instagram.com/'><Instagram color='error' /></IconButton>
+              <IconButton role='LinkedInIcon' href='https://www.LinkedInIcon.com/' ><LinkedInIcon color='error' /></IconButton>
+              <IconButton role='tiktok' href='https://www.twitter.com/'><TwitterIcon color='error' /></IconButton>
             </Box>
         </Box>
       </Container>

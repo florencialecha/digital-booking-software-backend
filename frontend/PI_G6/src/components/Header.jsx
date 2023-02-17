@@ -2,7 +2,6 @@ import * as React from 'react'
 import PropTypes from 'prop-types'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
-import CssBaseline from '@mui/material/CssBaseline'
 import Divider from '@mui/material/Divider'
 import Drawer from '@mui/material/Drawer'
 import IconButton from '@mui/material/IconButton'
@@ -48,23 +47,25 @@ function DrawerAppBar (props) {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar component="nav">
+      <AppBar component="nav" sx={{ backgroundColor: 'error.main' }} >
         <Toolbar sx={{ justifyContent: 'flex-end' }}>
-          <Typography
+          <Box
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, margin: '10px' }}
-          >
+            sx={{ display: 'flex', gap: 2, flexGrow: 1, margin: '10px', alignItems: 'baseline' }}
+            >
             <img src="./src/assets/logo_orange.png" alt="Logo from Digital Booking" />
-          </Typography>
+            <Typography sx={{ color: 'info.main', typography: 'h2' }}>
+              Sentite como en tu hogar
+            </Typography>
+          </Box>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
             sx={{ display: { sm: 'none' } }}
-          >
+            >
             <MenuIcon/>
           </IconButton>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
@@ -90,7 +91,7 @@ function DrawerAppBar (props) {
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth }
           }}
           anchor="right"
-        >
+          >
           {drawer}
         </Drawer>
       </Box>
@@ -105,7 +106,7 @@ DrawerAppBar.propTypes = {
   /**
    * Injected by the documentation to work in an iframe.
    * You won't need it on your project.
-   */
+  */
   window: PropTypes.func
 }
 
