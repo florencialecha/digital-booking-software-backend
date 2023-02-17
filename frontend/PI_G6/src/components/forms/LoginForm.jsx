@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import "../index.css";
+import "./form.css";
 
 const LoginForm = () => {
   const navigate = useNavigate();

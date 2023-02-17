@@ -19,7 +19,7 @@ const RegisterForm = () => {
       .required("Este campo es obligatorio"),
     password: yup
       .string()
-      .min(6, "La contraseña debe contener al menos 6 caracteres")
+      .min(7, "La contraseña debe contener más de 6 caracteres")
       .required("Este campo es obligatorio"),
     confirmPassword: yup
       .string()
