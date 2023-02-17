@@ -8,10 +8,11 @@
 }
 
 .registerForm h1 {
+  display: flex;
+  justify-content: center;
   font-weight: 700;
   font-size: 24px;
   color: #f0572d;
-  text-align: center;
   line-height: 28px;
   padding-top: 50px;
 }
@@ -21,7 +22,7 @@ form {
   flex-direction: column;
   width: 448px;
   margin: 0 auto;
-  padding: 20px 5px 5px;
+  padding: 30px 5px;
   font-weight: 500;
   color: #31363f;
 }
@@ -52,6 +53,10 @@ form button {
   color: white;
   margin-top: 50px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+label {
+  padding: 5px 0;
 }
 
 form button:hover {

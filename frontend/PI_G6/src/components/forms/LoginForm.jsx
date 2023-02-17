@@ -10,7 +10,15 @@ const LoginForm = () => {
   const onSubmit = async (values, actions) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     actions.resetForm();
-    navigate("/");
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (values.email === user.email && values.password === user.password) {
+      navigate("/");
+      localStorage.setItem("userLoggedIn", true);
+    } else {
+      document.querySelector(
+        ".failed-validation"
+      ).innerHTML = `<p>Por favor vuelva a intentarlo, sus credenciales son inválidas.</p>`;
+    }
   };
 
   const schema = yup.object({
@@ -70,6 +78,7 @@ const LoginForm = () => {
         {errors.password && touched.password && (
           <p className="error">{errors.password}</p>
         )}
+        <div className="failed-validation"></div>
         <button disabled={isSubmitting} type="submit">
           Ingresar
         </button>

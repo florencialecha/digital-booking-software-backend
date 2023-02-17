@@ -9,6 +9,7 @@ const RegisterForm = () => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     actions.resetForm();
+    localStorage.setItem("user", JSON.stringify(values));
     navigate("/login");
   };
 
