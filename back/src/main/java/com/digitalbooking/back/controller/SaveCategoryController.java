@@ -23,14 +23,6 @@ public class SaveCategoryController {
 
     @PostMapping
     public void save(@RequestBody Category category) throws BadRequestException {
-
-        Category newCategory = new Category();
-
-        newCategory.setTitle(category.getTitle());
-        newCategory.setDescription(category.getDescription());
-        newCategory.setImageUrl(category.getImageUrl());
-
         categoryService.save(category);
-
     }
 }
