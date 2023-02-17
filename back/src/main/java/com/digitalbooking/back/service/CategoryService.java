@@ -2,7 +2,6 @@ package com.digitalbooking.back.service;
 
 import com.digitalbooking.back.entity.Category;
 import com.digitalbooking.back.exception.BadRequestException;
-import com.digitalbooking.back.exception.ResourceNotFoundException;
 import com.digitalbooking.back.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,12 +23,12 @@ public class CategoryService {
         return categoryRepository.findByTitle(title);
     }
 
-    public Category save(Category category) throws BadRequestException {
+    public Category create(Category category) throws BadRequestException {
         categoryRepository.save(category);
         return category;
     }
 
-    public List<Category> searchAll() {
+    public List<Category> findAll() {
         return categoryRepository.findAll();
     }
 
