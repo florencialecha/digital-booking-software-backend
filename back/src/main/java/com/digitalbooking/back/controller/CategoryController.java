@@ -50,4 +50,13 @@ public class CategoryController {
         categoryService.update(category);
     }
 
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) throws ResourceNotFoundException {
+        Optional<Category> result = categoryService.findById(id);
+        if (result.isEmpty()) {
+            throw new ResourceNotFoundException("Can't delete a category who does not exist in the database.");
+        }
+        categoryService.delete(id);
+    }
+
 }
