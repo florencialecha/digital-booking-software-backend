@@ -41,4 +41,13 @@ public class CategoryController {
         categoryService.create(category);
     }
 
+    @PutMapping
+    public void update(@RequestBody Category category) throws ResourceNotFoundException, BadRequestException {
+        Optional<Category> result = categoryService.findById(category.getId());
+        if (result.isEmpty()) {
+            throw new ResourceNotFoundException("Can't update a category who does not exist in the database.");
+        }
+        categoryService.update(category);
+    }
+
 }

@@ -32,4 +32,12 @@ public class CategoryService {
         return categoryRepository.findAll();
     }
 
+    public Optional<Category> findById(Long id) {
+        return categoryRepository.findById(id);
+    }
+
+    public void update(Category category) {
+        categoryRepository.save(category);
+    }
+
 }
