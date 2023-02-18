@@ -1,7 +1,7 @@
 import { React } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Layout from '../routes/Layout'
-import Home from '../routes/Home'
+import Home from '../routes/Home/Home'
 import Login from '../routes/Login'
 import Register from '../routes/Register'
 import NotFound from '../routes/NotFound'

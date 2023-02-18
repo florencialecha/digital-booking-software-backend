@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.suggested-main-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 120px;
+    padding: 5px 40px;
+}
+
+.suggested-main-container p:first-child {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.suggested-render-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;  
+    justify-content: space-between;
+}
+
+.card-container {
+    display: flex;
+    max-width: 45vw;
+    gap: 10px;
+    border-radius: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.card-container img {
+    width: 50%;
+    border-radius: 10px;
+}
+
+.hotel-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.valoration {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.valoration p:first-child {
+    display: flex;
+    background-color: rgb(240, 87, 45);
+    min-width: 25px;
+    border-radius: 5px;
+    justify-content: center;
+    font-weight: bold;    
+}
+
+.card-information {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.see-more {
+    display: flex;
+    justify-content: center;
+}
+
+.see-more button {
+    width: 80%;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgb(240, 87, 45);
+    border: none;
+}

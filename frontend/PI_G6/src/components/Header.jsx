@@ -3,7 +3,7 @@ import '@fontsource/quicksand'
 
 const Header = () => {
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#DFE4EA', padding: '10px 20px', width: '100vW', boxSizing: 'border-box', position: 'fixed', top: '0' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#DFE4EA', padding: '10px 20px', width: '100vW', boxSizing: 'border-box', position: 'fixed', top: '0', zIndex: 2 }}>
       <div style={{ display: 'flex', alignItems: 'flex-end', gap: '5px' }}>
       <img src="https://i.ibb.co/nPrrkLc/logo-1-2.png" alt="Logo Digital Booking" border="0" />
         <span style={{ paddingBottom: '2px', fontFamily: 'Quicksand', fontStyle: 'italic', fontWeight: '600' }}>Sentite como en tu hogar</span>
