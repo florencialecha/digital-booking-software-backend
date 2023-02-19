@@ -1,5 +1,5 @@
 import React from 'react'
-import CardCategory from './Card/CardCategory'
+import CardCategory from './CardCategory/CardCategory'
 import data from '../../temp/apiCategories.json'
 
 const Carousel = () => {

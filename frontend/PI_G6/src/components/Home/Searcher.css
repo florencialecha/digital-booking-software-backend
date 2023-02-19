@@ -13,7 +13,7 @@
 
 .searcher {
     position: fixed;
-    height: 100px;
+    height: 139px;
     width: 100vw;
     margin-top: 72px;
     background-color: #191B1D;
@@ -64,4 +64,55 @@
 
 .searcher section div img {
     max-height: 70%;
+}
+
+/* For mobile */
+
+@media (max-width: 330px) {
+    .searcher p {
+        font-size: 18px;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .searcher {
+        position: relative;
+        z-index: 0;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    
+    .searcher section {
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 60%;
+    }
+
+    .searcher section div {
+        width: 90vw;
+        height: 5vh;
+    }
+
+    .searcher button {
+        width: 90vw;
+        height: 5vh;
+    }
+}
+
+/* For tablet */
+
+@media (max-width: 1024px) and (min-width: 601px) {
+    .searcher {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .searcher section div {
+        width: 40vw;
+    }
 }

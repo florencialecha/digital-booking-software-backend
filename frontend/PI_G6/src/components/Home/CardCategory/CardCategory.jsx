@@ -6,7 +6,7 @@ const Carousel = (category) => {
     <div className='slider-item' id={`item-${category.id}`}>
         <img src={category.imageUrl} alt="" />
         <div>
-            <p>{category.title}</p>
+            <p className='category-title  '>{category.title}</p>
             <p>{category.quantity} availables</p>
         </div>
     </div>
