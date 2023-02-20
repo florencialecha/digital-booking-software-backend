@@ -29,15 +29,17 @@ const Header = () => {
 
   return (
     <nav>
-      <div>
-        <Link to={"/"}>
+      <Link to={"/"}>
+        <div className="">
           <img
             src="./src/assets/logo_orange.png"
             alt="Logo from Digital Booking"
           />
-        </Link>
-        <p>Sentite como en tu hogar</p>
-      </div>
+
+          <p>Sentite como en tu hogar</p>
+        </div>
+      </Link>
+
       <div>
         {loggedUser ? (
           <div className="profileInfo">

@@ -1,0 +1,255 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.home {
+    min-height: 100vh;
+    background: #DFE4EA;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+} 
+
+.searcher {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    height: 139px;
+    width: 100vw;
+    margin-top: 72px;
+    background-color: #191B1D;
+    padding: 15px;
+    z-index: 2;
+}
+
+.searcher p {
+    text-align: center;
+    color: #DFE4EA;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 5px
+}
+
+.calendar div {
+    width: 10%;
+    height: 100%;
+    display: flex;
+}
+
+.searcher button {
+    border-radius: 5px;
+    width: 15vw;
+    border: none;
+    background-color: rgb(240, 87, 45);
+    color: #DFE4EA;
+    font-weight: 600;
+}
+
+.searcher section {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: space-around;
+    gap: 10px;
+    height: 30px;
+}
+
+.searcher section div {
+    display: flex;
+    background-color: #DFE4EA;
+    width: 30vw;
+    align-items: center;
+    justify-content:center;
+    border-radius: 5px;
+}
+
+.searcher section div .picker {
+    width: 90%;
+}
+
+.searcher section div select {
+    width: 90%;
+    height: 80%;
+    background-color: #DFE4EA;
+    border: none;
+}
+
+.searcher section div img {
+    max-height: 70%;
+}
+
+
+/* LOCATION FORM*/
+
+a {
+    text-decoration: none;
+}
+
+form {
+    max-height: 100%;
+    padding: 0 !important;
+}
+
+.selectbox {
+    display: flex;
+    background-color: #191B1D !important;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#select {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.select-content {
+    max-height: 30px;
+    width: 85%;
+}
+
+.select-content p {
+    font-size: 16px;
+    color: #191B1D;
+}
+
+#options {
+    height: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    display: none;
+    z-index: 5;
+}
+
+#options.active {
+    display: block;
+}
+
+.content-option {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-evenly !important;
+    align-items: center;
+    border-bottom: 2px solid rgb(240, 87, 45);
+    transition: .2s ease all;
+}
+
+.content-option .texts {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    margin-left: 10px;
+}
+
+.texts p {
+    width: 100%;
+    height: 100%;
+    color:#191B1D;
+    font-size: 20px;
+    text-align: left;
+}
+#select .select-content p {
+        text-align: start;
+        width: 97%;
+    }
+
+
+/* For mobile */
+
+@media (max-width: 330px) {
+    .searcher p {
+        font-size: 18px;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .searcher {
+        position: relative;
+        z-index: 0;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        z-index: 2;
+    }
+    
+    .searcher section {
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 60%;
+    }
+
+    .searcher section div {
+        width: 100%;
+    }
+
+    .searcher div button {
+        width: 90vw;
+        height: 5vh;
+    }
+
+    .location-container form {
+        width: 100%;
+    }
+
+    #select {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    #select .select-content {
+        width: 95%;
+    }
+    
+
+    #options {
+        height: 250px;
+        width: 96%;
+        position: fixed;
+        top: 250px;
+    }
+    
+    .content-option {
+        flex-direction: row;
+    }
+    
+    #btn-search {
+        width: 100%;
+        height: 20%;
+    }
+}
+
+/* For tablet */
+
+@media (max-width: 1024px) and (min-width: 601px) {
+    .searcher {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .searcher section div {
+        width: 40vw;
+    }
+
+    #select {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .content-option {
+        flex-direction: row;
+    }
+
+}
