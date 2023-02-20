@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.picker .ant-picker {
+    width: 100%;
+}
+
+.ant-picker-range .ant-picker-range-separator {
+    display: none;
+    
+}
+
+.ant-picker .ant-picker-suffix {
+    display: none;
+}
+
+@media (max-width: 600px) {
+
+    .ant-picker-dropdown-placement-bottomLeft  {
+        max-width: 80vw;
+        height: auto;
+    }
+    .ant-picker-panel-layout {
+        max-width: 80vw;
+        height: auto    
+    }
+
+    .ant-picker-panel-layout div:first-child {
+        max-width: 80vw;
+        height: auto;
+    }
+
+    .ant-picker-panels {
+        max-width: 80vw;
+        height: auto;
+    }
+
+    .ant-picker-date-range-wrapper .ant-picker-panel-container {
+        margin-left: 0px !important;
+    }
+
+    .ant-picker-panels .ant-picker-panel:last-child {
+        display: none;
+    }
+
+    .ant-picker-header * {
+        visibility: visible;
+    }
+    
+}
+
+@media (max-width: 1024px) and (min-width: 601px) {
+    /* Tablet */
+
+    .ant-picker-dropdown-placement-bottomLeft  {
+        max-width: 590px;
+        height: auto;
+    }
+    .ant-picker-panel-layout {
+        max-width: 590px;
+        height: auto    
+    }
+
+    .ant-picker-panel-layout div:first-child {
+        max-width: 590px;
+        height: auto;
+    }
+
+    .ant-picker-panels {
+        max-width: 590px;
+        height: auto;
+    }
+
+    .ant-picker-panel {
+        max-width: 50%;
+    }
+}
+
