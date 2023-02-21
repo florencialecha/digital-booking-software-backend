@@ -189,13 +189,16 @@ nav .socials {
     background-color: #f0572d;
   }
 
-  .closeMenu {
+  button.closeMenu {
+    width: 50px;
     display: inline-block;
     align-self: flex-start;
     background-color: #f0572d;
     color: white;
     text-align: left;
     padding-left: 20px;
+    font-size: 24px;
+    font-weight: 900;
   }
 
   .hamburgerMenu {
@@ -213,12 +216,13 @@ nav .socials {
     color: white;
     display: inline-block;
     align-self: flex-end;
+    padding: 0 15px 10px 0;
   }
 
   .logoutMobile {
     display: inline-block;
     position: absolute;
-    bottom: 130px;
+    bottom: 100px;
     color: #191b1d;
     font-style: normal;
   }
@@ -226,6 +230,7 @@ nav .socials {
   p.logoutMobile {
     color: #31363f;
     padding-right: 20px;
+    font-weight: 500;
   }
   .logoutMobile a span {
     color: #f0572d;
@@ -233,6 +238,13 @@ nav .socials {
   .formButtons {
     display: flex;
     flex-direction: column;
+  }
+
+  button.btn {
+    font-size: 16px;
+    background-color: white;
+    width: 30vw;
+    color: #31363f;
   }
 
   .profileInfo {
@@ -258,6 +270,8 @@ nav .socials {
 
   .profileName {
     color: #dfe4ea;
+    font-weight: 700;
+    font-size: 16px;
   }
 
   .hide a {
@@ -266,14 +280,22 @@ nav .socials {
   nav .socials {
     display: flex;
     position: fixed;
-    bottom: 70px;
+    bottom: 20px;
     padding: 10px 20px 0px;
-    width: 100%;
+    width: 70%;
     align-self: flex-end;
     gap: 15px;
   }
 
-  hr {
-    width: 70vw;
+  .formButtons hr {
+    width: 65vw;
+    border-top: solid #31363f 1px;
+  }
+
+  .profileInfo hr {
+    width: 65vw;
+    border-top: solid #31363f 1px;
+    position: absolute;
+    bottom: 90px;
   }
 }
