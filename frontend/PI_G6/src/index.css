@@ -1,4 +1,13 @@
 * {
+  margin:0;
+  padding: 0;
   box-sizing: border-box;
   font-family: "Quicksand";
+  color: #31363F
+
+}
+
+.picker > * {
+  outline: none;
+  border:none
 }

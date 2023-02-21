@@ -1,15 +1,16 @@
 import React from 'react'
 import './CardSuggested'
+import CardStars from './CardStars'
 
 const CardSuggested = (suggest) => {
   return (
     <div className='card-container'>
         <section>
-            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80" alt="card-img" />
+            <img src={suggest.imageUrl} />
             <div className='card-information'>
                 <div className='card-title'>
                     <article>
-                        <p>{suggest.SuggestCategory} ⭐⭐⭐</p>
+                        <div>{suggest.SuggestCategory} <CardStars {...suggest}/></div>
                         <p>{suggest.name}</p>
                     </article>
                     <div className='valoration'>

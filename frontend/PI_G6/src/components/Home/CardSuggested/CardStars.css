@@ -1,0 +1,9 @@
+
+.stars-container {
+    display: flex;
+
+}
+
+.full {
+    color: rgb(240, 87, 45);
+}
