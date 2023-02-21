@@ -203,6 +203,9 @@ nav .socials {
 
   .hamburgerMenu {
     display: inline-block;
+    border: none;
+    width: 50px;
+    align-self: center;
   }
   .hideMenu {
     display: none;

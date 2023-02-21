@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Social from "../socials/Social";
+import { GiHamburgerMenu } from "react-icons/gi";
 import "./header.css";
 
 const Header = () => {
@@ -51,7 +52,7 @@ const Header = () => {
         </div>
       </Link>
       <button onClick={handleMenu} className="hamburgerMenu">
-        🍔
+        <GiHamburgerMenu size={"2rem"} />
       </button>
       <div className={`${!openMenu ? "hideMenu" : "navMenu"}`}>
         <div className="menuHeader">
