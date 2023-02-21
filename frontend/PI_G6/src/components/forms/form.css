@@ -18,11 +18,19 @@
 }
 
 .registerForm {
-  margin-top: 80px;
+  flex-direction: column;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .loginForm {
-  margin-top: 80px;
+  flex-direction: column;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 form {
@@ -30,7 +38,7 @@ form {
   flex-direction: column;
   width: 448px;
   margin: 0 auto;
-  padding: 50px 5px;
+  padding: 20px 5px;
   font-weight: 500;
   color: #31363f;
 }
