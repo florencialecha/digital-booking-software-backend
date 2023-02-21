@@ -11,6 +11,7 @@ nav {
   box-shadow: -2px 4px 17px -4px rgb(179, 177, 177);
   -webkit-box-shadow: -2px 4px 17px -4px rgb(181, 177, 177);
   -moz-box-shadow: -2px 4px 17px -4px rgb(180, 177, 177, 1);
+  z-index: 3;
 }
 
 nav div {
@@ -18,6 +19,10 @@ nav div {
   justify-content: flex-start;
   align-items: flex-end;
   gap: 10px;
+}
+
+.logo {
+  padding-top: 5px;
 }
 
 nav p {

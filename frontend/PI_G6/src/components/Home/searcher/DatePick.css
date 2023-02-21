@@ -1,11 +1,12 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 .picker .ant-picker {
     width: 100%;
+}
+
+.ant-picker-dropdown {
+    position: fixed;
+    width: 580px;
+    left: calc((100vw - 580px)/2) !important;
 }
 
 .ant-picker-range .ant-picker-range-separator {
@@ -42,12 +43,18 @@
         margin-left: 0px !important;
     }
 
-    .ant-picker-panels .ant-picker-panel:last-child {
+    .ant-picker-panels > .ant-picker-panel:last-child {
         display: none;
     }
 
     .ant-picker-header * {
         visibility: visible;
+    }
+
+    .ant-picker-dropdown {
+        position: fixed;
+        width: 290px;
+        left: calc((100vw - 290px)/2) !important;
     }
     
 }

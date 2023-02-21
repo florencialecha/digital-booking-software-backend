@@ -9,7 +9,7 @@ const Carousel = () => {
       <article>
         <p>Buscar por tipo de alojamiento</p>
       </article>
-      <div className='slider-categories' id='slider-categories'>
+      <div className='slider-categories' id='slider-categories' >
         {data.map((category) => (
           <CardCategory key={category.id} {...category}/>
         ))}

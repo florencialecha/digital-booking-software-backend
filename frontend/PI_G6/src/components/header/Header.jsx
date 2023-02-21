@@ -32,7 +32,6 @@ const Header = () => {
       localStorage.removeItem("userLoggedIn");
       navigate("/");
     }
-    console.log("egfg");
   };
 
   const handleMenu = () => {
@@ -42,7 +41,7 @@ const Header = () => {
   return (
     <nav>
       <Link to={"/"}>
-        <div className="">
+        <div className="logo">
           <img
             src="./src/assets/logo_orange.png"
             alt="Logo from Digital Booking"
