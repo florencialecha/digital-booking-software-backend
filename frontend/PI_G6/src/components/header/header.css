@@ -108,8 +108,167 @@ button.hidden {
   display: none;
 }
 
+.hamburgerMenu {
+  display: none;
+}
+
+.menuHeading {
+  display: none;
+}
+
+.logout {
+  position: absolute;
+  top: 15px;
+  padding-right: 20px;
+  font-weight: 700;
+  font-size: 22px;
+  color: #31363f;
+}
+
+.logoutMobile {
+  display: none;
+}
+
+.closeMenu {
+  display: none;
+}
+
+.hide {
+  display: none;
+}
+
+.socialMedia {
+  display: none;
+}
+
+nav .socials {
+  display: none;
+}
+
 @media only screen and (max-width: 768px) {
-  nav p {
+  .slogan {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .navMenu {
+    position: fixed;
+    display: flex;
+    inset: 0 0 0 30%;
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    width: 70vw;
+    justify-content: flex-start;
+    align-items: flex-end;
+    z-index: 100;
+    flex-direction: column;
+  }
+
+  .navMenu button {
+    width: 206px;
+    height: 40px;
+    border: none;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .menuHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 175px;
+    background-color: #f0572d;
+  }
+
+  .closeMenu {
+    display: inline-block;
+    align-self: flex-start;
+    background-color: #f0572d;
+    color: white;
+    text-align: left;
+    padding-left: 20px;
+  }
+
+  .hamburgerMenu {
+    display: inline-block;
+  }
+  .hideMenu {
+    display: none;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .menuHeading {
+    color: white;
+    display: inline-block;
+    align-self: flex-end;
+  }
+
+  .logoutMobile {
+    display: inline-block;
+    position: absolute;
+    bottom: 130px;
+    color: #191b1d;
+    font-style: normal;
+  }
+
+  p.logoutMobile {
+    color: #31363f;
+    padding-right: 20px;
+  }
+  .logoutMobile a span {
+    color: #f0572d;
+  }
+  .formButtons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profileInfo {
+    margin-top: -100px;
+    color: white;
+    width: 100%;
+  }
+  .profileInfo span {
+    color: #31363f;
+  }
+
+  .profileInfo div {
+    flex-direction: column;
+    text-align: right;
+  }
+
+  .profileAvatar {
+    align-self: flex-end;
+    margin-right: 20px;
+    background-color: #dfe4ea;
+    color: #31363f;
+  }
+
+  .profileName {
+    color: #dfe4ea;
+  }
+
+  .hide a {
+    display: none;
+  }
+  nav .socials {
+    display: flex;
+    position: fixed;
+    bottom: 70px;
+    padding: 10px 20px 0px;
+    width: 100%;
+    align-self: flex-end;
+    gap: 15px;
+  }
+
+  hr {
+    width: 70vw;
   }
 }
