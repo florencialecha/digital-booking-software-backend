@@ -9,10 +9,13 @@ const RegisterForm = () => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     actions.resetForm();
+    localStorage.setItem("user", JSON.stringify(values));
     navigate("/login");
   };
 
   const schema = yup.object({
+    name: yup.string().required("Este campo es obligatorio"),
+    lastName: yup.string().required("Este campo es obligatorio"),
     email: yup
       .string()
       .email("El correo electrónico ingresado no es válido")
@@ -59,7 +62,12 @@ const RegisterForm = () => {
               value={values.name}
               onChange={handleChange}
               onBlur={handleBlur}
+              className={errors.name && touched.name ? "input-error" : ""}
             />
+
+            {errors.name && touched.name && (
+              <p className="error">{errors.name}</p>
+            )}
           </div>
           <div className="lastNameInput">
             <label htmlFor="lastName">Apellido</label>
@@ -70,7 +78,12 @@ const RegisterForm = () => {
               value={values.lastName}
               onChange={handleChange}
               onBlur={handleBlur}
+              className={errors.email && touched.email ? "input-error" : ""}
             />
+
+            {errors.lastName && touched.lastName && (
+              <p className="error">{errors.lastName}</p>
+            )}
           </div>
         </div>
 
