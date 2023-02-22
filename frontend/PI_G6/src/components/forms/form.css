@@ -131,10 +131,10 @@ a {
 
 #showPass {
   position: relative;
-  width: 100%; 
+  width: 100%;
 }
 
- input {
+input {
   padding: 0px 10px;
 }
 
@@ -158,7 +158,6 @@ a {
     height: 40px;
     width: 346px;
   }
-
 
   form {
     width: 346px;
