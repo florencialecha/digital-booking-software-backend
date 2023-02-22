@@ -26,6 +26,11 @@
 }
 
 .searcher p {
+    margin: 5px;
+    padding: 0;
+}   
+
+.searcher h1 {
     color: #DFE4EA;
     font-size: 28px;
     font-weight: 600;
