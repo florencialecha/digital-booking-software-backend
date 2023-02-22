@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { BsEyeSlash } from "react-icons/bs";
 
 const RegisterForm = () => {
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
   const onSubmit = async (values, actions) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
@@ -26,7 +28,8 @@ const RegisterForm = () => {
       .required("Este campo es obligatorio"),
     confirmPassword: yup
       .string()
-      .oneOf([yup.ref("password"), null], "Las contraseñas no coinciden"),
+      .oneOf([yup.ref("password"), null], "Las contraseñas no coinciden")
+      .required("Este campo es obligatorio"),
   });
 
   const {
@@ -48,6 +51,11 @@ const RegisterForm = () => {
     validationSchema: schema,
     onSubmit,
   });
+
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="registerForm">
       <h1>Crear cuenta</h1>
@@ -104,7 +112,7 @@ const RegisterForm = () => {
 
         <label htmlFor="password">Contraseña</label>
         <input
-          type="password"
+          type={showPassword ? "text" : "password"}
           placeholder=""
           id="password"
           name="password"
@@ -113,6 +121,9 @@ const RegisterForm = () => {
           onBlur={handleBlur}
           className={errors.password && touched.password ? "input-error" : ""}
         />
+        <span className="showPass" onClick={handleShowPassword}>
+          <BsEyeSlash />
+        </span>
         {errors.password && touched.password && (
           <p className="error">{errors.password}</p>
         )}

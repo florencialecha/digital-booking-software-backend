@@ -124,6 +124,14 @@ a {
   text-decoration: none;
 }
 
+.showPass {
+  display: flex;
+  position: relative;
+  align-self: flex-end;
+  padding-right: 10px;
+  bottom: 30px;
+}
+
 @media only screen and (max-width: 768px) {
   form button {
     height: 40px;
@@ -139,6 +147,14 @@ a {
 
   form div {
     flex-direction: column;
+  }
+
+  .showPass {
+    display: flex;
+    position: relative;
+    align-self: flex-end;
+    padding-right: 10px;
+    bottom: 40px;
   }
 }
 
