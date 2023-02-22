@@ -5,8 +5,8 @@ import Home from '../routes/Home/Home'
 import Login from '../routes/Login'
 import Register from '../routes/Register'
 import NotFound from '../routes/NotFound'
-
-function App() {
+import '../index.css'
+function App () {
   return (
     <Routes>
       <Route element={<Layout />}>
@@ -17,7 +17,7 @@ function App() {
         <Route path="/*" element={<NotFound />} />
       </Route>
     </Routes>
-  );
+  )
 }
 
-export default App;
+export default App

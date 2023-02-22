@@ -1,9 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 .home {
     min-height: 100vh;
     background: #DFE4EA;
@@ -26,12 +20,21 @@
     z-index: 2;
 }
 
+.searcher *::-webkit-scrollbar {
+    display: none;
+}
+
 .searcher p {
-    text-align: center;
     color: #DFE4EA;
     font-size: 28px;
     font-weight: 600;
-    margin: 5px
+    margin: 5px;
+    padding: 0;
+}
+
+#calendar {
+    padding: 0px 10px;
+    align-items: center ;
 }
 
 .calendar div {
@@ -61,10 +64,13 @@
 .searcher section div {
     display: flex;
     background-color: #DFE4EA;
-    width: 30vw;
-    align-items: center;
-    justify-content:center;
+    
+}
+
+.searcher section > div {
     border-radius: 5px;
+    width: 30vw;
+
 }
 
 .searcher section div .picker {
@@ -87,25 +93,26 @@
 
 a {
     text-decoration: none;
+    width: 100%;
 }
 
-form {
-    max-height: 100%;
+.formClass {
+    width: 95%;
     padding: 0 !important;
 }
+
+
 
 .selectbox {
     display: flex;
     background-color: #191B1D !important;
     flex-direction: column;
     gap: 10px;
+    max-width: 100%;
 }
 
 #select {
-    width: 100%;
     height: 30px;
-    display: flex;
-    justify-content: space-around;
     align-items: center;
 }
 
@@ -114,19 +121,23 @@ form {
     width: 85%;
 }
 
-.select-content p {
-    font-size: 16px;
+.select-content > p {
+    width: 100%;
+    font-size: 20px;
     color: #191B1D;
 }
 
 #options {
     height: 400px;
     width: 100%;
-    display: flex;
-    flex-direction: column;
     overflow: auto;
     display: none;
     z-index: 5;
+}
+
+#options > div {
+    display: flex;
+    flex-direction: column;
 }
 
 #options.active {
@@ -141,34 +152,42 @@ form {
     align-items: center;
     border-bottom: 2px solid rgb(240, 87, 45);
     transition: .2s ease all;
+    transform: scale(.92);
 }
 
 .content-option .texts {
-    display: flex;
     flex-direction: column;
-    width: 85%;
+    width: 100%;
     margin-left: 10px;
 }
 
 .texts p {
-    width: 100%;
     height: 100%;
     color:#191B1D;
     font-size: 20px;
-    text-align: left;
 }
-#select .select-content p {
-        text-align: start;
-        width: 97%;
-    }
+
+#btn-search:hover {
+    transform: scale(1.02);
+    opacity: 90%;
+}
 
 
 /* For mobile */
 
-@media (max-width: 330px) {
+@media (max-width: 370px) {
     .searcher p {
         font-size: 18px;
     }
+
+    #options {
+        width: 75vw;
+        height: 250px;
+        position: absolute;
+        top: 250px;
+    }
+
+
 }
 
 
@@ -211,13 +230,12 @@ form {
     #select .select-content {
         width: 95%;
     }
-    
 
     #options {
+        width: 75vw;
         height: 250px;
-        width: 96%;
-        position: fixed;
-        top: 250px;
+        position: absolute;
+        top: 170px;
     }
     
     .content-option {
@@ -228,6 +246,7 @@ form {
         width: 100%;
         height: 20%;
     }
+
 }
 
 /* For tablet */
@@ -239,13 +258,13 @@ form {
         justify-content: space-around;
     }
 
-    .searcher section div {
-        width: 40vw;
-    }
-
     #select {
         flex-direction: row;
         justify-content: center;
+    }
+
+    .select-content > p {
+        font-size: 16px;
     }
 
     .content-option {

@@ -1,25 +1,51 @@
-import React from 'react'
+import { React, useState } from 'react'
 import './CardSuggested'
+import CardStars from './CardStars'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLocationDot, faPersonSwimming, faWifi, faHeart } from '@fortawesome/free-solid-svg-icons'
 
 const CardSuggested = (suggest) => {
+  const [isActive, setActive] = useState(false)
+
+  const handleToggle = () => {
+    setActive(!isActive)
+  }
+
   return (
     <div className='card-container'>
+        <FontAwesomeIcon className={`fav-icon full-${isActive}`} icon={faHeart} onClick={handleToggle} />
         <section>
-            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80" alt="card-img" />
+            <img src={suggest.imageUrl} />
             <div className='card-information'>
                 <div className='card-title'>
                     <article>
-                        <p>{suggest.SuggestCategory} ⭐⭐⭐</p>
-                        <p>{suggest.name}</p>
+                        <div>{suggest.SuggestCategory} <CardStars {...suggest}/></div>
+                        <p id='suggest-name'>{suggest.name}</p>
                     </article>
                     <div className='valoration'>
                         <p>{suggest.scoring}</p>
                         <p>{suggest.review}</p>
                     </div>
                 </div>
-                <div id='card-location'>{suggest.location}</div>
-                <div id='card-description'>{suggest.description}</div>
-                <div className='see-more'><button>ver más</button></div>
+                <div>
+                    <div className='card-location' id='card-location'>
+                        <div>
+                            <FontAwesomeIcon icon={faLocationDot} />
+                            <p>{suggest.location}</p>
+                        </div>
+                        <a href={`https://www.google.com.uy/maps/@${suggest.coordinates.coordX},${suggest.coordinates.coordY},13z`}><p>MOSTRAR EN EL MAPA</p></a>
+                    </div>
+                    <div className='service-icons'>
+                        { suggest.array.wifi ? <FontAwesomeIcon icon={faWifi} /> : ''}
+                        { suggest.array.pool ? <FontAwesomeIcon className='fa-flip-horizontal' icon={faPersonSwimming} /> : ''}
+                    </div>
+                </div>
+                <div id='card-descridivtion'>
+                    {suggest.description.length > 30 ? <p>{suggest.description.substring(0, 30)}<a className='moreText' href='#'> mas...</a></p> : <p>{suggest.description}</p> }
+                </div>
+                <div className='see-more'>
+                    <button>ver más</button>
+                </div>
             </div>
         </section>
     </div>

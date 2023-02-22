@@ -1,16 +1,11 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: #31363F
-}
-
 .carousel {
-  margin: 212px 10px 10px 10px;
+  margin: 212px 0px 20px;
+  padding: 5px 20px;
   z-index: 1;
   background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
 .carousel article {
@@ -23,50 +18,33 @@
 
 .slider-categories {
     display: flex;
-    max-height: 300px;
     overflow-x:scroll;
-    overflow-y: hidden;
     cursor: grab;
     white-space: nowrap;
     scroll-snap-type: x mandatory;
     gap: 1vw;
-    background-color: #FFFFFF;
-    justify-content: space-between;
-    align-items: center;
+    padding: 5px;
   }
   
 .slider-item {
-  height: 250px;
-  width: 25vw;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
   border-radius: 10px; 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
 }
 
 .slider-item div {
-  padding: 5px 10px;
-  gap: 5px; 
-  
+  padding: 5px 10px; 
 }
 
 .slider-item img{
-  height: 184px;
-  width: 25vw;
+  height: calc(250px - 63px);
+  width: 23.2vw;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   object-fit: cover;
 }
 
-.carousel article p{
-  font-size: 16px;
-  margin-left: 10px;
-}
-
 .carousel article p:first-child {
-  margin-left: 10px;
-  font-size: 22px;
+  font-size: 28px;
   font-weight: bold;
 }
 
@@ -78,30 +56,18 @@
 @media (max-width: 600px) {
   /* For mobile: */
   .carousel {
-    margin: 1px 10px 1px;
-    z-index: 0;
-  }
-  .slider-item {
-    /* height: 250px; */
-    width: 100vw;
-  }
-  .slider-item img{
-    width: 80vw;
+    margin: 0px 0px 10px;
   }
   
+  .slider-item img{
+    width: 85vw;
+  }
 }
 
 @media (max-width: 1024px) and (min-width: 601px) {
   /* For tablet: */
-  .carousel {
-    margin: 212px 30px 10px;
-  }
-  .slider-item {
-    /* height: 250px; */
-    width: 50vw;
-  }
   .slider-item img{
-    width: 50vw;
+    width: 46.5vw;
   }
 }
   
