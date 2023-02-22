@@ -71,8 +71,14 @@
 .valoration {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-end;
+    min-width: 35%;
+    font-weight: bold;
+}
+
+.valoration > p {
+    font-size: 18px;
 }
 
 .valoration > p:first-child {
@@ -81,7 +87,6 @@
     min-width: 25px;
     border-radius: 5px;
     justify-content: center;
-    font-weight: bold;    
 }
 
 .see-more {

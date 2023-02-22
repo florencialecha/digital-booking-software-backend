@@ -129,11 +129,11 @@ a {
   text-decoration: none;
 }
 
+
 #showPass {
   position: relative;
   width: 100%;
 }
-
 input {
   padding: 0px 10px;
 }
@@ -142,7 +142,7 @@ input {
   font-size: 25px;
   position: absolute;
   right: 5%;
-  top: 12px;
+  top: 10px;
 }
 
 #password {
@@ -166,14 +166,6 @@ input {
   form div {
     flex-direction: column;
   }
-
-  .showPass {
-    display: flex;
-    position: relative;
-    align-self: flex-end;
-    padding-right: 10px;
-    bottom: 40px;
-  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -187,7 +179,7 @@ input {
   }
 
   .showIcon {
-    top: 5px;
+    top: 10px;
     right: 15px;
   }
 }

@@ -3,7 +3,7 @@
         "id": "1",
         "SuggestCategory": "Hotel",
         "stars": 2,
-        "name": "suggest name",
+        "name": "Hermitage Hotel",
         "review": "Muy bueno",
         "scoring": 8,
         "array": {
@@ -22,7 +22,7 @@
         "id": "2",
         "SuggestCategory": "Hotel",
         "stars": 5,
-        "name": "suggest name",
+        "name": "Hermitage Hotel",
         "review": "Muy bueno",
         "scoring": 8,
         "array": {
@@ -41,7 +41,7 @@
         "id": "3",
         "SuggestCategory": "Hostel",
         "stars": 5,
-        "name": "suggest name",
+        "name": "LaiLai Hostel",
         "review": "Muy bueno",
         "scoring": 8,
         "array": {
@@ -60,7 +60,7 @@
         "id": "4",
         "SuggestCategory": "Hostel",
         "stars": 5,
-        "name": "suggest name",
+        "name": "LaiLai Hostel",
         "review": "Muy bueno",
         "scoring": 8,
         "array": {
@@ -79,7 +79,7 @@
         "id": "5",
         "SuggestCategory": "Departamento",
         "stars": 5,
-        "name": "suggest name",
+        "name": "Montero Deparments",
         "review": "Muy bueno",
         "scoring": 8,
         "array": {
@@ -97,7 +97,7 @@
         "id": "6",
         "SuggestCategory": "Departamento",
         "stars": 5,
-        "name": "suggest name",
+        "name": "Montero Deparments",
         "review": "Muy bueno",
         "scoring": 8,
         "array": {
@@ -116,7 +116,7 @@
         "id": "7",
         "SuggestCategory": "Bed and breakfast",
         "stars": 5,
-        "name": "suggest name",
+        "name": "Moonlight spa",
         "review": "Muy bueno",
         "scoring": 8,
         "array": {
@@ -135,7 +135,7 @@
         "id": "8",
         "SuggestCategory": "Bed and breakfast",
         "stars": 5,
-        "name": "suggest name",
+        "name": "Moonlight spa",
         "review": "Muy bueno",
         "scoring": 8,
         "array": {
