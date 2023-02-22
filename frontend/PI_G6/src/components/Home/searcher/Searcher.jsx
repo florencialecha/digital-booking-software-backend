@@ -8,7 +8,7 @@ import { faCalendarDay } from '@fortawesome/free-solid-svg-icons'
 
 const Searcher = () => (
   <section className='searcher'>
-    <p>Busca ofertas en hoteles, casas y mucho más</p>
+    <h1>Busca ofertas en hoteles, casas y mucho más</h1>
     <section>
       <div className='location-container'>
         <SelectorTarget />
