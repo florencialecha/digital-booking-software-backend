@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { BsEyeSlash } from "react-icons/bs";
+import { BsEyeSlash, BsEye } from "react-icons/bs";
 
 const RegisterForm = () => {
   const navigate = useNavigate();
@@ -122,7 +122,7 @@ const RegisterForm = () => {
           className={errors.password && touched.password ? "input-error" : ""}
         />
         <span className="showPass" onClick={handleShowPassword}>
-          <BsEyeSlash />
+          {showPassword ? <BsEye /> : <BsEyeSlash />}
         </span>
         {errors.password && touched.password && (
           <p className="error">{errors.password}</p>

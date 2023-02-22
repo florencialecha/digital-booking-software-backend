@@ -132,6 +132,10 @@ a {
   bottom: 30px;
 }
 
+.showPass:hover {
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 768px) {
   form button {
     height: 40px;
