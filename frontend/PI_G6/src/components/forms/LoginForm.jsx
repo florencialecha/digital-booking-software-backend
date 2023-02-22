@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { BsEyeSlash, BsEye } from "react-icons/bs";
 import "./form.css";
 
 const LoginForm = () => {
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   const onSubmit = async (values, actions) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -46,6 +48,10 @@ const LoginForm = () => {
     onSubmit,
   });
 
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="loginForm">
       <h1>Iniciar sesión</h1>
@@ -66,7 +72,7 @@ const LoginForm = () => {
         )}
         <label htmlFor="password">Contraseña</label>
         <input
-          type="password"
+          type={showPassword ? "text" : "password"}
           placeholder=""
           id="password"
           name="password"
@@ -75,6 +81,9 @@ const LoginForm = () => {
           onBlur={handleBlur}
           className={errors.password && touched.password ? "input-error" : ""}
         />
+        <span className="showPass" onClick={handleShowPassword}>
+          {showPassword ? <BsEye /> : <BsEyeSlash />}
+        </span>
         {errors.password && touched.password && (
           <p className="error">{errors.password}</p>
         )}
