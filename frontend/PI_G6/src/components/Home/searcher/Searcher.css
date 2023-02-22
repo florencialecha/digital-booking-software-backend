@@ -175,10 +175,19 @@ a {
 
 /* For mobile */
 
-@media (max-width: 330px) {
+@media (max-width: 370px) {
     .searcher p {
         font-size: 18px;
     }
+
+    #options {
+        width: 75vw;
+        height: 250px;
+        position: absolute;
+        top: 250px;
+    }
+
+
 }
 
 
@@ -221,13 +230,12 @@ a {
     #select .select-content {
         width: 95%;
     }
-    
 
     #options {
         width: 75vw;
         height: 250px;
         position: absolute;
-        top: 250px;
+        top: 170px;
     }
     
     .content-option {
@@ -250,13 +258,13 @@ a {
         justify-content: space-around;
     }
 
-    .searcher section div {
-        width: 40vw;
-    }
-
     #select {
         flex-direction: row;
         justify-content: center;
+    }
+
+    .select-content > p {
+        font-size: 16px;
     }
 
     .content-option {

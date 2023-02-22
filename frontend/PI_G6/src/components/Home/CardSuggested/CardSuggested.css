@@ -176,6 +176,10 @@
         align-items: center;
         justify-content: space-evenly;
     }
+
+    .fav-icon {
+        left: 80%;
+    }
   }
 
   

@@ -5,7 +5,7 @@ nav {
   width: 100%;
   justify-content: space-between;
   padding: 10px 30px;
-  background-color: #dfe4ea;
+  background-color: #ffffff;
   color: #191b1d;
   height: 80px;
   box-shadow: -2px 4px 17px -4px rgb(179, 177, 177);
@@ -43,13 +43,15 @@ nav button {
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
-  background-color: #dfe4ea;
+  background-color: #ffffff;
 }
 
 nav button:hover {
   cursor: pointer;
-  background-color: white;
+  background-color: #f0572d;
+  color: #ffffff;
 }
+
 a {
   text-decoration: none;
 }
@@ -150,7 +152,7 @@ nav .socials {
   display: none;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
   .slogan {
     display: none;
   }

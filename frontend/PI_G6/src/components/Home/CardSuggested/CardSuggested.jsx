@@ -5,8 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faPersonSwimming, faWifi, faHeart } from '@fortawesome/free-solid-svg-icons'
 
 const CardSuggested = (suggest) => {
-  console.log(suggest.array.wifi)
-
   const [isActive, setActive] = useState(false)
 
   const handleToggle = () => {
@@ -43,7 +41,7 @@ const CardSuggested = (suggest) => {
                     </div>
                 </div>
                 <div id='card-descridivtion'>
-                    {suggest.description.length > 250 ? <p>{suggest.description.substring(0, 200)}<a className='moreText' href='#'> mas...</a></p> : <p>{suggest.description}</p> }
+                    {suggest.description.length > 30 ? <p>{suggest.description.substring(0, 30)}<a className='moreText' href='#'> mas...</a></p> : <p>{suggest.description}</p> }
                 </div>
                 <div className='see-more'>
                     <button>ver más</button>

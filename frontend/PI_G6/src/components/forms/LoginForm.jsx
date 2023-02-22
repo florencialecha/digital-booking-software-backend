@@ -1,35 +1,35 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useFormik } from "formik";
-import * as yup from "yup";
-import { BsEyeSlash, BsEye } from "react-icons/bs";
-import "./form.css";
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useFormik } from 'formik'
+import * as yup from 'yup'
+import { BsEyeSlash, BsEye } from 'react-icons/bs'
+import './form.css'
 
 const LoginForm = () => {
-  const navigate = useNavigate();
-  const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate()
+  const [showPassword, setShowPassword] = useState(false)
 
   const onSubmit = async (values, actions) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    actions.resetForm();
-    const user = JSON.parse(localStorage.getItem("user"));
+    await new Promise((resolve) => setTimeout(resolve, 1000))
+    actions.resetForm()
+    const user = JSON.parse(localStorage.getItem('user'))
     if (values.email === user.email && values.password === user.password) {
-      navigate("/");
-      localStorage.setItem("userLoggedIn", true);
+      navigate('/')
+      localStorage.setItem('userLoggedIn', true)
     } else {
       document.querySelector(
-        ".failed-validation"
-      ).innerHTML = `<p>Por favor vuelva a intentarlo, sus credenciales son inválidas.</p>`;
+        '.failed-validation'
+      ).innerHTML = '<p>Por favor vuelva a intentarlo, sus credenciales son inválidas.</p>'
     }
-  };
+  }
 
   const schema = yup.object({
     email: yup
       .string()
-      .email("El correo electrónico ingresado no es válido")
-      .required("Este campo es obligatorio"),
-    password: yup.string().required("Este campo es obligatorio"),
-  });
+      .email('El correo electrónico ingresado no es válido')
+      .required('Este campo es obligatorio'),
+    password: yup.string().required('Este campo es obligatorio')
+  })
 
   const {
     values,
@@ -38,19 +38,19 @@ const LoginForm = () => {
     handleSubmit,
     handleChange,
     handleBlur,
-    isSubmitting,
+    isSubmitting
   } = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: '',
+      password: ''
     },
     validationSchema: schema,
-    onSubmit,
-  });
+    onSubmit
+  })
 
   const handleShowPassword = () => {
-    setShowPassword(!showPassword);
-  };
+    setShowPassword(!showPassword)
+  }
 
   return (
     <div className="loginForm">
@@ -64,26 +64,26 @@ const LoginForm = () => {
           value={values.email}
           onChange={handleChange}
           onBlur={handleBlur}
-          className={errors.email && touched.email ? "input-error" : ""}
+          className={errors.email && touched.email ? 'input-error' : ''}
         />
 
         {errors.email && touched.email && (
           <p className="error">{errors.email}</p>
         )}
         <label htmlFor="password">Contraseña</label>
-        <input
-          type={showPassword ? "text" : "password"}
-          placeholder=""
-          id="password"
-          name="password"
-          value={values.password}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          className={errors.password && touched.password ? "input-error" : ""}
-        />
-        <span className="showPass" onClick={handleShowPassword}>
-          {showPassword ? <BsEye /> : <BsEyeSlash />}
-        </span>
+        <div id="showPass">
+            <input
+            type={showPassword ? 'text' : 'password'}
+            placeholder=""
+            id="password"
+            name="password"
+            value={values.password}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            className={errors.password && touched.password ? 'input-error' : ''}
+            />
+            <span className='showPass' onClick={handleShowPassword}>{showPassword ? <BsEye className="showIcon"/> : <BsEyeSlash className="showIcon"/>}</span>
+          </div>
         {errors.password && touched.password && (
           <p className="error">{errors.password}</p>
         )}
@@ -97,7 +97,7 @@ const LoginForm = () => {
         </p>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default LoginForm;
+export default LoginForm

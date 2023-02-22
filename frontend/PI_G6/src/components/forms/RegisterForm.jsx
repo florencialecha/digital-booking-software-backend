@@ -1,36 +1,36 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useFormik } from "formik";
-import * as yup from "yup";
-import { BsEyeSlash, BsEye } from "react-icons/bs";
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useFormik } from 'formik'
+import * as yup from 'yup'
+import { BsEyeSlash, BsEye } from 'react-icons/bs'
 
 const RegisterForm = () => {
-  const navigate = useNavigate();
-  const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate()
+  const [showPassword, setShowPassword] = useState(false)
   const onSubmit = async (values, actions) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000))
 
-    actions.resetForm();
-    localStorage.setItem("user", JSON.stringify(values));
-    navigate("/login");
-  };
+    actions.resetForm()
+    localStorage.setItem('user', JSON.stringify(values))
+    navigate('/login')
+  }
 
   const schema = yup.object({
-    name: yup.string().required("Este campo es obligatorio"),
-    lastName: yup.string().required("Este campo es obligatorio"),
+    name: yup.string().required('Este campo es obligatorio'),
+    lastName: yup.string().required('Este campo es obligatorio'),
     email: yup
       .string()
-      .email("El correo electrónico ingresado no es válido")
-      .required("Este campo es obligatorio"),
+      .email('El correo electrónico ingresado no es válido')
+      .required('Este campo es obligatorio'),
     password: yup
       .string()
-      .min(7, "La contraseña debe contener más de 6 caracteres")
-      .required("Este campo es obligatorio"),
+      .min(7, 'La contraseña debe contener más de 6 caracteres')
+      .required('Este campo es obligatorio'),
     confirmPassword: yup
       .string()
-      .oneOf([yup.ref("password"), null], "Las contraseñas no coinciden")
-      .required("Este campo es obligatorio"),
-  });
+      .oneOf([yup.ref('password'), null], 'Las contraseñas no coinciden')
+      .required('Este campo es obligatorio')
+  })
 
   const {
     values,
@@ -39,25 +39,25 @@ const RegisterForm = () => {
     handleSubmit,
     handleChange,
     handleBlur,
-    isSubmitting,
+    isSubmitting
   } = useFormik({
     initialValues: {
-      name: "",
-      lastName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
+      name: '',
+      lastName: '',
+      email: '',
+      password: '',
+      confirmPassword: ''
     },
     validationSchema: schema,
-    onSubmit,
-  });
+    onSubmit
+  })
 
   const handleShowPassword = () => {
-    setShowPassword(!showPassword);
-  };
+    setShowPassword(!showPassword)
+  }
 
   return (
-    <div className="registerForm">
+      <div className="registerForm">
       <h1>Crear cuenta</h1>
       <form onSubmit={handleSubmit}>
         <div>
@@ -70,8 +70,8 @@ const RegisterForm = () => {
               value={values.name}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={errors.name && touched.name ? "input-error" : ""}
-            />
+              className={errors.name && touched.name ? 'input-error' : ''}
+              />
 
             {errors.name && touched.name && (
               <p className="error">{errors.name}</p>
@@ -86,8 +86,8 @@ const RegisterForm = () => {
               value={values.lastName}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={errors.email && touched.email ? "input-error" : ""}
-            />
+              className={errors.email && touched.email ? 'input-error' : ''}
+              />
 
             {errors.lastName && touched.lastName && (
               <p className="error">{errors.lastName}</p>
@@ -103,27 +103,27 @@ const RegisterForm = () => {
           value={values.email}
           onChange={handleChange}
           onBlur={handleBlur}
-          className={errors.email && touched.email ? "input-error" : ""}
-        />
+          className={errors.email && touched.email ? 'input-error' : ''}
+          />
 
         {errors.email && touched.email && (
           <p className="error">{errors.email}</p>
         )}
 
-        <label htmlFor="password">Contraseña</label>
-        <input
-          type={showPassword ? "text" : "password"}
-          placeholder=""
-          id="password"
-          name="password"
-          value={values.password}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          className={errors.password && touched.password ? "input-error" : ""}
-        />
-        <span className="showPass" onClick={handleShowPassword}>
-          {showPassword ? <BsEye /> : <BsEyeSlash />}
-        </span>
+          <label htmlFor="password">Contraseña</label>
+          <div id="showPass">
+            <input
+            type={showPassword ? 'text' : 'password'}
+            placeholder=""
+            id="password"
+            name="password"
+            value={values.password}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            className={errors.password && touched.password ? 'input-error' : ''}
+            />
+            <span className='showPass' onClick={handleShowPassword}>{showPassword ? <BsEye className="showIcon"/> : <BsEyeSlash className="showIcon"/>}</span>
+          </div>
         {errors.password && touched.password && (
           <p className="error">{errors.password}</p>
         )}
@@ -138,10 +138,10 @@ const RegisterForm = () => {
           onBlur={handleBlur}
           className={
             errors.confirmPassword && touched.confirmPassword
-              ? "input-error"
-              : ""
+              ? 'input-error'
+              : ''
           }
-        />
+          />
         {errors.confirmPassword && touched.confirmPassword && (
           <p className="error">{errors.confirmPassword}</p>
         )}
@@ -153,7 +153,7 @@ const RegisterForm = () => {
         </p>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default RegisterForm;
+export default RegisterForm
