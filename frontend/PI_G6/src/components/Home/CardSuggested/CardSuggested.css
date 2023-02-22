@@ -19,11 +19,23 @@
 }
 
 .card-container {
+    position: relative;
     display: flex;
     width: 48.9%;
     height: 283px;
     border-radius: 20px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.fav-icon {
+    font-size: 25px;
+    position: absolute;
+    left: 45%;
+    top: 5%;
+}
+
+.full-true > path {
+    color: rgb(240, 87, 45);
 }
 
 .card-container section {
@@ -49,6 +61,11 @@
     display: flex;
     justify-content: space-between;
     max-width: 100%;
+}
+
+#suggest-name {
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .valoration {
@@ -83,6 +100,37 @@
 .see-more > button:hover {
     transform: scale(1.02);
     opacity: 95%;
+}
+
+.card-location {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.card-location > * {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    max-width: 50%;
+}
+
+.card-location * {
+    margin: 2px;
+}
+
+.card-location > a > p  {
+    color: rgb(240, 87, 45);
+}
+
+.service-icons > * {
+    margin: 5px;
+}
+
+.moreText {
+    color: rgb(240, 87, 45);
 }
 
 @media (max-width: 600px) {

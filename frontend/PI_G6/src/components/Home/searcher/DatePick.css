@@ -52,7 +52,7 @@
     }
 
     .ant-picker-dropdown {
-        position: fixed;
+        position: absolute;
         width: 290px;
         left: calc((100vw - 290px)/2) !important;
     }
