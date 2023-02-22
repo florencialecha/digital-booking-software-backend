@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Social from "../socials/Social";
+import { GiHamburgerMenu } from "react-icons/gi";
 import "./header.css";
 
 const Header = () => {
@@ -51,14 +52,14 @@ const Header = () => {
         </div>
       </Link>
       <button onClick={handleMenu} className="hamburgerMenu">
-        🍔
+        <GiHamburgerMenu size={"2rem"} />
       </button>
       <div className={`${!openMenu ? "hideMenu" : "navMenu"}`}>
         <div className="menuHeader">
           <button onClick={handleMenu} className="closeMenu">
             X
           </button>
-          <h3 className={`${loggedUser ? "hide" : "menuHeading"}`}>Menu</h3>
+          <h3 className={`${loggedUser ? "hide" : "menuHeading"}`}>MENÚ</h3>
         </div>
         {loggedUser ? (
           <div className="profileInfo">
@@ -95,6 +96,7 @@ const Header = () => {
             >
               Crear cuenta
             </button>
+            <hr className={location.pathname !== "/" ? "hide" : "hr"} />
             <button
               className={location.pathname === "/login" ? "hidden" : "btn"}
               onClick={handleLogin}
