@@ -40,10 +40,9 @@ const CardSuggested = (suggest) => {
                             <FontAwesomeIcon icon={faLocationDot} />
                             <p>{suggest.location}</p>
                         </div>
-                        <a href={`https://www.google.com.uy/maps/@${suggest.coordinates.coordX},${suggest.coordinates.coordY},13z`}
+                        <a href=""
                         onClick={handleClickMap}
-
-                        target="_blank" rel="noreferrer"><p>MOSTRAR EN EL MAPA</p></a>
+                        ><p>MOSTRAR EN EL MAPA</p></a>
                     </div>
                     <div className='service-icons'>
                         { suggest.array.wifi ? <FontAwesomeIcon icon={faWifi} /> : ''}

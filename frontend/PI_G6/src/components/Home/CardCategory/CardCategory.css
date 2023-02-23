@@ -34,13 +34,26 @@
     scroll-snap-type: x mandatory;
     gap: 1vw;
     padding: 5px;
-    transition: 1s;
+  }
+  
+  @keyframes autoScroll {
+    0% {
+      transform: translateX(0)
+    } 50% {
+      transform: translateX(calc(-22.97vw * 20))
+    } 100% {
+      transform: translateX(0)
+    }
+    
   }
   
 .slider-item {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
   border-radius: 10px; 
+  transform: translateX(calc(-22.97vw * 20));
+  animation: autoScroll 200s infinite ease-in-out;
 }
+
 
 .slider-item div {
   padding: 5px 10px; 
