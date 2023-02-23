@@ -11,6 +11,13 @@ const CardSuggested = (suggest) => {
     setActive(!isActive)
   }
 
+  const handleClickMap = () => {
+    window.open(`https://www.google.com.uy/maps/@${suggest.coordinates.coordX},${suggest.coordinates.coordY},13z`,
+      'register',
+      'width=800,height=600, top=0, left=960"')
+    return false
+  }
+
   return (
     <div className='card-container'>
         <FontAwesomeIcon className={`fav-icon full-${isActive}`} icon={faHeart} onClick={handleToggle} />
@@ -33,7 +40,10 @@ const CardSuggested = (suggest) => {
                             <FontAwesomeIcon icon={faLocationDot} />
                             <p>{suggest.location}</p>
                         </div>
-                        <a href={`https://www.google.com.uy/maps/@${suggest.coordinates.coordX},${suggest.coordinates.coordY},13z`}><p>MOSTRAR EN EL MAPA</p></a>
+                        <a href={`https://www.google.com.uy/maps/@${suggest.coordinates.coordX},${suggest.coordinates.coordY},13z`}
+                        onClick={handleClickMap}
+
+                        target="_blank" rel="noreferrer"><p>MOSTRAR EN EL MAPA</p></a>
                     </div>
                     <div className='service-icons'>
                         { suggest.array.wifi ? <FontAwesomeIcon icon={faWifi} /> : ''}

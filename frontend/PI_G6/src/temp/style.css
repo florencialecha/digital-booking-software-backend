@@ -1,0 +1,42 @@
+.box-outer {
+    width: 20rem;
+    height: 6rem;
+    position: relative;
+    margin-top: 300px;
+    margin-left: 600px;
+  }
+  .arrow-left {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    top: 1.5rem;
+    left: 0rem;
+    z-index: 1;
+    background-color: yellow;
+    border: 1px solid black;
+  }
+  .arrow-right {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    top: 1.5rem;
+    right: 10rem;
+    z-index: 1;
+    background-color: yellow;
+    border: 1px solid black;
+  }
+  .box-inner {
+    width: 10rem;
+    height: 6rem;
+    position: absolute;
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: scroll;
+  }
+  .thumb {
+    height: 5rem;
+    width: 2rem;
+    background-color: green;
+    border: 1px solid black;
+    display: inline-block;
+  }

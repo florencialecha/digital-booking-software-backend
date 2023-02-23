@@ -84,6 +84,7 @@
 .valoration > p:first-child {
     display: flex;
     background-color: rgb(240, 87, 45);
+    color:#DFE4EA;
     min-width: 25px;
     border-radius: 5px;
     justify-content: center;
