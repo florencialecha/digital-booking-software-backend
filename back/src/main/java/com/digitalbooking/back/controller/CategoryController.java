@@ -36,6 +36,15 @@ public class CategoryController {
         return ResponseEntity.status(200).body(result);
     }
 
+    @GetMapping("/id/{id}")
+    public ResponseEntity<Optional<Category>> findById(@PathVariable Long id) throws ResourceNotFoundException {
+        Optional<Category> category = categoryService.findById(id);
+        if (category.isEmpty()) {
+            throw new ResourceNotFoundException("Don't find any category with id: " + id + ". Try again.");
+        }
+        return ResponseEntity.status(200).body(category);
+    }
+
     @PostMapping
     public void create(@RequestBody Category category) throws BadRequestException {
         categoryService.create(category);

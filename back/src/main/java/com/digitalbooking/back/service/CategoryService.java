@@ -19,6 +19,14 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
+    public List<Category> findAll() {
+        return categoryRepository.findAll();
+    }
+
+    public Optional<Category> findById(Long id) {
+        return categoryRepository.findById(id);
+    }
+
     public Optional<List<Category>> findByTitle(String title) {
         return categoryRepository.findByTitle(title);
     }
@@ -26,14 +34,6 @@ public class CategoryService {
     public Category create(Category category) throws BadRequestException {
         categoryRepository.save(category);
         return category;
-    }
-
-    public List<Category> findAll() {
-        return categoryRepository.findAll();
-    }
-
-    public Optional<Category> findById(Long id) {
-        return categoryRepository.findById(id);
     }
 
     public void update(Category category) {
