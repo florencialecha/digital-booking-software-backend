@@ -1,6 +1,6 @@
-import React from "react";
-import Social from "../socials/Social";
-import "./footer.css";
+import React from 'react'
+import Social from '../socials/Social'
+import './footer.css'
 
 const Footer = () => {
   return (
@@ -12,7 +12,7 @@ const Footer = () => {
         <Social />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

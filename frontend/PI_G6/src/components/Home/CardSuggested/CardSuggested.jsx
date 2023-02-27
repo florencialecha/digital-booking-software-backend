@@ -53,7 +53,7 @@ const CardSuggested = (suggest) => {
                     {suggest.description.length > 30 ? <p>{suggest.description.substring(0, 30)}<a className='moreText' href='#'> mas...</a></p> : <p>{suggest.description}</p> }
                 </div>
                 <div className='see-more'>
-                    <button>ver más</button>
+                    <button><a href={`/product/${suggest.id}`}>ver más</a></button>
                 </div>
             </div>
         </section>

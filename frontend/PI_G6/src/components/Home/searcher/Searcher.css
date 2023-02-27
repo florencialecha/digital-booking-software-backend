@@ -11,10 +11,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: fixed;
+    position: relative;
     height: 139px;
     width: 100vw;
-    margin-top: 72px;
     background-color: #191B1D;
     padding: 15px;
     z-index: 2;

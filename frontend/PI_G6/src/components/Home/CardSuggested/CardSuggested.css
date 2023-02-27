@@ -1,9 +1,9 @@
 .suggested-main-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 80px;
-    padding: 5px 40px;
+    margin: 30px 30px 80px 30px;
 }
 
 .suggested-main-container > p {

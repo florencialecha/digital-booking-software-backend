@@ -1,6 +1,5 @@
 .carousel {
   position: relative;
-  margin: 212px 0px 20px;
   padding: 5px 20px;
   z-index: 1;
   background-color: #FFFFFF;
@@ -28,6 +27,12 @@
 .carousel::-webkit-scrollbar-thumb {
     background-color: rgba(240, 87 ,45, .7);
     border-radius: 10px;
+}
+
+.slider-item {
+  border-radius: 10px;
+  margin: 10px 0px;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 50%);
 }
 
 .slider-item:hover {
