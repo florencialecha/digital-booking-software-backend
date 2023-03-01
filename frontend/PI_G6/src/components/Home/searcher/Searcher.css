@@ -103,7 +103,8 @@ a {
 
 .formClass {
     width: 95%;
-    padding: 0 !important;
+    padding: 0;
+    margin: 0px 10px;
 }
 
 
@@ -122,8 +123,10 @@ a {
 }
 
 .select-content {
+    background-color: #DFE4EA;
+    margin-left: 5px;
     max-height: 30px;
-    width: 85%;
+    width: 100%;
 }
 
 .select-content > p {
