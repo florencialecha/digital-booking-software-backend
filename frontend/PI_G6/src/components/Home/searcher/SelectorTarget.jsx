@@ -6,29 +6,38 @@ import data from '../../../temp/citiList.json'
 
 const selectorTarget = () => {
   const [isActive, setIsActive] = useState(true)
-  const [selectedCity, setSelectedCity] = useState(<p>¿A donde vamos?</p>)
+  const [search, setSearch] = useState('')
+
+  const inputToSearch = (e) => {
+    setSearch(e.target.value)
+  }
 
   return (
     <form action="" className='formClass' >
       <div className='selectbox' onClick={() => setIsActive(!isActive)}>
         <div id='select' className='select'>
           <FontAwesomeIcon icon={faLocationDot} />
-          <div className="select-content">
-            {selectedCity}
-          </div>
+          <input className="select-content" value={search} onClick={() => setSearch('')} onChange={inputToSearch} placeholder='A donde vamos'></input>
         </div>
         <div id='options' className={isActive ? 'inactive' : 'active'}>
-          {data.map((cities) => {
+          {data.map((countrys) => {
             return (
-              <div key={cities.cities} >{
-                cities.cities.map((city) => {
+              <div key={countrys.id} >{
+                countrys.cities.filter((city) => {
+                  if (!search) {
+                    return city
+                  } else {
+                    city = city.name.toLocaleLowerCase().includes(search.toLowerCase())
+                    return city
+                  }
+                }).map((city) => {
                   return (
-                    <a href="#" key={city} onClick={() => setSelectedCity(<p>{city}, {cities.country}</p>)}>
+                    <a href="#" key={city.id} onClick={() => setSearch(`${city.name}, ${countrys.country}`)}>
                       <div className="content-option" >
                         <FontAwesomeIcon icon={faLocationDot} />
                         <div className='texts'>
-                          <p>{city}</p>
-                          <p>{cities.country}</p>
+                          <p>{city.name}</p>
+                          <p>{countrys.country}</p>
                         </div>
                       </div>
                     </a>
