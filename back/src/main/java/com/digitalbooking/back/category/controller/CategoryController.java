@@ -45,6 +45,7 @@ public class CategoryController {
         return ResponseEntity.status(200).body(category);
     }
 
+
     @PostMapping
     public void create(@RequestBody Category category) throws BadRequestException {
         categoryService.create(category);

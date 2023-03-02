@@ -1,6 +1,7 @@
 package com.digitalbooking.back.product.controller;
 
 import com.digitalbooking.back.category.entity.Category;
+import com.digitalbooking.back.category.exception.BadRequestException;
 import com.digitalbooking.back.category.exception.ResourceNotFoundException;
 import com.digitalbooking.back.product.entity.Product;
 import com.digitalbooking.back.product.service.ProductService;
@@ -8,10 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -32,7 +30,37 @@ public class ProductController {
         return productService.findAll();
     }
 
+    @GetMapping("/id/{id}")
+    public ResponseEntity<Optional<Product>> findById(@PathVariable Long id) throws ResourceNotFoundException {
+        Optional<Product> product = productService.findById(id);
+        if (product.isEmpty()) {
+            throw new ResourceNotFoundException("Don't find any product with id: " + id + ". Try again.");
+        }
+        return ResponseEntity.status(200).body(product);
+    }
 
+//    @GetMapping("/{city}")
+//    public ResponseEntity<Optional<List<Product>>> findByCity(@PathVariable String city) throws ResourceNotFoundException {
+//        Optional<List<Product>> result = productService.findByCity(city);
+//        if (result.isEmpty()) {
+//            throw new ResourceNotFoundException("Can't find a city who does not exist in the database.");
+//        }
+//        return ResponseEntity.status(200).body(result);
+//    }
+
+    @PostMapping
+    public void create(@RequestBody Product product) throws BadRequestException {
+        productService.create(product);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) throws ResourceNotFoundException {
+        Optional<Product> result = productService.findById(id);
+        if (result.isEmpty()) {
+            throw new ResourceNotFoundException("Can't delete a product who does not exist in the database.");
+        }
+        productService.delete(id);
+    }
 
 }
 
