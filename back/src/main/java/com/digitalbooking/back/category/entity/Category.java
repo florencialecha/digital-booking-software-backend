@@ -2,11 +2,15 @@ package com.digitalbooking.back.category.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "category")
-@Getter @Setter
+
+@NoArgsConstructor
+@Getter
+@Setter
 
 public class Category {
 
@@ -22,8 +26,5 @@ public class Category {
 
     @Column(name = "imageUrl")
     private String imageUrl;
-
-    public Category() {
-    }
 
 }

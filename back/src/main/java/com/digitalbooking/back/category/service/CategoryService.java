@@ -12,12 +12,8 @@ import java.util.Optional;
 @Service
 public class CategoryService {
 
-    private CategoryRepository categoryRepository;
-
     @Autowired
-    public CategoryService(CategoryRepository categoryRepository) {
-        this.categoryRepository = categoryRepository;
-    }
+    private CategoryRepository categoryRepository;
 
     public List<Category> findAll() {
         return categoryRepository.findAll();
@@ -31,9 +27,8 @@ public class CategoryService {
         return categoryRepository.findByTitle(title);
     }
 
-    public Category create(Category category) throws BadRequestException {
+    public void create(Category category) throws BadRequestException {
         categoryRepository.save(category);
-        return category;
     }
 
     public void update(Category category) {
