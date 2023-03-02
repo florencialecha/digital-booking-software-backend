@@ -30,7 +30,7 @@ public class ProductController {
         return productService.findAll();
     }
 
-    @GetMapping("/id/{id}")
+    @GetMapping("{id}")
     public ResponseEntity<Optional<Product>> findById(@PathVariable Long id) throws ResourceNotFoundException {
         Optional<Product> product = productService.findById(id);
         if (product.isEmpty()) {
@@ -39,7 +39,7 @@ public class ProductController {
         return ResponseEntity.status(200).body(product);
     }
 
-//    @GetMapping("/{city}")
+//    @GetMapping("city/{city}")
 //    public ResponseEntity<Optional<List<Product>>> findByCity(@PathVariable String city) throws ResourceNotFoundException {
 //        Optional<List<Product>> result = productService.findByCity(city);
 //        if (result.isEmpty()) {
