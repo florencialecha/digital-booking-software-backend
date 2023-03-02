@@ -1,8 +1,8 @@
-package com.digitalbooking.back.apicategory.service;
+package com.digitalbooking.back.category.service;
 
-import com.digitalbooking.back.apicategory.exception.BadRequestException;
-import com.digitalbooking.back.apicategory.entity.Category;
-import com.digitalbooking.back.apicategory.repository.CategoryRepository;
+import com.digitalbooking.back.category.exception.BadRequestException;
+import com.digitalbooking.back.category.entity.Category;
+import com.digitalbooking.back.category.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

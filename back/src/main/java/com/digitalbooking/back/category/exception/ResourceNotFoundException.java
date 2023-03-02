@@ -1,4 +1,4 @@
-package com.digitalbooking.back.apicategory.exception;
+package com.digitalbooking.back.category.exception;
 
 public class ResourceNotFoundException extends Exception {
 

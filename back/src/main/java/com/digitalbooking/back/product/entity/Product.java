@@ -1,4 +1,4 @@
-package com.digitalbooking.back.apiproduct.entity;
+package com.digitalbooking.back.product.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -28,10 +28,12 @@ public class Product {
     private String category;
 
     @Column(name = "adress")
-    private Adress adress;
+//    private Adress adress;
+    private String adress;
 
     @Column(name = "image")
-    private List<Image> imageList;
+//    private List<Image> imageList;
+    private String imageList;
 
     @Column(name = "description")
     private String description;
@@ -41,5 +43,5 @@ public class Product {
 
     @Column(name = "policies")
     private String policies;
-    
+
 }

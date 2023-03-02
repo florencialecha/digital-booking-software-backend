@@ -1,9 +1,9 @@
-package com.digitalbooking.back.apicategory.controller;
+package com.digitalbooking.back.category.controller;
 
-import com.digitalbooking.back.apicategory.entity.Category;
-import com.digitalbooking.back.apicategory.exception.BadRequestException;
-import com.digitalbooking.back.apicategory.exception.ResourceNotFoundException;
-import com.digitalbooking.back.apicategory.service.CategoryService;
+import com.digitalbooking.back.category.entity.Category;
+import com.digitalbooking.back.category.exception.BadRequestException;
+import com.digitalbooking.back.category.exception.ResourceNotFoundException;
+import com.digitalbooking.back.category.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

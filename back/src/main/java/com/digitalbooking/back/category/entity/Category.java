@@ -1,20 +1,14 @@
-package com.digitalbooking.back.apiproduct.entity;
+package com.digitalbooking.back.category.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "image")
+@Table(name = "category")
+@Getter @Setter
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-
-public class Image {
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +17,13 @@ public class Image {
     @Column(name = "title")
     private String title;
 
+    @Column(name = "description")
+    private String description;
+
     @Column(name = "imageUrl")
     private String imageUrl;
+
+    public Category() {
+    }
 
 }
