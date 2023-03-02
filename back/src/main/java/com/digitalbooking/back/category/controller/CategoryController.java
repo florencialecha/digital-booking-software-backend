@@ -24,7 +24,7 @@ public class CategoryController {
         return categoryService.findAll();
     }
 
-    @GetMapping("/id/{id}")
+    @GetMapping("{id}")
     public ResponseEntity<Optional<Category>> findById(@PathVariable Long id) throws ResourceNotFoundException {
         Optional<Category> category = categoryService.findById(id);
         if (category.isEmpty()) {
@@ -33,7 +33,7 @@ public class CategoryController {
         return ResponseEntity.status(200).body(category);
     }
 
-    @GetMapping("/{title}")
+    @GetMapping("title/{title}")
     public ResponseEntity<Optional<List<Category>>> findByTitle(@PathVariable String title) throws ResourceNotFoundException {
         Optional<List<Category>> result = categoryService.findByTitle(title);
         if (result.isEmpty()) {
