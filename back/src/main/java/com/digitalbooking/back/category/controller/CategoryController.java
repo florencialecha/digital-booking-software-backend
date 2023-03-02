@@ -15,25 +15,13 @@ import java.util.Optional;
 @RequestMapping("/category")
 
 public class CategoryController {
-    private CategoryService categoryService;
 
     @Autowired
-    public CategoryController(CategoryService categoryService) {
-        this.categoryService = categoryService;
-    }
+    private CategoryService categoryService;
 
     @GetMapping
     public List<Category> findAll() {
         return categoryService.findAll();
-    }
-
-    @GetMapping("/{title}")
-    public ResponseEntity<Optional<List<Category>>> findByTitle(@PathVariable String title) throws ResourceNotFoundException {
-        Optional<List<Category>> result = categoryService.findByTitle(title);
-        if (result.isEmpty()) {
-            throw new ResourceNotFoundException("Can't find a category who does not exist in the database.");
-        }
-        return ResponseEntity.status(200).body(result);
     }
 
     @GetMapping("/id/{id}")
@@ -45,6 +33,14 @@ public class CategoryController {
         return ResponseEntity.status(200).body(category);
     }
 
+    @GetMapping("/{title}")
+    public ResponseEntity<Optional<List<Category>>> findByTitle(@PathVariable String title) throws ResourceNotFoundException {
+        Optional<List<Category>> result = categoryService.findByTitle(title);
+        if (result.isEmpty()) {
+            throw new ResourceNotFoundException("Can't find a category who does not exist in the database.");
+        }
+        return ResponseEntity.status(200).body(result);
+    }
 
     @PostMapping
     public void create(@RequestBody Category category) throws BadRequestException {
