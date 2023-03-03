@@ -1,12 +1,10 @@
 package com.digitalbooking.back.product.entity;
 
+import com.digitalbooking.back.category.entity.Category;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.List;
 
 @Entity
 @Table(name = "product")
@@ -25,6 +23,7 @@ public class Product {
     private String title;
     @Column(name = "category")
     private String category;
+//    private Category category;
 
     @Column(name = "adress")
 //    private Adress adress;
