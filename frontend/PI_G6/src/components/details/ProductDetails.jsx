@@ -1,65 +1,103 @@
-import { React, useEffect, useState } from 'react'
-import { useParams } from 'react-router'
-import './ProductDetails.css'
+import { React, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
+import "./ProductDetails.css";
+import data from "../../temp/apiProducts.json";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faLessThan,
+  faLocationDot,
+  faShareNodes,
+  faHeart,
+} from "@fortawesome/free-solid-svg-icons";
+import Gallery from "./Gallery/Gallery";
+import ProductHeader from "./ProductHeader/ProductHeader";
+import Description from "./ProductDescription/Description";
+import Features from "./ProductFeatures/Features";
+import Policies from "./ProductPolicies/Policies";
+import Calendar from "./Calendar/Calendar";
+import Map from "./Map/Map";
 
-import axios from 'axios'
+import axios from "axios";
 
 const ProductDetails = () => {
-  const [product, setProduct] = useState(null)
-  const { id } = useParams()
+  const [product, setProduct] = useState(null);
+  const { id } = useParams();
 
   useEffect(() => {
-    axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
-      .then(res => setProduct(res.data))
-      .catch(error => console.log(error))
-  }, [id])
+    axios
+      .get(`https://jsonplaceholder.typicode.com/users/${id}`)
+      .then((res) => setProduct(res.data))
+      .catch((error) => console.log(error));
+  }, [id]);
+
+  const navigate = useNavigate();
+  console.log(data);
+  console.log(data.specifications);
+  //   for (const char in data.specifications) {
+  //     console.log(char);
+  //   }
 
   return (
-   <div className='details'>
-    <div className='details-header'>
+    <div className="details">
+      <div className="details-header">
+        <ProductHeader generalInfo={data} />
+      </div>
+      <div className="details-location">
         <div>
-            <p>category</p>
-            <p>hotel name</p>
-        </div>
-        <img src="" alt="icon" />
-    </div>
-    <div className='details-location'>
-        <div>
-            <p>location</p>
-            <p>dist to center</p>
-        </div>
-        <div className='details-scoring'>
-            <div>
-                <p>scoring</p>
-                <div>
-                    <p>Muy bueno</p>
-                    <p>Stars</p>
-                </div>
-            </div>
-            <p>Rating</p>
-        </div>
-    </div>
-    <div className='details-galery'>
-        <div>
-            <img src="" alt="share" />
-            <img src="" alt="fav" />
-        </div>
-        <div className='details-images'>
-            <img className='details-bigPicture' src="https://images.unsplash.com/photo-1521783988139-89397d761dce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80" alt="" />
-           <div className='details-smallPictures'>
-            <img src="https://images.unsplash.com/photo-1521783988139-89397d761dce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80" alt="" />
-            <img src="https://images.unsplash.com/photo-1521783988139-89397d761dce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80" alt="" />
-            <img src="https://images.unsplash.com/photo-1521783988139-89397d761dce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80" alt="" />
-            <img src="https://images.unsplash.com/photo-1521783988139-89397d761dce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80" alt="" />
-           </div>
-           {/* <a href="">Ver Mas</a> */}
-        </div>
-        <div className='details-description'>Alojate en el corazon de buenos aires</div>
-        <div className='details-char'>Caracteristicas disponibles</div>
-        <div className='details-availableDates'>Fechas disponibles</div>
-    </div>
-   </div>
-  )
-}
+          <FontAwesomeIcon icon={faLocationDot}></FontAwesomeIcon>
+          <p>
+            {" "}
+            {data.address.street} {data.address.number} {data.address.town}{" "}
+            {data.address.country}
+          </p>
 
-export default ProductDetails
+          <p>dist to center</p>
+        </div>
+      </div>
+      <div className="details-scoring">
+        <div>
+          <p></p>
+          <div>
+            <p>{data.review}</p>
+            <p>{data.stars}</p>
+          </div>
+        </div>
+
+        <p>{data.scoring}</p>
+      </div>
+
+      <div>
+        <div>
+          <FontAwesomeIcon icon={faShareNodes}></FontAwesomeIcon>
+          <FontAwesomeIcon icon={faHeart}></FontAwesomeIcon>
+        </div>
+        <div className="details-galery">
+          <Gallery pictures={data.imageUrl} />
+        </div>
+      </div>
+      <div className="details-description">
+        <h2>Alejate en el corazón de {data.address.town}</h2>
+        <Description description={data.description} />
+      </div>
+      <div className="details-char">
+        <h2>¿Qué ofrece este lugar?</h2>
+        <Features specs={data.specifications} />
+      </div>
+      <div className="details-availableDates">
+        <h2>Fechas disponibles</h2>
+        <Calendar />
+      </div>
+      <div>
+        <h2>¿Dónde vas a estar?</h2>
+        <Map address={data.address} />
+      </div>
+      <div>
+        <h2> ¿Qué tenés que saber?</h2>
+
+        <Policies policies={data.policies} />
+      </div>
+    </div>
+  );
+};
+
+export default ProductDetails;
