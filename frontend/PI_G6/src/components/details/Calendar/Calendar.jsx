@@ -121,7 +121,7 @@ const Calendar = () => {
     <div className="calendarLayout">
       <button onClick={followingMonth}>next</button>
       <button onClick={prevMonth}>prev</button>
-      <div className="grid">
+      <div className="gridDetails">
         <div className="month">
           <h2>
             {months[currentMonth - 1]} {currentYear}
@@ -154,7 +154,7 @@ const Calendar = () => {
           )
         )}
       </div>
-      <div className="grid">
+      <div className="gridDetails">
         <div className="month">
           <h2>
             {months[nextMonth - 1]} {currentYear}
