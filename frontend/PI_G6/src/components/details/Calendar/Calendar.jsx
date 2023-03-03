@@ -36,7 +36,7 @@ const Calendar = () => {
     new Date("2023-04-26"),
   ];
 
-  const doesItExist = (i, month, year) => {
+  const unavailableDates = (i, month, year) => {
     if (
       dates.find(
         (date) =>
@@ -59,7 +59,6 @@ const Calendar = () => {
     }
   };
 
-  console.log(selectDate);
   const handleSelectDates = (i, year, month) => {
     let displayDate = `${year}-${month}-${i + 1}`;
     if (
@@ -96,7 +95,7 @@ const Calendar = () => {
     return endDate.getDay();
   };
 
-  const nexxtMonth = () => {
+  const followingMonth = () => {
     if (currentMonth < 12 && nextMonth < 12) {
       setCurrentMonth((prev) => prev + 1);
       setNextMonth((prev) => prev + 1);
@@ -120,7 +119,7 @@ const Calendar = () => {
 
   return (
     <div className="calendarLayout">
-      <button onClick={nexxtMonth}>next</button>
+      <button onClick={followingMonth}>next</button>
       <button onClick={prevMonth}>prev</button>
       <div className="grid">
         <div className="month">
@@ -135,13 +134,13 @@ const Calendar = () => {
         ))}
         {Array.from({ length: getStartOfMonth(currentYear, currentMonth) }).map(
           (_, i) => (
-            <p></p>
+            <p key={i}></p>
           )
         )}
         {Array.from({ length: getDaysInAMonth(currentYear, currentMonth) }).map(
           (_, i) => (
             <p
-              className={doesItExist(i, currentMonth, currentYear)}
+              className={unavailableDates(i, currentMonth, currentYear)}
               onClick={() => handleSelectDates(i, currentYear, currentMonth)}
               key={i}
             >
@@ -168,13 +167,13 @@ const Calendar = () => {
         ))}
         {Array.from({ length: getStartOfMonth(currentYear, nextMonth) }).map(
           (_, i) => (
-            <p></p>
+            <p key={i}></p>
           )
         )}
         {Array.from({ length: getDaysInAMonth(currentYear, nextMonth) }).map(
           (_, i) => (
             <p
-              className={doesItExist(i, nextMonth, currentYear)}
+              className={unavailableDates(i, nextMonth, currentYear)}
               onClick={() => handleSelectDates(i, currentYear, nextMonth)}
               key={i}
             >

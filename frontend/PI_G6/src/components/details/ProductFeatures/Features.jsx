@@ -31,7 +31,7 @@ const Features = ({ specs }) => {
         let iconos = icon.find((i) => i.title === item.title);
         console.log(iconos);
         return (
-          <div>
+          <div key={item.title}>
             <FontAwesomeIcon icon={iconos?.iconName}></FontAwesomeIcon>
             <span>{iconos?.title}</span>
           </div>
