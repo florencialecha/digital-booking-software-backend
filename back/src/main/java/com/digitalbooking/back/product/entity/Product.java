@@ -2,13 +2,15 @@ package com.digitalbooking.back.product.entity;
 
 import com.digitalbooking.back.category.entity.Category;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "product")
+@Table(name = "PRODUCT")
 
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -17,29 +19,31 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "PRODUCT_ID")
     private Long id;
 
-    @Column(name = "title")
+    @Column(name = "TITLE")
     private String title;
-    @Column(name = "category")
-    private String category;
-//    private Category category;
 
-    @Column(name = "adress")
+    @ManyToOne
+    @JoinColumn(name = "CATEGORY_ID")
+    private Category category;
+
+    @Column(name = "ADRESS")
 //    private Adress adress;
     private String adress;
 
-    @Column(name = "image")
+    @Column(name = "IMAGE")
 //    private List<Image> imageList;
     private String imageList;
 
-    @Column(name = "description")
+    @Column(name = "DESCRIPTION")
     private String description;
 
-    @Column(name = "availability")
+    @Column(name = "AVAILABILITY")
     private String availability;
 
-    @Column(name = "policies")
+    @Column(name = "POLICIES")
     private String policies;
 
 }
