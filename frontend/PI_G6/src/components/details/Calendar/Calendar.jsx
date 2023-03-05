@@ -210,7 +210,7 @@ const Calendar = () => {
                   currentYear
                 )} day-of-month ${
                   i + 1 < currentDate.getDate() ||
-                  currentMonth < currentDate.getMonth() + 1 ||
+                  nextMonth < currentDate.getMonth() + 1 ||
                   currentYear < currentDate.getYear() + 1900
                     ? "past-date"
                     : ""
