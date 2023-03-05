@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import "./Calendar.css";
 import { endOfMonth, startOfMonth } from "date-fns/fp";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 
 const months = [
   "Enero",
@@ -20,6 +25,7 @@ const months = [
 const days = ["D", "L", "M", "M", "J", "V", "S"];
 
 const Calendar = () => {
+  const [currentDate, setCurrentDate] = useState(new Date());
   const [selectDate, setSelectDate] = useState([]);
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
   const [nextMonth, setNextMonth] = useState(new Date().getMonth() + 2);
@@ -57,6 +63,8 @@ const Calendar = () => {
     ) {
       return "selected";
     }
+
+    return "available";
   };
 
   const handleSelectDates = (i, year, month) => {
@@ -117,77 +125,121 @@ const Calendar = () => {
     }
   };
 
-  return (
-    <div className="calendarLayout">
-      <button onClick={followingMonth}>next</button>
-      <button onClick={prevMonth}>prev</button>
-      <div className="gridDetails">
-        <div className="month">
-          <h2>
-            {months[currentMonth - 1]} {currentYear}
-          </h2>
-        </div>
+  const completeCalendar = (month, year) => {
+    return 42 - getStartOfMonth(year, month) - getDaysInAMonth(year, month);
+  };
 
-        {}
-        {days.map((day, i) => (
-          <p key={i}>{day}</p>
-        ))}
-        {Array.from({ length: getStartOfMonth(currentYear, currentMonth) }).map(
-          (_, i) => (
+  return (
+    <div className="calendar-layout">
+      <div className="calendar-details">
+        <button onClick={prevMonth} className="change-month-button">
+          <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
+        </button>
+
+        <div className="grid-first-month">
+          <div className="month">
+            <h4>
+              {months[currentMonth - 1]} {currentYear}
+            </h4>
+          </div>
+
+          {}
+          {days.map((day, i) => (
+            <p key={i} className="week-days">
+              {day}
+            </p>
+          ))}
+          {Array.from({
+            length: getStartOfMonth(currentYear, currentMonth),
+          }).map((_, i) => (
             <p key={i}></p>
-          )
-        )}
-        {Array.from({ length: getDaysInAMonth(currentYear, currentMonth) }).map(
-          (_, i) => (
+          ))}
+          {Array.from({
+            length: getDaysInAMonth(currentYear, currentMonth),
+          }).map((_, i) => (
             <p
-              className={unavailableDates(i, currentMonth, currentYear)}
+              className={`${unavailableDates(
+                i,
+                currentMonth,
+                currentYear
+              )} day-of-month ${
+                i + 1 < currentDate.getDate() ||
+                currentMonth < currentDate.getMonth() + 1 ||
+                currentYear < currentDate.getYear() + 1900
+                  ? "past-date"
+                  : ""
+              }`}
               onClick={() => handleSelectDates(i, currentYear, currentMonth)}
               key={i}
             >
               {i + 1}
             </p>
-          )
-        )}
-        {Array.from({ length: getEndOfMonth(currentYear, currentMonth) }).map(
-          (_, i) => (
-            <p key={i}></p>
-          )
-        )}
-      </div>
-      <div className="gridDetails">
-        <div className="month">
-          <h2>
-            {months[nextMonth - 1]} {currentYear}
-          </h2>
-        </div>
-
-        {}
-        {days.map((day, i) => (
-          <p key={i}>{day}</p>
-        ))}
-        {Array.from({ length: getStartOfMonth(currentYear, nextMonth) }).map(
-          (_, i) => (
-            <p key={i}></p>
-          )
-        )}
-        {Array.from({ length: getDaysInAMonth(currentYear, nextMonth) }).map(
-          (_, i) => (
-            <p
-              className={unavailableDates(i, nextMonth, currentYear)}
-              onClick={() => handleSelectDates(i, currentYear, nextMonth)}
-              key={i}
-            >
+          ))}
+          {Array.from({
+            length: completeCalendar(currentMonth, currentYear),
+          }).map((_, i) => (
+            <p key={i} className="day-of-other-month">
               {i + 1}
             </p>
-          )
-        )}
-        {Array.from({ length: getEndOfMonth(currentYear, nextMonth) }).map(
-          (_, i) => (
-            <p key={i}></p>
-          )
-        )}
+          ))}
+        </div>
+        <div className="grid-second-month">
+          <div className="month">
+            <h4>
+              {months[nextMonth - 1]} {currentYear}
+            </h4>
+          </div>
+
+          {}
+          {days.map((day, i) => (
+            <p key={i} className="week-days">
+              {day}
+            </p>
+          ))}
+          {Array.from({ length: getStartOfMonth(currentYear, nextMonth) }).map(
+            (_, i) => (
+              <p key={i}></p>
+            )
+          )}
+          {Array.from({ length: getDaysInAMonth(currentYear, nextMonth) }).map(
+            (_, i) => (
+              <p
+                className={`${unavailableDates(
+                  i,
+                  nextMonth,
+                  currentYear
+                )} day-of-month ${
+                  i + 1 < currentDate.getDate() ||
+                  currentMonth < currentDate.getMonth() + 1 ||
+                  currentYear < currentDate.getYear() + 1900
+                    ? "past-date"
+                    : ""
+                }`}
+                onClick={() => handleSelectDates(i, currentYear, nextMonth)}
+                key={i}
+              >
+                {i + 1}
+              </p>
+            )
+          )}
+          {Array.from({ length: completeCalendar(nextMonth, currentYear) }).map(
+            (_, i) => (
+              <p key={i} className="day-of-other-month">
+                {i + 1}
+              </p>
+            )
+          )}
+        </div>
+        <button className="change-month-button" onClick={followingMonth}>
+          <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
+        </button>
       </div>
-      <button onClick={() => setSelectDate([])}>clear selection</button>
+
+      <div className="reservation-details">
+        <p>Agregá tus fechas de viaje para obtener previos exactos</p>
+        <button className="reservation-button">Iniciar reserva</button>
+      </div>
+      {/* <button onClick={() => setSelectDate([])}>clear selection</button> */}
     </div>
   );
 };

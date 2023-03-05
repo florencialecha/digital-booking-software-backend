@@ -1,11 +1,11 @@
 import React from "react";
 import "./Description.css";
 
-const Description = ({ description }) => {
-  console.log(description);
+const Description = ({ data }) => {
+  console.log(data);
   return (
-    <div>
-      <p>{description}</p>
+    <div className="description">
+      <p className="description-text">{data.description}</p>
     </div>
   );
 };

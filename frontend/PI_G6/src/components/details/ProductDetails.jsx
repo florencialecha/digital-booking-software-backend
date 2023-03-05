@@ -74,14 +74,15 @@ const ProductDetails = () => {
           </div>
         </div>
         <div className="details-description">
-          <h2>Alejate en el corazón de {data.address.town}</h2>
-          <Description description={data.description} />
+          <h2>Alójate en el corazón de {data.address.town}</h2>
+          <Description data={data} />
         </div>
+        <h2>¿Qué ofrece este lugar?</h2>
+        <hr />
         <div className="details-char">
-          <h2>¿Qué ofrece este lugar?</h2>
           <Features specs={data.specifications} />
         </div>
-        <div className="details-availableDates">
+        <div className="details-available-dates">
           <h2>Fechas disponibles</h2>
           <Calendar />
         </div>

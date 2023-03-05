@@ -16,27 +16,32 @@ const icon = [
     title: "cocina",
     iconName: faKitchenSet,
   },
-  { title: "wifi", iconName: faWifi },
-  { title: "pileta", iconName: faPersonSwimming },
-  { title: "aire acondicionado", iconName: faSnowflake },
-  { title: "apto mascotas", iconName: faPaw },
-  { title: "estacionamiento gratuito", iconName: faCar },
-  { title: "television", iconName: faTv },
+  { title: "WiFi", iconName: faWifi },
+  { title: "Pileta", iconName: faPersonSwimming },
+  { title: "Aire acondicionado", iconName: faSnowflake },
+  { title: "Apto mascotas", iconName: faPaw },
+  { title: "Estacionamiento gratuito", iconName: faCar },
+  { title: "Televisor", iconName: faTv },
 ];
 
 const Features = ({ specs }) => {
   return (
-    <div>
-      {specs.map((item) => {
-        let iconos = icon.find((i) => i.title === item.title);
-        console.log(iconos);
-        return (
-          <div key={item.title}>
-            <FontAwesomeIcon icon={iconos?.iconName}></FontAwesomeIcon>
-            <span>{iconos?.title}</span>
-          </div>
-        );
-      })}
+    <div className="features">
+      <div className="features-body">
+        {specs.map((item) => {
+          let iconos = icon.find((i) => i.title.toLowerCase() === item.title);
+          console.log(iconos);
+          return (
+            <div key={item.title} className="feature-icons">
+              <FontAwesomeIcon
+                icon={iconos?.iconName}
+                size="lg"
+              ></FontAwesomeIcon>
+              <span>{iconos?.title}</span>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
