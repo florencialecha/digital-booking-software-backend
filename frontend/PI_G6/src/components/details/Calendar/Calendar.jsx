@@ -42,6 +42,7 @@ const Calendar = () => {
     new Date("2023-04-26"),
   ];
 
+  console.log(dates);
   const unavailableDates = (i, month, year) => {
     if (
       dates.find(
@@ -129,20 +130,14 @@ const Calendar = () => {
     return 42 - getStartOfMonth(year, month) - getDaysInAMonth(year, month);
   };
 
-  const pastDatesCurrentMonth = (day, month) => {
+  const pastDates = (day, month) => {
     if (
-      (day <= currentDate.getDate() && month <= currentDate.getMonth() + 1) ||
-      (day >= currentDate.getDate() && month < currentDate.getMonth() + 1) ||
-      currentYear < currentDate.getYear() + 1900
-    ) {
-      return "past-date";
-    } else return "";
-  };
-
-  const pastDatesNextMonth = (day, month) => {
-    if (
-      (day <= currentDate.getDate() && month <= currentDate.getMonth() + 1) ||
-      (day >= currentDate.getDate() && month < currentDate.getMonth() + 1) ||
+      (day < currentDate.getDate() &&
+        month <= currentDate.getMonth() + 1 &&
+        currentYear <= currentDate.getYear() + 1900) ||
+      (day >= currentDate.getDate() &&
+        month < currentDate.getMonth() + 1 &&
+        currentYear <= currentDate.getYear() + 1900) ||
       currentYear < currentDate.getYear() + 1900
     ) {
       return "past-date";
@@ -182,7 +177,7 @@ const Calendar = () => {
                 i,
                 currentMonth,
                 currentYear
-              )} day-of-month ${pastDatesCurrentMonth(i + 1, currentMonth)}`}
+              )} day-of-month ${pastDates(i + 1, currentMonth)}`}
               onClick={() => handleSelectDates(i, currentYear, currentMonth)}
               key={i}
             >
@@ -222,7 +217,7 @@ const Calendar = () => {
                   i,
                   nextMonth,
                   currentYear
-                )} day-of-month ${pastDatesCurrentMonth(i + 1, nextMonth)}`}
+                )} day-of-month ${pastDates(i + 1, nextMonth)}`}
                 onClick={() => handleSelectDates(i, currentYear, nextMonth)}
                 key={i}
               >
