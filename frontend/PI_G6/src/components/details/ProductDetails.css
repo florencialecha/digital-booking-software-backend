@@ -39,7 +39,8 @@
 .details-location-scoring-info {
   display: flex;
   justify-content: space-between;
-  padding: 25px 50px;
+  padding: 16px 50px;
+  background-color: #dfe4ea;
 }
 
 .details-location {
@@ -91,6 +92,17 @@
 .details-available-dates {
   background-color: #dfe4ea;
   padding: 30px 50px;
+}
+
+.details-map p {
+  font-weight: bold;
+  padding: 25px 50px;
+}
+
+.details-share {
+  padding: 15px 50px 0;
+  display: flex;
+  gap: 15px;
 }
 
 hr {

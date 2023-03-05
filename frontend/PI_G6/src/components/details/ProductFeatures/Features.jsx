@@ -13,7 +13,7 @@ import {
 
 const icon = [
   {
-    title: "cocina",
+    title: "Cocina",
     iconName: faKitchenSet,
   },
   { title: "WiFi", iconName: faWifi },

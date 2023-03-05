@@ -30,6 +30,7 @@ const Calendar = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
   const [nextMonth, setNextMonth] = useState(new Date().getMonth() + 2);
   const [currentYear, setCurrentYear] = useState(new Date().getYear() + 1900);
+  const [changeMonth, setChangeMonth] = useState(false);
 
   const dates = [
     new Date(),
@@ -113,6 +114,7 @@ const Calendar = () => {
       setNextMonth(2);
       setCurrentYear((prev) => prev + 1);
     }
+    toggleAnimation();
   };
 
   const prevMonth = () => {
@@ -124,10 +126,15 @@ const Calendar = () => {
       setNextMonth(12);
       setCurrentYear((prev) => prev - 1);
     }
+    toggleAnimation();
   };
 
   const completeCalendar = (month, year) => {
     return 42 - getStartOfMonth(year, month) - getDaysInAMonth(year, month);
+  };
+
+  const toggleAnimation = () => {
+    setChangeMonth(!changeMonth);
   };
 
   const pastDates = (day, month) => {
@@ -177,7 +184,9 @@ const Calendar = () => {
                 i,
                 currentMonth,
                 currentYear
-              )} day-of-month ${pastDates(i + 1, currentMonth)}`}
+              )} day-of-month ${pastDates(i + 1, currentMonth)} ${
+                changeMonth ? "fade-in" : "fade-out"
+              }`}
               onClick={() => handleSelectDates(i, currentYear, currentMonth)}
               key={i}
             >
@@ -217,7 +226,9 @@ const Calendar = () => {
                   i,
                   nextMonth,
                   currentYear
-                )} day-of-month ${pastDates(i + 1, nextMonth)}`}
+                )} day-of-month ${pastDates(i + 1, nextMonth)} ${
+                  changeMonth ? "fade-in" : "fade-out"
+                }`}
                 onClick={() => handleSelectDates(i, currentYear, nextMonth)}
                 key={i}
               >

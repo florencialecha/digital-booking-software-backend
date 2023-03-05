@@ -65,9 +65,9 @@ const ProductDetails = () => {
           </div>
         </div>
         <div>
-          <div>
-            <FontAwesomeIcon icon={faShareNodes}></FontAwesomeIcon>
-            <FontAwesomeIcon icon={faHeart}></FontAwesomeIcon>
+          <div className="details-share">
+            <FontAwesomeIcon icon={faShareNodes} size="lg"></FontAwesomeIcon>
+            <FontAwesomeIcon icon={faHeart} size="lg"></FontAwesomeIcon>
           </div>
           <div className="details-galery">
             <Gallery pictures={data.imageUrl} />
@@ -86,8 +86,13 @@ const ProductDetails = () => {
           <h2>Fechas disponibles</h2>
           <Calendar />
         </div>
-        <div>
+        <div className="details-map">
           <h2>¿Dónde vas a estar?</h2>
+
+          <hr />
+          <p>
+            {data.address.town}, {data.address.country}
+          </p>
           <Map address={data.address} />
         </div>
         <div>

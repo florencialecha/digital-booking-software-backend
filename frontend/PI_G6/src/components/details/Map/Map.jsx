@@ -10,7 +10,7 @@ const Map = ({ address }) => {
     <div className="map">
       <iframe
         width="90%"
-        height="700px"
+        height="600px"
         style={{ border: "0" }}
         loading="lazy"
         allowfullscreen
