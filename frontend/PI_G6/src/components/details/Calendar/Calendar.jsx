@@ -129,6 +129,26 @@ const Calendar = () => {
     return 42 - getStartOfMonth(year, month) - getDaysInAMonth(year, month);
   };
 
+  const pastDatesCurrentMonth = (day, month) => {
+    if (
+      (day <= currentDate.getDate() && month <= currentDate.getMonth() + 1) ||
+      (day >= currentDate.getDate() && month < currentDate.getMonth() + 1) ||
+      currentYear < currentDate.getYear() + 1900
+    ) {
+      return "past-date";
+    } else return "";
+  };
+
+  const pastDatesNextMonth = (day, month) => {
+    if (
+      (day <= currentDate.getDate() && month <= currentDate.getMonth() + 1) ||
+      (day >= currentDate.getDate() && month < currentDate.getMonth() + 1) ||
+      currentYear < currentDate.getYear() + 1900
+    ) {
+      return "past-date";
+    } else return "";
+  };
+
   return (
     <div className="calendar-layout">
       <div className="calendar-details">
@@ -162,13 +182,7 @@ const Calendar = () => {
                 i,
                 currentMonth,
                 currentYear
-              )} day-of-month ${
-                i + 1 < currentDate.getDate() ||
-                currentMonth < currentDate.getMonth() + 1 ||
-                currentYear < currentDate.getYear() + 1900
-                  ? "past-date"
-                  : ""
-              }`}
+              )} day-of-month ${pastDatesCurrentMonth(i + 1, currentMonth)}`}
               onClick={() => handleSelectDates(i, currentYear, currentMonth)}
               key={i}
             >
@@ -208,13 +222,7 @@ const Calendar = () => {
                   i,
                   nextMonth,
                   currentYear
-                )} day-of-month ${
-                  i + 1 < currentDate.getDate() ||
-                  nextMonth < currentDate.getMonth() + 1 ||
-                  currentYear < currentDate.getYear() + 1900
-                    ? "past-date"
-                    : ""
-                }`}
+                )} day-of-month ${pastDatesCurrentMonth(i + 1, nextMonth)}`}
                 onClick={() => handleSelectDates(i, currentYear, nextMonth)}
                 key={i}
               >
