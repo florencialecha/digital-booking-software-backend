@@ -31,7 +31,7 @@ public class Category {
     @Column(name = "DESCRIPTION")
     private String description;
 
-    @Column(name = "IMAGEURL")
+    @Column(name = "IMAGE_URL")
     private String imageUrl;
 
     @OneToMany

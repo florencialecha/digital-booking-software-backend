@@ -30,7 +30,7 @@ public class Product {
     private Category category;
 
     @ManyToOne
-    @JoinColumn(name = "ADRESS_ID")
+    @JoinColumn(name = "ADDRESS_ID")
     private Address address;
 
     @Column(name = "IMAGE")
