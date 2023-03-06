@@ -154,7 +154,7 @@ const Calendar = () => {
   return (
     <div className="calendar-layout">
       <div className="calendar-details">
-        <button onClick={prevMonth} className="change-month-button">
+        <button onClick={prevMonth} className="change-month-button left">
           <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
         </button>
 
@@ -244,13 +244,13 @@ const Calendar = () => {
             )
           )}
         </div>
-        <button className="change-month-button" onClick={followingMonth}>
+        <button className="change-month-button right" onClick={followingMonth}>
           <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
         </button>
       </div>
 
       <div className="reservation-details">
-        <p>Agregá tus fechas de viaje para obtener previos exactos</p>
+        <p>Agregá tus fechas de viaje para obtener precios exactos</p>
         <button className="reservation-button">Iniciar reserva</button>
       </div>
       {/* <button onClick={() => setSelectDate([])}>clear selection</button> */}

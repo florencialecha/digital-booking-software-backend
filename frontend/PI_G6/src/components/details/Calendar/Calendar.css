@@ -31,6 +31,7 @@
   width: 50%;
   border-right: 0.1px solid rgb(0, 0, 0, 0.3);
   height: calc(21vw - 15px);
+  padding: 0 25px 0 25px;
 }
 
 .grid-first-month p {
@@ -43,6 +44,7 @@
   text-align: center;
   width: 50%;
   border-left: 0.1px solid rgb(0, 0, 0, 0.3);
+  padding: 0 25px 0 25px;
 }
 
 .week-days {
@@ -114,7 +116,7 @@
   flex-direction: column;
   width: 29%;
   background-color: white;
-  padding: 15px;
+  padding: 20px;
   gap: 30px;
   border-radius: 8px;
   box-shadow: -2px 8px 17px -4px rgb(134, 133, 133);
@@ -168,5 +170,110 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .calendar-layout {
+    flex-direction: column;
+  }
+
+  .calendar-details {
+    width: 100%;
+    position: relative;
+  }
+  .reservation-details {
+    flex-direction: row;
+    width: 100%;
+    margin-top: 10px;
+    background-color: #dfe4ea;
+    box-shadow: none;
+    border-radius: 0%;
+    padding: 10px 0;
+    gap: 5px;
+    justify-content: space-between;
+  }
+
+  .reservation-details p {
+    width: 47%;
+  }
+
+  .reservation-button {
+    width: 47%;
+  }
+
+  .change-month-button {
+    align-self: flex-start;
+    background-color: transparent;
+    box-shadow: none;
+    width: 20px;
+    height: 20px;
+  }
+
+  .left {
+    position: absolute;
+    left: 25px;
+    top: 28px;
+  }
+
+  .right {
+    position: absolute;
+    right: 25px;
+    top: 28px;
+  }
+
+  .calendar-details h4 {
+    padding-bottom: 15px;
+  }
+
+  .change-month-button > svg > * {
+    color: #000000;
+  }
+
+  .grid-first-month {
+    height: 100%;
+    padding-right: 20px;
+  }
+
+  .grid-second-month {
+    padding-left: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .grid-second-month {
+    display: none;
+  }
+  .grid-first-month {
+    border-right: 0;
+    width: 100%;
+    padding: 0;
+  }
+
+  .left {
+    left: 35px;
+    top: 28px;
+  }
+
+  .right {
+    position: absolute;
+    right: 35px;
+    top: 28px;
+  }
+
+  .calendar-details {
+    height: 400px;
+  }
+
+  .reservation-details {
+    flex-direction: column;
+  }
+  .reservation-details p {
+    width: 100%;
+    padding-bottom: 20px;
+  }
+
+  .reservation-button {
+    width: 100%;
   }
 }

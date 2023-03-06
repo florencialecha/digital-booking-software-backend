@@ -7,7 +7,7 @@
 .details-images {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 25vw));
-  grid-template-rows: 225px 225px;
+  grid-template-rows: 25vh 25vh;
   grid-gap: 15px;
   padding: 20px 50px;
 }
@@ -20,7 +20,7 @@
 .img1 {
   grid-column: span 2;
   grid-row: span 2;
-  height: 465px;
+  height: 100%;
   object-fit: cover;
 }
 .img2,
@@ -29,7 +29,7 @@
 .img5 {
   grid-column: span 1;
   object-fit: cover;
-  height: 225px;
+  height: 100%;
 }
 
 .see-more-btn {
