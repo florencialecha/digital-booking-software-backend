@@ -8,7 +8,7 @@ import "./header.css";
 const Header = () => {
   const loggedUser = JSON.parse(localStorage.getItem("userLoggedIn"));
   const user = JSON.parse(localStorage.getItem("user"));
-  const [openMenu, setOpenMenu] = useState(true);
+  const [openMenu, setOpenMenu] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -44,8 +44,6 @@ const Header = () => {
     toggleMenu();
   };
 
-  console.log(openMenu);
-
   return (
     <nav>
       <Link to={"/"}>
@@ -61,8 +59,12 @@ const Header = () => {
         <FontAwesomeIcon icon={faBars} size="2xl"></FontAwesomeIcon>
       </button>
       <div
-        className={`navMenu ${
-          window.screen.width <= 600 && openMenu ? "hideMenu" : ""
+        className={`${
+          window.screen.width > 600 && !openMenu ? "navMenu" : ""
+        } ${
+          window.screen.width <= 600 && openMenu
+            ? "navMenuMobile slide-in"
+            : "hideMenu"
         }`}
       >
         <div className="menuHeader">

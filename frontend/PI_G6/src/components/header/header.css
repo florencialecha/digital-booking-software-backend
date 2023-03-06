@@ -162,7 +162,7 @@ nav .socials {
 }
 
 @media only screen and (max-width: 600px) {
-  .navMenu {
+  .navMenuMobile {
     position: fixed;
     display: flex;
     inset: 0 0 0 30%;
@@ -175,7 +175,11 @@ nav .socials {
     flex-direction: column;
   }
 
-  .navMenu button {
+  .navMenu {
+    display: none;
+  }
+
+  .navMenuMobile button {
     width: 206px;
     height: 40px;
     border: none;
