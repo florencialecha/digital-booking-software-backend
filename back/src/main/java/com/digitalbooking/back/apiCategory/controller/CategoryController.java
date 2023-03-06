@@ -1,17 +1,15 @@
-package com.digitalbooking.back.category.controller;
+package com.digitalbooking.back.apiCategory.controller;
 
-import com.digitalbooking.back.category.entity.Category;
-import com.digitalbooking.back.category.exception.BadRequestException;
-import com.digitalbooking.back.category.exception.ResourceNotFoundException;
-import com.digitalbooking.back.category.service.CategoryService;
+import com.digitalbooking.back.apiCategory.entity.Category;
+import com.digitalbooking.back.apiCategory.exception.BadRequestException;
+import com.digitalbooking.back.apiCategory.exception.ResourceNotFoundException;
+import com.digitalbooking.back.apiCategory.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
-// AGREGAR COMENTARIO A VER SI FUNCIONA
 
 @RestController
 @RequestMapping("/category")

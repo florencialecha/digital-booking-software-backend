@@ -1,6 +1,6 @@
-package com.digitalbooking.back.category.repository;
+package com.digitalbooking.back.apiCategory.repository;
 
-import com.digitalbooking.back.category.entity.Category;
+import com.digitalbooking.back.apiCategory.entity.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

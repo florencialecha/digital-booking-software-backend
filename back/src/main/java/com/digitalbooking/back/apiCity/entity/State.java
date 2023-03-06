@@ -1,4 +1,4 @@
-package com.digitalbooking.back.product.entity;
+package com.digitalbooking.back.apiCity.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,25 +6,32 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-@Table(name = "CITY")
+@Table(name = "STATE")
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 
-public class City {
+public class State {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "CITY_ID")
+    @Column(name = "STATE_ID")
     private Long id;
+
     @Column(name = "NAME")
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "STATE_ID")
-    private State state;
+    @JoinColumn(name = "COUNTRY_ID")
+    private Country country;
+
+    @OneToMany
+    private List<City> cities = new ArrayList<>();
 
 }

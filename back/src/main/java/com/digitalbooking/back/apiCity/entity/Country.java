@@ -1,4 +1,4 @@
-package com.digitalbooking.back.product.entity;
+package com.digitalbooking.back.apiCity.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,7 +1,7 @@
-package com.digitalbooking.back.product.service;
+package com.digitalbooking.back.apiProduct.service;
 
-import com.digitalbooking.back.product.entity.Product;
-import com.digitalbooking.back.product.repository.ProductRepository;
+import com.digitalbooking.back.apiProduct.entity.Product;
+import com.digitalbooking.back.apiProduct.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

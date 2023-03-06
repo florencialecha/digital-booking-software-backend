@@ -1,6 +1,6 @@
-package com.digitalbooking.back.product.entity;
+package com.digitalbooking.back.apiProduct.entity;
 
-import com.digitalbooking.back.category.entity.Category;
+import com.digitalbooking.back.apiCategory.entity.Category;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
