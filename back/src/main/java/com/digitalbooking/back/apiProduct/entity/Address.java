@@ -15,11 +15,11 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class Adress {
+public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ADRESS_ID")
+    @Column(name = "ADDRESS_ID")
     private Long id;
 
     @Column(name = "STREET")

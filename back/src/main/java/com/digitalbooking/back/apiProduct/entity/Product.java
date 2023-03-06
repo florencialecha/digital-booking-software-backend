@@ -31,7 +31,7 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "ADRESS_ID")
-    private Adress adress;
+    private Address address;
 
     @Column(name = "IMAGE")
 //    private List<Image> imageList;
