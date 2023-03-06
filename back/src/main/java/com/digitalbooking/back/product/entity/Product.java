@@ -29,9 +29,9 @@ public class Product {
     @JoinColumn(name = "CATEGORY_ID")
     private Category category;
 
-    @Column(name = "ADRESS")
-//    private Adress adress;
-    private String adress;
+    @ManyToOne
+    @JoinColumn(name = "ADRESS_ID")
+    private Adress adress;
 
     @Column(name = "IMAGE")
 //    private List<Image> imageList;

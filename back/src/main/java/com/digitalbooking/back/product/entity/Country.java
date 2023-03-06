@@ -6,29 +6,28 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-@Table(name = "ADRESS")
+@Table(name = "COUNTRY")
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 
-public class Adress {
+public class Country {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ADRESS_ID")
+    @Column(name = "COUNTRY_ID")
     private Long id;
 
-    @Column(name = "STREET")
-    private String street;
+    @Column(name = "NAME")
+    private String name;
 
-    @Column(name = "NUMBER")
-    private Integer number;
-
-    @ManyToOne
-    @JoinColumn(name = "CITY_ID")
-    private City city;
+    @OneToMany
+    private List<State> states = new ArrayList<>();
 
 }
