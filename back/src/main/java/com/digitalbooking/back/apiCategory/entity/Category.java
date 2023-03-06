@@ -1,6 +1,6 @@
-package com.digitalbooking.back.category.entity;
+package com.digitalbooking.back.apiCategory.entity;
 
-import com.digitalbooking.back.product.entity.Product;
+import com.digitalbooking.back.apiProduct.entity.Product;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,7 +31,7 @@ public class Category {
     @Column(name = "DESCRIPTION")
     private String description;
 
-    @Column(name = "IMAGEURL")
+    @Column(name = "IMAGE_URL")
     private String imageUrl;
 
     @OneToMany

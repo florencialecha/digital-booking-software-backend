@@ -1,6 +1,6 @@
-package com.digitalbooking.back.product.entity;
+package com.digitalbooking.back.apiProduct.entity;
 
-import com.digitalbooking.back.category.entity.Category;
+import com.digitalbooking.back.apiCategory.entity.Category;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,9 +29,9 @@ public class Product {
     @JoinColumn(name = "CATEGORY_ID")
     private Category category;
 
-    @Column(name = "ADRESS")
-//    private Adress adress;
-    private String adress;
+    @ManyToOne
+    @JoinColumn(name = "ADDRESS_ID")
+    private Address address;
 
     @Column(name = "IMAGE")
 //    private List<Image> imageList;

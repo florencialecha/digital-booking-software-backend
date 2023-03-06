@@ -1,10 +1,9 @@
-package com.digitalbooking.back.product.controller;
+package com.digitalbooking.back.apiProduct.controller;
 
-import com.digitalbooking.back.category.entity.Category;
-import com.digitalbooking.back.category.exception.BadRequestException;
-import com.digitalbooking.back.category.exception.ResourceNotFoundException;
-import com.digitalbooking.back.product.entity.Product;
-import com.digitalbooking.back.product.service.ProductService;
+import com.digitalbooking.back.apiCategory.exception.BadRequestException;
+import com.digitalbooking.back.apiCategory.exception.ResourceNotFoundException;
+import com.digitalbooking.back.apiProduct.entity.Product;
+import com.digitalbooking.back.apiProduct.service.ProductService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
