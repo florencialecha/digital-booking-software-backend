@@ -110,6 +110,10 @@ nav a:visited {
   color: #31363f;
 }
 
+.logout:hover {
+  cursor: pointer;
+}
+
 button.hidden {
   display: none;
 }
@@ -229,6 +233,7 @@ nav .socials {
     bottom: 100px;
     color: #191b1d;
     font-style: normal;
+    font-size: 18px;
   }
 
   p.logoutMobile {
@@ -236,9 +241,7 @@ nav .socials {
     padding-right: 20px;
     font-weight: 500;
   }
-  .logoutMobile a span {
-    color: #f0572d;
-  }
+
   .formButtons {
     display: flex;
     flex-direction: column;
@@ -301,5 +304,17 @@ nav .socials {
     border-top: solid #31363f 1px;
     position: absolute;
     bottom: 90px;
+  }
+
+  .logout svg {
+    display: none;
+  }
+
+  .closeMenu > svg > * {
+    color: #ffffff;
+  }
+
+  .logoutMobile span {
+    color: #f0572d;
   }
 }

@@ -19,6 +19,7 @@
 
 .registerForm {
   position: relative;
+  top: 80px;
   min-height: calc(100vh - 80px - 58px);
 }
 
@@ -125,7 +126,6 @@ form a:visited {
 a {
   text-decoration: none;
 }
-
 
 #showPass {
   position: relative;

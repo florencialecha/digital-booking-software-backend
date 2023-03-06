@@ -250,6 +250,10 @@
     padding: 0;
   }
 
+  div.hide {
+    display: none;
+  }
+
   .left {
     left: 35px;
     top: 28px;

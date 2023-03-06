@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Social from "../socials/Social";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import "./header.css";
 
 const Header = () => {
   const loggedUser = JSON.parse(localStorage.getItem("userLoggedIn"));
   const user = JSON.parse(localStorage.getItem("user"));
-  const [openMenu, setOpenMenu] = useState(false);
+  const [openMenu, setOpenMenu] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -17,12 +18,16 @@ const Header = () => {
 
   const handleRegister = () => {
     navigate("/register");
-    toggleMenu();
+    if (window.screen.width <= 600) {
+      toggleMenu();
+    }
   };
 
   const handleLogin = () => {
     navigate("/login");
-    toggleMenu();
+    if (window.screen.width <= 600) {
+      toggleMenu();
+    }
   };
 
   const handleLogout = () => {
@@ -39,6 +44,8 @@ const Header = () => {
     toggleMenu();
   };
 
+  console.log(openMenu);
+
   return (
     <nav>
       <Link to={"/"}>
@@ -51,19 +58,26 @@ const Header = () => {
         </div>
       </Link>
       <button onClick={handleMenu} className="hamburgerMenu">
-        <GiHamburgerMenu size={"2rem"} />
+        <FontAwesomeIcon icon={faBars} size="2xl"></FontAwesomeIcon>
       </button>
-      <div className={`${!openMenu ? "hideMenu" : "navMenu"}`}>
+      <div
+        className={`navMenu ${
+          window.screen.width <= 600 && openMenu ? "hideMenu" : ""
+        }`}
+      >
         <div className="menuHeader">
           <button onClick={handleMenu} className="closeMenu">
-            X
+            <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
           </button>
           <h3 className={`${loggedUser ? "hide" : "menuHeading"}`}>MENÚ</h3>
         </div>
         {loggedUser ? (
           <div className="profileInfo">
-            <div className={openMenu ? "hide" : "logout"}>
-              <Link onClick={handleLogout}>X</Link>
+            <div className="logout">
+              <FontAwesomeIcon
+                onClick={handleLogout}
+                icon={faXmark}
+              ></FontAwesomeIcon>
             </div>
             <div>
               <p className="profileAvatar">
@@ -79,11 +93,7 @@ const Header = () => {
               </p>
             </div>
             <p className="logoutMobile">
-              ¿Deseas{" "}
-              <Link onClick={handleLogout}>
-                <span>cerrar sesión</span>
-              </Link>
-              ?
+              ¿Deseas <span onClick={handleLogout}>cerrar sesión</span>?
             </p>
             <hr />
           </div>
@@ -95,7 +105,13 @@ const Header = () => {
             >
               Crear cuenta
             </button>
-            <hr className={location.pathname !== "/" ? "hide" : "hr"} />
+            <hr
+              className={
+                location.pathname !== "/" || window.screen.width > 600
+                  ? "hide"
+                  : "hr"
+              }
+            />
             <button
               className={location.pathname === "/login" ? "hidden" : "btn"}
               onClick={handleLogin}
