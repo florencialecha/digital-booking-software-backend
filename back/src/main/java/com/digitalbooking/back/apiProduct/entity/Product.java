@@ -1,11 +1,13 @@
 package com.digitalbooking.back.apiProduct.entity;
-
 import com.digitalbooking.back.apiCategory.entity.Category;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "PRODUCT")
@@ -33,9 +35,8 @@ public class Product {
     @JoinColumn(name = "ADDRESS_ID")
     private Address address;
 
-    @Column(name = "IMAGE")
-//    private List<Image> imageList;
-    private String imageList;
+    @OneToMany
+    private List<com.digitalbooking.back.product.entity.Image> imageList = new ArrayList<>();
 
     @Column(name = "DESCRIPTION")
     private String description;
