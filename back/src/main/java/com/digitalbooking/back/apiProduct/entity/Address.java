@@ -26,7 +26,7 @@ public class Address {
     private String street;
 
     @Column(name = "NUMBER")
-    private Integer number;
+    private String number;
 
     @ManyToOne
     @JoinColumn(name = "CITY_ID")
