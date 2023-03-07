@@ -38,14 +38,14 @@ public class ProductController {
         return ResponseEntity.status(200).body(product);
     }
 
-//    @GetMapping("city/{city}")
-//    public ResponseEntity<Optional<List<Product>>> findByCity(@PathVariable String city) throws ResourceNotFoundException {
-//        Optional<List<Product>> result = productService.findByCity(city);
-//        if (result.isEmpty()) {
-//            throw new ResourceNotFoundException("Can't find a city who does not exist in the database.");
-//        }
-//        return ResponseEntity.status(200).body(result);
-//    }
+    @GetMapping("/city/{cityName}")
+    public ResponseEntity<List<Product>> findByCity(@PathVariable String cityName) throws ResourceNotFoundException {
+        List<Product> result = productService.findByCity(cityName);
+        if (result.isEmpty()) {
+            throw new ResourceNotFoundException("Can't find a products on this city.");
+        }
+        return ResponseEntity.status(200).body(result);
+    }
 
     @PostMapping
     public void create(@RequestBody Product product) throws BadRequestException {
