@@ -136,7 +136,7 @@ a {
 }
 
 #options {
-    height: 400px;
+    max-height: 400px;
     width: 100%;
     overflow: auto;
     display: none;
@@ -190,7 +190,7 @@ a {
 
     #options {
         width: 75vw;
-        height: 250px;
+        max-height: 250px;
         position: absolute;
         top: 250px;
     }
@@ -239,7 +239,7 @@ a {
 
     #options {
         width: 75vw;
-        height: 250px;
+        max-height: 250px;
         position: absolute;
         top: 170px;
     }

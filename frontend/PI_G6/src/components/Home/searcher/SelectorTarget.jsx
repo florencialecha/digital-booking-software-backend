@@ -27,7 +27,7 @@ const selectorTarget = () => {
                   if (!search) {
                     return city
                   } else {
-                    city = city.name.toLocaleLowerCase().includes(search.toLowerCase())
+                    city = city.name.toLowerCase().includes(search.toLowerCase())
                     return city
                   }
                 }).map((city) => {
