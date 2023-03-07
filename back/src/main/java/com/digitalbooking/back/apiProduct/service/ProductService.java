@@ -22,9 +22,9 @@ public class ProductService {
         return productRepository.findById(id);
     }
 
-//    public Optional<List<Product>> findByCity(String city) {
-//        return productRepository.findByCity(city);
-//    }
+    public List<Product> findByCity(String cityName) {
+        return productRepository.findByAddressCityName(cityName);
+    }
 
     public void create(Product product) {
         productRepository.save(product);
