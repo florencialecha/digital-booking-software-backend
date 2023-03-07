@@ -1,0 +1,66 @@
+{
+  "id": "1",
+  "title": "Hermitage Hotel",
+  "Category": "Hotel",
+  "stars": 2,
+  "scoring": 8,
+  "review": "Muy bueno",
+  "address": {
+    "street": "Av. 18 de Julio",
+    "number": "1824",
+    "town": "Montevideo",
+    "state": "Montevideo",
+    "country": "Uruguay"
+  },
+  "imageUrl": [
+    {
+      "id": "1",
+      "titulo": "titulo de la foto",
+      "imageUrl": "https://images.unsplash.com/photo-1521783988139-89397d761dce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80"
+    },
+    {
+      "id": "2",
+      "titulo": "titulo de la foto",
+      "imageUrl": "https://images.unsplash.com/photo-1521783988139-89397d761dce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80"
+    },
+    {
+      "id": "3",
+      "titulo": "titulo de la foto",
+      "imageUrl": "https://images.unsplash.com/photo-1521783988139-89397d761dce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80"
+    },
+    {
+      "id": "4",
+      "titulo": "titulo de la foto",
+      "imageUrl": "https://images.unsplash.com/photo-1521783988139-89397d761dce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80"
+    },
+    {
+      "id": "5",
+      "titulo": "titulo de la foto",
+      "imageUrl": "https://images.unsplash.com/photo-1521783988139-89397d761dce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80"
+    },
+    {
+      "id": "6",
+      "titulo": "titulo de la foto",
+      "imageUrl": "https://images.unsplash.com/photo-1521783988139-89397d761dce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80"
+    },
+    {
+      "id": "7",
+      "titulo": "titulo de la foto",
+      "imageUrl": "https://images.unsplash.com/photo-1521783988139-89397d761dce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80"
+    }
+  ],
+  "description": "Está situado a solo unas calles de la avenida Alvear, de la avenida Quintana, del parque San Martín y del distrito de Recoleta. En las inmediaciones también hay varios lugares de interés, como la calla Florida, el centro comercial Galerías Pacífico, la zona de Puerto Madero, la plaza de Mayo y el palacio Municipal. Nuestros clientes dicen que esta parte de Buenos Aires es su favorita, según los comentarios independientes. El hotel es un hotel sofisticado de 4 estrellas que goza de una ubicación tranquila, a poca distancia de prestigiosas galerías de arte, teatros, museos y zonas comerciales. Además, hay WiFi gratuita. El establecimiento sirve un desayuno variado de 07:00 a 10:30.  ",
+  "specifications": [
+    {
+      "id": 1,
+      "title": "wifi"
+    },
+    { "id": 2, "title": "pileta" },
+    { "id": 3, "title": "cocina" },
+    { "id": 4, "title": "televisor" },
+    { "id": 5, "title": "apto mascotas" }
+  ],
+
+  "availability": "hardcode",
+  "policies": "hardcode"
+}

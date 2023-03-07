@@ -1,6 +1,6 @@
 nav {
   display: flex;
-  position: relative;
+  position: fixed;
   width: 100%;
   justify-content: space-between;
   padding: 10px 30px;
@@ -110,6 +110,10 @@ nav a:visited {
   color: #31363f;
 }
 
+.logout:hover {
+  cursor: pointer;
+}
+
 button.hidden {
   display: none;
 }
@@ -158,7 +162,7 @@ nav .socials {
 }
 
 @media only screen and (max-width: 600px) {
-  .navMenu {
+  .navMenuMobile {
     position: fixed;
     display: flex;
     inset: 0 0 0 30%;
@@ -171,7 +175,11 @@ nav .socials {
     flex-direction: column;
   }
 
-  .navMenu button {
+  .navMenu {
+    display: none;
+  }
+
+  .navMenuMobile button {
     width: 206px;
     height: 40px;
     border: none;
@@ -229,6 +237,7 @@ nav .socials {
     bottom: 100px;
     color: #191b1d;
     font-style: normal;
+    font-size: 18px;
   }
 
   p.logoutMobile {
@@ -236,9 +245,7 @@ nav .socials {
     padding-right: 20px;
     font-weight: 500;
   }
-  .logoutMobile a span {
-    color: #f0572d;
-  }
+
   .formButtons {
     display: flex;
     flex-direction: column;
@@ -301,5 +308,17 @@ nav .socials {
     border-top: solid #31363f 1px;
     position: absolute;
     bottom: 90px;
+  }
+
+  .logout svg {
+    display: none;
+  }
+
+  .closeMenu > svg > * {
+    color: #ffffff;
+  }
+
+  .logoutMobile span {
+    color: #f0572d;
   }
 }

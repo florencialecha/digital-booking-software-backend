@@ -1,0 +1,283 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.calendar-layout {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-details {
+  display: flex;
+  width: 68%;
+  background-color: white;
+  border-radius: 8px;
+  justify-content: space-around;
+  padding: 25px 15px;
+  box-shadow: -2px 8px 17px -4px rgb(134, 133, 133);
+  -webkit-box-shadow: -2px 8px 17px -4px rgb(134, 133, 133);
+  -moz-box-shadow: -2px 8px 17px -4px rgb(134, 133, 133);
+}
+
+.grid-first-month {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  text-align: center;
+  width: 50%;
+  border-right: 0.1px solid rgb(0, 0, 0, 0.3);
+  height: calc(21vw - 15px);
+  padding: 0 25px 0 25px;
+}
+
+.grid-first-month p {
+  text-align: center;
+}
+
+.grid-second-month {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  text-align: center;
+  width: 50%;
+  border-left: 0.1px solid rgb(0, 0, 0, 0.3);
+  padding: 0 25px 0 25px;
+}
+
+.week-days {
+  font-weight: bold;
+}
+
+.day-of-month {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+.day-of-other-month {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  color: rgb(0, 0, 0, 0.3);
+}
+
+.month {
+  grid-column: span 7;
+}
+
+.change-month-button {
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  border: none;
+  background-color: #f0572d;
+  align-self: center;
+  box-shadow: -2px 4px 5px -4px rgb(134, 133, 133);
+  -webkit-box-shadow: -2px 4px 5px -4px rgb(134, 133, 133);
+  -moz-box-shadow: -2px 4px 5px -4px rgb(134, 133, 133);
+}
+
+.change-month-button:hover {
+  cursor: pointer;
+}
+
+.change-month-button > svg > * {
+  color: #fff;
+}
+
+.available:hover {
+  background-color: rgb(0, 0, 0, 0.3);
+}
+
+.unavailable {
+  color: rgb(0, 0, 0, 0.3);
+}
+
+.selected {
+  background-color: #f0572d;
+  color: white;
+}
+
+.past-date {
+  color: rgb(0, 0, 0, 0.3);
+}
+
+.past-date:hover {
+  background-color: white;
+}
+
+.reservation-details {
+  display: flex;
+  flex-direction: column;
+  width: 29%;
+  background-color: white;
+  padding: 20px;
+  gap: 30px;
+  border-radius: 8px;
+  box-shadow: -2px 8px 17px -4px rgb(134, 133, 133);
+  -webkit-box-shadow: -2px 8px 17px -4px rgb(134, 133, 133);
+  -moz-box-shadow: -2px 8px 17px -4px rgb(134, 133, 133);
+}
+
+.reservation-details p {
+  font-weight: bold;
+  font-size: 16px;
+  padding-top: 10px;
+}
+
+.reservation-button {
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f0572d;
+  color: white;
+  font-weight: bold;
+  box-shadow: -2px 4px 5px -4px rgb(134, 133, 133);
+  -webkit-box-shadow: -2px 4px 5px -4px rgb(134, 133, 133);
+  -moz-box-shadow: -2px 4px 5px -4px rgb(134, 133, 133);
+}
+
+.reservation-button:hover {
+  cursor: pointer;
+}
+
+.fade-in {
+  animation-name: fade-in;
+  animation-duration: 1.5s;
+}
+
+.fade-out {
+  animation-name: fade-out;
+  animation-duration: 1s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .calendar-layout {
+    flex-direction: column;
+  }
+
+  .calendar-details {
+    width: 100%;
+    position: relative;
+  }
+  .reservation-details {
+    flex-direction: row;
+    width: 100%;
+    margin-top: 10px;
+    background-color: #dfe4ea;
+    box-shadow: none;
+    border-radius: 0%;
+    padding: 10px 0;
+    gap: 5px;
+    justify-content: space-between;
+  }
+
+  .reservation-details p {
+    width: 47%;
+  }
+
+  .reservation-button {
+    width: 47%;
+  }
+
+  .change-month-button {
+    align-self: flex-start;
+    background-color: transparent;
+    box-shadow: none;
+    width: 20px;
+    height: 20px;
+  }
+
+  .left {
+    position: absolute;
+    left: 25px;
+    top: 28px;
+  }
+
+  .right {
+    position: absolute;
+    right: 25px;
+    top: 28px;
+  }
+
+  .calendar-details h4 {
+    padding-bottom: 15px;
+  }
+
+  .change-month-button > svg > * {
+    color: #000000;
+  }
+
+  .grid-first-month {
+    height: 100%;
+    padding-right: 20px;
+  }
+
+  .grid-second-month {
+    padding-left: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .grid-second-month {
+    display: none;
+  }
+  .grid-first-month {
+    border-right: 0;
+    width: 100%;
+    padding: 0;
+  }
+
+  div.hide {
+    display: none;
+  }
+
+  .left {
+    left: 35px;
+    top: 28px;
+  }
+
+  .right {
+    position: absolute;
+    right: 35px;
+    top: 28px;
+  }
+
+  .calendar-details {
+    height: 400px;
+  }
+
+  .reservation-details {
+    flex-direction: column;
+  }
+  .reservation-details p {
+    width: 100%;
+    padding-bottom: 20px;
+  }
+
+  .reservation-button {
+    width: 100%;
+  }
+}
