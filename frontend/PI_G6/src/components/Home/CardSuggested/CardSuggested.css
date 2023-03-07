@@ -1,5 +1,6 @@
 .suggested-main-container {
-    position: relative;
+    position: absolute;
+    top: 589px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -143,6 +144,7 @@
     /* For mobile: */
     .suggested-main-container {
         padding: 0;
+        top: 720px;
         background-color: #191B1D;
         padding: 20px 0px;
     }
