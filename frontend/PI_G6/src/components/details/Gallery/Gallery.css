@@ -50,3 +50,40 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.slider-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(25, 27, 29, 0.95);
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider {
+  width: 100%;
+}
+
+.hidden-slideshow {
+  display: none;
+}
+
+.fade-in-slider {
+  animation-name: fade-in-slider;
+  animation-duration: 0.5s;
+}
+
+@keyframes fade-in-slider {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
