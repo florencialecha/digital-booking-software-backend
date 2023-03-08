@@ -48,15 +48,14 @@ public class ProductController {
         return ResponseEntity.status(200).body(result);
     }
 
-    @GetMapping("/byCategory/{categoryName}")
-    public ResponseEntity<List<Product>> findByCategory(@PathVariable String categoryName) throws ResourceNotFoundException {
-        List<Product> result = productService.findByCategory(categoryName);
+    @GetMapping("/byCategory/{categoryId}")
+    public ResponseEntity<List<Product>> findByCategory(@PathVariable Long categoryId) throws ResourceNotFoundException {
+        List<Product> result = productService.findByCategory(categoryId);
         if (result.isEmpty()) {
             throw new ResourceNotFoundException("Can't find a products on this category.");
         }
         return ResponseEntity.status(200).body(result);
     }
-
 
     @PostMapping
     public void create(@RequestBody Product product) throws BadRequestException {
