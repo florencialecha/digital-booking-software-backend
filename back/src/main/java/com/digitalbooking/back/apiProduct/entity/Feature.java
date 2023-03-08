@@ -9,7 +9,7 @@ import lombok.Setter;
 import javax.swing.*;
 
 @Entity
-@Table(name = "SPECIFICATION")
+@Table(name = "FEATURE")
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,7 +20,7 @@ public class Feature {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "SPECIFICATION_ID")
+    @Column(name = "FEATURE_ID")
     private Long id;
 
     @Column(name = "NAME")
