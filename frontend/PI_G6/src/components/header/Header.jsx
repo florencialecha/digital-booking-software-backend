@@ -81,7 +81,7 @@ const Header = () => {
                 icon={faXmark}
               ></FontAwesomeIcon>
             </div>
-            <div>
+            <div className="profile-info-web">
               <p className="profileAvatar">
                 {user.name.slice(0, 1)}
                 {user.lastName.slice(0, 1)}

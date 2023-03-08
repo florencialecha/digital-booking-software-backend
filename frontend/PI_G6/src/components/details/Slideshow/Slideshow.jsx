@@ -16,6 +16,7 @@ const Slideshow = ({ images, handleOpenSlideshow }) => {
     <div className="slider">
       <Swiper
         autoplay={{ delay: 3000 }}
+        loop={true}
         spaceBetween={10}
         navigation={true}
         modules={[Navigation, Thumbs, EffectFade, Pagination, Autoplay]}
