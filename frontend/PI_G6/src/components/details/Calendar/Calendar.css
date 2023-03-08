@@ -144,6 +144,16 @@
 
 .reservation-button:hover {
   cursor: pointer;
+  background-color: #e78c73;
+}
+
+.change-month-button:hover {
+  background-color: #e78c73;
+}
+
+.change-month-button:active {
+  box-shadow: 0 5px #82818163;
+  transform: translateY(2px);
 }
 
 .fade-in {
@@ -173,9 +183,16 @@
   }
 }
 
+.today {
+  border-bottom: #f0572d solid 2px;
+}
+
 @media only screen and (max-width: 768px) {
   .calendar-layout {
     flex-direction: column;
+  }
+  .change-month-button:hover {
+    background-color: white;
   }
 
   .calendar-details {

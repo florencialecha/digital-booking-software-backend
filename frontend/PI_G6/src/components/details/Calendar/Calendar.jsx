@@ -43,7 +43,6 @@ const Calendar = () => {
     new Date("2023-04-26"),
   ];
 
-  console.log(dates);
   const unavailableDates = (i, month, year) => {
     if (
       dates.find(
@@ -151,6 +150,17 @@ const Calendar = () => {
     } else return "";
   };
 
+  const getToday = (day, month, year) => {
+    if (
+      day + 1 === currentDate.getDate() &&
+      month === currentDate.getMonth() + 1 &&
+      year === currentDate.getYear() + 1900
+    ) {
+      return "today";
+    }
+    ("");
+  };
+
   return (
     <div className="calendar-layout">
       <div className="calendar-details">
@@ -186,7 +196,7 @@ const Calendar = () => {
                 currentYear
               )} day-of-month ${pastDates(i + 1, currentMonth)} ${
                 changeMonth ? "fade-in" : "fade-out"
-              }`}
+              } ${getToday(i, currentMonth, currentYear)}`}
               onClick={() => handleSelectDates(i, currentYear, currentMonth)}
               key={i}
             >
@@ -228,7 +238,7 @@ const Calendar = () => {
                   currentYear
                 )} day-of-month ${pastDates(i + 1, nextMonth)} ${
                   changeMonth ? "fade-in" : "fade-out"
-                }`}
+                } ${getToday(i, nextMonth, currentYear)}`}
                 onClick={() => handleSelectDates(i, currentYear, nextMonth)}
                 key={i}
               >
