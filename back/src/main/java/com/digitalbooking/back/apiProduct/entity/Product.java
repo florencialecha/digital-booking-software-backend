@@ -53,4 +53,13 @@ public class Product {
     @OneToOne
     private Policy policy;
 
+    @Column(name = "STARS")
+    private String stars;
+
+    @Column(name = "SCORING")
+    private String scoring;
+
+    @Column(name = "REVIEW")
+    private String review;
+
 }
