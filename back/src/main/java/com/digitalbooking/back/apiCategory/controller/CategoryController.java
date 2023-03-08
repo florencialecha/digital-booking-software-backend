@@ -33,9 +33,9 @@ public class CategoryController {
         return ResponseEntity.status(200).body(category);
     }
 
-    @GetMapping("title/{title}")
-    public ResponseEntity<Optional<List<Category>>> findByTitle(@PathVariable String title) throws ResourceNotFoundException {
-        Optional<List<Category>> result = categoryService.findByTitle(title);
+    @GetMapping("byName/{categoryName}")
+    public ResponseEntity<Optional<List<Category>>> findByTitle(@PathVariable String categoryName) throws ResourceNotFoundException {
+        Optional<List<Category>> result = categoryService.findByTitle(categoryName);
         if (result.isEmpty()) {
             throw new ResourceNotFoundException("Can't find a category who does not exist in the database.");
         }

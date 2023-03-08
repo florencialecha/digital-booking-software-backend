@@ -1,33 +1,32 @@
 package com.digitalbooking.back.apiProduct.entity;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.swing.*;
+
 @Entity
-@Table(name = "IMAGE")
+@Table(name = "SPECIFICATION")
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 
-public class Image {
+public class Feature {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IMAGE_ID")
+    @Column(name = "SPECIFICATION_ID")
     private Long id;
 
-    @Column(name = "TITLE")
+    @Column(name = "NAME")
     private String title;
 
-    @Column(name = "IMAGEURL")
-    private String imageUrl;
-
-    @ManyToOne
-    @JoinColumn(name = "PRODUCT_ID")
-    private Product product;
+    @Column(name = "ICON")
+    private String Icon;
 
 }

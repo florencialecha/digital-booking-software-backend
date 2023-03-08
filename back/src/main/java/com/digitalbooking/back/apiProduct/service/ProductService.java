@@ -26,6 +26,10 @@ public class ProductService {
         return productRepository.findByAddressCityName(cityName);
     }
 
+    public List<Product> findByCategory(String categoryName) {
+        return productRepository.findByCategoryTitle(categoryName);
+    }
+
     public void create(Product product) {
         productRepository.save(product);
     }
