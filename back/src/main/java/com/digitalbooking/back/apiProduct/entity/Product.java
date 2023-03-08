@@ -54,10 +54,10 @@ public class Product {
     private Policy policy;
 
     @Column(name = "STARS")
-    private String stars;
+    private Integer stars;
 
     @Column(name = "SCORING")
-    private String scoring;
+    private Integer scoring;
 
     @Column(name = "REVIEW")
     private String review;
