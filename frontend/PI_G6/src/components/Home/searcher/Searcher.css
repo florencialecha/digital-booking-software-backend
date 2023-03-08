@@ -12,7 +12,8 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    height: 139px;
+    top: 80px;
+    min-height: 139px;
     width: 100vw;
     background-color: #191B1D;
     padding: 15px;
@@ -136,7 +137,7 @@ a {
 }
 
 #options {
-    height: 400px;
+    max-height: 400px;
     width: 100%;
     overflow: auto;
     display: none;
@@ -190,7 +191,7 @@ a {
 
     #options {
         width: 75vw;
-        height: 250px;
+        max-height: 250px;
         position: absolute;
         top: 250px;
     }
@@ -205,12 +206,13 @@ a {
         z-index: 0;
         height: 300px;
         display: flex;
+        justify-content: center;
         flex-direction: column;
     }
     
     .searcher section {
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
         height: 60%;
     }
@@ -239,7 +241,7 @@ a {
 
     #options {
         width: 75vw;
-        height: 250px;
+        max-height: 250px;
         position: absolute;
         top: 170px;
     }
