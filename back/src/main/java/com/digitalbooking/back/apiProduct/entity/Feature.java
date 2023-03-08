@@ -26,7 +26,4 @@ public class Feature {
     @Column(name = "NAME")
     private String title;
 
-    @Column(name = "ICON")
-    private String Icon;
-
 }
