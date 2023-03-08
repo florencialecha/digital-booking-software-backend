@@ -66,7 +66,7 @@ public class ProductController {
         List<Product> randomProducts = allProducts.subList(0, 8);
         return ResponseEntity.status(200).body(randomProducts);
     }
-    
+
     @PostMapping
     public void create(@RequestBody Product product) throws BadRequestException {
         productService.create(product);

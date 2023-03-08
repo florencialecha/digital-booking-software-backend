@@ -31,6 +31,9 @@ public class Category {
     @Column(name = "DESCRIPTION")
     private String description;
 
+    @Column(name = "QUANTITY")
+    private String quantity;
+
     @Column(name = "IMAGE_URL")
     private String imageUrl;
 
