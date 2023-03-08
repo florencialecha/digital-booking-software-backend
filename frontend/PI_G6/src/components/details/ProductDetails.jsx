@@ -95,9 +95,9 @@ const ProductDetails = () => {
           </p>
           <Map address={data.address} />
         </div>
-        <div>
+        <div className="details-policies">
           <h2> ¿Qué tenés que saber?</h2>
-
+          <hr className="details-line" />
           <Policies policies={data.policies} />
         </div>
       </div>

@@ -30,7 +30,6 @@ const Features = ({ specs }) => {
       <div className="features-body">
         {specs.map((item) => {
           let iconos = icon.find((i) => i.title.toLowerCase() === item.title);
-          console.log(iconos);
           return (
             <div key={item.title} className="feature-icons">
               <FontAwesomeIcon

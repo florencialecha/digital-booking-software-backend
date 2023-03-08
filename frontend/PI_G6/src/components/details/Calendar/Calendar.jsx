@@ -43,7 +43,6 @@ const Calendar = () => {
     new Date("2023-04-26"),
   ];
 
-  console.log(dates);
   const unavailableDates = (i, month, year) => {
     if (
       dates.find(

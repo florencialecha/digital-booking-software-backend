@@ -9,7 +9,6 @@ const Gallery = ({ pictures }) => {
     setOpenSlideshow(!openSlideshow);
   };
 
-  console.log(pictures);
   return (
     <div>
       <div>

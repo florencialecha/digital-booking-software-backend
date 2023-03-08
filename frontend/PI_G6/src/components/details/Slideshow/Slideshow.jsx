@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Slideshow.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Thumbs, EffectFade, Pagination } from "swiper";
+import { Navigation, Thumbs, EffectFade, Pagination, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
@@ -15,10 +15,10 @@ const Slideshow = ({ images, handleOpenSlideshow }) => {
   return (
     <div className="slider">
       <Swiper
-        loop={true}
+        autoplay={{ delay: 3000 }}
         spaceBetween={10}
         navigation={true}
-        modules={[Navigation, Thumbs, EffectFade, Pagination]}
+        modules={[Navigation, Thumbs, EffectFade, Pagination, Autoplay]}
         pagination={{ el: ".swiper-pagination", type: "fraction" }}
         effect={"fade"}
         speed={500}
@@ -29,7 +29,7 @@ const Slideshow = ({ images, handleOpenSlideshow }) => {
         }}
       >
         {images.map((item, i) => (
-          <SwiperSlide>
+          <SwiperSlide key={i}>
             <img src={item.imageUrl} />
           </SwiperSlide>
         ))}
@@ -49,7 +49,7 @@ const Slideshow = ({ images, handleOpenSlideshow }) => {
           className="slider-img-thumbs"
         >
           {images.map((item, i) => (
-            <SwiperSlide>
+            <SwiperSlide key={i}>
               <div className="thumbs-wrapper">
                 <img src={item.imageUrl} />
               </div>
