@@ -38,7 +38,7 @@ public class ProductController {
         return ResponseEntity.status(200).body(product);
     }
 
-    @GetMapping("/city/{cityName}")
+    @GetMapping("/byCity/{cityName}")
     public ResponseEntity<List<Product>> findByCity(@PathVariable String cityName) throws ResourceNotFoundException {
         List<Product> result = productService.findByCity(cityName);
         if (result.isEmpty()) {
@@ -46,6 +46,16 @@ public class ProductController {
         }
         return ResponseEntity.status(200).body(result);
     }
+
+    @GetMapping("/byCategory/{categoryName}")
+    public ResponseEntity<List<Product>> findByCategory(@PathVariable String categoryName) throws ResourceNotFoundException {
+        List<Product> result = productService.findByCategory(categoryName);
+        if (result.isEmpty()) {
+            throw new ResourceNotFoundException("Can't find a products on this category.");
+        }
+        return ResponseEntity.status(200).body(result);
+    }
+
 
     @PostMapping
     public void create(@RequestBody Product product) throws BadRequestException {
