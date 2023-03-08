@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -58,6 +59,14 @@ public class ProductController {
         return ResponseEntity.status(200).body(result);
     }
 
+    @GetMapping("/random")
+    public ResponseEntity<List<Product>> getRandomProducts() {
+        List<Product> allProducts = productService.findAll();
+        Collections.shuffle(allProducts);
+        List<Product> randomProducts = allProducts.subList(0, 8);
+        return ResponseEntity.status(200).body(randomProducts);
+    }
+    
     @PostMapping
     public void create(@RequestBody Product product) throws BadRequestException {
         productService.create(product);
