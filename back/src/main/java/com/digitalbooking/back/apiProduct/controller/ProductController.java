@@ -15,6 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/product")
+@CrossOrigin("*")
 
 @AllArgsConstructor
 @NoArgsConstructor
