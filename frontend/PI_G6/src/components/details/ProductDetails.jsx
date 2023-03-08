@@ -78,7 +78,7 @@ const ProductDetails = () => {
           <Description data={data} />
         </div>
         <h2>¿Qué ofrece este lugar?</h2>
-        <hr />
+        <hr className="details-line" />
         <div className="details-char">
           <Features specs={data.specifications} />
         </div>
@@ -89,15 +89,15 @@ const ProductDetails = () => {
         <div className="details-map">
           <h2>¿Dónde vas a estar?</h2>
 
-          <hr />
+          <hr className="details-line" />
           <p>
             {data.address.town}, {data.address.country}
           </p>
           <Map address={data.address} />
         </div>
-        <div>
+        <div className="details-policies">
           <h2> ¿Qué tenés que saber?</h2>
-
+          <hr className="details-line" />
           <Policies policies={data.policies} />
         </div>
       </div>
