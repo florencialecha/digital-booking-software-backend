@@ -13,7 +13,6 @@ const Searcher = () => {
 
   const handleSelectCity = () => {
     dispatch({ type: 'city', payload: selected.split(',')[0] })
-    dispatch({ type: 'data', payload: '-1' })
     console.log(selected.split(',')[0])
   }
 

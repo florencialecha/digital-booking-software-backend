@@ -60,7 +60,7 @@ const CardSuggested = (suggest) => {
               <Features specs={suggest.featureList}/>
             </div>
           <div id="card-description">
-            {suggest.description.length > 30
+            {suggest.description?.length > 30
               ? (
               <p>
                 {suggest.description.substring(0, 30)}
