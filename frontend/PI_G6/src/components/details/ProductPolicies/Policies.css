@@ -2,16 +2,44 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 50px 50px;
+  font-weight: bold;
+  font-size: 16px;
+  grid-gap: 25px;
 }
 
 .detail-policies h3 {
   padding-bottom: 25px;
+  font-size: 22px;
+}
+
+.detail-rules {
+  display: flex;
+  flex-direction: column;
+}
+
+.rules-body {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.security-body {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cancellation-body {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 @media only screen and (max-width: 768px) {
   .detail-policies {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
+    padding: 50px 50px 0;
   }
 }
 

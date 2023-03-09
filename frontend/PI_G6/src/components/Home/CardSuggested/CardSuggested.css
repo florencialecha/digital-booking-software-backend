@@ -1,10 +1,10 @@
 .suggested-main-container {
-    position: relative;
-    top: 139px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 30px 25px 239px 15px;
+  position: relative;
+  top: 139px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 30px 25px 239px 15px;
 }
 
 .suggested-main-container > p {
@@ -40,7 +40,7 @@
 }
 
 .full-true > p {
-    color: rgb(240, 87, 45);
+  color: rgb(240, 87, 45);
 }
 
 .card-container section {
@@ -55,11 +55,11 @@
 }
 
 .card-information {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 50%;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  padding: 10px;
 }
 
 .card-title {
@@ -68,8 +68,8 @@
 }
 
 #suggest-name {
-    font-size: 20px;
-    font-weight: bold;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .valoration {
@@ -82,7 +82,7 @@
 }
 
 .valoration > p {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .valoration > p:first-child {
@@ -131,18 +131,9 @@
   margin: 2px;
 }
 
-.card-location > a > p  {
-    color: rgb(240, 87, 45);
-    font-size: 12px;
-}
-
-.features-body {
-    padding: 0;
-    grid-template-columns: repeat(8, minmax(0, 1fr));
-}
-
-.feature-icons > span {
-    display: none;
+.card-location > a > p {
+  color: rgb(240, 87, 45);
+  font-size: 12px;
 }
 
 .service-icons > * {
