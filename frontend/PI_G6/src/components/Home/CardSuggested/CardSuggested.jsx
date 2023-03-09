@@ -33,7 +33,7 @@ const CardSuggested = (suggest) => {
         onClick={handleToggle}
       />
       <section>
-        <img src={suggest.imageList[0].imageUrl} />
+        <img src={suggest.imageList[0]?.imageUrl} />
         <div className="card-information">
           <div className="card-title">
             <article>

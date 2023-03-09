@@ -10,20 +10,19 @@ const Suggested = () => {
   useEffect(() => {
     if (state.data === 0 && !state.city) {
       axios
-        // endopint de los 8 randoms
         .get('http://3.131.138.206:8080/product/random')
         .then((res) => dispatch({ type: 'bd', payload: res.data }))
         .catch((error) => console.log(error))
-    } else if (state.data !== 0 && state.city) {
+    } else if (state.data > 0) {
       axios
         .get(`http://3.131.138.206:8080/product/byCategory/${state.data}`)
         .then((res) => dispatch({ type: 'bd', payload: res.data }))
         .catch((error) => console.log(error))
-    } else if (state.city) {
+    } else {
       axios
         .get(`http://3.131.138.206:8080/product/byCity/${state.city}`)
         .then((res) => dispatch({ type: 'bd', payload: res.data }))
-        .catch((error) => console.log(error))
+        .catch((res) => dispatch({ type: 'data', payload: 0 }))
     }
   }, [state.data, state.city])
 
