@@ -1,0 +1,26 @@
+// lo que llega del back
+
+[
+    {
+        "id": 1,
+        "titulo": "wifi"
+
+    },
+    {
+        "id": 2,
+        "titulo": "cochera"
+    },
+    {
+        "id": 3,
+        "titulo": "estufa"
+    }
+]
+
+//de cara al front (verlo con includes)
+
+iconList= [
+    {
+        "titulo": "wifi",
+        "iconName": "fawifi"
+    }
+]

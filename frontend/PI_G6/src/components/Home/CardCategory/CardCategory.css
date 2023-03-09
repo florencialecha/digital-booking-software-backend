@@ -1,5 +1,6 @@
 .carousel {
   position: relative;
+  top: 80px;
   padding: 5px 20px;
   z-index: 1;
   background-color: #FFFFFF;
@@ -67,6 +68,8 @@
   /* For mobile: */
   .carousel {
     margin: 0px 0px 10px;
+    position: relative;
+    top: 50px;
   }
   
   .slider-item img{

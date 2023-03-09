@@ -1,6 +1,6 @@
 nav {
   display: flex;
-  position: relative;
+  position: fixed;
   width: 100%;
   justify-content: space-between;
   padding: 10px 30px;
@@ -64,10 +64,11 @@ nav a:visited {
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
-  width: 206px;
+  width: 230px;
   gap: 0;
   align-self: center;
 }
+
 .profileInfo div {
   display: flex;
   align-items: center;
@@ -79,6 +80,7 @@ nav a:visited {
   font-weight: 500;
   font-size: 16px;
   padding-right: 20px;
+  width: 70%;
 }
 
 .profileName span {
@@ -98,7 +100,13 @@ nav a:visited {
   font-weight: 700;
   font-style: normal;
   font-size: 16px;
-  align-self: flex-end;
+  align-self: center;
+}
+
+.profile-info-web {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
 .logout {
@@ -108,6 +116,10 @@ nav a:visited {
   font-weight: 700;
   font-size: 22px;
   color: #31363f;
+}
+
+.logout:hover {
+  cursor: pointer;
 }
 
 button.hidden {
@@ -158,7 +170,7 @@ nav .socials {
 }
 
 @media only screen and (max-width: 600px) {
-  .navMenu {
+  .navMenuMobile {
     position: fixed;
     display: flex;
     inset: 0 0 0 30%;
@@ -171,7 +183,11 @@ nav .socials {
     flex-direction: column;
   }
 
-  .navMenu button {
+  .navMenu {
+    display: none;
+  }
+
+  .navMenuMobile button {
     width: 206px;
     height: 40px;
     border: none;
@@ -229,6 +245,7 @@ nav .socials {
     bottom: 100px;
     color: #191b1d;
     font-style: normal;
+    font-size: 18px;
   }
 
   p.logoutMobile {
@@ -236,9 +253,7 @@ nav .socials {
     padding-right: 20px;
     font-weight: 500;
   }
-  .logoutMobile a span {
-    color: #f0572d;
-  }
+
   .formButtons {
     display: flex;
     flex-direction: column;
@@ -278,6 +293,10 @@ nav .socials {
     font-size: 16px;
   }
 
+  .profileName {
+    align-self: flex-end;
+  }
+
   .hide a {
     display: none;
   }
@@ -301,5 +320,17 @@ nav .socials {
     border-top: solid #31363f 1px;
     position: absolute;
     bottom: 90px;
+  }
+
+  .logout svg {
+    display: none;
+  }
+
+  .closeMenu > svg > * {
+    color: #ffffff;
+  }
+
+  .logoutMobile span {
+    color: #f0572d;
   }
 }
