@@ -10,10 +10,11 @@ const Suggested = () => {
   useEffect(() => {
     if (state.data === 0 && !state.city) {
       axios
-        .get("http://3.131.138.206:8080/product")
-        .then((res) => dispatch({ type: "bd", payload: res.data }))
-        .catch((error) => console.log(error));
-    } else if (state.data !== 0 && !state.city) {
+      // endopint de los 8 randoms
+        .get('http://3.131.138.206:8080/product/random')
+        .then((res) => dispatch({ type: 'bd', payload: res.data }))
+        .catch((error) => console.log(error))
+    } else {
       axios
 
         .get(`http://3.131.138.206:8080/product/byCategory/${state.data}`)
