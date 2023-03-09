@@ -57,7 +57,12 @@ const CardSuggested = (suggest) => {
             <Features specs={suggest.featureList} />
           </div>
           <div id="card-description">
+<<<<<<< HEAD
             {suggest.description?.length > 30 ? (
+=======
+            {suggest.description?.length > 30
+              ? (
+>>>>>>> 9ec609bb80afc481ff91c8ee0fbdc7c487d1bf2d
               <p>
                 {suggest.description.substring(0, 30)}
                 <a className="moreText" href="#">

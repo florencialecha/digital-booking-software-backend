@@ -22,7 +22,7 @@ const Suggested = () => {
       axios
         .get(`http://3.131.138.206:8080/product/byCity/${state.city}`)
         .then((res) => dispatch({ type: "bd", payload: res.data }))
-        .catch((error) => console.log(error));
+        .catch((res) => dispatch({ type: "data", payload: 0 }));
     }
   }, [state.data, state.city]);
 
