@@ -10,7 +10,7 @@ const ProductHeader = ({ generalInfo }) => {
     <div className="details-product-header">
       <div className="details-product-general-info">
         <div>
-          <p>{generalInfo.Category.toUpperCase()}</p>
+          <p>{generalInfo.category.title.toUpperCase()}</p>
           <p className="details-place-name">{generalInfo.title}</p>
         </div>
 
