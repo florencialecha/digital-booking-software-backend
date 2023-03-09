@@ -1,9 +1,10 @@
 .suggested-main-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin: 50px 30px 80px 30px;
+    position: relative;
+    top: 139px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 30px 25px 239px 15px;
 }
 
 .suggested-main-container > p {
@@ -38,8 +39,8 @@
   padding: 0;
 }
 
-.full-true > path {
-  color: rgb(240, 87, 45);
+.full-true > p {
+    color: rgb(240, 87, 45);
 }
 
 .card-container section {
@@ -54,11 +55,11 @@
 }
 
 .card-information {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 50%;
-  margin: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    padding: 10px;
 }
 
 .card-title {
@@ -67,8 +68,8 @@
 }
 
 #suggest-name {
-  font-size: 24px;
-  font-weight: bold;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .valoration {
@@ -81,7 +82,7 @@
 }
 
 .valoration > p {
-  font-size: 18px;
+    font-size: 16px;
 }
 
 .valoration > p:first-child {
@@ -130,8 +131,9 @@
   margin: 2px;
 }
 
-.card-location > a > p {
-  color: rgb(240, 87, 45);
+.card-location > a > p  {
+    color: rgb(240, 87, 45);
+    font-size: 12px;
 }
 
 .service-icons > * {

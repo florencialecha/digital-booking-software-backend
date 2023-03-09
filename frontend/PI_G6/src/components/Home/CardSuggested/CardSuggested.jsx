@@ -59,7 +59,7 @@ const CardSuggested = (suggest) => {
             <div className="service-icons">
               <Features specs={suggest.featureList}/>
             </div>
-          <div id="card-descridivtion">
+          <div id="card-description">
             {suggest.description.length > 30
               ? (
               <p>

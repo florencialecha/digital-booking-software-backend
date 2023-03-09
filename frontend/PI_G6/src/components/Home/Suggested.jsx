@@ -11,7 +11,7 @@ const Suggested = () => {
     if (state.data === 0) {
       axios
       // endopint de los 8 randoms
-        .get('http://3.131.138.206:8080/product')
+        .get('http://3.131.138.206:8080/product/random')
         .then((res) => dispatch({ type: 'bd', payload: res.data }))
         .catch((error) => console.log(error))
     } else {
