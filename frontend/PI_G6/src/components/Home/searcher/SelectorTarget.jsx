@@ -2,7 +2,6 @@ import { React, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import './Searcher.css'
-import data from '../../../temp/citiList.json'
 
 const selectorTarget = () => {
   const [isActive, setIsActive] = useState(true)
@@ -19,7 +18,7 @@ const selectorTarget = () => {
           <FontAwesomeIcon icon={faLocationDot} />
           <input className="select-content" value={search} onClick={() => setSearch('')} onChange={inputToSearch} placeholder='A donde vamos'></input>
         </div>
-        <div id='options' className={isActive ? 'inactive' : 'active'}>
+        {/* <div id='options' className={isActive ? 'inactive' : 'active'}>
           {data.map((countrys) => {
             return (
               <div key={countrys.id} >{
@@ -46,7 +45,7 @@ const selectorTarget = () => {
               }</div>
             )
           })}
-        </div>
+        </div> */}
       </div>
     </form>
   )

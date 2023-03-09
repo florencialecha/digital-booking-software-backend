@@ -47,7 +47,6 @@ const CardSuggested = (suggest) => {
               <p>{suggest.review}</p>
             </div>
           </div>
-          <div>
             <div className="card-location" id="card-location">
               <div>
                 <FontAwesomeIcon icon={faLocationDot} />
@@ -60,7 +59,6 @@ const CardSuggested = (suggest) => {
             <div className="service-icons">
               <Features specs={suggest.featureList}/>
             </div>
-          </div>
           <div id="card-descridivtion">
             {suggest.description.length > 30
               ? (

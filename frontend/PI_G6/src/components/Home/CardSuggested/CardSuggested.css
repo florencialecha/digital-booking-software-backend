@@ -1,10 +1,9 @@
 .suggested-main-container {
-    position: absolute;
-    top: 589px;
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin: 30px 30px 80px 30px;
+    margin: 50px 30px 80px 30px;
 }
 
 .suggested-main-container > p {
@@ -35,6 +34,10 @@
     top: 5%;
 }
 
+.features {
+    padding: 0;
+}
+
 .full-true > path {
     color: rgb(240, 87, 45);
 }
@@ -55,13 +58,12 @@
     flex-direction: column;
     justify-content: space-between;
     width: 50%;
-    padding: 15px;
+    margin: 15px;
 }
 
 .card-title {
     display: flex;
     justify-content: space-between;
-    max-width: 100%;
 }
 
 #suggest-name {
@@ -134,6 +136,7 @@
 
 .service-icons > * {
     margin: 5px;
+    max-height: 15px;
 }
 
 .moreText {
@@ -143,10 +146,9 @@
 @media (max-width: 600px) {
     /* For mobile: */
     .suggested-main-container {
-        padding: 0;
-        top: 720px;
         background-color: #191B1D;
-        padding: 20px 0px;
+        border-radius: 20px;
+        padding: 20px 10px;
     }
 
     .recomendation {
@@ -172,7 +174,7 @@
     }
 
     .card-information {
-        width: 100%;
+        width: 90%;
         height: 50%;
     }
 
