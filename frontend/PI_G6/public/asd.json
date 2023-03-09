@@ -1,0 +1,242 @@
+[
+    {
+      "id": 0,
+      "title": "product 1",
+      "category": {
+        "id": 0,
+        "title": "category p1",
+        "description": "description p1",
+        "imageUrl": "https://images.unsplash.com/photo-1521783988139-89397d761dce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80",
+        "productList": [
+          "string"
+        ]
+      },
+      "address": {
+        "id": 0,
+        "street": "string",
+        "number": "string",
+        "city": {
+          "id": 0,
+          "name": "string",
+          "state": {
+            "id": 0,
+            "name": "string",
+            "country": {
+              "id": 0,
+              "name": "string",
+              "states": [
+                "string"
+              ]
+            },
+            "cities": [
+              "string"
+            ]
+          }
+        }
+      },
+      "imageList": [
+        {
+          "id": 0,
+          "title": "string",
+          "imageUrl": "string",
+          "product": "string"
+        }
+      ],
+      "description": "string",
+      "featureList": [
+        {
+          "id": 0,
+          "title": "string",
+          "icon": "string"
+        }
+      ],
+      "availability": "string",
+      "policy": {
+        "id": 0,
+        "rulesDescription": "string",
+        "securityDescription": "string",
+        "cancellationDescription": "string",
+        "product": "string"
+      }
+    },
+    {
+        "id": 0,
+        "title": "string",
+        "category": {
+          "id": 0,
+          "title": "string",
+          "description": "string",
+          "imageUrl": "string",
+          "productList": [
+            "string"
+          ]
+        },
+        "address": {
+          "id": 0,
+          "street": "string",
+          "number": "string",
+          "city": {
+            "id": 0,
+            "name": "string",
+            "state": {
+              "id": 0,
+              "name": "string",
+              "country": {
+                "id": 0,
+                "name": "string",
+                "states": [
+                  "string"
+                ]
+              },
+              "cities": [
+                "string"
+              ]
+            }
+          }
+        },
+        "imageList": [
+          {
+            "id": 0,
+            "title": "string",
+            "imageUrl": "string",
+            "product": "string"
+          }
+        ],
+        "description": "string",
+        "featureList": [
+          {
+            "id": 0,
+            "title": "string",
+            "icon": "string"
+          }
+        ],
+        "availability": "string",
+        "policy": {
+          "id": 0,
+          "rulesDescription": "string",
+          "securityDescription": "string",
+          "cancellationDescription": "string",
+          "product": "string"
+        }
+      },
+      {
+        "id": 0,
+        "title": "string",
+        "category": {
+          "id": 0,
+          "title": "string",
+          "description": "string",
+          "imageUrl": "string",
+          "productList": [
+            "string"
+          ]
+        },
+        "address": {
+          "id": 0,
+          "street": "string",
+          "number": "string",
+          "city": {
+            "id": 0,
+            "name": "string",
+            "state": {
+              "id": 0,
+              "name": "string",
+              "country": {
+                "id": 0,
+                "name": "string",
+                "states": [
+                  "string"
+                ]
+              },
+              "cities": [
+                "string"
+              ]
+            }
+          }
+        },
+        "imageList": [
+          {
+            "id": 0,
+            "title": "string",
+            "imageUrl": "string",
+            "product": "string"
+          }
+        ],
+        "description": "string",
+        "featureList": [
+          {
+            "id": 0,
+            "title": "string",
+            "icon": "string"
+          }
+        ],
+        "availability": "string",
+        "policy": {
+          "id": 0,
+          "rulesDescription": "string",
+          "securityDescription": "string",
+          "cancellationDescription": "string",
+          "product": "string"
+        }
+      },
+      {
+        "id": 0,
+        "title": "string",
+        "category": {
+          "id": 0,
+          "title": "string",
+          "description": "string",
+          "imageUrl": "string",
+          "productList": [
+            "string"
+          ]
+        },
+        "address": {
+          "id": 0,
+          "street": "string",
+          "number": "string",
+          "city": {
+            "id": 0,
+            "name": "string",
+            "state": {
+              "id": 0,
+              "name": "string",
+              "country": {
+                "id": 0,
+                "name": "string",
+                "states": [
+                  "string"
+                ]
+              },
+              "cities": [
+                "string"
+              ]
+            }
+          }
+        },
+        "imageList": [
+          {
+            "id": 0,
+            "title": "string",
+            "imageUrl": "string",
+            "product": "string"
+          }
+        ],
+        "description": "string",
+        "featureList": [
+          {
+            "id": 0,
+            "title": "string",
+            "icon": "string"
+          }
+        ],
+        "availability": "string",
+        "policy": {
+          "id": 0,
+          "rulesDescription": "string",
+          "securityDescription": "string",
+          "cancellationDescription": "string",
+          "product": "string"
+        }
+      }
+]

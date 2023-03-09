@@ -18,11 +18,9 @@
 }
 
 .registerForm {
-  flex-direction: column;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+  top: 80px;
+  min-height: calc(100vh - 80px - 58px);
 }
 
 .loginForm {
@@ -128,7 +126,6 @@ form a:visited {
 a {
   text-decoration: none;
 }
-
 
 #showPass {
   position: relative;

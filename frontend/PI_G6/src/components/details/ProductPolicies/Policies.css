@@ -1,0 +1,23 @@
+.detail-policies {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 50px 50px;
+}
+
+.detail-policies h3 {
+  padding-bottom: 25px;
+}
+
+@media only screen and (max-width: 768px) {
+  .detail-policies {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .detail-policies {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+}

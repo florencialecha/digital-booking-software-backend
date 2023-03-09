@@ -1,0 +1,157 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.details-container {
+  min-height: calc(100vh - 80px - 58px);
+  margin-bottom: 58px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+}
+
+.details-container h2 {
+  padding: 25px 50px;
+  margin: 0;
+}
+
+.details-available-dates h2 {
+  padding: 0 0 25px;
+}
+
+.details-policies h2 {
+  padding-top: 30px;
+}
+
+.details-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.details-gallery {
+  width: 100%;
+}
+
+.details-header {
+  width: 100%;
+}
+
+.details-location-scoring-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 50px;
+  background-color: #dfe4ea;
+}
+
+.details-location {
+  display: flex;
+  gap: 10px;
+  width: 50%;
+}
+
+.details-location-info {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.details-scoring {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.details-score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #31363f;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.details-score p {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.details-review {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.details-available-dates {
+  background-color: #dfe4ea;
+  padding: 30px 50px;
+}
+
+.details-map p {
+  font-weight: bold;
+  padding: 25px 50px;
+}
+
+.details-share {
+  padding: 15px 50px 0;
+  display: flex;
+  gap: 15px;
+}
+
+.details-line {
+  border: 0.7px solid #f0572d;
+}
+
+@media only screen and (max-width: 768px) {
+  .details-location-scoring-info {
+    padding: 15px 20px;
+  }
+
+  .details-container h2 {
+    padding: 25px 25px;
+  }
+
+  .details-available-dates {
+    padding: 25px 25px;
+  }
+
+  .details-available-dates h2 {
+    padding: 0px 5px 25px;
+  }
+  .details-share {
+    padding: 15px 25px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .details-share {
+    position: absolute;
+    z-index: 2;
+    padding: 15px 15px;
+  }
+
+  .details-map p {
+    padding: 25px 15px;
+  }
+  .details-container h2 {
+    padding: 25px 15px;
+  }
+  .details-available-dates h2 {
+    padding: 0 0 25px;
+  }
+
+  .details-distance {
+    display: none;
+  }
+}

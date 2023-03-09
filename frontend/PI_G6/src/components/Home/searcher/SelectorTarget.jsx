@@ -1,46 +1,80 @@
-import { React, useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
-import './Searcher.css'
-import data from '../../../temp/citiList.json'
+import { React, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import "./Searcher.css";
+import data from "../../../temp/citiState.json";
 
-const selectorTarget = () => {
-  const [isActive, setIsActive] = useState(true)
-  const [selectedCity, setSelectedCity] = useState(<p>¿A donde vamos?</p>)
+const selectorTarget = ({ setSelected }) => {
+  const [isActive, setIsActive] = useState(true);
+  const [search, setSearch] = useState("");
+
+  const inputToSearch = (e) => {
+    setSearch(e.target.value);
+  };
 
   return (
-    <form action="" className='formClass' >
-      <div className='selectbox' onClick={() => setIsActive(!isActive)}>
-        <div id='select' className='select'>
+    <form action="" className="formClass">
+      <div className="selectbox" onClick={() => setIsActive(!isActive)}>
+        <div id="select" className="select">
           <FontAwesomeIcon icon={faLocationDot} />
-          <div className="select-content">
-            {selectedCity}
-          </div>
+          <input
+            className="select-content"
+            value={search}
+            onClick={() => setSearch("")}
+            onChange={inputToSearch}
+            placeholder="A donde vamos"
+          ></input>
         </div>
-        <div id='options' className={isActive ? 'inactive' : 'active'}>
-          {data.map((cities) => {
+        <div id="options" className={isActive ? "inactive" : "active"}>
+          {data.map((countrys) => {
             return (
-              <div key={cities.cities} >{
-                cities.cities.map((city) => {
+              <div key={countrys.id}>
+                {countrys.states.map((state) => {
                   return (
-                    <a href="#" key={city} onClick={() => setSelectedCity(<p>{city}, {cities.country}</p>)}>
-                      <div className="content-option" >
-                        <FontAwesomeIcon icon={faLocationDot} />
-                        <div className='texts'>
-                          <p>{city}</p>
-                          <p>{cities.country}</p>
-                        </div>
-                      </div>
-                    </a>
-                  )
-                })
-              }</div>
-            )
+                    <div key={state.id} className="states">
+                      {state.cities
+                        .filter((city) => {
+                          if (!search) {
+                            return city;
+                          } else {
+                            city = city.name
+                              .toLowerCase()
+                              .includes(search.toLowerCase());
+                            return city;
+                          }
+                        })
+                        .map((city) => {
+                          return (
+                            <a
+                              href="#"
+                              key={city.id}
+                              onClick={() => {
+                                setSearch(`${city.name}, ${countrys.country}`);
+                                setSelected(
+                                  `${city.name}, ${countrys.country}`
+                                );
+                              }}
+                            >
+                              <div className="content-option">
+                                <FontAwesomeIcon icon={faLocationDot} />
+                                <div className="texts">
+                                  <p>{city.name}</p>
+                                  <p>{countrys.country}</p>
+                                </div>
+                              </div>
+                            </a>
+                          );
+                        })}
+                    </div>
+                  );
+                })}
+              </div>
+            );
           })}
         </div>
       </div>
     </form>
-  )
-}
+  );
+};
 
-export default selectorTarget
+export default selectorTarget;
