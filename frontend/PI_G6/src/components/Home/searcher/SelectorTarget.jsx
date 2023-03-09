@@ -4,7 +4,7 @@ import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import "./Searcher.css";
 import data from "../../../temp/citiState.json";
 
-const selectorTarget = () => {
+const selectorTarget = ({ setSelected }) => {
   const [isActive, setIsActive] = useState(true);
   const [search, setSearch] = useState("");
 
@@ -48,9 +48,12 @@ const selectorTarget = () => {
                             <a
                               href="#"
                               key={city.id}
-                              onClick={() =>
-                                setSearch(`${city.name}, ${countrys.country}`)
-                              }
+                              onClick={() => {
+                                setSearch(`${city.name}, ${countrys.country}`);
+                                setSelected(
+                                  `${city.name}, ${countrys.country}`
+                                );
+                              }}
                             >
                               <div className="content-option">
                                 <FontAwesomeIcon icon={faLocationDot} />
