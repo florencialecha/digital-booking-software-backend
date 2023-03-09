@@ -56,9 +56,7 @@ const CardSuggested = (suggest) => {
                 <p>MOSTRAR EN EL MAPA</p>
               </a>
             </div>
-            <div className="service-icons">
-              <Features specs={suggest.featureList}/>
-            </div>
+              <Features className="service-icons" specs={suggest.featureList}/>
           <div id="card-description">
             {suggest.description?.length > 30
               ? (

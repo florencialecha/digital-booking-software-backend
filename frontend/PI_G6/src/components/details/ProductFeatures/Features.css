@@ -4,14 +4,13 @@
   padding: 0;
 }
 
-.features {
+.details-char {
   padding: 25px 50px;
 }
 
 .features-body {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  padding: 25px 0px;
 }
 
 .feature-icons {
