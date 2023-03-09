@@ -1,14 +1,12 @@
-/* eslint-disable array-callback-return */
-import React, { useContext, useState } from 'react'
-import './Searcher.css'
-import SelectorTarget from './SelectorTarget'
-import DatePick from './DatePick'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCalendarDay } from '@fortawesome/free-solid-svg-icons'
-import { GlobalContext } from '../../utils/globalContext'
+import React, { useContext, useState } from "react";
+import "./Searcher.css";
+import SelectorTarget from "./SelectorTarget";
+import DatePick from "./DatePick";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendarDay } from "@fortawesome/free-solid-svg-icons";
+import { GlobalContext } from "../../utils/globalContext";
 
 const Searcher = () => {
-<<<<<<< HEAD
   const [selected, setSelected] = useState("");
   const { dispatch } = useContext(GlobalContext);
 
@@ -16,15 +14,6 @@ const Searcher = () => {
     dispatch({ type: "city", payload: selected.split(",")[0] });
     dispatch({ type: "data", payload: "-1" });
   };
-=======
-  const [selected, setSelected] = useState('')
-  const { dispatch } = useContext(GlobalContext)
-
-  const handleSelectCity = () => {
-    dispatch({ type: 'city', payload: selected.split(',')[0] })
-    console.log(selected.split(',')[0])
-  }
->>>>>>> 9ec609bb80afc481ff91c8ee0fbdc7c487d1bf2d
 
   return (
     <section className="searcher">
@@ -42,7 +31,7 @@ const Searcher = () => {
         </button>
       </section>
     </section>
-  )
-}
+  );
+};
 
-export default Searcher
+export default Searcher;
