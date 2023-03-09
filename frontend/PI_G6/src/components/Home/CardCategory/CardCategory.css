@@ -1,6 +1,6 @@
 .carousel {
   position: relative;
-  top: 80px;
+  margin-top: 20px;
   padding: 5px 20px;
   z-index: 1;
   background-color: #FFFFFF;
@@ -17,7 +17,7 @@
     display: flex;
     cursor: grab;
     scroll-snap-type: x mandatory;
-    gap: 1vw;
+    gap: 10px;
   }  
 
 .carousel::-webkit-scrollbar {
@@ -38,7 +38,7 @@
 
 .slider-item:hover {
   transition: .3s;
-  transform: scale(1.07);
+  transform: scale(1.02);
 }
 
 .slider-item div {
@@ -68,7 +68,6 @@
   /* For mobile: */
   .carousel {
     margin: 0px 0px 10px;
-    position: relative;
     top: 50px;
   }
   
