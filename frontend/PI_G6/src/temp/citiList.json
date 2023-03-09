@@ -40,20 +40,10 @@
     {
         "id": 2,
         "country": "Uruguay",
-        "state": [ 
+        "cities": [
             {
-            "id": 1,
-            "name": "Montevideo",
-            "cities": [
-                {
-                    "id": 1,
-                    "name": "cordon"
-                },
-                {
-                    "id": 2,
-                    "name": "Reducto"
-                }
-            ]
+                "id": 1,
+                "name": "Montevideo"
             },
             {
             "id": 2,

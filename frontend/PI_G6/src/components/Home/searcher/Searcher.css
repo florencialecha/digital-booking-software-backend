@@ -79,6 +79,11 @@
 
 }
 
+.states {
+    display: flex;
+    flex-direction: column;
+}
+
 .searcher section div .picker {
     width: 90%;
 }

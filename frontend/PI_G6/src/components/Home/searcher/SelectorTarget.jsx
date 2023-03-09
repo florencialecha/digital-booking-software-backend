@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import "./Searcher.css";
+import data from "../../../temp/citiState.json";
 
 const selectorTarget = () => {
   const [isActive, setIsActive] = useState(true);
@@ -24,34 +25,50 @@ const selectorTarget = () => {
             placeholder="A donde vamos"
           ></input>
         </div>
-        {/* <div id='options' className={isActive ? 'inactive' : 'active'}>
+        <div id="options" className={isActive ? "inactive" : "active"}>
           {data.map((countrys) => {
             return (
-              <div key={countrys.id} >{
-                countrys.cities.filter((city) => {
-                  if (!search) {
-                    return city
-                  } else {
-                    city = city.name.toLowerCase().includes(search.toLowerCase())
-                    return city
-                  }
-                }).map((city) => {
+              <div key={countrys.id}>
+                {countrys.states.map((state) => {
                   return (
-                    <a href="#" key={city.id} onClick={() => setSearch(`${city.name}, ${countrys.country}`)}>
-                      <div className="content-option" >
-                        <FontAwesomeIcon icon={faLocationDot} />
-                        <div className='texts'>
-                          <p>{city.name}</p>
-                          <p>{countrys.country}</p>
-                        </div>
-                      </div>
-                    </a>
-                  )
-                })
-              }</div>
-            )
+                    <div key={state.id} className="states">
+                      {state.cities
+                        .filter((city) => {
+                          if (!search) {
+                            return city;
+                          } else {
+                            city = city.name
+                              .toLowerCase()
+                              .includes(search.toLowerCase());
+                            return city;
+                          }
+                        })
+                        .map((city) => {
+                          return (
+                            <a
+                              href="#"
+                              key={city.id}
+                              onClick={() =>
+                                setSearch(`${city.name}, ${countrys.country}`)
+                              }
+                            >
+                              <div className="content-option">
+                                <FontAwesomeIcon icon={faLocationDot} />
+                                <div className="texts">
+                                  <p>{city.name}</p>
+                                  <p>{countrys.country}</p>
+                                </div>
+                              </div>
+                            </a>
+                          );
+                        })}
+                    </div>
+                  );
+                })}
+              </div>
+            );
           })}
-        </div> */}
+        </div>
       </div>
     </form>
   );

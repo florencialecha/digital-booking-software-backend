@@ -1,0 +1,70 @@
+[
+    {
+        "id": 1,
+        "country": "Argentina",
+        "states": [ 
+            {
+                "id": 1,
+                "name": "Buenos Aires",
+                "cities": [
+                    {
+                        "id": 1,
+                        "name": "Palermo"
+                    },
+                    {
+                        "id": 2,
+                        "name": "San Telmo"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "name": "Jujuy",
+                "cities": [
+                    {
+                        "id": 1,
+                        "name": "San Salvador"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Palpalá"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "country": "Uruguay",
+        "states": [
+            {
+                "id": 1,
+                "name": "Montevideo",
+                "cities": [
+                    {
+                        "id": 1,
+                        "name": "cordon"
+                    },
+                    {
+                        "id": 2,
+                        "name": "pocitos"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "name": "Canelones",
+                "cities": [
+                    {
+                        "id": 1,
+                        "name": "25 de Mayo"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Atlantida"
+                    }
+                ]
+            }
+        ]
+    }
+]
