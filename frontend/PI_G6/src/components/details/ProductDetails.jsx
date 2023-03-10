@@ -1,39 +1,40 @@
-import { React, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router";
-import "./ProductDetails.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { React, useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router'
+import './ProductDetails.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faShareNodes,
   faHeart,
-  faLocationDot,
-} from "@fortawesome/free-solid-svg-icons";
-import Gallery from "./Gallery/Gallery";
-import ProductHeader from "./ProductHeader/ProductHeader";
-import Description from "./ProductDescription/Description";
-import Features from "./ProductFeatures/Features";
-import Policies from "./ProductPolicies/Policies";
-import Calendar from "./Calendar/Calendar";
-import Map from "./Map/Map";
-import CardStars from "../Home/CardSuggested/CardStars";
+  faLocationDot
+} from '@fortawesome/free-solid-svg-icons'
+import Gallery from './Gallery/Gallery'
+import ProductHeader from './ProductHeader/ProductHeader'
+import Description from './ProductDescription/Description'
+import Features from './ProductFeatures/Features'
+import Policies from './ProductPolicies/Policies'
+import Calendar from './Calendar/Calendar'
+import Map from './Map/Map'
+import CardStars from '../Home/CardSuggested/CardStars'
 
-import axios from "axios";
+import axios from 'axios'
 
 const ProductDetails = () => {
-  const [product, setProduct] = useState(null);
-  const { id } = useParams();
+  const [product, setProduct] = useState(null)
+  const { id } = useParams()
 
   useEffect(() => {
     axios
       .get(`http://3.131.138.206:8080/product/${id}`)
       .then((res) => setProduct(res.data))
-      .catch((error) => console.log(error));
-  }, [id]);
+      .catch((error) => console.log(error))
+  }, [id])
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <>
-      {product ? (
+      {product
+        ? (
         <div className="details-container">
           <div className="details-header">
             <ProductHeader generalInfo={product} />
@@ -46,11 +47,11 @@ const ProductDetails = () => {
                 </div>
                 <div className="details-location-info">
                   <p>
-                    {" "}
+                    {' '}
                     {product.address.street} {product.address.number}
-                    {", "}
+                    {', '}
                     {product.address.city.name}
-                    {", "}
+                    {', '}
                     {product.address.city.state.country.name}
                   </p>
                   <p className="details-distance">A 940 m del centro</p>
@@ -59,9 +60,7 @@ const ProductDetails = () => {
               <div className="details-scoring">
                 <div className="details-review">
                   <p>{product.review}</p>
-                  <p>
-                    <CardStars {...product} />{" "}
-                  </p>
+                    <CardStars {...product} />{' '}
                 </div>
                 <div className="details-score">
                   <p>{product.scoring}</p>
@@ -98,7 +97,7 @@ const ProductDetails = () => {
 
               <hr className="details-line" />
               <p>
-                {product.address.city.name},{" "}
+                {product.address.city.name},{' '}
                 {product.address.city.state.country.name}
               </p>
               <Map address={product.address} />
@@ -110,11 +109,12 @@ const ProductDetails = () => {
             </div>
           </div>
         </div>
-      ) : (
-        ""
-      )}
+          )
+        : (
+            ''
+          )}
     </>
-  );
-};
+  )
+}
 
-export default ProductDetails;
+export default ProductDetails
