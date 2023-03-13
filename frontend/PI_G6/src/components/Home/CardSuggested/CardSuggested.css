@@ -1,10 +1,12 @@
 .suggested-main-container {
   position: relative;
-  top: 139px;
+  top: 15%;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin: 30px 25px 239px 15px;
+  margin: 3px 0px 10%;
+  padding: 0px 20px;
+  width: 100%;
 }
 
 .suggested-main-container > p {
@@ -13,33 +15,48 @@
 }
 
 .suggested-render-container {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
 }
 
 .card-container {
   position: relative;
   display: flex;
-  width: 48.9%;
   height: 283px;
   border-radius: 20px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  background-color: #FFFFFF;
 }
 
 .fav-icon {
   font-size: 25px;
   position: absolute;
-  left: 45%;
-  top: 5%;
+  right: 52%;
+  top: 15px;
+  animation: pulse 0.7s infinite;
+  cursor: pointer;
+
 }
 
 .features {
   padding: 0;
 }
 
-.full-true > p {
+.fav-icon > path:hover {
+  color: rgb(236, 153, 130);
+}
+
+@keyframes pulse {
+	10% {transform: scale(1.1)}
+}
+
+.full-false > path{
+  color: white;
+}
+
+
+.full-true > path {
   color: rgb(240, 87, 45);
 }
 
@@ -100,6 +117,8 @@
 }
 
 .see-more button {
+  display: flex;
+  align-items: center;
   width: 80%;
   height: 30px;
   border-radius: 5px;
@@ -110,6 +129,11 @@
 .see-more > button:hover {
   transform: scale(1.02);
   opacity: 95%;
+}
+
+.see-more > button > a {
+  color: white;
+  font-weight: 500;
 }
 
 .card-location {
@@ -154,6 +178,10 @@
     padding: 20px 10px;
   }
 
+  .suggested-render-container {
+    grid-template-columns: repeat(1, 1fr);
+  } 
+
   .recomendation {
     padding-left: 5vw;
     color: #ffffff;
@@ -163,7 +191,6 @@
     background-color: #ffffff;
     height: 491px;
     width: 90vw;
-    margin: 10px 0px;
   }
 
   .card-container section {
@@ -191,7 +218,7 @@
   }
 
   .fav-icon {
-    left: 80%;
+    right: 2%;
   }
 }
 
@@ -199,6 +226,10 @@
   /* For tablet: */
   .card-container {
     width: 100%;
-    margin: 15px 0px;
+  }
+
+  .suggested-render-container {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
+    

@@ -1,21 +1,11 @@
-.home {
-    background: #DFE4EA;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    position: relative;
-    top: 80px;
-    max-width: 100vw;
-} 
-
 .searcher {
     position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    min-height: 139px;
-    width: 100vw;
+    height: 11%;
+    width: 100%;
     background-color: #191B1D;
     padding: 15px;
     z-index: 2;
@@ -56,6 +46,7 @@
     background-color: rgb(240, 87, 45);
     color: #DFE4EA;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .searcher section {
@@ -133,6 +124,7 @@ a {
     margin-left: 5px;
     max-height: 30px;
     width: 100%;
+    outline: none
 }
 
 .select-content > p {
@@ -144,14 +136,29 @@ a {
 #options {
     max-height: 400px;
     width: 100%;
-    overflow: auto;
+    overflow-y: scroll;
     display: none;
     z-index: 5;
+}
+
+#options::-webkit-scrollbar {
+    display: block;
+    width: 5px;
+    background-color: rgba(0,0,0,.15);
+}
+
+#options::-webkit-scrollbar-thumb {
+    background-color: rgba(240, 87 ,45, .7);
+    border-radius: 20px;
 }
 
 #options > div {
     display: flex;
     flex-direction: column;
+}
+
+.content-option:hover {
+    transform: scale(1.0005);
 }
 
 #options.active {
