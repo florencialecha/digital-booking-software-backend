@@ -1,0 +1,6 @@
+.reserve-grid-container {
+    display: grid;
+    background-color: rgb(139, 79, 79);
+    grid-column: 1 / 2;
+    grid-row: 1;
+}

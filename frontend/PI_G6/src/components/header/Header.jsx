@@ -45,7 +45,7 @@ const Header = () => {
   };
 
   return (
-    <nav>
+    <nav className="header">
       <Link to={"/"}>
         <div className="logo">
           <img

@@ -125,15 +125,21 @@
 }
 
 .reservation-button {
+  display: flex;
+  align-items: center;
   height: 40px;
   border: none;
   border-radius: 5px;
   background-color: #f0572d;
-  color: white;
-  font-weight: bold;
   box-shadow: -2px 4px 5px -4px rgb(134, 133, 133);
   -webkit-box-shadow: -2px 4px 5px -4px rgb(134, 133, 133);
   -moz-box-shadow: -2px 4px 5px -4px rgb(134, 133, 133);
+}
+
+.reservation-button > a {
+  width: 100%;
+  color: white;
+  font-weight: bold;
 }
 
 .reservation-button:hover {

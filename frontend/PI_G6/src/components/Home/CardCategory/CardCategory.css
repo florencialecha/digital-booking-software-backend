@@ -1,8 +1,7 @@
 .carousel {
   position: relative;
-  top: 139px;
-  padding: 5px 20px;
-  z-index: 1;
+  top: 13%;
+  padding: 0px 15px;
   background-color: #FFFFFF;
   display: flex;
   flex-direction: column;

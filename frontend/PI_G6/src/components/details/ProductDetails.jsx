@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router'
+import { useParams } from 'react-router'
 import './ProductDetails.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -28,8 +28,6 @@ const ProductDetails = () => {
       .then((res) => setProduct(res.data))
       .catch((error) => console.log(error))
   }, [id])
-
-  const navigate = useNavigate()
 
   return (
     <>
@@ -90,7 +88,7 @@ const ProductDetails = () => {
             </div>
             <div className="details-available-dates">
               <h2>Fechas disponibles</h2>
-              <Calendar />
+              <Calendar productId={product.id}/>
             </div>
             <div className="details-map">
               <h2>¿Dónde vas a estar?</h2>

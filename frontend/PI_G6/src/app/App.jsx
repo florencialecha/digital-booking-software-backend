@@ -6,6 +6,7 @@ import Login from '../routes/Login'
 import Register from '../routes/Register'
 import NotFound from '../routes/NotFound'
 import ProductDetails from '../components/details/ProductDetails'
+import Reserve from '../components/reserve/Reserve'
 import '../index.css'
 
 function App () {
@@ -17,6 +18,7 @@ function App () {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path='/product/:id' element={ <ProductDetails/> }/>
+        <Route path='/product/:id/reserve' element={ <Reserve/> }/>
       </Route>
         <Route path="/*" element={<NotFound />} />
     </Routes>
