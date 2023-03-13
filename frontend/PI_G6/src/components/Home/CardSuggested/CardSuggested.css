@@ -4,8 +4,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin: 3px 0px 10%;
-  padding: 0px 20px;
+  padding: 20px 10px;
   width: 100%;
 }
 
@@ -172,10 +171,14 @@
 @media (max-width: 600px) {
   /* For mobile: */
   .suggested-main-container {
-    background-color: #191b1d;
+    
     border-radius: 20px;
     top: 10px;
     padding: 20px 10px;
+  }
+
+  .home {
+    background-color: #191b1d;
   }
 
   .suggested-render-container {
@@ -191,6 +194,7 @@
     background-color: #ffffff;
     height: 491px;
     width: 90vw;
+    justify-self: center;
   }
 
   .card-container section {
@@ -230,6 +234,11 @@
 
   .suggested-render-container {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .suggested-main-container {
+    margin-bottom: 16%;
+
   }
 }
     

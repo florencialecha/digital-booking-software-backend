@@ -50,9 +50,19 @@ body {
 
 .home {
   position: fixed;
-  overflow-y: scroll;
   top: 10%;
   height: 83%;
   width: 100%;
   overflow-x: hidden;
 } 
+
+.home::-webkit-scrollbar {
+  display: block;
+  width: 10px;
+  background-color: rgba(0,0,0,.15);
+}
+
+.home::-webkit-scrollbar-thumb {
+  background-color: rgba(240, 87 ,45, .7);
+  border-radius: 20px;
+}
