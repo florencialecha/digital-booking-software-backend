@@ -1,10 +1,10 @@
 .details-container {
-  min-height: calc(100vh - 80px - 58px);
-  margin-bottom: 58px;
-  display: flex;
-  flex-direction: column;
+  position: fixed;
+  top: 10%;
+  height: 83%;
   width: 100%;
   background-color: white;
+  overflow-y: scroll;
 }
 
 .details-container h2 {

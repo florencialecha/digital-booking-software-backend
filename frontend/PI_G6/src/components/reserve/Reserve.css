@@ -1,20 +1,34 @@
 .reserve-page {
-    position: relative;
-    top: 80px;
-    height: 100%;
+    position: fixed;
+    top: 10%;
+    height: 83%;
+    width: 100%;
+    overflow: scroll;
+
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 40% 60% 30%;
+    padding: 30px;
 }
 
 .reserve-product {
-    background-color: rgb(95, 95, 138);
+    border: 1px solid red;
+    margin: 20px;
     grid-column: 2;
-    grid-row: 1 / 2;
+    grid-row: 1 / 4;
 
 }
 
 .reserve-calendar {
-    background-color: rgb(103, 126, 103);
+    border: 1px solid red;
+    margin: 20px;
     grid-column: 1 / 2;
     grid-row: 2;
+}
+
+.reserve-checkIn {
+    border: 1px solid red;
+    margin: 20px;
+    grid-column: 1 / 2;
+    grid-row: 3;
 }

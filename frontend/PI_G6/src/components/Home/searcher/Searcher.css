@@ -221,18 +221,21 @@ a {
     .searcher {
         position: relative;
         z-index: 2;
-        height: 300px;
+        height: 35%;
         justify-content: center;
 
         display: grid;
         grid-template-columns: 80%;
-        grid-template-rows: 30% 65%;
+        grid-template-rows: 30% 60%;
+        padding: 10px 0px;
         grid-gap: 30px;
+    }
+
+    .searcher > * {
+        align-items: center;
     }
     
     .searcher-input-grid {
-        justify-content: center;
-        align-items: center;
 
         display: grid;
         grid-template-rows: 20% 20% 20%;
