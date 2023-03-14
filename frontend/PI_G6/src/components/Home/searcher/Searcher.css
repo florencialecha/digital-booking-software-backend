@@ -1,47 +1,43 @@
 .searcher {
     position: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
     height: 11%;
-    width: 100%;
+    width: calc(100% - 10px);
     background-color: #191B1D;
-    padding: 15px;
     z-index: 2;
-}
-
-.searcher *::-webkit-scrollbar {
-    display: none;
+    
+    display: grid;
+    grid-template-columns: 100% ;
+    grid-template-rows: 40% 40%;
+    grid-gap: 10px;
 }
 
 .searcher p {
     margin: 5px;
-    padding: 0;
 }   
 
 .searcher h1 {
     color: #DFE4EA;
     font-size: 28px;
     font-weight: 600;
+    justify-self: center;
     margin: 5px;
-    padding: 0;
+    grid-row: 1;
+    grid-column: 1 / 2;
 }
 
 #calendar {
     padding: 0px 10px;
-    align-items: center ;
+    align-items: center;
+    grid-row: 1 ;
+    grid-column: 2 / 3;
+    
+    display: grid;
+    grid-template-columns: 10% 90%;
 }
 
-.calendar div {
-    width: 10%;
-    height: 100%;
-    display: flex;
-}
 
 .searcher button {
     border-radius: 5px;
-    width: 15vw;
     border: none;
     background-color: rgb(240, 87, 45);
     color: #DFE4EA;
@@ -49,34 +45,41 @@
     cursor: pointer;
 }
 
-.searcher section {
-    display: flex;
-    flex-direction: row;
-    width: 80%;
-    justify-content: space-around;
-    gap: 10px;
-    height: 30px;
+
+.searcher-input-grid {
+    grid-row: 2;
+    width: 100%;
+    display: grid;
+    justify-self: center;
+    grid-gap: 10px;
+    justify-content: center;
+
+    grid-template-columns: 30% 30% 20%;
+    grid-template-rows: 100%;
 }
 
 .searcher section div {
-    display: flex;
     background-color: #DFE4EA;
     
 }
 
 .searcher section > div {
     border-radius: 5px;
-    width: 30vw;
-
 }
 
 .states {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+
 }
 
-.searcher section div .picker {
-    width: 90%;
+.location-container {
+    grid-row: 1 ;    
+}
+
+#btn-search {
+    grid-row: 1 ;
+    grid-column: 3 / 3;
+    width: 100%;
 }
 
 .searcher section div select {
@@ -91,6 +94,8 @@
 }
 
 
+
+
 /* LOCATION FORM*/
 
 a {
@@ -99,46 +104,57 @@ a {
 }
 
 .formClass {
-    width: 95%;
+    display: grid;
     padding: 0;
-    margin: 0px 10px;
+    width: 100%;
+    height: 100%;
+
+    grid-template-rows: 100%;
 }
 
 
 
 .selectbox {
-    display: flex;
     background-color: #191B1D !important;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 100%;
+    height: 100%;
+    width: 100%;
+
+    grid-template-rows: 100% 350px ;
+    display: grid;
+    grid-gap: 5px;
 }
 
 #select {
-    height: 30px;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    
+    display: grid;
+    grid-template-columns: 10% 90%;
+    grid-template-rows: 100%;
     align-items: center;
 }
 
 .select-content {
     background-color: #DFE4EA;
     margin-left: 5px;
-    max-height: 30px;
+    height: 90%;
     width: 100%;
     outline: none
 }
 
 .select-content > p {
-    width: 100%;
     font-size: 20px;
     color: #191B1D;
 }
 
 #options {
+    display: grid;
     max-height: 400px;
-    width: 100%;
     overflow-y: scroll;
     display: none;
-    z-index: 5;
+
 }
 
 #options::-webkit-scrollbar {
@@ -153,8 +169,7 @@ a {
 }
 
 #options > div {
-    display: flex;
-    flex-direction: column;
+    display: grid;
 }
 
 .content-option:hover {
@@ -168,24 +183,24 @@ a {
 .content-option {
     width: 100%;
     height: 60px;
-    display: flex;
-    justify-content: space-evenly !important;
     align-items: center;
-    border-bottom: 2px solid rgb(240, 87, 45);
     transition: .2s ease all;
     transform: scale(.92);
+    border-bottom: 2px solid  rgba(240, 87 ,45, .7);
+    
+    display: grid;
+    grid-template-columns: 10% 90%;
 }
 
 .content-option .texts {
-    flex-direction: column;
-    width: 100%;
-    margin-left: 10px;
+    display: grid;
+    grid-template-rows: 50% 50%;
+
 }
 
 .texts p {
-    height: 100%;
     color:#191B1D;
-    font-size: 20px;
+    padding: 0;
 }
 
 #btn-search:hover {
@@ -196,66 +211,62 @@ a {
 
 /* For mobile */
 
-@media (max-width: 370px) {
-    .searcher h1 {
-        font-size: 18px;
+@media (max-width: 320px) {
+    .searcher > h1 {
+        font-size: 1.3em;
     }
-
-    #options {
-        width: 75vw;
-        max-height: 250px;
-        position: absolute;
-        top: 250px;
-    }
-
-
 }
-
 
 @media (max-width: 600px) {
     .searcher {
         position: relative;
-        z-index: 0;
-        height: 300px;
-        display: flex;
+        z-index: 2;
+        height: 35%;
         justify-content: center;
-        flex-direction: column;
+
+        display: grid;
+        grid-template-columns: 80%;
+        grid-template-rows: 30% 60%;
+        padding: 10px 0px;
+        grid-gap: 30px;
+    }
+
+    .searcher > * {
+        align-items: center;
     }
     
-    .searcher section {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 60%;
+    .searcher-input-grid {
+
+        display: grid;
+        grid-template-rows: 20% 20% 20%;
+        grid-template-columns: 100%;
     }
 
-    .searcher section div {
+    .location-container {
+        height: 100%;
         width: 100%;
+        grid-column: 1;
+        grid-row: 1;
+        z-index: 5;
     }
 
-    .searcher div button {
-        width: 90vw;
-        height: 5vh;
-    }
-
-    .location-container form {
+    #calendar {
+        height: 100%;
         width: 100%;
+        grid-column: 1;
+        grid-row: 2;
     }
 
-    #select {
-        flex-direction: row;
-        justify-content: center;
+    #btn-search {
+        min-height: 100%;
+        width: 100%;
+        grid-column: 1;
+        grid-row: 3;
     }
 
-    #select .select-content {
-        width: 95%;
-    }
 
     #options {
-        width: 75vw;
-        max-height: 250px;
-        position: absolute;
-        top: 170px;
+        position: relative;
     }
     
     .content-option {
@@ -267,27 +278,8 @@ a {
         height: 20%;
     }
 
-}
-
-/* For tablet */
-
-@media (max-width: 1024px) and (min-width: 601px) {
-    .searcher {
-        display: flex;
-        flex-direction: column;
-    }
-
-    #select {
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    .select-content > p {
-        font-size: 16px;
-    }
-
-    .content-option {
-        flex-direction: row;
+    .formClass {
+        
     }
 
 }

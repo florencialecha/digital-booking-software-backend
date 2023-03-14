@@ -88,7 +88,7 @@ const ProductDetails = () => {
             </div>
             <div className="details-available-dates">
               <h2>Fechas disponibles</h2>
-              <Calendar productId={product.id}/>
+              <Calendar product={product}/>
             </div>
             <div className="details-map">
               <h2>¿Dónde vas a estar?</h2>
