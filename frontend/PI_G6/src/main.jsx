@@ -5,9 +5,11 @@ import { ContextProvider } from './components/utils/globalContext'
 import App from './app/App'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <ContextProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </ContextProvider>
+  <React.StrictMode>
+    <ContextProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ContextProvider>
+  </React.StrictMode>
 )
