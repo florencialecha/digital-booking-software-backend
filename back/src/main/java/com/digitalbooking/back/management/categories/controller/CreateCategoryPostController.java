@@ -17,8 +17,8 @@ public class CreateCategoryPostController {
     private CategoryService categoryService;
 
     @PostMapping
-    public void create(@RequestBody Category category) throws BadRequestException {
+    public void handle(@RequestBody Category category) throws BadRequestException {
         categoryService.create(category);
     }
-
+    
 }
