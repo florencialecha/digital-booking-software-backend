@@ -19,24 +19,25 @@ public class CategoryService {
         return categoryRepository.findAll();
     }
 
-    public Optional<Category> findById(Long id) {
-        return categoryRepository.findById(id);
-    }
-
-    public Optional<List<Category>> findByTitle(String title) {
-        return categoryRepository.findByTitle(title);
-    }
-
     public void create(Category category) throws BadRequestException {
         categoryRepository.save(category);
     }
 
-    public void update(Category category) {
-        categoryRepository.save(category);
-    }
-
-    public void delete(Long id) {
-        categoryRepository.deleteById(id);
-    }
+// SI NO SE USA ELIMINAR
+//    public Optional<Category> findById(Long id) {
+//        return categoryRepository.findById(id);
+//    }
+//
+//    public Optional<List<Category>> findByTitle(String title) {
+//        return categoryRepository.findByTitle(title);
+//    }
+//
+//    public void update(Category category) {
+//        categoryRepository.save(category);
+//    }
+//
+//    public void delete(Long id) {
+//        categoryRepository.deleteById(id);
+//    }
 
 }
