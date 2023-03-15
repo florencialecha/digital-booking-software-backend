@@ -20,11 +20,6 @@
 //    @Autowired
 //    private CategoryService categoryService;
 //
-//    @GetMapping
-//    public List<Category> findAll() {
-//        return categoryService.findAll();
-//    }
-//
 //    @GetMapping("{id}")
 //    public ResponseEntity<Optional<Category>> findById(@PathVariable Long id) throws ResourceNotFoundException {
 //        Optional<Category> category = categoryService.findById(id);
@@ -41,11 +36,6 @@
 //            throw new ResourceNotFoundException("Can't find a category who does not exist in the database.");
 //        }
 //        return ResponseEntity.status(200).body(result);
-//    }
-//
-//    @PostMapping
-//    public void create(@RequestBody Category category) throws BadRequestException {
-//        categoryService.create(category);
 //    }
 //
 //    @PutMapping
