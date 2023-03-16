@@ -1,14 +1,13 @@
-.calendar-layout {
+/* .calendar-layout {
   display: flex;
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-}
+} */
 
 .calendar-details {
   display: flex;
-  width: 68%;
   background-color: white;
   border-radius: 8px;
   justify-content: space-around;
@@ -105,25 +104,6 @@
   background-color: white;
 }
 
-.reservation-details {
-  display: flex;
-  flex-direction: column;
-  width: 29%;
-  background-color: white;
-  padding: 20px;
-  gap: 30px;
-  border-radius: 8px;
-  box-shadow: -2px 8px 17px -4px rgb(134, 133, 133);
-  -webkit-box-shadow: -2px 8px 17px -4px rgb(134, 133, 133);
-  -moz-box-shadow: -2px 8px 17px -4px rgb(134, 133, 133);
-}
-
-.reservation-details p {
-  font-weight: bold;
-  font-size: 16px;
-  padding-top: 10px;
-}
-
 .reservation-button {
   display: flex;
   align-items: center;
@@ -187,36 +167,10 @@
   border-bottom: #f0572d solid 2px;
 }
 
-@media only screen and (max-width: 768px) {
-  .calendar-layout {
-    flex-direction: column;
-  }
+@media only screen and (max-width: 1024px) {
+  
   .change-month-button:hover {
     background-color: white;
-  }
-
-  .calendar-details {
-    width: 100%;
-    position: relative;
-  }
-  .reservation-details {
-    flex-direction: row;
-    width: 100%;
-    margin-top: 10px;
-    background-color: #dfe4ea;
-    box-shadow: none;
-    border-radius: 0%;
-    padding: 10px 0;
-    gap: 5px;
-    justify-content: space-between;
-  }
-
-  .reservation-details p {
-    width: 47%;
-  }
-
-  .reservation-button {
-    width: 47%;
   }
 
   .change-month-button {
@@ -280,10 +234,6 @@
     position: absolute;
     right: 35px;
     top: 28px;
-  }
-
-  .calendar-details {
-    height: 400px;
   }
 
   .reservation-details {

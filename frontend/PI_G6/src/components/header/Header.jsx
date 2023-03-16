@@ -49,7 +49,7 @@ const Header = () => {
       <Link to={"/"}>
         <div className="logo">
           <img
-            src="/src/assets/logo_orange.png"
+            src="/public/logo_orange.png"
             alt="Logo from Digital Booking"
           />
           <p className="slogan">Sentite como en tu hogar</p>

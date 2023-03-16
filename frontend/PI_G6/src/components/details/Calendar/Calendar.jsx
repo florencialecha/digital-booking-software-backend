@@ -258,11 +258,6 @@ const Calendar = ({ productId }) => {
           <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
         </button>
       </div>
-
-      <div className="reservation-details">
-        <p>Agregá tus fechas de viaje para obtener precios exactos</p>
-        <button className="reservation-button"><a href={`./${productId}/reserve`}>Iniciar reserva</a></button>
-      </div>
       {/* <button onClick={() => setSelectDate([])}>clear selection</button> */}
     </div>
   )

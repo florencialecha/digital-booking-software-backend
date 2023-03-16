@@ -12,8 +12,8 @@
   margin: 0;
 }
 
-.details-available-dates h2 {
-  padding: 0 0 25px;
+.details-available-dates {
+  gap: 20px;
 }
 
 .details-policies h2 {
@@ -88,8 +88,18 @@
 }
 
 .details-available-dates {
+  display: grid;
   background-color: #dfe4ea;
-  padding: 30px 50px;
+  padding: 15px 50px;
+
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: .5fr 3fr;
+}
+
+.details-available-dates h2{
+  padding: 0;
+  align-self: center;
+  
 }
 
 .details-map p {
@@ -107,7 +117,53 @@
   border: 0.7px solid #f0572d;
 }
 
-@media only screen and (max-width: 768px) {
+.calendar-layout {
+  grid-row: 2;
+  grid-column: 1;
+  align-self: center;
+}
+
+/* .calendar-details {
+  margin: 20px;
+} */
+
+.reservation-details {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-row: 2;
+  grid-column: 2;
+  align-self: center;
+  background-color: white;
+  padding: 20px;
+  gap: 15px ;
+  border-radius: 8px;
+  box-shadow: -2px 8px 17px -4px rgb(134, 133, 133);
+  -webkit-box-shadow: -2px 8px 17px -4px rgb(134, 133, 133);
+  -moz-box-shadow: -2px 8px 17px -4px rgb(134, 133, 133);
+}
+
+.reservation-details p {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 1024px) {
+
+  .details-available-dates {
+    grid-template-rows: .5fr 2fr 1fr;
+    grid-template-columns: auto;
+    gap: 0;
+  }
+
+  .reservation-details {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-column: 1;
+    grid-row: 3;
+    background-color: #dfe4ea;
+    box-shadow: none;
+  }
+
   .details-location-scoring-info {
     padding: 15px 20px;
   }
@@ -120,9 +176,9 @@
     padding: 25px 25px;
   }
 
-  .details-available-dates h2 {
+  /* .details-available-dates h2 {
     padding: 0px 5px 25px;
-  }
+  } */
   .details-share {
     padding: 15px 25px;
   }
@@ -141,11 +197,14 @@
   .details-container h2 {
     padding: 25px 15px;
   }
-  .details-available-dates h2 {
-    padding: 0 0 25px;
-  }
 
   .details-distance {
     display: none;
   }
+
+  .reservation-details {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: auto;
+  }
+
 }
