@@ -181,18 +181,6 @@
     height: 20px;
   }
 
-  .left {
-    position: absolute;
-    left: 25px;
-    top: 28px;
-  }
-
-  .right {
-    position: absolute;
-    right: 25px;
-    top: 28px;
-  }
-
   .calendar-details h4 {
     padding-bottom: 15px;
   }
@@ -223,17 +211,6 @@
 
   div.hide {
     display: none;
-  }
-
-  .left {
-    left: 35px;
-    top: 28px;
-  }
-
-  .right {
-    position: absolute;
-    right: 35px;
-    top: 28px;
   }
 
   .reservation-details {
