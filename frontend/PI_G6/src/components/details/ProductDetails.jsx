@@ -91,7 +91,7 @@ const ProductDetails = () => {
               <Calendar product={product}/>
               <div className="reservation-details">
                 <p>Agregá tus fechas de viaje para obtener precios exactos</p>
-                <button className="reservation-button"><a href={''}>Iniciar reserva</a></button>
+                <button className="reservation-button"><a href={`/product/${product.id}/reserve`}>Iniciar reserva</a></button>
               </div>
             </div>
             <div className="details-map">
