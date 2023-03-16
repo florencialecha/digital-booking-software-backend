@@ -89,15 +89,23 @@
 
 .unavailable {
   color: rgb(0, 0, 0, 0.3);
+  pointer-events: none;
 }
 
 .selected {
   background-color: #f0572d;
   color: white;
+  width: 60%;
+  min-width: 25px;
+  height: 90%;
+  border-radius: 50%;
+  justify-self: center;
+  align-self: center;
 }
 
 .past-date {
   color: rgb(0, 0, 0, 0.3);
+  pointer-events: none;
 }
 
 .past-date:hover {
@@ -168,7 +176,6 @@
 }
 
 @media only screen and (max-width: 1024px) {
-  
   .change-month-button:hover {
     background-color: white;
   }
@@ -197,6 +204,11 @@
   .grid-second-month {
     padding-left: 20px;
   }
+
+  .selected {
+    width: 45%;
+    min-width: 25px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -223,5 +235,9 @@
 
   .reservation-button {
     width: 100%;
+  }
+  .selected {
+    width: 30%;
+    min-width: 25px;
   }
 }
