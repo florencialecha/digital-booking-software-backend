@@ -49,7 +49,7 @@ const Header = () => {
       <Link to={'/'}>
         <div className="logo">
           <img
-            src="/public/logo_orange.png"
+            src="https://i.ibb.co/W5J7Jy6/logo-orange.png"
             alt="Logo from Digital Booking"
           />
           <p className="slogan">Sentite como en tu hogar</p>
