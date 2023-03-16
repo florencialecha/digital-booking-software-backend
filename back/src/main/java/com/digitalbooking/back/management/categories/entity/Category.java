@@ -1,6 +1,7 @@
 package com.digitalbooking.back.management.categories.entity;
 
 import com.digitalbooking.back.bookStay.products.entity.Product;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,6 +38,7 @@ public class Category {
     @Column(name = "IMAGE_URL")
     private String imageUrl;
 
+    @JsonIgnore
     @OneToMany
     private Set<Product> productList = new HashSet<Product>();
 
