@@ -1,26 +1,26 @@
-package com.digitalbooking.back.management.categories.controller;
+package com.digitalbooking.back.bookStay.products.controller;
 
-import com.digitalbooking.back.management.categories.entity.Category;
+import com.digitalbooking.back.bookStay.products.entity.Product;
+import com.digitalbooking.back.bookStay.products.service.CreateProductService;
 import com.digitalbooking.back.management.categories.exception.BadRequestException;
-import com.digitalbooking.back.management.categories.service.CreateCategoryService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/category")
+@RequestMapping("/product")
 @CrossOrigin("*")
 @Log4j2
 
-public class CreateCategoryPostController {
+public class CreateProductPostController {
 
     @Autowired
-    private CreateCategoryService createCategoryService;
+    private CreateProductService createProductService;
 
     @PostMapping
-    public void handle(@RequestBody Category category) {
+    public void handle(@RequestBody Product product) {
         try {
-            createCategoryService.handle(category);
+            createProductService.handle(product);
             log.info("Category created successfully");
         } catch (BadRequestException e) {
             log.error("Bad Request Exception: {}", e.getMessage());
@@ -28,4 +28,5 @@ public class CreateCategoryPostController {
             log.error("Internal Server Error: {}", e.getMessage());
         }
     }
+
 }

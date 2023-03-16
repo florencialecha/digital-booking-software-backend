@@ -1,7 +1,7 @@
 package com.digitalbooking.back.management.categories.controller;
 
 import com.digitalbooking.back.management.categories.entity.Category;
-import com.digitalbooking.back.management.categories.service.CategoryService;
+import com.digitalbooking.back.management.categories.service.FindAllCategoryService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,12 +21,12 @@ import java.util.List;
 public class FindAllCategoryGetController {
 
     @Autowired
-    private CategoryService categoryService;
+    private FindAllCategoryService findAllCategoryService;
 
     @GetMapping
     public ResponseEntity<List<Category>> handle() {
         try {
-            List<Category> categories = categoryService.findAll();
+            List<Category> categories = findAllCategoryService.handle();
             return new ResponseEntity<>(categories, HttpStatus.OK);
         } catch (Exception e) {
             log.error("Error while finding all categories: ", e);

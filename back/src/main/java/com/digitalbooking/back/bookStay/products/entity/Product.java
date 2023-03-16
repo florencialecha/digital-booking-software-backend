@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "PRODUCT")
+@Table(name = "product")
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,45 +21,43 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "PRODUCT_ID")
+    @Column(name = "product_id")
     private Long id;
 
-    @Column(name = "TITLE")
+    @Column(name = "title")
     private String title;
-
-    // LAS CATEGORÍAS DEBEN CREARSE Y GUARDARSE PREVIAMENTE EN LA DB DE CATEGORÍAS
-    @ManyToOne
-    @JoinColumn(name = "CATEGORY_ID")
-    private Category category;
-
-    // LAS DIRECCIONES DEBEN PODER CREARSE Y GUARDARSE AL CREAR EL PRODUCTO, PASANDOLE LA CIUDAD (STRING QUE FINDCITYBYNAME)
-    @ManyToOne
-    @JoinColumn(name = "ADDRESS_ID")
-    private Address address;
-
-    @OneToMany
-    private List<Image> imageList = new ArrayList<>();
-
-    @Column(name = "DESCRIPTION")
+    @Column(name = "description")
     private String description;
 
-    @OneToMany
-    private List<Feature> featureList = new ArrayList<>();
-
-    @Column(name = "AVAILABILITY")
-    private String availability;
-
-    // Quiero crear la política, es decir, pasarle el texto, etc, cuando creo el producto.
-    @OneToOne
-    private Policy policy;
-
-    @Column(name = "STARS")
+    @Column(name = "stars")
     private Integer stars;
 
-    @Column(name = "SCORING")
+    @Column(name = "scoring")
     private Integer scoring;
 
-    @Column(name = "REVIEW")
+    @Column(name = "review")
     private String review;
+
+
+//
+//    // LAS CATEGORÍAS DEBEN CREARSE Y GUARDARSE PREVIAMENTE EN LA DB DE CATEGORÍAS
+//    @ManyToOne
+//    @JoinColumn(name = "CATEGORY_ID")
+//    private Category category;
+//
+//    // LAS DIRECCIONES DEBEN PODER CREARSE Y GUARDARSE AL CREAR EL PRODUCTO, PASANDOLE LA CIUDAD (STRING QUE FINDCITYBYNAME)
+//    @ManyToOne
+//    @JoinColumn(name = "ADDRESS_ID")
+//    private Address address;
+//
+//    @OneToMany
+//    private List<Image> imageList = new ArrayList<>();
+//
+//    @OneToMany
+//    private List<Feature> featureList = new ArrayList<>();
+//
+//    // Quiero crear la política, es decir, pasarle el texto, etc, cuando creo el producto.
+//    @OneToOne
+//    private Policy policy;
 
 }
