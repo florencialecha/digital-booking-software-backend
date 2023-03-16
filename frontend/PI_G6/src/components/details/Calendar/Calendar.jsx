@@ -88,6 +88,7 @@ function Calendar() {
 
   const unavailable = formateDate(alreadyReserved);
   const formatedNewReservation = formateDate(newReservation);
+  console.log(selectDate);
 
   const unavailableDates = (i, month, year) => {
     let selected = format(new Date(`${year}-${month}-${i + 1}`), "yyyy-MM-dd");
@@ -134,27 +135,7 @@ function Calendar() {
     }
 
     if (selectDate.length === 2) {
-      if (
-        displayDate > selectDate[1] &&
-        !range.some((i) => unavailable.includes(i))
-      ) {
-        setSelectDate([...selectDate, (selectDate[1] = displayDate)]);
-      } else {
-        setSelectDate([displayDate]);
-      }
-
-      if (displayDate <= selectDate[1]) {
-        const newSelect = [selectDate[0], displayDate];
-        setSelectDate(newSelect);
-      }
-
-      if (selectDate[0] === selectDate[1]) {
-        setSelectDate([]);
-      }
-
-      if (displayDate < selectDate[0]) {
-        setSelectDate([displayDate]);
-      }
+      setSelectDate([displayDate]);
     }
   };
 
