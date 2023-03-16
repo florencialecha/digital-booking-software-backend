@@ -38,13 +38,11 @@ public class Product {
     @Column(name = "review")
     private String review;
 
+    //LAS CATEGORÍAS DEBEN CREARSE Y GUARDARSE PREVIAMENTE EN LA DB DE CATEGORÍAS
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
-//
-//    // LAS CATEGORÍAS DEBEN CREARSE Y GUARDARSE PREVIAMENTE EN LA DB DE CATEGORÍAS
-//    @ManyToOne
-//    @JoinColumn(name = "CATEGORY_ID")
-//    private Category category;
-//
 //    // LAS DIRECCIONES DEBEN PODER CREARSE Y GUARDARSE AL CREAR EL PRODUCTO, PASANDOLE LA CIUDAD (STRING QUE FINDCITYBYNAME)
 //    @ManyToOne
 //    @JoinColumn(name = "ADDRESS_ID")
