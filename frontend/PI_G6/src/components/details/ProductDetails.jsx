@@ -1,5 +1,5 @@
 import React from 'react'
-import './ProductDetails.css'
+import styles from '../details/ProductDetails.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faShareNodes,
@@ -19,20 +19,20 @@ const ProductDetails = () => {
   const product = JSON.parse(localStorage.getItem('hotelSelected'))
 
   return (
-    <>{console.log(product)}
+    <>
       {product
         ? (
-        <div className="details-container">
-          <div className="details-header">
+        <div className={styles.detailsContainer}>
+          <div className={styles.detailsHeader}>
             <ProductHeader generalInfo={product} />
           </div>
-          <div className="details-body">
-            <div className="details-location-scoring-info">
-              <div className="details-location">
-                <div className="details-location-icon">
+          <div className={styles.detailsBody}>
+            <div className={styles.detailsLocationScoringInfo}>
+              <div className={styles.detailsLocation}>
+                <div className={styles.detailsLocationIcon}>
                   <FontAwesomeIcon icon={faLocationDot}></FontAwesomeIcon>
                 </div>
-                <div className="details-location-info">
+                <div className={styles.detailsLocationInfo}>
                   <p>
                     {' '}
                     {product.address.street} {product.address.number}
@@ -41,61 +41,61 @@ const ProductDetails = () => {
                     {', '}
                     {product.address.city.state.country.name}
                   </p>
-                  <p className="details-distance">A 940 m del centro</p>
+                  <p className={styles.detailsDistance}>A 940 m del centro</p>
                 </div>
               </div>
-              <div className="details-scoring">
-                <div className="details-review">
+              <div className={styles.detailsScoring}>
+                <div className={styles.detailsReview}>
                   <p>{product.review}</p>
                     <CardStars {...product} />{' '}
                 </div>
-                <div className="details-score">
+                <div className={styles.detailsScore}>
                   <p>{product.scoring}</p>
                 </div>
               </div>
             </div>
             <div>
-              <div className="details-share">
+              <div className={styles.detailsShare}>
                 <FontAwesomeIcon
                   icon={faShareNodes}
                   size="lg"
                 ></FontAwesomeIcon>
                 <FontAwesomeIcon icon={faHeart} size="lg"></FontAwesomeIcon>
               </div>
-              <div className="details-galery">
+              <div className={styles.detailsGalery}>
                 <Gallery pictures={product.imageList} />
               </div>
             </div>
-            <div className="details-description">
+            <div className={styles.detailsDescription}>
               <h2>Alójate en el corazón de {product.address.city.name}</h2>
               <Description data={product} />
             </div>
             <h2>¿Qué ofrece este lugar?</h2>
-            <hr className="details-line" />
-            <div className="details-char">
+            <hr className={styles.detailsLine} />
+            <div className={styles.detailsChar}>
               <Features specs={product.featureList} />
             </div>
-            <div className="details-available-dates">
+            <div className={styles.detailsAvailableDates}>
               <h2>Fechas disponibles</h2>
-              <Calendar product={product}/>
-              <div className="reservation-details">
+              <Calendar product={product} styles={styles}/>
+              <div className={styles.reservationDetails}>
                 <p>Agregá tus fechas de viaje para obtener precios exactos</p>
-                <button className="reservation-button"><a href={`/product/${product.id}/reserve`}>Iniciar reserva</a></button>
+                <button className={styles.reservationButton}><a href={`/product/${product.id}/reserve`}>Iniciar reserva</a></button>
               </div>
             </div>
-            <div className="details-map">
+            <div className={styles.detailsMap}>
               <h2>¿Dónde vas a estar?</h2>
 
-              <hr className="details-line" />
+              <hr className={styles.detailsLine} />
               <p>
                 {product.address.city.name},{' '}
                 {product.address.city.state.country.name}
               </p>
               <Map address={product.address} />
             </div>
-            <div className="details-policies">
+            <div className={styles.detailsPolicies}>
               <h2> ¿Qué tenés que saber?</h2>
-              <hr className="details-line" />
+              <hr className={styles.detailsLine} />
               <Policies policies={product.policy} />
             </div>
           </div>

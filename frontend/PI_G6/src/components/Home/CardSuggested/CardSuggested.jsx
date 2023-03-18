@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react'
-// import styles from './CardSuggested.module.css'
 import CardStars from './CardStars'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faHeart } from '@fortawesome/free-solid-svg-icons'

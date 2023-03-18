@@ -108,13 +108,6 @@ hr {
     grid-row: 4;
 }
 
-.reserveCalendar {
-    border: 1px solid red;
-    margin: 20px;
-    grid-column: 1 / 2;
-    grid-row: 2;
-}
-
 .cardContainer > svg {
     right: 5%;
 }
@@ -181,13 +174,17 @@ hr {
 
 .reserveGridContainer {
     background-color: #fff;
+    border-radius: 10px;
     margin: 20px;
+    padding: 30px;
     grid-column: 1 / 2;
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     align-items: center;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 50%);
+
 }
 
 .reserveGridItem > div {
@@ -202,6 +199,7 @@ hr {
     height: 60px;
     border-radius: 5px;
     border: none;
+    outline: none;
     box-shadow: 0 5px 10px rgb(0 0 0 / 50%);
 }
 
@@ -216,14 +214,14 @@ hr {
 
 .name {
     font-weight: bold;
-    padding: 20px;
+    padding: 0px 10px;
     grid-row: 1;
     grid-column: 1;
 }
 
 .surname {
     font-weight: bold;
-    padding: 20px;
+    padding: 0px 10px;
     grid-row: 1;
     grid-column: 2;
 }
@@ -231,13 +229,13 @@ hr {
 .email {
     font-weight: bold;
     grid-row: 2;
-    padding: 20px;
+    padding: 0px 10px;
     grid-column: 1;
 }
 
 .city {
     grid-row: 2;
-    padding: 20px;
+    padding: 0px 10px;
     grid-column: 2;
 }
 
@@ -246,4 +244,16 @@ hr {
     grid-row: 4;
     grid-column: 1 / 3;
     margin: 20px;
+}
+
+/* Calendar */
+
+.reserveCalendar {
+    border: 1px solid red;
+    margin: 20px;
+    grid-column: 1 / 2;
+    grid-row: 2;
+
+    display: grid;
+    grid-template-rows: auto 1fr;
 }
