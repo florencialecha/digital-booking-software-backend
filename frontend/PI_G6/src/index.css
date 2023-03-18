@@ -67,3 +67,9 @@ body {
   background-color: rgba(240, 87 ,45, .7);
   border-radius: 20px;
 }
+
+@media (max-width: 600px) {
+  .home {
+    background-color: #191b1d;
+  }
+}

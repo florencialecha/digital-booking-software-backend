@@ -1,6 +1,6 @@
 import { React, useContext } from 'react'
 import './CardCategory.css'
-import { GlobalContext } from '../../utils/globalContext'
+import { GlobalContext } from '../../../utils/globalContext'
 
 const Carousel = (category) => {
   const { dispatch } = useContext(GlobalContext)

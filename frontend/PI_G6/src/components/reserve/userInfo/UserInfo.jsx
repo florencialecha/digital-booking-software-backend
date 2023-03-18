@@ -1,23 +1,21 @@
 import React from 'react'
-import './UserInfo.css'
 
-const UserInfo = () => {
+const UserInfo = ({ styles }) => {
   return (
-    <div className='reserve-grid-container'>
-        <p>Completá tus datos</p>
-        <div className='reserve-grid-item name'>
-            <div>nombre</div>
+    <div className={styles.reserveGridContainer}>
+        <div className={`${styles.reserveGridItem}` + ' ' + `${styles.name}` + ' ' + `${styles.fielDisable}`}>
+            <div>Nombre</div>
             <input placeholder='Bruno'></input>
         </div>
-        <div className='reserve-grid-item surname'>
+        <div className={`${styles.reserveGridItem}` + ' ' + `${styles.surname}` + ' ' + `${styles.fielDisable}`}>
             <div>Apellido</div>
             <input placeholder='Rodriguez'></input>
         </div>
-        <div className='reserve-grid-item email'>
+        <div className={`${styles.reserveGridItem}` + ' ' + `${styles.email}` + ' ' + `${styles.fielDisable}`}>
             <div>Correo Electronico</div>
             <input placeholder='brodriguez@gmail.com'></input>
         </div>
-        <div className='reserve-grid-item city'>
+        <div className={`${styles.reserveGridItem}` + ' ' + `${styles.city}`}>
             <div>Ciudad</div>
             <input placeholder='ciudad'></input>
         </div>

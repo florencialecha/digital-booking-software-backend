@@ -1,0 +1,248 @@
+@import "../Home/Suggested.module.css";
+
+.reserveGlobalContainer {
+    position: fixed;
+    top: 10%;
+    width: 100%;
+    height: 83%;
+    overflow-y: scroll;
+}
+
+.dataFormTitle {
+    font-size: 24px;
+    padding: 50px 50px 0px;
+    font-weight: bold;
+}
+
+.reservePage { 
+    padding: 0px 30px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 2fr;
+}
+
+.reserveProduct {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    grid-column: 2;
+    grid-row: 1 / 4;
+    border-radius: 15px;
+    background-color: #fff;
+}
+
+.productCategoryNameAndStars {
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.productCategoryNameAndStars > div {
+    grid-row: 3;
+}
+
+.starsContainer {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.reserveProduct > p {
+    font-size: 24px;
+    font-weight: bold;
+    grid-row: 1;
+    padding: 20px;
+}
+
+.cardContainer {
+    height: 100%;
+    border-radius: 0;
+    grid-row: 2;
+    box-shadow: none;
+    
+}
+hr {
+    border: none; 
+    height: 1px; 
+    background: black; 
+} 
+
+.reservedDates {
+    display: grid;
+    grid-row: 3;
+    grid-column: 1;
+    height: 30%;
+    padding: 20px;
+    
+}
+
+.confirmReserveButton {
+    background-color: #f0572d;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 10px 20px 20px 10px;
+
+}
+
+.cardLocation {
+    display: none;
+}
+
+.cardAddress {
+    display: block;
+}
+
+.cardAddress > div {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    gap: 5px;
+}
+
+.seeMore {
+    display: none;
+}
+
+.confirmReserveButton {
+    grid-row: 4;
+}
+
+.reserveCalendar {
+    border: 1px solid red;
+    margin: 20px;
+    grid-column: 1 / 2;
+    grid-row: 2;
+}
+
+.cardContainer > svg {
+    right: 5%;
+}
+
+.cardContainer > section {
+    display: flex;
+    flex-direction: column;
+}
+
+.cardContainer > section > * {
+    width: 100%;
+}
+
+.cardContainer > section > img {
+    height: 75%;
+}
+
+
+.arrivalTime {
+    border: 1px solid red;
+    margin: 20px;
+    grid-column: 1 / 2;
+    grid-row: 3;
+}
+
+
+
+.cardInformation {
+    padding: 20px;
+}
+
+
+.reserveCheckIn {
+    display: grid;
+    grid-template-columns: repeat(2, 11fr);
+    margin: 20px 10px;
+    font-weight: bold;
+}
+
+.reserveCheckIn > :last-child {
+    justify-self: right;
+}
+
+.reserveCheckOut {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 20px 10px;
+    font-weight: bold;
+
+}
+
+.reserveCheckOut > :last-child {
+    justify-self: right;
+}
+
+.valorationInfo {
+    display: none;
+}
+
+#cardDescription {
+    display: none;
+}
+
+
+.reserveGridContainer {
+    background-color: #fff;
+    margin: 20px;
+    grid-column: 1 / 2;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    align-items: center;
+}
+
+.reserveGridItem > div {
+    padding: 10px 0px;
+}
+
+.reserveGridItem > * {
+    width: 100%;
+}
+
+.reserveGridItem > input {
+    height: 60px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 50%);
+}
+
+.reserveGridItem > input:focus{
+    border: none
+}
+
+.fielDisable > input {
+    pointer-events: none;
+    background-color: #DFE4EA;
+}
+
+.name {
+    font-weight: bold;
+    padding: 20px;
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.surname {
+    font-weight: bold;
+    padding: 20px;
+    grid-row: 1;
+    grid-column: 2;
+}
+
+.email {
+    font-weight: bold;
+    grid-row: 2;
+    padding: 20px;
+    grid-column: 1;
+}
+
+.city {
+    grid-row: 2;
+    padding: 20px;
+    grid-column: 2;
+}
+
+.haveToKnow {
+    border: 1px solid red;
+    grid-row: 4;
+    grid-column: 1 / 3;
+    margin: 20px;
+}
