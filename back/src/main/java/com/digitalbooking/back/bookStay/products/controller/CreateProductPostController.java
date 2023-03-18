@@ -6,7 +6,9 @@ import com.digitalbooking.back.bookStay.address.CreateAddressService;
 import com.digitalbooking.back.bookStay.address.FindByIdAddressService;
 import com.digitalbooking.back.bookStay.products.entity.Product;
 import com.digitalbooking.back.bookStay.products.service.CreateProductService;
+import com.digitalbooking.back.management.categories.entity.Category;
 import com.digitalbooking.back.management.categories.exception.BadRequestException;
+import com.digitalbooking.back.management.categories.service.FindCategoryByIdService;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,28 +28,38 @@ public class CreateProductPostController {
     private CreateProductService createProductService;
     @Autowired
     private CreateAddressService createAddressService;
-
     @Autowired
     private FindByIdAddressService findByIdAddressService;
-//    @Autowired
-//    private FindCategoryByIdService findCategoryByIdService;
+    @Autowired
+    private FindCategoryByIdService findCategoryByIdService;
 
 
     @PostMapping
     public void handle(@RequestBody ProductDTO productDTO) {
         try {
-
             // Verificar si los datos del producto son válidos y no son nulos
-            if (productDTO.getTitle() == null || productDTO.getTitle().isEmpty() ||
-                    productDTO.getDescription() == null || productDTO.getDescription().isEmpty()) {
+            if (
+                    productDTO.getTitle() == null ||
+                    productDTO.getTitle().isEmpty() ||
+                    productDTO.getDescription() == null ||
+                    productDTO.getDescription().isEmpty() ||
+                    productDTO.getCategoryId() == null
+            ) {
                 throw new BadRequestException("Product data is invalid");
             }
 
             // Crear el objeto Product a partir del DTO
             Product product = modelMapper.map(productDTO, Product.class);
-            log.info("productDTO.getAddressDTO() = " + productDTO.getAddress());
+
+            // Setear el producto con el id de category
+            Long categoryId = productDTO.getCategoryId();
+            //Conseguir la cotegoría correspondiente
+            Category categoryToAssign = findCategoryByIdService.handle(categoryId).orElseThrow(() -> new Exception("Category not found, please try again."));
+            product.setCategory(categoryToAssign);
+
             // Verificar si se proporcionó un DTO de dirección
             if (productDTO.getAddress() != null) {
+
                 // Crear la dirección y asignarla al producto
                 AddressDTO addressDTO = productDTO.getAddress();
                 Address address = modelMapper.map(addressDTO, Address.class);
