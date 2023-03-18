@@ -20,6 +20,6 @@ public class ProductDTO {
     private Integer stars;
     private Integer scoring;
     private String review;
-    private AddressDTO addressDTO;
+    private AddressDTO address;
 
 }

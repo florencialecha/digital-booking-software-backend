@@ -28,8 +28,8 @@ public class Address {
     @Column(name = "number")
     private String number;
 
-//    @ManyToOne
-//    @JoinColumn(name = "city_id")
-//    private City city;
-//
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
+
 }

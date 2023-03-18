@@ -12,8 +12,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-
 
 @RestController
 @RequestMapping("/product")
@@ -47,11 +45,11 @@ public class CreateProductPostController {
 
             // Crear el objeto Product a partir del DTO
             Product product = modelMapper.map(productDTO, Product.class);
-            log.info("productDTO.getAddressDTO() = " + productDTO.getAddressDTO());
+            log.info("productDTO.getAddressDTO() = " + productDTO.getAddress());
             // Verificar si se proporcionó un DTO de dirección
-            if (productDTO.getAddressDTO() != null) {
+            if (productDTO.getAddress() != null) {
                 // Crear la dirección y asignarla al producto
-                AddressDTO addressDTO = productDTO.getAddressDTO();
+                AddressDTO addressDTO = productDTO.getAddress();
                 Address address = modelMapper.map(addressDTO, Address.class);
                 createAddressService.handle(address);
 
