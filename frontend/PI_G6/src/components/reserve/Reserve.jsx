@@ -33,7 +33,7 @@ const reserve = () => {
             </div>
             <div className={styles.reserveCalendar}>calendar</div>
             <div className={styles.arrivalTime}>Horario de llegada</div>
-            <div className={styles.haveToKnow}>Que tenes que saber</div>
+            <div className={styles.haveToKnow}>Qué tenés que saber</div>
         </div>
       </div>
   )
