@@ -1,30 +1,84 @@
-import React, { useState } from 'react'
-import './Calendar.css'
-import { endOfMonth, startOfMonth } from 'date-fns/fp'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useState } from "react";
+import "./Calendar.css";
+import { startOfMonth } from "date-fns/fp";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
-  faChevronRight
-} from '@fortawesome/free-solid-svg-icons'
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
+import { format } from "date-fns";
 
 const months = [
-  'Enero',
-  'Febrero',
-  'Marzo',
-  'Abril',
-  'Mayo',
-  'Junio',
-  'Julio',
-  'Agosto',
-  'Septiembre',
-  'Octubre',
-  'Noviembre',
-  'Diciembre'
-]
+  "Enero",
+  "Febrero",
+  "Marzo",
+  "Abril",
+  "Mayo",
+  "Junio",
+  "Julio",
+  "Agosto",
+  "Septiembre",
+  "Octubre",
+  "Noviembre",
+  "Diciembre",
+];
 
-const days = ['D', 'L', 'M', 'M', 'J', 'V', 'S']
+const days = ["D", "L", "M", "M", "J", "V", "S"];
 
-const Calendar = () => {
+function Calendar() {
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const [selectDate, setSelectDate] = useState([]);
+  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
+  const [nextMonth, setNextMonth] = useState(new Date().getMonth() + 2);
+  const [currentYear, setCurrentYear] = useState(new Date().getYear() + 1900);
+  const [changeMonth, setChangeMonth] = useState(false);
+
+  const reservations = [
+    {
+      id: 1,
+      fechaInicial: "2023-03-18",
+      fechaFinal: "2023-03-21",
+    },
+    {
+      id: 2,
+      fechaInicial: "2023-04-02",
+      fechaFinal: "2023-04-10",
+    },
+    {
+      id: 3,
+      fechaInicial: "2023-04-12",
+      fechaFinal: "2023-04-22",
+    },
+  ];
+
+  const getDatesRange = (start, finish) => {
+    const date = new Date(start.setDate(start.getDate() + 1));
+    const finishDate = new Date(finish.setDate(finish.getDate() + 1));
+    const dates = [];
+
+    while (date <= finishDate) {
+      dates.push(new Date(date));
+      date.setDate(date.getDate() + 1);
+    }
+
+    return dates;
+  };
+
+  let newReservation = [];
+  if (selectDate.length === 2) {
+    newReservation = getDatesRange(
+      new Date(selectDate[0]),
+      new Date(selectDate[1])
+    );
+  }
+
+  let unavailableDatesRange = reservations.map((date, i) =>
+    getDatesRange(new Date(date.fechaInicial), new Date(date.fechaFinal))
+  );
+
+  const alreadyReserved = unavailableDatesRange.flat(1);
+
+const Calendar = ({ productId }) => {
   const [currentDate, setCurrentDate] = useState(new Date())
   const [selectDate, setSelectDate] = useState([])
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1)
@@ -32,134 +86,125 @@ const Calendar = () => {
   const [currentYear, setCurrentYear] = useState(new Date().getYear() + 1900)
   const [changeMonth, setChangeMonth] = useState(false)
 
-  const dates = [
-    new Date(),
-    new Date('2023-04-23'),
-    new Date('2023-03-23'),
-    new Date('2023-04-24'),
-    new Date('2023-04-25'),
-    new Date('2023-05-25'),
-    new Date('2023-05-26'),
-    new Date('2023-04-26')
-  ]
+  const unavailable = formateDate(alreadyReserved);
+  const formatedNewReservation = formateDate(newReservation);
+  console.log(selectDate);
 
   const unavailableDates = (i, month, year) => {
-    if (
-      dates.find(
-        (date) =>
-          date.getDate() + 1 === i + 1 &&
-          date.getMonth() + 1 === month &&
-          date.getYear() + 1900 === year
-      )
-    ) {
-      return 'unavailable'
+    let selected = format(new Date(`${year}-${month}-${i + 1}`), "yyyy-MM-dd");
+
+    if (unavailable.includes(selected)) {
+      return "unavailable";
     } else if (
-      !dates.find(
-        (date) =>
-          date.getDate() + 1 === i + 1 &&
-          date.getMonth() + 1 === month &&
-          date.getYear() + 1900 === year
-      ) &&
-      selectDate.find((day) => day === `${year}-${month}-${i + 1}`)
+      (!unavailable.includes(selected) &&
+        formatedNewReservation.includes(selected)) ||
+      selectDate.includes(selected)
     ) {
-      return 'selected'
+      return "selected";
     }
 
-    return 'available'
-  }
+    return "available";
+  };
 
   const handleSelectDates = (i, year, month) => {
-    const displayDate = `${year}-${month}-${i + 1}`
+    let displayDate = format(
+      new Date(`${year}-${month}-${i + 1}`),
+      "yyyy-MM-dd"
+    );
+
+    const range = formateDate(
+      getDatesRange(new Date(selectDate[0]), new Date(displayDate))
+    );
+
     if (
       !selectDate.includes(displayDate) &&
-      !dates.find(
-        (date) =>
-          date.getDate() + 1 === i + 1 &&
-          date.getMonth() + 1 === month &&
-          date.getYear() + 1900 === year
-      )
+      !unavailable.includes(displayDate) &&
+      selectDate.length <= 2
     ) {
-      setSelectDate([...selectDate, displayDate])
+      setSelectDate([...selectDate, displayDate]);
     }
-    const index = selectDate.indexOf(displayDate)
-    if (index !== -1) {
-      selectDate.splice(index, 1)
-      setSelectDate([...selectDate])
+
+    if (selectDate.length === 1) {
+      if (range.some((i) => unavailable.includes(i))) {
+        setSelectDate([displayDate]);
+      } else if (selectDate[0] > displayDate) {
+        setSelectDate([displayDate]);
+      } else if (selectDate[0] == displayDate) {
+        setSelectDate([]);
+      }
     }
-  }
+
+    if (selectDate.length === 2) {
+      setSelectDate([displayDate]);
+    }
+  };
 
   const getDaysInAMonth = (year, month) => {
-    return new Date(year, month, 0).getDate()
-  }
+    return new Date(year, month, 0).getDate();
+  };
 
   const getStartOfMonth = (year, month) => {
-    const date = new Date(`${year}-${month}-1`)
-    const startDate = startOfMonth(date)
-    return startDate.getDay()
-  }
-
-  const getEndOfMonth = (year, month) => {
-    const date = new Date(`${year}-${month}-1`)
-    const endDate = endOfMonth(date)
-    return endDate.getDay()
-  }
+    const date = new Date(`${year}-${month}-1`);
+    const startDate = startOfMonth(date);
+    return startDate.getDay();
+  };
 
   const followingMonth = () => {
     if (currentMonth < 12 && nextMonth < 12) {
-      setCurrentMonth((prev) => prev + 1)
-      setNextMonth((prev) => prev + 1)
+      setCurrentMonth((prev) => prev + 1);
+      setNextMonth((prev) => prev + 1);
     } else {
-      setCurrentMonth(1)
-      setNextMonth(2)
-      setCurrentYear((prev) => prev + 1)
+      setCurrentMonth(1);
+      setNextMonth(2);
+      setCurrentYear((prev) => prev + 1);
     }
-    toggleAnimation()
-  }
+    toggleAnimation();
+  };
 
   const prevMonth = () => {
     if (currentMonth > 1 && nextMonth > 1) {
-      setCurrentMonth((prev) => prev - 1)
-      setNextMonth((prev) => prev - 1)
+      setCurrentMonth((prev) => prev - 1);
+      setNextMonth((prev) => prev - 1);
     } else {
-      setCurrentMonth(11)
-      setNextMonth(12)
-      setCurrentYear((prev) => prev - 1)
+      setCurrentMonth(11);
+      setNextMonth(12);
+      setCurrentYear((prev) => prev - 1);
     }
-    toggleAnimation()
-  }
+    toggleAnimation();
+  };
 
   const completeCalendar = (month, year) => {
-    return 42 - getStartOfMonth(year, month) - getDaysInAMonth(year, month)
-  }
+    return 42 - getStartOfMonth(year, month) - getDaysInAMonth(year, month);
+  };
 
   const toggleAnimation = () => {
-    setChangeMonth(!changeMonth)
-  }
+    setChangeMonth(!changeMonth);
+  };
 
   const pastDates = (day, month) => {
     if (
       (day < currentDate.getDate() &&
         month <= currentDate.getMonth() + 1 &&
-        currentYear <= currentDate.getYear() + 1900) ||
+        currentYear <= currentDate.getFullYear()) ||
       (day >= currentDate.getDate() &&
         month < currentDate.getMonth() + 1 &&
-        currentYear <= currentDate.getYear() + 1900) ||
-      currentYear < currentDate.getYear() + 1900
+        currentYear <= currentDate.getFullYear()) ||
+      currentYear < currentDate.getFullYear()
     ) {
-      return 'past-date'
-    } else return ''
-  }
+      return "past-date";
+    } else return "";
+  };
 
   const getToday = (day, month, year) => {
     if (
       day + 1 === currentDate.getDate() &&
       month === currentDate.getMonth() + 1 &&
-      year === currentDate.getYear() + 1900
+      year === currentDate.getFullYear()
     ) {
-      return 'today'
+      return "today";
     }
-    ('')
-  }
+    ("");
+  };
 
   return (
     <div className="calendar-layout">
@@ -182,12 +227,12 @@ const Calendar = () => {
             </p>
           ))}
           {Array.from({
-            length: getStartOfMonth(currentYear, currentMonth)
+            length: getStartOfMonth(currentYear, currentMonth),
           }).map((_, i) => (
             <p key={i}></p>
           ))}
           {Array.from({
-            length: getDaysInAMonth(currentYear, currentMonth)
+            length: getDaysInAMonth(currentYear, currentMonth),
           }).map((_, i) => (
             <p
               className={`${unavailableDates(
@@ -195,8 +240,8 @@ const Calendar = () => {
                 currentMonth,
                 currentYear
               )} day-of-month ${pastDates(i + 1, currentMonth)} ${
-                changeMonth ? 'fade-in' : 'fade-out'
-              } ${getToday(i, currentMonth, currentYear)}`}
+                changeMonth ? "fade-in" : "fade-out"
+              } ${getToday(i, currentMonth, currentYear)} `}
               onClick={() => handleSelectDates(i, currentYear, currentMonth)}
               key={i}
             >
@@ -204,7 +249,7 @@ const Calendar = () => {
             </p>
           ))}
           {Array.from({
-            length: completeCalendar(currentMonth, currentYear)
+            length: completeCalendar(currentMonth, currentYear),
           }).map((_, i) => (
             <p key={i} className="day-of-other-month">
               {i + 1}
@@ -224,43 +269,42 @@ const Calendar = () => {
               {day}
             </p>
           ))}
-          {Array.from({ length: getStartOfMonth(currentYear, nextMonth) }).map(
-            (_, i) => (
-              <p key={i}></p>
-            )
-          )}
-          {Array.from({ length: getDaysInAMonth(currentYear, nextMonth) }).map(
-            (_, i) => (
-              <p
-                className={`${unavailableDates(
-                  i,
-                  nextMonth,
-                  currentYear
-                )} day-of-month ${pastDates(i + 1, nextMonth)} ${
-                  changeMonth ? 'fade-in' : 'fade-out'
-                } ${getToday(i, nextMonth, currentYear)}`}
-                onClick={() => handleSelectDates(i, currentYear, nextMonth)}
-                key={i}
-              >
-                {i + 1}
-              </p>
-            )
-          )}
-          {Array.from({ length: completeCalendar(nextMonth, currentYear) }).map(
-            (_, i) => (
-              <p key={i} className="day-of-other-month">
-                {i + 1}
-              </p>
-            )
-          )}
+          {Array.from({
+            length: getStartOfMonth(currentYear, nextMonth),
+          }).map((_, i) => (
+            <p key={i}></p>
+          ))}
+          {Array.from({
+            length: getDaysInAMonth(currentYear, nextMonth),
+          }).map((_, i) => (
+            <p
+              className={`${unavailableDates(
+                i,
+                nextMonth,
+                currentYear
+              )} day-of-month ${pastDates(i + 1, nextMonth)} ${
+                changeMonth ? "fade-in" : "fade-out"
+              } ${getToday(i, nextMonth, currentYear)}`}
+              onClick={() => handleSelectDates(i, currentYear, nextMonth)}
+              key={i}
+            >
+              {i + 1}
+            </p>
+          ))}
+          {Array.from({
+            length: completeCalendar(nextMonth, currentYear),
+          }).map((_, i) => (
+            <p key={i} className="day-of-other-month">
+              {i + 1}
+            </p>
+          ))}
         </div>
         <button className="change-month-button right" onClick={followingMonth}>
           <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
         </button>
       </div>
-      {/* <button onClick={() => setSelectDate([])}>clear selection</button> */}
     </div>
-  )
+  );
 }
 
-export default Calendar
+export default Calendar;
