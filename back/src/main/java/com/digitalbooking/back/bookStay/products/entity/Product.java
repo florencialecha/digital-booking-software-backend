@@ -1,13 +1,11 @@
 package com.digitalbooking.back.bookStay.products.entity;
+import com.digitalbooking.back.bookStay.address.Address;
 import com.digitalbooking.back.management.categories.entity.Category;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "product")
@@ -43,11 +41,11 @@ public class Product {
     @JoinColumn(name = "category_id")
     private Category category;
 
-//    // LAS DIRECCIONES DEBEN PODER CREARSE Y GUARDARSE AL CREAR EL PRODUCTO, PASANDOLE LA CIUDAD (STRING QUE FINDCITYBYNAME)
-//    @ManyToOne
-//    @JoinColumn(name = "ADDRESS_ID")
-//    private Address address;
-//
+    // LAS DIRECCIONES DEBEN PODER CREARSE Y GUARDARSE AL CREAR EL PRODUCTO, PASANDOLE LA CIUDAD (STRING QUE FINDCITYBYNAME)
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
+
 //    @OneToMany
 //    private List<Image> imageList = new ArrayList<>();
 //

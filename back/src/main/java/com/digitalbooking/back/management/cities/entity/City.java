@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "CITY")
+@Table(name = "city")
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,8 +23,8 @@ public class City {
     @Column(name = "NAME")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "STATE_ID")
-    private State state;
+//    @ManyToOne
+//    @JoinColumn(name = "STATE_ID")
+//    private State state;
 
 }
