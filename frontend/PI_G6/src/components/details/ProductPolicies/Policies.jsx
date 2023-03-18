@@ -12,7 +12,7 @@ const Policies = ({ policies }) => {
         <h3>Normas de la casa</h3>
         <p className="rules-body">
           {rules?.map((rule) => (
-            <span>{rule}</span>
+            <span key={rule}>{rule}</span>
           ))}
         </p>
       </div>
@@ -21,7 +21,7 @@ const Policies = ({ policies }) => {
         <p className="security-body">
           {" "}
           {security?.map((sec) => (
-            <span>{sec}</span>
+            <span key={sec}>{sec}</span>
           ))}
         </p>
       </div>
@@ -31,7 +31,7 @@ const Policies = ({ policies }) => {
         <p className="cancellation-body">
           {" "}
           {cancellation?.map((can) => (
-            <span>{can}</span>
+            <span key={can}>{can}</span>
           ))}
         </p>
       </div>

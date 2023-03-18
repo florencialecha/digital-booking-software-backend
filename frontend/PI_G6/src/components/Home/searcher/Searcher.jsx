@@ -4,7 +4,7 @@ import SelectorTarget from './SelectorTarget'
 import DatePick from './DatePick'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarDay } from '@fortawesome/free-solid-svg-icons'
-import { GlobalContext } from '../../utils/globalContext'
+import { GlobalContext } from '../../../utils/globalContext'
 
 const Searcher = () => {
   const [selected, setSelected] = useState('')

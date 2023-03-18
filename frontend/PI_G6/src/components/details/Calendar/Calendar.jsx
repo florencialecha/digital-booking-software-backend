@@ -24,7 +24,7 @@ const months = [
 
 const days = ['D', 'L', 'M', 'M', 'J', 'V', 'S']
 
-const Calendar = ({ productId }) => {
+const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date())
   const [selectDate, setSelectDate] = useState([])
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1)

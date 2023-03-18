@@ -18,7 +18,7 @@ function App () {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path='/product/:id' element={ <ProductDetails/> }/>
-        <Route path='/product/:id/reserve' element={ <Reserve/> }/>
+        <Route path='/product/:id/reserve' className='reserve' element={ <Reserve/> }/>
       </Route>
         <Route path="/*" element={<NotFound />} />
     </Routes>

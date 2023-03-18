@@ -15,7 +15,7 @@ const CardStars = ({ stars }) => {
   }
 
   return (
-    <div className='stars-container'>
+    <div>
         {st.map((star) => <span className={star.starFill} key={star.i}>★</span>)}
     </div>
   )

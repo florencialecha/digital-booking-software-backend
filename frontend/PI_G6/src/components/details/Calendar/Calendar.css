@@ -116,12 +116,6 @@
   -moz-box-shadow: -2px 4px 5px -4px rgb(134, 133, 133);
 }
 
-.reservation-button > a {
-  width: 100%;
-  color: white;
-  font-weight: bold;
-}
-
 .reservation-button:hover {
   cursor: pointer;
   background-color: #e78c73;

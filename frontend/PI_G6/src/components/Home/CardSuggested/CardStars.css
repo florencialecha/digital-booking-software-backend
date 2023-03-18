@@ -1,7 +1,5 @@
-
-.stars-container {
-    display: flex;
-
+.starsContainer {
+    padding: 0 2px;
 }
 
 .full {

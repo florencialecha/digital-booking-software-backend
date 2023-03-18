@@ -1,5 +1,4 @@
-import { React, useEffect, useState } from 'react'
-import { useParams } from 'react-router'
+import React from 'react'
 import './ProductDetails.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -16,21 +15,11 @@ import Calendar from './Calendar/Calendar'
 import Map from './Map/Map'
 import CardStars from '../Home/CardSuggested/CardStars'
 
-import axios from 'axios'
-
 const ProductDetails = () => {
-  const [product, setProduct] = useState(null)
-  const { id } = useParams()
-
-  useEffect(() => {
-    axios
-      .get(`http://3.131.138.206:8080/product/${id}`)
-      .then((res) => setProduct(res.data))
-      .catch((error) => console.log(error))
-  }, [id])
+  const product = JSON.parse(localStorage.getItem('hotelSelected'))
 
   return (
-    <>
+    <>{console.log(product)}
       {product
         ? (
         <div className="details-container">
