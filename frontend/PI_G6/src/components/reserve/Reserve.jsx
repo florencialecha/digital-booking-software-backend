@@ -1,8 +1,10 @@
 import React from 'react'
-import UserInfo from './userInfo/UserInfo'
+import UserInfo from './UserInfo'
 import styles from './Reserve.module.css'
 import CardSuggested from '../Home/CardSuggested/CardSuggested'
 import ProductHeader from '../details/ProductHeader/ProductHeader'
+import Calendar from '../details/Calendar/Calendar.jsx'
+import ArrivalInfo from './ArrivalInfo'
 
 const reserve = () => {
   const product = JSON.parse(localStorage.getItem('hotelSelected'))
@@ -31,8 +33,14 @@ const reserve = () => {
               </div>
               <button className={styles.confirmReserveButton}>Confirmar reserva</button>
             </div>
-            <div className={styles.reserveCalendar}>calendar</div>
-            <div className={styles.arrivalTime}>Horario de llegada</div>
+            <div className={styles.reserveCalendar}>
+              <p>Seleccioná tu fecha de reserva</p>
+              <Calendar styles={styles}/>
+            </div>
+            <div className={styles.arrivalTime}>
+              <p>Tu Horario de llegada</p>
+              <ArrivalInfo styles={styles}/>
+            </div>
             <div className={styles.haveToKnow}>Qué tenés que saber</div>
         </div>
       </div>
