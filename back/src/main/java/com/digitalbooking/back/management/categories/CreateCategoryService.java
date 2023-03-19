@@ -1,8 +1,6 @@
 package com.digitalbooking.back.management.categories;
 
-import com.digitalbooking.back.management.categories.Category;
 import com.digitalbooking.back.management.categories.exception.BadRequestException;
-import com.digitalbooking.back.management.categories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

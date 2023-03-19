@@ -1,4 +1,4 @@
-package com.digitalbooking.back.bookStay.products.exception;
+package com.digitalbooking.back.bookStayApp.products.exception;
 
 public class BadRequestException extends Exception {
 
