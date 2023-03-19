@@ -1,8 +1,8 @@
-//package com.digitalbooking.back.bookStay.address;
+//package com.digitalbooking.back.bookStay.images;
 //
 //import org.springframework.data.jpa.repository.JpaRepository;
 //import org.springframework.stereotype.Repository;
 //
 //@Repository
-//public interface AddressRepository extends JpaRepository<Address, Long> {
+//public interface ImageRepository extends JpaRepository<Image, Long> {
 //}

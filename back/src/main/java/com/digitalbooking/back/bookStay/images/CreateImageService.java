@@ -1,17 +1,17 @@
-//package com.digitalbooking.back.bookStay.address;
+//package com.digitalbooking.back.bookStay.images;
 //
 //import com.digitalbooking.back.management.categories.exception.BadRequestException;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Service;
 //
 //@Service
-//public class CreateAddressService {
+//public class CreateImageService {
 //
 //    @Autowired
-//    private AddressRepository addressRepository;
+//    private ImageRepository imageRepository;
 //
-//    public void handle(Address address) throws BadRequestException {
-//        addressRepository.save(address);
+//    public void handle(Image image) throws BadRequestException {
+//        imageRepository.save(image);
 //    }
 //
 //}
