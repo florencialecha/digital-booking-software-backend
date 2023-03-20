@@ -90,7 +90,7 @@ const ProductDetails = () => {
             <h2>¿Qué ofrece este lugar?</h2>
             <hr className={styles.detailsLine} />
             <div className={styles.detailsChar}>
-              <Features specs={product.featureList} />
+              <Features styles={styles} specs={product.featureList} />
             </div>
             <div className={styles.detailsAvailableDates}>
               <h2>Fechas disponibles</h2>

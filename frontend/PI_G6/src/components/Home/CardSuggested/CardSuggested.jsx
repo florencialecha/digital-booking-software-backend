@@ -64,7 +64,7 @@ const CardSuggested = ({ suggest, styles }) => {
               <p>{suggest.address.street} {suggest.address.number}, {suggest.address.city.name}, {suggest.address.city.state.name}, {suggest.address.city.state.country.name}</p>
             </div>
           </div>
-          <Features className={styles.serviceIcons} specs={suggest.featureList} />
+          <Features className={styles.serviceIcons} styles={styles} specs={suggest.featureList} />
           <div id={styles.cardDescription}>
             {suggest.description?.length > 30
               ? (
