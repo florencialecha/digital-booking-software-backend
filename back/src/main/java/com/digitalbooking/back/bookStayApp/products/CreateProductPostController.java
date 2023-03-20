@@ -3,10 +3,15 @@ package com.digitalbooking.back.bookStayApp.products;
 import com.digitalbooking.back.bookStayApp.products.exception.BadRequestException;
 import com.digitalbooking.back.management.categories.Category;
 import com.digitalbooking.back.management.categories.CategoryRepository;
+import com.digitalbooking.back.management.features.Feature;
+import com.digitalbooking.back.management.features.FeatureRepository;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashSet;
+import java.util.List;
 
 @RestController
 @RequestMapping("/product")
@@ -19,17 +24,25 @@ public class CreateProductPostController {
     private ModelMapper modelMapper;
     @Autowired
     private CreateProductService createProductService;
-
     @Autowired
     private CategoryRepository categoryRepository;
+    @Autowired
+    private FeatureRepository featureRepository;
 
     @PostMapping
     public void handle(@RequestBody ProductDTO productDTO) {
         try {
             Product product = modelMapper.map(productDTO, Product.class);
+
+            //Asignar categoría por id
             Category category = categoryRepository.findById(productDTO.getCategory())
                     .orElseThrow(() -> new RuntimeException("Category not found"));
             product.setCategory(category);
+
+            //Asignar features por id's
+            List<Feature> features = featureRepository.findAllById(productDTO.getFeatures());
+            product.setFeatures(new HashSet<>(features));
+
             createProductService.handle(product);
             log.info("Product created successfully");
 

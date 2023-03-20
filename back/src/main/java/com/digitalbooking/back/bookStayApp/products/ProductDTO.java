@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 
 @Getter
 @Setter
@@ -20,7 +22,6 @@ public class ProductDTO {
     private Integer scoring;
     private String review;
     private Long category;
-//    private AddressDTO address;
-//    private List<ImageDTO> images;
+    private Set<Long> features;
 
 }
