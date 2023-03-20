@@ -67,9 +67,6 @@ public class Product {
             orphanRemoval = true)
     private List<Image> images = new ArrayList<>();
 
-    /* Un producto puede tener muchas reservas. Muchas reservas pueden pertenecer al mismo producto. Relación muchos a uno entre reservas y productos.
-    No quiero que puedan existir dos reservas para la misma fecha en un mismo producto, entonces una colección de tipo Set sería más apropiada que una lista.
-    Una vez que creo la reserva le asigno el producto. Cuando creo el producto no quiero asignar ni crear la reserva.*/
     @OneToMany(fetch = FetchType.LAZY,
           mappedBy = "product",
           cascade = CascadeType.ALL,

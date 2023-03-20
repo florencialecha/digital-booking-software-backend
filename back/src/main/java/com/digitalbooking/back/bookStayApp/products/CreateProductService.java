@@ -11,8 +11,6 @@ import org.springframework.stereotype.Service;
 public class CreateProductService {
     @Autowired
     private ProductRepository productRepository;
-    @Autowired
-    private CategoryRepository categoryRepository;
 
     public void handle(Product product) throws BadRequestException {
         productRepository.save(product);
