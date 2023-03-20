@@ -30,7 +30,6 @@ const Features = ({ specs, styles }) => {
 
   return (
     <div className={location.pathname !== '/' ? '' : ''}>
-      {console.log(styles)}
       <div
         className={
           location.pathname !== '/' ? `${styles.featuresBody}` : `${styles.featuresBodyHome}`

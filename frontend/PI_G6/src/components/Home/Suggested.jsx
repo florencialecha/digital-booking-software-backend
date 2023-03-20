@@ -9,32 +9,66 @@ const Suggested = () => {
   const { state, dispatch } = useContext(GlobalContext)
 
   useEffect(() => {
-    if (state.data === 0 && !state.city) {
-      axios
-        .get('http://3.131.138.206:8080/product/random')
-        .then((res) => dispatch({ type: 'bd', payload: res.data }))
-        .catch((error) => {
-          console.log(error)
-          dispatch({ type: 'bd', payload: staticData })
-        })
-    } else if (state.data > 0) {
-      axios
-        .get(`http://3.131.138.206:8080/product/byCategory/${state.data}`)
-        .then((res) => dispatch({ type: 'bd', payload: res.data }))
-        .catch((error) => {
-          console.log(error)
-          dispatch({ type: 'bd', payload: staticData })
-        })
-    } else {
-      axios
-        .get(`http://3.131.138.206:8080/product/byCity/${state.city}`)
-        .then((res) => dispatch({ type: 'bd', payload: res.data }))
-        .catch((error) => {
-          console.log(error)
-          dispatch({ type: 'bd', payload: staticData })
-        })
+    const fetchData = async () => {
+      if (state.data === 0 && !state.city) {
+        try {
+          const res = await axios.get('http://3.131.138.206:8080/product/random')
+          dispatch({ type: 'bd', payload: res.data })
+        } catch (error) {
+          console.log('Error al obtener datos de la API. Usando datos estáticos...')
+          const fallbackData = await axios.get('/apiProducts.json')
+          dispatch({ type: 'bd', payload: fallbackData.data })
+        }
+      } else if (state.data > 0) {
+        try {
+          const res = await axios.get(`http://3.131.138.206:8080/product/byCategory/${state.data}`)
+          dispatch({ type: 'bd', payload: res.data })
+        } catch (error) {
+          console.log('Error al obtener datos de la API. Usando datos estáticos...')
+          const fallbackData = await axios.get('/apiProducts.json')
+          dispatch({ type: 'bd', payload: fallbackData.data })
+        }
+      } else {
+        try {
+          const res = await axios.get(`http://3.131.138.206:8080/product/byCity/${state.city}`)
+          dispatch({ type: 'bd', payload: res.data })
+        } catch (error) {
+          console.log('Error al obtener datos de la API. Usando datos estáticos...')
+          const fallbackData = await axios.get('/apiProducts.json')
+          dispatch({ type: 'bd', payload: fallbackData.data })
+        }
+      }
     }
-  }, [state.data, state.city])
+    fetchData()
+  }, [])
+
+  // useEffect(() => {
+  //   if (state.data === 0 && !state.city) {
+  //     axios
+  //       .get('http://3.131.138.206:8080/product/random')
+  //       .then((res) => dispatch({ type: 'bd', payload: res.data }))
+  //       .catch((error) => {
+  //         console.log(error)
+  //         dispatch({ type: 'bd', payload: staticData })
+  //       })
+  //   } else if (state.data > 0) {
+  //     axios
+  //       .get(`http://3.131.138.206:8080/product/byCategory/${state.data}`)
+  //       .then((res) => dispatch({ type: 'bd', payload: res.data }))
+  //       .catch((error) => {
+  //         console.log(error)
+  //         dispatch({ type: 'bd', payload: staticData })
+  //       })
+  //   } else {
+  //     axios
+  //       .get(`http://3.131.138.206:8080/product/byCity/${state.city}`)
+  //       .then((res) => dispatch({ type: 'bd', payload: res.data }))
+  //       .catch((error) => {
+  //         console.log(error)
+  //         dispatch({ type: 'bd', payload: staticData })
+  //       })
+  //   }
+  // }, [state.data, state.city])
 
   return (
     <section className={styles.suggestedMainContainer}>
