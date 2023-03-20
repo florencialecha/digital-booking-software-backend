@@ -1,5 +1,6 @@
 package com.digitalbooking.back.bookStayApp.products;
 
+import com.digitalbooking.back.bookStayApp.policies.Policy;
 import com.digitalbooking.back.management.categories.Category;
 import com.digitalbooking.back.management.features.Feature;
 
@@ -51,5 +52,9 @@ public class Product {
             joinColumns = {@JoinColumn(name = "PRODUCT_ID")},
             inverseJoinColumns = {@JoinColumn(name = "FEATURE_ID")})
     private Set<Feature> features = new HashSet<>();
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "POLICY_ID")
+    private Policy policy;
 
 }

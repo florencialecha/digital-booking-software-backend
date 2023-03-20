@@ -1,5 +1,8 @@
 package com.digitalbooking.back.bookStayApp.products;
 
+import com.digitalbooking.back.bookStayApp.policies.Policy;
+import com.digitalbooking.back.bookStayApp.policies.PolicyDTO;
+import com.digitalbooking.back.bookStayApp.policies.PolicyRepository;
 import com.digitalbooking.back.bookStayApp.products.exception.BadRequestException;
 import com.digitalbooking.back.management.categories.Category;
 import com.digitalbooking.back.management.categories.CategoryRepository;
@@ -28,6 +31,8 @@ public class CreateProductPostController {
     private CategoryRepository categoryRepository;
     @Autowired
     private FeatureRepository featureRepository;
+    @Autowired
+    private PolicyRepository policyRepository;
 
     @PostMapping
     public void handle(@RequestBody ProductDTO productDTO) {
@@ -42,6 +47,14 @@ public class CreateProductPostController {
             //Asignar features por id's
             List<Feature> features = featureRepository.findAllById(productDTO.getFeatures());
             product.setFeatures(new HashSet<>(features));
+
+            //Crear política
+            PolicyDTO policyDTO = productDTO.getPolicy();
+            if (policyDTO != null) {
+                Policy policy = modelMapper.map(policyDTO, Policy.class);
+                policyRepository.save(policy);
+                product.setPolicy(policy);
+            }
 
             createProductService.handle(product);
             log.info("Product created successfully");

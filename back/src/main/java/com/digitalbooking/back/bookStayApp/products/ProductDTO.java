@@ -1,5 +1,6 @@
 package com.digitalbooking.back.bookStayApp.products;
 
+import com.digitalbooking.back.bookStayApp.policies.PolicyDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,5 +24,5 @@ public class ProductDTO {
     private String review;
     private Long category;
     private Set<Long> features;
-
+    private PolicyDTO policy;
 }
