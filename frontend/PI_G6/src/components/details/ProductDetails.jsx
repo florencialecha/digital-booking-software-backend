@@ -1,27 +1,44 @@
-import React from 'react'
-import styles from '../details/ProductDetails.module.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from "react";
+import styles from "../details/ProductDetails.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShareNodes,
   faHeart,
-  faLocationDot
-} from '@fortawesome/free-solid-svg-icons'
-import Gallery from './Gallery/Gallery'
-import ProductHeader from './ProductHeader/ProductHeader'
-import Description from './ProductDescription/Description'
-import Features from './ProductFeatures/Features'
-import Policies from './ProductPolicies/Policies'
-import Calendar from './Calendar/Calendar'
-import Map from './Map/Map'
-import CardStars from '../Home/CardSuggested/CardStars'
+  faLocationDot,
+} from "@fortawesome/free-solid-svg-icons";
+import Gallery from "./Gallery/Gallery";
+import ProductHeader from "./ProductHeader/ProductHeader";
+import Description from "./ProductDescription/Description";
+import Features from "./ProductFeatures/Features";
+import Policies from "./ProductPolicies/Policies";
+import Calendar from "./Calendar/Calendar";
+import Map from "./Map/Map";
+import CardStars from "../Home/CardSuggested/CardStars";
 
 const ProductDetails = () => {
-  const product = JSON.parse(localStorage.getItem('hotelSelected'))
+  const product = JSON.parse(localStorage.getItem("hotelSelected"));
+
+  const reservations = [
+    {
+      id: 1,
+      fechaInicial: "2023/03/18",
+      fechaFinal: "2023/03/19",
+    },
+    {
+      id: 2,
+      fechaInicial: "2023/04/02",
+      fechaFinal: "2023/04/10",
+    },
+    {
+      id: 3,
+      fechaInicial: "2023/04/12",
+      fechaFinal: "2023/04/22",
+    },
+  ];
 
   return (
     <>
-      {product
-        ? (
+      {product ? (
         <div className={styles.detailsContainer}>
           <div className={styles.detailsHeader}>
             <ProductHeader generalInfo={product} />
@@ -34,11 +51,11 @@ const ProductDetails = () => {
                 </div>
                 <div className={styles.detailsLocationInfo}>
                   <p>
-                    {' '}
+                    {" "}
                     {product.address.street} {product.address.number}
-                    {', '}
+                    {", "}
                     {product.address.city.name}
-                    {', '}
+                    {", "}
                     {product.address.city.state.country.name}
                   </p>
                   <p className={styles.detailsDistance}>A 940 m del centro</p>
@@ -47,7 +64,7 @@ const ProductDetails = () => {
               <div className={styles.detailsScoring}>
                 <div className={styles.detailsReview}>
                   <p>{product.review}</p>
-                    <CardStars {...product} />{' '}
+                  <CardStars {...product} />{" "}
                 </div>
                 <div className={styles.detailsScore}>
                   <p>{product.scoring}</p>
@@ -77,10 +94,16 @@ const ProductDetails = () => {
             </div>
             <div className={styles.detailsAvailableDates}>
               <h2>Fechas disponibles</h2>
-              <Calendar product={product} styles={styles}/>
+              <Calendar
+                product={product}
+                styles={styles}
+                reservations={reservations}
+              />
               <div className={styles.reservationDetails}>
                 <p>Agregá tus fechas de viaje para obtener precios exactos</p>
-                <button className={styles.reservationButton}><a href={`/product/${product.id}/reserve`}>Iniciar reserva</a></button>
+                <button className={styles.reservationButton}>
+                  <a href={`/product/${product.id}/reserve`}>Iniciar reserva</a>
+                </button>
               </div>
             </div>
             <div className={styles.detailsMap}>
@@ -88,7 +111,7 @@ const ProductDetails = () => {
 
               <hr className={styles.detailsLine} />
               <p>
-                {product.address.city.name},{' '}
+                {product.address.city.name},{" "}
                 {product.address.city.state.country.name}
               </p>
               <Map address={product.address} />
@@ -100,12 +123,11 @@ const ProductDetails = () => {
             </div>
           </div>
         </div>
-          )
-        : (
-            ''
-          )}
+      ) : (
+        ""
+      )}
     </>
-  )
-}
+  );
+};
 
-export default ProductDetails
+export default ProductDetails;

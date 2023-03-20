@@ -3,7 +3,7 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable react/prop-types */
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { startOfMonth } from "date-fns/fp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,6 +11,7 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { format } from "date-fns";
+import { GlobalContext } from "../../../utils/globalContext";
 
 const months = [
   "Enero",
@@ -29,31 +30,21 @@ const months = [
 
 const days = ["D", "L", "M", "M", "J", "V", "S"];
 
-function Calendar({ styles }) {
+function Calendar({ styles, reservations }) {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectDate, setSelectDate] = useState([]);
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
   const [nextMonth, setNextMonth] = useState(new Date().getMonth() + 2);
   const [currentYear, setCurrentYear] = useState(new Date().getYear() + 1900);
   const [changeMonth, setChangeMonth] = useState(false);
+  const { dispatch } = useContext(GlobalContext);
 
-  const reservations = [
-    {
-      id: 1,
-      fechaInicial: "2023/03/18",
-      fechaFinal: "2023/03/19",
-    },
-    {
-      id: 2,
-      fechaInicial: "2023/04/02",
-      fechaFinal: "2023/04/10",
-    },
-    {
-      id: 3,
-      fechaInicial: "2023/04/12",
-      fechaFinal: "2023/04/22",
-    },
-  ];
+  useEffect(() => {
+    dispatch({
+      type: "reservation",
+      payload: selectDate,
+    });
+  }, [selectDate]);
 
   const getDatesRange = (start, finish) => {
     const date = new Date(start);
@@ -76,11 +67,11 @@ function Calendar({ styles }) {
     );
   }
 
-  const unavailableDatesRange = reservations.map((date) =>
+  const unavailableDatesRange = reservations?.map((date) =>
     getDatesRange(new Date(date.fechaInicial), new Date(date.fechaFinal))
   );
 
-  const alreadyReserved = unavailableDatesRange.flat(1);
+  const alreadyReserved = unavailableDatesRange?.flat(1);
 
   const formateDate = (arr) => {
     const newArr = [];
@@ -90,7 +81,14 @@ function Calendar({ styles }) {
     return newArr;
   };
 
-  const unavailable = formateDate(alreadyReserved);
+  const reservation = JSON.parse(localStorage.getItem("reservation"));
+  const resArray = reservation
+    ? formateDate(
+        getDatesRange(new Date(reservation[0]), new Date(reservation[1]))
+      )
+    : [];
+
+  const unavailable = alreadyReserved ? formateDate(alreadyReserved) : "";
   const formatedNewReservation = formateDate(newReservation);
   console.log(selectDate);
 
@@ -106,7 +104,8 @@ function Calendar({ styles }) {
     } else if (
       (!unavailable.includes(selected) &&
         formatedNewReservation.includes(selected)) ||
-      selectDate.includes(selected)
+      selectDate.includes(selected) ||
+      resArray.includes(selected)
     ) {
       return `${styles.selected}`;
     } else if (selected === today) {
@@ -132,6 +131,7 @@ function Calendar({ styles }) {
       selectDate.length <= 2
     ) {
       setSelectDate([...selectDate, displayDate]);
+      localStorage.setItem("reservation", JSON.stringify([]));
     }
 
     if (selectDate.length === 1) {
