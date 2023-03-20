@@ -9,6 +9,7 @@ import java.util.List;
 public class FindAllProductService {
     @Autowired
     private ProductRepository productRepository;
+
     public List<Product> handle() {
         return productRepository.findAll();
     }

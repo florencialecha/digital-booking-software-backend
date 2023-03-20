@@ -21,6 +21,7 @@ public class City {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CITY_ID")
     private Long id;
+
     @Column(name = "NAME")
     private String name;
 

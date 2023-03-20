@@ -1,35 +1,40 @@
-//package com.digitalbooking.back.bookStay.address;
-//
-//import com.digitalbooking.back.management.cities.City;
-//import jakarta.persistence.*;
-//import lombok.AllArgsConstructor;
-//import lombok.Getter;
-//import lombok.NoArgsConstructor;
-//import lombok.Setter;
-//
-//@Entity
-//@Table(name = "address")
-//
-//@AllArgsConstructor
-//@NoArgsConstructor
-//@Getter
-//@Setter
-//
-//public class Address {
-//
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "address_id")
-//    private Long id;
-//
-//    @Column(name = "street")
-//    private String street;
-//
-//    @Column(name = "number")
-//    private String number;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "city_id")
-//    private City city;
-//
-//}
+package com.digitalbooking.back.bookStayApp.address;
+
+import com.digitalbooking.back.bookStayApp.products.Product;
+import com.digitalbooking.back.management.locations.City;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Table(name = "ADDRESS")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+
+public class Address {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ADDRESS_ID")
+    private Long id;
+
+    @Column(name = "STREET")
+    private String street;
+
+    @Column(name = "NUMBER")
+    private String number;
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "CITY_ID")
+    private City city;
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "address")
+    private Product product;
+
+}

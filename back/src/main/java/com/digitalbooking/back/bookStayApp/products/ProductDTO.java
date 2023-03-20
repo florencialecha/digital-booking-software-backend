@@ -1,5 +1,6 @@
 package com.digitalbooking.back.bookStayApp.products;
 
+import com.digitalbooking.back.bookStayApp.address.AddressDTO;
 import com.digitalbooking.back.bookStayApp.images.ImageDTO;
 import com.digitalbooking.back.bookStayApp.policies.PolicyDTO;
 import lombok.AllArgsConstructor;
@@ -14,7 +15,6 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 
 
 public class ProductDTO {
@@ -28,5 +28,6 @@ public class ProductDTO {
     private Set<Long> features;
     private PolicyDTO policy;
     private List<ImageDTO> images;
+    private AddressDTO address;
 
 }

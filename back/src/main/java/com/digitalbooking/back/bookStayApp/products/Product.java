@@ -1,5 +1,6 @@
 package com.digitalbooking.back.bookStayApp.products;
 
+import com.digitalbooking.back.bookStayApp.address.Address;
 import com.digitalbooking.back.bookStayApp.images.Image;
 import com.digitalbooking.back.bookStayApp.policies.Policy;
 import com.digitalbooking.back.bookStayApp.reserves.Reserve;
@@ -52,9 +53,7 @@ public class Product {
     private Category category;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "PRODUCT_FEATURE",
-            joinColumns = {@JoinColumn(name = "PRODUCT_ID")},
-            inverseJoinColumns = {@JoinColumn(name = "FEATURE_ID")})
+    @JoinTable(name = "PRODUCT_FEATURE")
     private Set<Feature> features = new HashSet<>();
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -72,5 +71,9 @@ public class Product {
           cascade = CascadeType.ALL,
           orphanRemoval = true)
     private Set<Reserve> reserves = new HashSet<>();
+
+    @OneToOne(fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL)
+    private Address address;
 
 }
