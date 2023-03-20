@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -37,9 +38,8 @@ public class Category {
     @Column(name = "IMAGE_URL")
     private String imageUrl;
 
-    //Si quiero recuperar los productos asociados tal vez debería quitar el JSON ignore
     @JsonIgnore
-    @OneToMany(mappedBy = "category", cascade = CascadeType.PERSIST, orphanRemoval = false)
-    private List<Product> products;
+    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY, orphanRemoval = false, cascade = CascadeType.PERSIST)
+    private List<Product> products = new ArrayList<>();
 
 }

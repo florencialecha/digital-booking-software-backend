@@ -1,3 +1,47 @@
+package com.digitalbooking.back.bookStayApp.products;
+
+import com.digitalbooking.back.bookStayApp.products.exception.BadRequestException;
+import com.digitalbooking.back.management.categories.Category;
+import com.digitalbooking.back.management.categories.CategoryRepository;
+import lombok.extern.log4j.Log4j2;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/product")
+@CrossOrigin("*")
+@Log4j2
+
+public class CreateProductPostController {
+
+    @Autowired
+    private ModelMapper modelMapper;
+    @Autowired
+    private CreateProductService createProductService;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
+
+    @PostMapping
+    public void handle(@RequestBody ProductDTO productDTO) {
+        try {
+            Product product = modelMapper.map(productDTO, Product.class);
+            Category category = categoryRepository.findById(productDTO.getCategory())
+                    .orElseThrow(() -> new RuntimeException("Category not found"));
+            product.setCategory(category);
+            createProductService.handle(product);
+            log.info("Product created successfully");
+
+        } catch (Exception e) {
+            log.error("Internal Server Error: {}", e.getMessage());
+        }
+    }
+
+}
+
+
+// CÓDIGO VIEJO
 //package com.digitalbooking.back.bookStayApp.products;
 //
 //import com.digitalbooking.back.bookStayApp.address.Address;

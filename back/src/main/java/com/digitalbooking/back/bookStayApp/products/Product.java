@@ -1,6 +1,7 @@
 package com.digitalbooking.back.bookStayApp.products;
 
 import com.digitalbooking.back.management.categories.Category;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,8 +38,8 @@ public class Product {
     @Column(name = "REVIEW")
     private String review;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "CATEGORY_ID", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "CATEGORY_ID")
     private Category category;
 
 }
