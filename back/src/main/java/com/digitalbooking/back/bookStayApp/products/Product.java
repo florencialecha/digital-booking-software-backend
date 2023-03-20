@@ -1,6 +1,8 @@
 package com.digitalbooking.back.bookStayApp.products;
 
+import com.digitalbooking.back.bookStayApp.images.Image;
 import com.digitalbooking.back.bookStayApp.policies.Policy;
+import com.digitalbooking.back.bookStayApp.reserves.Reserve;
 import com.digitalbooking.back.management.categories.Category;
 import com.digitalbooking.back.management.features.Feature;
 
@@ -10,7 +12,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -56,5 +60,20 @@ public class Product {
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "POLICY_ID")
     private Policy policy;
+
+    @OneToMany(fetch = FetchType.EAGER,
+            mappedBy = "product",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private List<Image> images = new ArrayList<>();
+
+    /* Un producto puede tener muchas reservas. Muchas reservas pueden pertenecer al mismo producto. Relación muchos a uno entre reservas y productos.
+    No quiero que puedan existir dos reservas para la misma fecha en un mismo producto, entonces una colección de tipo Set sería más apropiada que una lista.
+    Una vez que creo la reserva le asigno el producto. Cuando creo el producto no quiero asignar ni crear la reserva.*/
+    @OneToMany(fetch = FetchType.LAZY,
+          mappedBy = "product",
+          cascade = CascadeType.ALL,
+          orphanRemoval = true)
+    private Set<Reserve> reserves = new HashSet<>();
 
 }

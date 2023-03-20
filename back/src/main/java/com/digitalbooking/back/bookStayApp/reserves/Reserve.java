@@ -1,4 +1,4 @@
-package com.digitalbooking.back.bookStayApp.images;
+package com.digitalbooking.back.bookStayApp.reserves;
 
 import com.digitalbooking.back.bookStayApp.products.Product;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -8,26 +8,36 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+
 @Entity
-@Table(name = "IMAGE")
+@Table(name = "RESERVE")
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 
-public class Image {
+public class Reserve {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IMAGE_ID")
+    @Column(name = "RESERVE_ID")
     private Long id;
 
-    @Column(name = "TITLE")
-    private String title;
+    //todo: verificar si los tipos de datos son correctos
+    @Column(name = "START_TIME")
+    private LocalTime startTime;
 
-    @Column(name = "IMAGE_URL")
-    private String imageUrl;
+    //todo: verificar si los tipos de datos son correctos
+    @Column(name = "START_DATE")
+    private LocalDate startDate;
+
+    //todo: verificar si los tipos de datos son correctos
+    @Column(name = "END_DATE")
+    private LocalDate endDate;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
