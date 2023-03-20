@@ -92,7 +92,6 @@ function Calendar ({ styles }) {
 
   const unavailable = formateDate(alreadyReserved)
   const formatedNewReservation = formateDate(newReservation)
-  console.log(selectDate)
 
   const unavailableDates = (i, month, year) => {
     const selected = format(new Date(`${year}-${month}-${i + 1}`), 'yyyy-MM-dd')

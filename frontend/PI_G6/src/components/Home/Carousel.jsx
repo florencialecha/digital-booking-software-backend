@@ -3,6 +3,7 @@ import { React, useRef, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import CardCategory from './CardCategory/CardCategory'
 import './CardCategory/CardCategory.css'
+import staticData from '../../temp/apiCategories.json'
 
 const Carousel = () => {
   const [width, setWidht] = useState(0)
@@ -17,7 +18,10 @@ const Carousel = () => {
   useEffect(() => {
     axios.get('http://3.131.138.206:8080/category')
       .then(res => setCategorys(res.data))
-      .catch(error => console.log(error))
+      .catch(error => {
+        console.log(error)
+        setCategorys(staticData)
+      })
   }, [])
 
   return (

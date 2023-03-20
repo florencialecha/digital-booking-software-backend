@@ -328,6 +328,57 @@
   border-bottom: #f0572d solid 2px;
 }
 
+.detailsChar {
+  padding: 25px 50px;
+}
+
+.featuresHome {
+  margin: 0;
+}
+
+.featuresBody {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: 1fr 1fr;
+}
+
+.featuresBodyHome {
+  padding: 0;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  display: flex;
+  gap: 15px;
+}
+
+.featureIcons {
+  display: flex;
+  gap: 10px;
+  height: 50px;
+  font-weight: bold;
+  align-items: center;
+}
+
+.featureIconsHome {
+  display: flex;
+  font-weight: bold;
+  align-items: center;
+}
+
+.hideIconTitle {
+  display: none;
+}
+
+.iconName {
+  display: inline-block;
+}
+
+.featureIcons > span {
+  display: inline-block;
+}
+
+.featureIcons > svg > * {
+  color: #f0572d;
+}
+
 
 @media only screen and (max-width: 1024px) {
 
