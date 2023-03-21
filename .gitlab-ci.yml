@@ -6,10 +6,7 @@ deploy:
   variables:
     SSH_PRIVATE_KEY: $6KeyPair
   before_script:
-    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > /tmp/deploy_key
-    - chmod 600 /tmp/deploy_key
-    - eval "$(ssh-agent -s)"
-    - ssh-add /tmp/deploy_key
+    
   script:
     - ssh ubuntu@<3.131.138.206> "echo 'Hello from GitLab CI/CD!'"
   tags:
