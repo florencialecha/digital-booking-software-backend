@@ -1,0 +1,153 @@
+[
+    {
+        "id": "1",
+        "SuggestCategory": "Hotel",
+        "stars": 2,
+        "name": "Hermitage Hotel",
+        "review": "Muy bueno",
+        "scoring": 8,
+        "array": {
+            "wifi": true,
+            "pool": true
+        },
+        "location": "A 940m del centro",
+        "coordinates": {
+          "coordX": "32.089806",
+          "coordY": "-112.905861"            
+        },
+        "description": "this is the description of the hotel",
+        "imageUrl": "https://images.unsplash.com/photo-1521783988139-89397d761dce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80"
+    },
+    {
+        "id": "2",
+        "SuggestCategory": "Hotel",
+        "stars": 5,
+        "name": "Hermitage Hotel",
+        "review": "Muy bueno",
+        "scoring": 8,
+        "array": {
+            "wifi": false,
+            "pool": true
+        },
+        "coordinates": {
+          "coordX": "-34.4390943",
+          "coordY": "-55.6634844"            
+        },
+        "location":"A 940m del centro",
+        "description": "this is the description of the hotel",
+        "imageUrl": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+    },
+    {
+        "id": "3",
+        "SuggestCategory": "Hostel",
+        "stars": 5,
+        "name": "LaiLai Hostel",
+        "review": "Muy bueno",
+        "scoring": 8,
+        "array": {
+            "wifi": false,
+            "pool": true
+        },
+        "location": "A 940m del centro",
+        "coordinates": {
+          "coordX": "-34.4390943",
+          "coordY": "-55.6634844"            
+        },
+        "description": "this is the description of the hotel",
+        "imageUrl": "https://images.unsplash.com/photo-1617859047452-8510bcf207fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+    },
+    {
+        "id": "4",
+        "SuggestCategory": "Hostel",
+        "stars": 5,
+        "name": "LaiLai Hostel",
+        "review": "Muy bueno",
+        "scoring": 8,
+        "array": {
+            "wifi": false,
+            "pool": true
+        },
+        "location": "A 940m del centro",
+        "coordinates": {
+          "coordX": "-34.4390943",
+          "coordY": "-55.6634844"            
+        },
+        "description": "this is the description of the hotelthis is the description of the hotelthis is the description of the hotelthis is the description of the hotelthis is the description of the hotelthis is the description of the hotelthis is the description of the hotel",
+        "imageUrl": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+    },
+    {
+        "id": "5",
+        "SuggestCategory": "Departamento",
+        "stars": 5,
+        "name": "Montero Deparments",
+        "review": "Muy bueno",
+        "scoring": 8,
+        "array": {
+            "wifi": false,
+            "pool": true
+        },
+        "coordinates": {
+          "coordX": "-34.4390943",
+          "coordY": "-55.6634844"            
+        },
+        "description": "this is the description of the hotel",
+        "imageUrl": "https://images.unsplash.com/photo-1584551882400-a86ff441e474?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+    },
+    {
+        "id": "6",
+        "SuggestCategory": "Departamento",
+        "stars": 5,
+        "name": "Montero Deparments",
+        "review": "Muy bueno",
+        "scoring": 8,
+        "array": {
+            "wifi": false,
+            "pool": true
+        },
+        "location": "A 940m del centro",
+        "coordinates": {
+          "coordX": "-34.4390943",
+          "coordY": "-55.6634844"            
+        },
+        "description": "this is the description of the hotel",
+        "imageUrl": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80"
+    },
+    {
+        "id": "7",
+        "SuggestCategory": "Bed and breakfast",
+        "stars": 5,
+        "name": "Moonlight spa",
+        "review": "Muy bueno",
+        "scoring": 8,
+        "array": {
+            "wifi": false,
+            "pool": true
+        },
+        "location": "A 940m del centro",
+        "coordinates": {
+          "coordX": "-34.4390943",
+          "coordY": "-55.6634844"            
+        },
+        "description": "this is the description of the hotel",
+        "imageUrl": "https://images.unsplash.com/photo-1600786288830-9f5d4bf1d516?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80"
+    },
+    {
+        "id": "8",
+        "SuggestCategory": "Bed and breakfast",
+        "stars": 5,
+        "name": "Moonlight spa",
+        "review": "Muy bueno",
+        "scoring": 8,
+        "array": {
+            "wifi": false,
+            "pool": true
+        },
+        "location": "A 940m del centro",
+        "coordinates": {
+          "coordX": "-34.4390943",
+          "coordY": "-55.6634844"            
+        },
+        "description": "this is the description of the hotel",
+        "imageUrl": "https://images.unsplash.com/photo-1607782984486-f1549c499162?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Q2FzYXMlMjB5JTIwY2hhbGV0c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+    }
+    ]

@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "country": "Argentina",
+    "states": [
+      {
+        "id": 1,
+        "name": "Buenos Aires",
+        "cities": [
+          {
+            "id": 1,
+            "name": "Palermo"
+          },
+          {
+            "id": 2,
+            "name": "San Telmo"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Jujuy",
+        "cities": [
+          {
+            "id": 1,
+            "name": "San Salvador"
+          },
+          {
+            "id": 2,
+            "name": "Palpalá"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Entre Ríos",
+        "cities": [
+          {
+            "id": 1,
+            "name": "Gualeguaychú"
+          },
+          {
+            "id": 2,
+            "name": "La Paz"
+          },
+          {
+            "id": 3,
+            "name": "Palpalá"
+          },
+          {
+            "id": 4,
+            "name": "Paraná"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "country": "Uruguay",
+    "states": [
+      {
+        "id": 1,
+        "name": "Montevideo",
+        "cities": [
+          {
+            "id": 1,
+            "name": "Cordón"
+          },
+          {
+            "id": 2,
+            "name": "Pocitos"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Canelones",
+        "cities": [
+          {
+            "id": 1,
+            "name": "25 de Mayo"
+          },
+          {
+            "id": 2,
+            "name": "Atlántida"
+          },
+          {
+            "id": 3,
+            "name": "Ciudad de la Costa"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Maldonado",
+        "cities": [
+          {
+            "id": 1,
+            "name": "Piriápolis"
+          },
+          {
+            "id": 2,
+            "name": "Punta del Este"
+          }
+        ]
+      }
+    ]
+  }
+]

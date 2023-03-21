@@ -1,0 +1,321 @@
+nav div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.logo {
+  padding-top: 5px;
+}
+
+nav p {
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+  padding-bottom: 3px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+nav button {
+  width: 206px;
+  height: 40px;
+  border-radius: 7px;
+  color: #f0572d;
+  border: 1px #f0572d solid;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  background-color: #ffffff;
+}
+
+nav button:hover {
+  cursor: pointer;
+  background-color: #f0572d;
+  color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav a:visited {
+  color: inherit;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  width: 230px;
+  gap: 0;
+  align-self: center;
+}
+
+.profileInfo div {
+  display: flex;
+  align-items: center;
+}
+
+.profileName {
+  font-style: normal;
+  text-shadow: none;
+  font-weight: 500;
+  font-size: 16px;
+  padding-right: 20px;
+  width: 70%;
+}
+
+.profileName span {
+  color: #f0572d;
+}
+
+.profileAvatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #31363f;
+  color: white;
+  width: 37px;
+  height: 37px;
+  padding: 0;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 16px;
+  align-self: center;
+}
+
+.profile-info-web {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.logout {
+  position: absolute;
+  top: 15px;
+  padding-right: 20px;
+  font-weight: 700;
+  font-size: 22px;
+  color: #31363f;
+}
+
+.logout:hover {
+  cursor: pointer;
+}
+
+button.hidden {
+  display: none;
+}
+
+.hamburgerMenu {
+  display: none;
+}
+
+.menuHeading {
+  display: none;
+}
+
+.logout {
+  position: absolute;
+  top: 15px;
+  padding-right: 20px;
+  font-weight: 700;
+  font-size: 22px;
+  color: #31363f;
+}
+
+.logoutMobile {
+  display: none;
+}
+
+.closeMenu {
+  display: none;
+}
+
+.hide {
+  display: none;
+}
+
+.socialMedia {
+  display: none;
+}
+
+nav .socials {
+  display: none;
+}
+
+@media only screen and (max-width: 1024px) {
+  .slogan {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .navMenuMobile {
+    position: fixed;
+    display: flex;
+    inset: 0 0 0 30%;
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    width: 70vw;
+    justify-content: flex-start;
+    align-items: flex-end;
+    z-index: 100;
+    flex-direction: column;
+  }
+
+  .navMenu {
+    display: none;
+  }
+
+  .navMenuMobile button {
+    width: 206px;
+    height: 40px;
+    border: none;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .menuHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 175px;
+    background-color: #f0572d;
+  }
+
+  button.closeMenu {
+    width: 50px;
+    display: inline-block;
+    align-self: flex-start;
+    background-color: #f0572d;
+    color: white;
+    text-align: left;
+    padding-left: 20px;
+    font-size: 24px;
+    font-weight: 900;
+  }
+
+  .hamburgerMenu {
+    display: inline-block;
+    border: none;
+    width: 50px;
+    align-self: center;
+  }
+  .hideMenu {
+    display: none;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .menuHeading {
+    color: white;
+    display: inline-block;
+    align-self: flex-end;
+    padding: 0 15px 10px 0;
+  }
+
+  .logoutMobile {
+    display: inline-block;
+    position: absolute;
+    bottom: 100px;
+    color: #191b1d;
+    font-style: normal;
+    font-size: 18px;
+  }
+
+  p.logoutMobile {
+    color: #31363f;
+    padding-right: 20px;
+    font-weight: 500;
+  }
+
+  .formButtons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  button.btn {
+    font-size: 16px;
+    background-color: white;
+    width: 30vw;
+    color: #31363f;
+  }
+
+  .profileInfo {
+    margin-top: -100px;
+    color: white;
+    width: 100%;
+  }
+  .profileInfo span {
+    color: #31363f;
+  }
+
+  .profileInfo div {
+    flex-direction: column;
+    text-align: right;
+  }
+
+  .profileAvatar {
+    align-self: flex-end;
+    margin-right: 20px;
+    background-color: #dfe4ea;
+    color: #31363f;
+  }
+
+  .profileName {
+    color: #dfe4ea;
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  .profileName {
+    align-self: flex-end;
+  }
+
+  .hide a {
+    display: none;
+  }
+  nav .socials {
+    display: flex;
+    position: fixed;
+    bottom: 20px;
+    padding: 10px 20px 0px;
+    width: 20%;
+    align-self: flex-end;
+    gap: 15px;
+  }
+
+  .formButtons hr {
+    width: 65vw;
+    border-top: solid #31363f 1px;
+  }
+
+  .profileInfo hr {
+    width: 65vw;
+    border-top: solid #31363f 1px;
+    position: absolute;
+    bottom: 90px;
+  }
+
+  .logout svg {
+    display: none;
+  }
+
+  .closeMenu > svg > * {
+    color: #ffffff;
+  }
+
+  .logoutMobile span {
+    color: #f0572d;
+  }
+}
