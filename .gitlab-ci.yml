@@ -14,6 +14,6 @@ deploy:
     - echo "Building and packaging code"
     - mvn clean package
     - echo "Copying JAR file to EC2 instance"
-    - sudo scp -i /root/.ssh/id_rsa target/back.jar ubuntu@3.131.138.206:/home/ubuntu/jarFolder/
+    - scp -i /root/.ssh/id_rsa target/back.jar ubuntu@3.131.138.206:/home/ubuntu/jarFolder/
     - echo "Restarting ApiBack.service"
-    - sudo ssh -i /root/.ssh/id_rsa ubuntu@3.131.138.206 "sudo systemctl restart ApiBack.service"
+    - ssh -i /root/.ssh/id_rsa ubuntu@3.131.138.206 "systemctl restart ApiBack.service"
