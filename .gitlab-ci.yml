@@ -1,11 +1,16 @@
 stages:
-  - deploy
+  - build
+  - test
 
-deploy:
-  stage: deploy
-
+build:
+  stage: build
   script:
     - echo 'Hello from GitLab CI/CD!!!'
-  tags:
-    - ApiBack
-    - Front
+    - mkdir build
+
+
+test:
+  stage: test
+  script:
+    - echo "Testando proyect"
+ 
