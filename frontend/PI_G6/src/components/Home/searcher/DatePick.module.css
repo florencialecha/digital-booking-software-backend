@@ -17,10 +17,7 @@
 }
 
 .calendarLayout {
-  grid-row: 2;
-  grid-column: 1;
-  align-self: center;
-  width: 700px;
+  width: 100%;
   padding-bottom: 40px;
 }
 
@@ -45,19 +42,11 @@
   align-self: center;
 }
 
-/* .check-in-check-out input:focus {
-    border-bottom: 1px solid orangered;
-  }
-  
-  .check-in-check-out input:hover {
-    background-color: white;
-  } */
-
 .datePickCalendar {
-  width: 700px;
-  position: absolute;
-  top: 105px;
-  left: 750px;
+  width: 605px;
+  position: fixed;
+  top: 200px;
+  right: calc(60vw - 600px);
   display: flex;
   flex-direction: column;
   box-shadow: -2px 8px 17px -4px rgb(134, 133, 133);
@@ -66,11 +55,6 @@
 }
 
 .calendarDetails {
-  display: flex;
-  background-color: white;
-  border-radius: 8px;
-  justify-content: space-around;
-  padding: 25px 15px;
   box-shadow: none;
 }
 
@@ -101,25 +85,19 @@
 }
 
 .gridFirstMonth {
-  display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  text-align: center;
-  width: 50%;
-  border-right: 0.1px solid rgb(0, 0, 0, 0.3);
-  height: 15vw;
-  padding: 0 25px 0 25px;
+  height: 100%;
 }
 
 .changeMonthButton:hover {
-  background-color: white;
+  background-color: transparent;
 }
 
 .changeMonthButton {
   align-self: flex-start;
   background-color: transparent;
-  box-shadow: none;
   width: 20px;
   height: 20px;
+  box-shadow: none;
 }
 
 .changeMonthButton > svg > * {
@@ -127,13 +105,39 @@
 }
 
 .left {
-  position: absolute;
-  left: 48px;
+  position: relative;
+  left: 50px;
 }
 
 .right {
-  position: absolute;
-  right: 48px;
+  position: relative;
+  right: 50px;
+}
+
+.selected {
+  height: 70%;
+}
+
+@media only screen and (max-width: 1024px) {
+  .datePickCalendar {
+    right: 15px;
+    width: 80vw;
+    min-width: 550px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .gridFirstMonth {
+    border-right: 0;
+    width: 100%;
+  }
+
+  .datePickCalendar {
+    top: 260px;
+
+    width: 315px;
+    min-width: 300px;
+  }
 }
 
 /* 
