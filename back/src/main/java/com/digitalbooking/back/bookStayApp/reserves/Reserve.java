@@ -1,7 +1,7 @@
 package com.digitalbooking.back.bookStayApp.reserves;
 
 import com.digitalbooking.back.bookStayApp.products.Product;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.digitalbooking.back.management.users.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,21 +27,21 @@ public class Reserve {
     @Column(name = "RESERVE_ID")
     private Long id;
 
-    //todo: verificar si los tipos de datos son correctos
     @Column(name = "START_TIME")
     private LocalTime startTime;
 
-    //todo: verificar si los tipos de datos son correctos
-    @Column(name = "START_DATE")
-    private LocalDate startDate;
+    @Column(name = "CHECK_IN")
+    private LocalDate checkIn;
 
-    //todo: verificar si los tipos de datos son correctos
-    @Column(name = "END_DATE")
-    private LocalDate endDate;
+    @Column(name = "CHECK_OUT")
+    private LocalDate checkOut;
 
-    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "PRODUCT_ID", referencedColumnName = "PRODUCT_ID")
+    @JoinColumn(name = "PRODUCT_ID")
     private Product product;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "USER_ID")
+    private User user;
 
 }
