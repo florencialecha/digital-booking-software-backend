@@ -93,13 +93,12 @@
   padding: 15px 50px;
 
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: .5fr 3fr;
+  grid-template-rows: 0.5fr 3fr;
 }
 
-.detailsAvailableDates h2{
+.detailsAvailableDates h2 {
   padding: 0;
   align-self: center;
-  
 }
 
 .detailsMap p {
@@ -135,7 +134,7 @@
   align-self: center;
   background-color: white;
   padding: 20px;
-  gap: 15px ;
+  gap: 15px;
   border-radius: 8px;
   box-shadow: -2px 8px 17px -4px rgb(134, 133, 133);
   -webkit-box-shadow: -2px 8px 17px -4px rgb(134, 133, 133);
@@ -260,15 +259,6 @@
   border-radius: 50%;
   justify-self: center;
   align-self: center;
-}
-
-.pastDate {
-  color: rgb(0, 0, 0, 0.3);
-  pointer-events: none;
-}
-
-.pastDate:hover {
-  background-color: white;
 }
 
 .reservationButton {
@@ -422,11 +412,9 @@
   color: rgb(240, 87, 45);
 }
 
-
 @media only screen and (max-width: 1024px) {
-
   .detailsAvailableDates {
-    grid-template-rows: .5fr 2fr 1fr;
+    grid-template-rows: 0.5fr 2fr 1fr;
     grid-template-columns: auto;
     gap: 0;
   }
@@ -560,5 +548,4 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
   }
-
 }
