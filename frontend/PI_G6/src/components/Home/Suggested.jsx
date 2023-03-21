@@ -3,7 +3,6 @@ import CardSuggested from './CardSuggested/CardSuggested'
 import { GlobalContext } from '../../utils/globalContext'
 import styles from '../Home/Suggested.module.css'
 import axios from 'axios'
-import staticData from '../../temp/apiProducts.json'
 
 const Suggested = () => {
   const { state, dispatch } = useContext(GlobalContext)
