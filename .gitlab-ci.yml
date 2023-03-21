@@ -1,9 +1,16 @@
-#!/bin/bash
+stages:
+  - deploy
 
-# Set variables
-HOST="3.131.138.206"
-USER="ubuntu"
-SSH_KEY_PATH="6KeyPair"
-
-# Connect to EC2 instance and execute command
-ssh -i "$SSH_KEY_PATH" "$USER"@"$HOST" "echo 'Hello from the EC2 instance!'"
+deploy:
+  stage: deploy
+  variables:
+    SSH_PRIVATE_KEY: $6KeyPair
+  before_script:
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > /tmp/deploy_key
+    - chmod 600 /tmp/deploy_key
+    - eval "$(ssh-agent -s)"
+    - ssh-add /tmp/deploy_key
+  script:
+    - ssh ubuntu@<3.131.138.206> "echo 'Hello from GitLab CI/CD!'"
+  tags:
+    - <None>
