@@ -1,4 +1,4 @@
-import { React, useEffect, useContext } from 'react'
+import  React, { useEffect, useContext } from 'react'
 import CardSuggested from './CardSuggested/CardSuggested'
 import { GlobalContext } from '../../utils/globalContext'
 import styles from '../Home/Suggested.module.css'

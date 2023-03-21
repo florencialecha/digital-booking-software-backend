@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { React, useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import CardCategory from './CardCategory/CardCategory'
 import './CardCategory/CardCategory.css'

@@ -1,4 +1,4 @@
-import { React, useContext } from 'react'
+import React, { useContext } from 'react'
 import './CardCategory.css'
 import { GlobalContext } from '../../../utils/globalContext'
 
