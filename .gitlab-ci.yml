@@ -6,7 +6,6 @@ deploy:
   variables:
     SSH_PRIVATE_KEY: $6KeyPair
   before_script:
-    - apt-get update && apt-get install -y openssh-client
     - mkdir -p /root/.ssh
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > /root/.ssh/id_rsa
     - chmod 600 /root/.ssh/id_rsa
@@ -15,6 +14,6 @@ deploy:
     - echo "Building and packaging code"
     - mvn clean package
     - echo "Copying JAR file to EC2 instance"
-    - scp -i /root/.ssh/id_rsa target/back.jar ubuntu@3.131.138.206:/home/ubuntu/jarFolder/
+    - sudo scp -i /root/.ssh/id_rsa target/back.jar ubuntu@3.131.138.206:/home/ubuntu/jarFolder/
     - echo "Restarting ApiBack.service"
-    - ssh -i /root/.ssh/id_rsa ubuntu@3.131.138.206 "sudo systemctl restart ApiBack.service"
+    - sudo ssh -i /root/.ssh/id_rsa ubuntu@3.131.138.206 "sudo systemctl restart ApiBack.service"
