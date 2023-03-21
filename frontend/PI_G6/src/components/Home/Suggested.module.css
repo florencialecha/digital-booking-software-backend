@@ -9,7 +9,6 @@
 }
 
 .recomendationContainer {
-
 }
 .suggestedRenderContainer {
   display: grid;
@@ -22,14 +21,13 @@
   font-weight: bold;
 }
 
-
 .cardContainer {
   position: relative;
   display: flex;
   height: 283px;
   border-radius: 20px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 .favIcon {
@@ -39,7 +37,6 @@
   top: 15px;
   animation: pulse 0.7s infinite;
   cursor: pointer;
-
 }
 
 .features {
@@ -51,13 +48,14 @@
 }
 
 @keyframes pulse {
-	10% {transform: scale(1.1)}
+  10% {
+    transform: scale(1.1);
+  }
 }
 
-.full-false > path{
+.full-false > path {
   color: white;
 }
-
 
 .full-true > path {
   color: rgb(240, 87, 45);
@@ -93,7 +91,6 @@
   grid-template-rows: repeat(2, 1fr);
 }
 
-
 #suggestName {
   font-size: 20px;
   font-weight: bold;
@@ -103,6 +100,10 @@
 
 .full {
   color: rgb(240, 87, 45);
+}
+
+.empty {
+  color: black;
 }
 
 .starsContainer {
@@ -246,11 +247,9 @@
   color: rgb(240, 87, 45);
 }
 
-
 @media (max-width: 600px) {
   /* For mobile: */
   .suggestedMainContainer {
-    
     border-radius: 20px;
     top: 10px;
     padding: 20px 10px;
@@ -258,7 +257,7 @@
 
   .suggestedRenderContainer {
     grid-template-columns: repeat(1, 1fr);
-  } 
+  }
 
   .recomendation {
     padding-left: 5vw;
@@ -313,7 +312,5 @@
 
   .suggestedMainContainer {
     margin-bottom: 16%;
-
   }
 }
-    

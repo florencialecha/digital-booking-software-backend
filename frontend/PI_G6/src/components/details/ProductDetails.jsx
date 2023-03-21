@@ -64,7 +64,7 @@ const ProductDetails = () => {
               <div className={styles.detailsScoring}>
                 <div className={styles.detailsReview}>
                   <p>{product.review}</p>
-                  <CardStars {...product} />{" "}
+                  <CardStars {...product} styles={styles} />{" "}
                 </div>
                 <div className={styles.detailsScore}>
                   <p>{product.scoring}</p>
