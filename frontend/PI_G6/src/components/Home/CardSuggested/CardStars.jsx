@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import React from 'react'
 const CardStars = ({ stars, styles }) => {
-  const st = [];
+  const st = []
 
   for (let i = 1; i <= 5; i++) {
-    let starFill = styles.empty;
+    let starFill = styles.empty
     if (stars >= i) {
-      starFill = styles.full;
+      starFill = styles.full
     }
-    st.push({ starFill, i });
+    st.push({ starFill, i })
   }
 
   return (
@@ -19,7 +19,7 @@ const CardStars = ({ stars, styles }) => {
         </span>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default CardStars;
+export default CardStars

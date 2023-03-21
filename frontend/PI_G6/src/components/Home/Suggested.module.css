@@ -102,10 +102,6 @@
   color: rgb(240, 87, 45);
 }
 
-.empty {
-  color: black;
-}
-
 .starsContainer {
   padding: 0;
 }
@@ -180,9 +176,13 @@
   margin: 2px;
 }
 
-.cardLocation > a > p {
+.onClickMap > p {
   color: rgb(240, 87, 45);
   font-size: 12px;
+}
+
+.onClickMap > p:hover {
+  cursor: pointer;
 }
 
 .serviceIcons > * {

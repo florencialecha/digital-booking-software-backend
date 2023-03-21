@@ -68,6 +68,10 @@ body {
   border-radius: 20px;
 }
 
+button {
+  cursor: pointer;
+}
+
 @media (max-width: 600px) {
   .home {
     background-color: #191b1d;

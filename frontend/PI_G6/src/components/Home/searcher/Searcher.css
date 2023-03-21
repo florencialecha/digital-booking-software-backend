@@ -56,7 +56,7 @@
 }
 
 .searcher section div {
-  background-color: #dfe4ea;
+  background-color: #fff;
 }
 
 .searcher section > div {
@@ -120,17 +120,22 @@ a {
 
   display: grid;
   gap: 5px;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: auto 1fr;
   grid-template-rows: 100%;
   align-items: center;
+  background-color: #fff;
+
 }
 
 #select > svg {
   padding: 5px;
+  background-color: #fff;
 }
 
 #select > input {
   width: 95%;
+  background-color: #fff;
+
 }
 
 .select-content {
@@ -198,6 +203,10 @@ a {
 #btn-search:hover {
   transform: scale(1.02);
   opacity: 90%;
+}
+
+#calendar {
+  background-color: #fff;
 }
 
 /* For mobile */

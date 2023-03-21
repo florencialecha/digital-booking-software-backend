@@ -42,34 +42,6 @@ const Suggested = () => {
     fetchData()
   }, [])
 
-  // useEffect(() => {
-  //   if (state.data === 0 && !state.city) {
-  //     axios
-  //       .get('http://3.131.138.206:8080/product/random')
-  //       .then((res) => dispatch({ type: 'bd', payload: res.data }))
-  //       .catch((error) => {
-  //         console.log(error)
-  //         dispatch({ type: 'bd', payload: staticData })
-  //       })
-  //   } else if (state.data > 0) {
-  //     axios
-  //       .get(`http://3.131.138.206:8080/product/byCategory/${state.data}`)
-  //       .then((res) => dispatch({ type: 'bd', payload: res.data }))
-  //       .catch((error) => {
-  //         console.log(error)
-  //         dispatch({ type: 'bd', payload: staticData })
-  //       })
-  //   } else {
-  //     axios
-  //       .get(`http://3.131.138.206:8080/product/byCity/${state.city}`)
-  //       .then((res) => dispatch({ type: 'bd', payload: res.data }))
-  //       .catch((error) => {
-  //         console.log(error)
-  //         dispatch({ type: 'bd', payload: staticData })
-  //       })
-  //   }
-  // }, [state.data, state.city])
-
   return (
     <section className={styles.suggestedMainContainer}>
       <p className={styles.recomendationContainer}>Recomendaciones</p>

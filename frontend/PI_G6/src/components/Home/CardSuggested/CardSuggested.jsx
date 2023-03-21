@@ -54,9 +54,9 @@ const CardSuggested = ({ suggest, styles }) => {
               <FontAwesomeIcon icon={faLocationDot} />
               <p>a 300m del centro</p>
             </div>
-            <a href='' onClick={handleClickMap}>
+            <div className={styles.onClickMap} onClick={handleClickMap}>
               <p>MOSTRAR EN EL MAPA</p>
-            </a>
+            </div>
           </div>
           <div className={styles.cardAddress} id={styles.cardAddress} >
             <div>

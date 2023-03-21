@@ -432,6 +432,10 @@ hr {
     background:rgba(240, 87 ,45, .7);
 }
 
+.contentOption > p {
+    color: #31363F
+}
+
 
 @media only screen and (max-width: 1024px) {
 
@@ -503,7 +507,7 @@ hr {
     }
 
     .reserveProduct {
-        padding: 0;
+        padding: 10px 0px;
     }
     
     .reservePage {
