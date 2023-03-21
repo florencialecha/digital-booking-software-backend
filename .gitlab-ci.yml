@@ -13,4 +13,4 @@ deploy:
   script:
     - ssh ubuntu@<3.131.138.206> "echo 'Hello from GitLab CI/CD!'"
   tags:
-    - <None>
+    - ApiBack
