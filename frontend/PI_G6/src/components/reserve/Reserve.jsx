@@ -51,7 +51,7 @@ const reserve = () => {
             </div>
             <div className={styles.reserveCalendar}>
               <p>Seleccioná tu fecha de reserva</p>
-              <Calendar styles={styles}/>
+              <Calendar styles={styles} reservations={product.availability}/>
             </div>
             <div className={styles.arrivalTime}>
               <p>Tu Horario de llegada</p>

@@ -18,23 +18,23 @@ import CardStars from "../Home/CardSuggested/CardStars";
 const ProductDetails = () => {
   const product = JSON.parse(localStorage.getItem("hotelSelected"));
 
-  const reservations = [
-    {
-      id: 1,
-      fechaInicial: "2023/03/18",
-      fechaFinal: "2023/03/19",
-    },
-    {
-      id: 2,
-      fechaInicial: "2023/04/02",
-      fechaFinal: "2023/04/10",
-    },
-    {
-      id: 3,
-      fechaInicial: "2023/04/12",
-      fechaFinal: "2023/04/22",
-    },
-  ];
+  // const reservations = [
+  //   {
+  //     id: 1,
+  //     fechaInicial: "2023/03/18",
+  //     fechaFinal: "2023/03/19",
+  //   },
+  //   {
+  //     id: 2,
+  //     fechaInicial: "2023/04/02",
+  //     fechaFinal: "2023/04/10",
+  //   },
+  //   {
+  //     id: 3,
+  //     fechaInicial: "2023/04/12",
+  //     fechaFinal: "2023/04/22",
+  //   },
+  // ];
 
   return (
     <>
@@ -97,7 +97,7 @@ const ProductDetails = () => {
               <Calendar
                 product={product}
                 styles={styles}
-                reservations={reservations}
+                reservations={product.availability}
               />
               <div className={styles.reservationDetails}>
                 <p>Agregá tus fechas de viaje para obtener precios exactos</p>

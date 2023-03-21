@@ -75,7 +75,23 @@
     { "id": 7, "title": "estacionamiento gratuito" }
   ],
 
-  "availability": "hardcode",
+  "availability": [
+    {
+      "id": 1,
+      "fechaInicial": "2023/03/18",
+      "fechaFinal": "2023/03/19"
+    },
+    {
+      "id": 2,
+      "fechaInicial": "2023/04/02",
+      "fechaFinal": "2023/04/10"
+    },
+    {
+      "id": 3,
+      "fechaInicial": "2023/04/12",
+      "fechaFinal": "2023/04/22"
+    }
+  ],
   "policy": {
     "securityDescription": "hardcode.hardcode2",
     "cancellationDescription": "hardcode.hardcode2",
@@ -161,7 +177,23 @@
     { "id": 7, "title": "estacionamiento gratuito" }
   ],
 
-  "availability": "hardcode",
+  "availability": [
+    {
+      "id": 1,
+      "fechaInicial": "2023/03/18",
+      "fechaFinal": "2023/03/19"
+    },
+    {
+      "id": 2,
+      "fechaInicial": "2023/04/02",
+      "fechaFinal": "2023/04/10"
+    },
+    {
+      "id": 3,
+      "fechaInicial": "2023/04/12",
+      "fechaFinal": "2023/04/22"
+    }
+  ],
   "policy": {
     "rulesDescription": "hardcode.hardcode2"
   }
@@ -245,7 +277,23 @@
     { "id": 7, "title": "estacionamiento gratuito" }
   ],
 
-  "availability": "hardcode",
+  "availability": [
+    {
+      "id": 1,
+      "fechaInicial": "2023/03/18",
+      "fechaFinal": "2023/03/19"
+    },
+    {
+      "id": 2,
+      "fechaInicial": "2023/04/02",
+      "fechaFinal": "2023/04/10"
+    },
+    {
+      "id": 3,
+      "fechaInicial": "2023/04/12",
+      "fechaFinal": "2023/04/22"
+    }
+  ],
   "policy": {
     "rulesDescription": "hardcode.hardcode2"
   }
@@ -329,7 +377,23 @@
     { "id": 7, "title": "estacionamiento gratuito" }
   ],
 
-  "availability": "hardcode",
+  "availability": [
+    {
+      "id": 1,
+      "fechaInicial": "2023/03/18",
+      "fechaFinal": "2023/03/19"
+    },
+    {
+      "id": 2,
+      "fechaInicial": "2023/04/02",
+      "fechaFinal": "2023/04/10"
+    },
+    {
+      "id": 3,
+      "fechaInicial": "2023/04/12",
+      "fechaFinal": "2023/04/22"
+    }
+  ],
   "policy": {
     "rulesDescription": "hardcode.hardcode2"
   }
