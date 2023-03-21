@@ -11,7 +11,7 @@ const Suggested = () => {
     const fetchData = async () => {
       if (state.data === 0 && !state.city) {
         try {
-          const res = await axios.get('http://3.131.138.206:8080/product/random12')
+          const res = await axios.get('http://3.131.138.206:8080/product/random')
           dispatch({ type: 'bd', payload: res.data })
         } catch (error) {
           console.log('Error al obtener datos de la API. Usando datos estáticos...')
@@ -20,7 +20,7 @@ const Suggested = () => {
         }
       } else if (state.data > 0) {
         try {
-          const res = await axios.get(`http://3.131.138.206:8080/product/byCategory/1${state.data}`)
+          const res = await axios.get(`http://3.131.138.206:8080/product/byCategory/${state.data}`)
           dispatch({ type: 'bd', payload: res.data })
         } catch (error) {
           console.log('Error al obtener datos de la API. Usando datos estáticos...')
@@ -29,7 +29,7 @@ const Suggested = () => {
         }
       } else {
         try {
-          const res = await axios.get(`http://3.131.138.206:8080/product/byCity/1${state.city}`)
+          const res = await axios.get(`http://3.131.138.206:8080/product/byCity/${state.city}`)
           dispatch({ type: 'bd', payload: res.data })
         } catch (error) {
           console.log('Error al obtener datos de la API. Usando datos estáticos...')
