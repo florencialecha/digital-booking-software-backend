@@ -4,13 +4,14 @@ stages:
 
 build:
   stage: build
+  image: alpine
   script:
     - echo 'Hello from GitLab CI/CD!!!'
-    - mkdir build
-
+    - mkdir /mnt/build
+  volumes:
+    - /home/ubuntu:/mnt
 
 test:
   stage: test
   script:
-    - echo "Testando proyect"
- 
+    - echo "Testing project"
