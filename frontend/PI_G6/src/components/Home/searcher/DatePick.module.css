@@ -45,7 +45,7 @@
 .datePickCalendar {
   width: 605px;
   position: fixed;
-  top: 200px;
+  top: 21%;
   right: calc(60vw - 600px);
   display: flex;
   flex-direction: column;
@@ -115,14 +115,34 @@
 }
 
 .selected {
-  height: 70%;
+  height: 75%;
 }
 
 @media only screen and (max-width: 1024px) {
   .datePickCalendar {
-    right: 15px;
-    width: 80vw;
-    min-width: 550px;
+    width: 60vw;
+
+    left: 9vw;
+    min-width: 510px;
+  }
+
+  .btnDatePick {
+    width: 80%;
+    right: 10%;
+    left: 10%;
+  }
+
+  .checkOut {
+    padding: 0 5px;
+  }
+
+  .checkInCheckOut input {
+    font-size: 13px;
+    min-width: 65px;
+  }
+
+  .checkInInput {
+    width: 50px;
   }
 }
 
@@ -133,10 +153,11 @@
   }
 
   .datePickCalendar {
-    top: 260px;
-
+    top: 31%;
+    right: calc((100vw - 315px) / 2);
+    left: calc((100vw - 325px) / 2);
     width: 315px;
-    min-width: 300px;
+    min-width: 315px;
   }
 }
 

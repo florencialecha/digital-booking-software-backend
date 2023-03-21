@@ -37,7 +37,7 @@ function Calendar({ styles, reservations }) {
   const [nextMonth, setNextMonth] = useState(new Date().getMonth() + 2);
   const [currentYear, setCurrentYear] = useState(new Date().getYear() + 1900);
   const [changeMonth, setChangeMonth] = useState(false);
-  const { dispatch } = useContext(GlobalContext);
+  const { state, dispatch } = useContext(GlobalContext);
 
   useEffect(() => {
     dispatch({

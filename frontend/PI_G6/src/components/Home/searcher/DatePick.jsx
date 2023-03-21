@@ -26,7 +26,7 @@ const DatePick = ({ toggleCalendar, handleCalendar }) => {
       <div
         className={styles.checkInCheckOut}
         onClick={
-          (reservations?.length === 0 && selectedRange?.length === 0) ||
+          (reservations?.length === 0 && selectedRange?.length <= 1) ||
           reservations?.length === 2 ||
           !reservation
             ? handleCalendar
@@ -58,6 +58,7 @@ const DatePick = ({ toggleCalendar, handleCalendar }) => {
           -
         </label>
         <input
+          className={styles.checkInInput}
           type="text"
           id="check-out"
           name="check-out"
