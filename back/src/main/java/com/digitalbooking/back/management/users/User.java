@@ -1,5 +1,6 @@
 package com.digitalbooking.back.management.users;
 
+import com.digitalbooking.back.bookStayApp.reserves.Reserve;
 import com.digitalbooking.back.management.role.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -7,8 +8,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
-@Table(name = "USER")
+@Table(name = "CUSTOM_USER")
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -37,5 +40,8 @@ public class User {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ROLE_ID")
     private Role role;
+
+    @OneToMany(mappedBy = "user")
+    private List<Reserve> reserves;
 
 }
