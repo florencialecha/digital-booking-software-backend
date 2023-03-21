@@ -1,15 +1,12 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
-// import { faS, faStar } from '@fortawesome/free-solid-svg-icons'
-import './CardStars.css'
-
-// eslint-disable-next-line react/prop-types
-const CardStars = ({ stars }) => {
+const CardStars = ({ stars, styles }) => {
   const st = []
 
   for (let i = 1; i <= 5; i++) {
-    let starFill = 'empty'
+    let starFill = styles.empty
     if (stars >= i) {
-      starFill = 'full'
+      starFill = styles.full
     }
     st.push({ starFill, i })
   }

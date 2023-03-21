@@ -41,7 +41,7 @@ const CardSuggested = ({ suggest, styles }) => {
           <div className={styles.cardTitle}>
             <div className={styles.productCategoryNameAndStars}>
               <p className={styles.productCategory}>{suggest.category.title}</p>
-              <CardStars {...suggest} />
+              <CardStars {...suggest} styles={styles}/>
               <p id={styles.suggestName}>{suggest.title}</p>
             </div>
             <div className={styles.valorationInfo}>

@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState } from 'react'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import useComponentVisible from '../../hooks/useComponentVisible'
 
 const checkInHours = [
   {
@@ -32,36 +33,14 @@ const checkInHours = [
 ]
 
 const HourSelector = ({ styles }) => {
-  const [isActive, setIsActive] = useState(false)
   const [hourSelect, setHourSelect] = useState('')
-  const selectorRef = useRef(null)
-  const selectorParagrafRef = useRef(null)
-  const clickRef = useRef(null)
 
-  useEffect(() => {
-    const handleClick = (e) => {
-      clickRef.current = e.target
-    }
-
-    const handleOutsideClick = () => {
-      if (clickRef.current !== selectorRef.current || isActive === true) {
-        setIsActive(false)
-      }
-    }
-
-    document.addEventListener('mousedown', handleClick)
-    document.addEventListener('mouseup', handleOutsideClick)
-
-    return () => {
-      document.removeEventListener('mousedown', handleClick)
-      document.removeEventListener('mouseup', handleOutsideClick)
-    }
-  }, [selectorRef, selectorParagrafRef])
+  const { selectorRef, isActive, setIsActive } = useComponentVisible(false)
 
   return (
     <div>
         <form action="" className={styles.formClass}>
-            <div ref={selectorRef} className={styles.selectbox} onClick={() => setIsActive(!isActive)}>
+            <div ref={selectorRef} className={styles.selectbox} onClick={() => setIsActive(prev => !prev)}>
                 <div id={styles.select} className={styles.select}>
                   <div
                       className={styles.selectContent}
@@ -79,8 +58,7 @@ const HourSelector = ({ styles }) => {
                                 {amPm.hours.map((hour) => {
                                   return (
                                         <div key={hour} className={styles.contentOption}>
-                                            <p ref={selectorParagrafRef}onClick={() => {
-                                              setIsActive(false)
+                                            <p onClick={() => {
                                               setHourSelect(`${hour} ${amPm.type}`)
                                             }}>{hour} {amPm.type}</p>
                                         </div>

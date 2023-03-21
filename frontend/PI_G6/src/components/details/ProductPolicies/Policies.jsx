@@ -1,42 +1,42 @@
-import React from "react";
-import "./Policies.css";
+/* eslint-disable react/prop-types */
+import React from 'react'
 
-const Policies = ({ policies }) => {
-  const rules = policies.rulesDescription?.split(".");
-  const security = policies.securityDescription?.split(".");
-  const cancellation = policies.cancellationDescription?.split(".");
+const Policies = ({ policies, styles }) => {
+  const rules = policies.rulesDescription?.split('.')
+  const security = policies.securityDescription?.split('.')
+  const cancellation = policies.cancellationDescription?.split('.')
 
   return (
-    <div className="detail-policies">
-      <div className="detail-rules">
+    <div className={styles.detailPolicies}>
+      <div className={styles.detailRules}>
         <h3>Normas de la casa</h3>
-        <p className="rules-body">
+        <p className={styles.rulesBody}>
           {rules?.map((rule) => (
             <span key={rule}>{rule}</span>
           ))}
         </p>
       </div>
-      <div className="detail-security">
+      <div className={styles.detailSecurity}>
         <h3>Salud y seguridad</h3>
-        <p className="security-body">
-          {" "}
+        <p className={styles.securityBody}>
+          {' '}
           {security?.map((sec) => (
             <span key={sec}>{sec}</span>
           ))}
         </p>
       </div>
 
-      <div className="detail-cancelation">
+      <div className={styles.detailCancelation}>
         <h3>Política de cancelación</h3>
-        <p className="cancellation-body">
-          {" "}
+        <p className={styles.cancellationBody}>
+          {' '}
           {cancellation?.map((can) => (
             <span key={can}>{can}</span>
           ))}
         </p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Policies;
+export default Policies

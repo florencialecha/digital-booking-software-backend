@@ -47,7 +47,7 @@ const ProductDetails = () => {
               <div className={styles.detailsScoring}>
                 <div className={styles.detailsReview}>
                   <p>{product.review}</p>
-                    <CardStars {...product} />{' '}
+                    <CardStars {...product} styles={styles} />
                 </div>
                 <div className={styles.detailsScore}>
                   <p>{product.scoring}</p>
@@ -96,7 +96,7 @@ const ProductDetails = () => {
             <div className={styles.detailsPolicies}>
               <h2> ¿Qué tenés que saber?</h2>
               <hr className={styles.detailsLine} />
-              <Policies policies={product.policy} />
+              <Policies policies={product.policy} styles={styles}/>
             </div>
           </div>
         </div>

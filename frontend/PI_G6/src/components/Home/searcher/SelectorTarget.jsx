@@ -3,18 +3,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import './Searcher.css'
 import data from '../../../temp/citiState.json'
+import useComponentVisible from '../../../hooks/useComponentVisible'
 
 const selectorTarget = ({ setSelected }) => {
-  const [isActive, setIsActive] = useState(true)
+  // const [isActive, setIsActive] = useState(true)
   const [search, setSearch] = useState('')
 
   const inputToSearch = (e) => {
     setSearch(e.target.value)
   }
 
+  const { selectorRef, isActive, setIsActive } = useComponentVisible(false)
+
   return (
     <form action="" className="formClass">
-      <div className="selectbox" onClick={() => setIsActive(!isActive)}>
+      <div ref={selectorRef} className="selectbox" onClick={() => setIsActive(prev => !prev)}>
         <div id="select" className="select">
           <FontAwesomeIcon icon={faLocationDot} />
           <input
@@ -25,7 +28,7 @@ const selectorTarget = ({ setSelected }) => {
             placeholder="A donde vamos"
           ></input>
         </div>
-        <div id="options" className={isActive ? 'inactive' : 'active'}>
+        <div id="options" className={isActive ? 'active' : 'inactive'}>
           {data.map((countrys) => {
             return (
               <div key={countrys.id}>

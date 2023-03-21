@@ -238,6 +238,15 @@
   color: #f0572d;
 }
 
+.starsContainer {
+  padding: 0 2px;
+}
+
+.full {
+  color: rgb(240, 87, 45);
+}
+
+
 @media (max-width: 600px) {
   /* For mobile: */
   .suggestedMainContainer {

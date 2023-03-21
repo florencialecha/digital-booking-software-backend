@@ -116,7 +116,7 @@ a {
     height: 100%;
     width: 100%;
 
-    grid-template-rows: 100% 350px ;
+    grid-template-rows: 100% 350px;
     display: grid;
     border-radius: 5px;
     gap: 5px;
@@ -129,7 +129,7 @@ a {
     
     display: grid;
     gap: 5px;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: auto 1fr;
     grid-template-rows: 100%;
     align-items: center;
 }
