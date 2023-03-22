@@ -6,7 +6,7 @@ BuildAndDeployBack:
   stage: BuildAndDeployBack
   script:
     - cd back
-    - sudo chmod a+x /out/artifacts/back_jar/back.jar
+    - sudo chmod 755 /out/artifacts/back_jar/back.jar
     - sudo systemctl restart ApiBack.service
 
     
