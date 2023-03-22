@@ -4,6 +4,6 @@ stages:
 hello_world:
   stage: hello
   script:
-    - echo "Hello1, World!"
+    - echo "Hello13, World!"
   only:
     - main
