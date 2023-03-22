@@ -1,5 +1,6 @@
 package com.digitalbooking.back.bookStayApp.products;
 
+import com.digitalbooking.back.bookStayApp.address.AddressDtoToFind;
 import com.digitalbooking.back.bookStayApp.address.FindAddressDTO;
 import com.digitalbooking.back.bookStayApp.images.ImageDTO;
 import com.digitalbooking.back.management.categories.CategoryDTO;
@@ -13,7 +14,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class FindProductDTO {
+public class ProductDtoToFind {
 
     private Long id;
     private String title;
@@ -24,6 +25,6 @@ public class FindProductDTO {
     private CategoryDTO category;
     private List<FeatureDTO> features;
     private List<ImageDTO> images;
-    private FindAddressDTO address;
+    private AddressDtoToFind address;
 
 }

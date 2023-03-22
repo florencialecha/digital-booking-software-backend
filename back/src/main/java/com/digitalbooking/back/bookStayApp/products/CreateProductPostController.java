@@ -1,7 +1,7 @@
 package com.digitalbooking.back.bookStayApp.products;
 
 import com.digitalbooking.back.bookStayApp.address.Address;
-import com.digitalbooking.back.bookStayApp.address.AddressDTO;
+import com.digitalbooking.back.bookStayApp.address.AddressDTOToCreate;
 import com.digitalbooking.back.bookStayApp.images.Image;
 import com.digitalbooking.back.bookStayApp.images.ImageDTO;
 import com.digitalbooking.back.bookStayApp.policies.Policy;
@@ -85,12 +85,12 @@ public class CreateProductPostController {
             }
 
             // Crear dirección
-            AddressDTO addressDTO = createProductDTO.getAddress();
-            if (addressDTO != null) {
-                Address address = modelMapper.map(addressDTO, Address.class);
+            AddressDTOToCreate addressDTOToCreate = createProductDTO.getAddress();
+            if (addressDTOToCreate != null) {
+                Address address = modelMapper.map(addressDTOToCreate, Address.class);
 
                 // Asignar ciudad a la dirección por id
-                City city = cityRepository.findById(addressDTO.getCity())
+                City city = cityRepository.findById(addressDTOToCreate.getCity())
                         .orElseThrow(() -> new RuntimeException("City not found"));
                 address.setCity(city);
 

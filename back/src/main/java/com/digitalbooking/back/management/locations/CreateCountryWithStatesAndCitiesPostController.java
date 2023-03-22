@@ -27,7 +27,6 @@ public class CreateCountryWithStatesAndCitiesPostController {
         try {
             //Create a new country with states and cities
             modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-
             Country country = modelMapper.map(countryDTO, Country.class);
             //Create states
             Set<StateDTO> statesDTO = countryDTO.getStates();

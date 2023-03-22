@@ -1,6 +1,6 @@
 package com.digitalbooking.back.bookStayApp.products;
 
-import com.digitalbooking.back.bookStayApp.address.AddressDTO;
+import com.digitalbooking.back.bookStayApp.address.AddressDTOToCreate;
 import com.digitalbooking.back.bookStayApp.images.ImageDTO;
 import com.digitalbooking.back.bookStayApp.policies.PolicyDTO;
 import lombok.Getter;
@@ -27,6 +27,6 @@ public class CreateProductDTO {
     private Set<Long> features;
     private PolicyDTO policy;
     private List<ImageDTO> images;
-    private AddressDTO address;
+    private AddressDTOToCreate address;
 
 }

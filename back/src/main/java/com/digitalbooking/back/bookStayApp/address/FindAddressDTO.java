@@ -16,8 +16,8 @@ public class FindAddressDTO {
     private Long id;
     private String street;
     private String number;
-    private CityDTO city;
-    private StateDTO state;
-    private CountryDTO country;
+    private String city;
+    private String state;
+    private String country;
 
 }
