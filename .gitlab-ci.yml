@@ -1,5 +1,5 @@
 variables:
-  JAR_NAME: myapp.jar
+  JAR_NAME: back.jar
   JAR_FOLDER: /home/ubuntu/jarFolder
 
 stages:
