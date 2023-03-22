@@ -6,7 +6,7 @@ deploy:
     - mkdir -p /root/.ssh
     - touch /root/.ssh/known_hosts
     - chmod 600 /root/.ssh/known_hosts
-    - echo "$(<6KeyPair)" > /root/.ssh/id_rsa && chmod 400 /root/.ssh/id_rsa
+    - echo "$(< /home/ubuntu/gitlab-runner)" > /root/.ssh/id_rsa && chmod 400 /root/.ssh/id_rsa
     - ssh-keyscan 3.131.138.206 >> /root/.ssh/known_hosts
   script:
     - ssh -o "StrictHostKeyChecking=no" -i /root/.ssh/id_rsa user@3.131.138.206 "echo 'Hello from GitLab CI/CD!'"
