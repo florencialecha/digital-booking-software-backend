@@ -1,9 +1,7 @@
 stages:
-  - hello
+  - test
 
-hello_world:
-  stage: hello
+test:
+  stage: test
   script:
-    - echo "Hello13, World!"
-  only:
-    - main
+    - echo "Hello from GitLab Runner"
