@@ -8,7 +8,7 @@ BuildAndDeployBack:
   stage: BuildAndDeployBack
   script:
     - cd back
-    - mvn clean package
+    - sudo mvn clean package
     - sudo systemctl restart ApiBack.service
 
   tags:
