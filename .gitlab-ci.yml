@@ -8,7 +8,6 @@ BuildAndDeployBack:
   stage: BuildAndDeployBack
   script:
     - cd back
-    - if [ -d "target" ]; then sudo rm -rf target; fi
     - sudo mvn clean package
     - sudo systemctl restart ApiBack.service
     - if [ -d "target" ]; then sudo rm -rf target; fi
