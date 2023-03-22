@@ -17,7 +17,7 @@ build:
 deploy:
   stage: deploy
   script:
-    - sudo cp back/out/artifacts/back_jar /$JAR_NAME $JAR_FOLDER
-    - sudo systemctl restart ApiBack
+    - sudo cp -r back/out/artifacts/back.jar $JAR_FOLDER/$JAR_NAME
+    - sudo systemctl restart ApiBack.service
   tags:
     - back
