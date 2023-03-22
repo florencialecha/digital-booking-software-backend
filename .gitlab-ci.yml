@@ -6,9 +6,9 @@ BuildAndDeployBack:
   stage: BuildAndDeployBack
   script:
     - cd back
-    - sudo chmod +x a+x /out/artifacts/back_jar/back.jar
+    - sudo chmod a+x /out/artifacts/back_jar/back.jar
     - sudo systemctl restart ApiBack.service
-    
+
     
   cache:
     key: "${CI_COMMIT_REF_SLUG}"
