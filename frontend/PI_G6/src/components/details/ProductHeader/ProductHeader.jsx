@@ -11,7 +11,7 @@ const ProductHeader = ({ generalInfo }) => {
   // En el caso del producto, el endpoint product no existe, por lo que se valida en el if
   // y en ese caso se devuelve al home
   const handleClickReturn = () => {
-    const host = 'http://127.0.0.1:5173'
+    const host = window.location.origin
     const currentUrl = window.location.href
     const newUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/'))
     console.log(currentUrl)
