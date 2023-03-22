@@ -1,7 +1,10 @@
 stages:
-  - test
+  - deploy
 
-test:
-  stage: test
+deploy:
+  stage: deploy
   script:
     - echo "Hello from GitLab Runner"
+  tags:
+    - shell
+
