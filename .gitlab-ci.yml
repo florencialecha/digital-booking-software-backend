@@ -1,17 +1,11 @@
 stages:
-  - build
-  - test
+  - deploy
 
-build:
-  stage: build
-  image: alpine
+deploy:
+  stage: deploy
+  image: ubuntu:latest
+  before_script:
+    - apt-get update && apt-get install -y openssh-client
   script:
-    - echo 'Hello from GitLab CI/CD!!!'
-    - mkdir /mnt/build
-  volumes:
-    - /home/ubuntu:/mnt
-
-test:
-  stage: test
-  script:
-    - echo "Testing project"
+    - ssh-keyscan <3.131.138.206> >> ~/.ssh/known_hosts
+    - ssh -i /home/ubuntu/.ssh/gitlab-runner ubuntu@<3.131.138.206> "echo 'Hello from GitLab CI/CD!'"
