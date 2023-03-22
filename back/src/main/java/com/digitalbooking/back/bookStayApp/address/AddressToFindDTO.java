@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class AddressDtoToFind {
+public class AddressDTOToFind {
 
         private String street;
         private String number;

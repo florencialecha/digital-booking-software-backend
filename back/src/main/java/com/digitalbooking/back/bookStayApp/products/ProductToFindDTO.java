@@ -1,7 +1,6 @@
 package com.digitalbooking.back.bookStayApp.products;
 
-import com.digitalbooking.back.bookStayApp.address.AddressDtoToFind;
-import com.digitalbooking.back.bookStayApp.address.FindAddressDTO;
+import com.digitalbooking.back.bookStayApp.address.AddressToFindDTO;
 import com.digitalbooking.back.bookStayApp.images.ImageDTO;
 import com.digitalbooking.back.management.categories.CategoryDTO;
 import com.digitalbooking.back.management.features.FeatureDTO;
@@ -25,6 +24,6 @@ public class ProductDtoToFind {
     private CategoryDTO category;
     private List<FeatureDTO> features;
     private List<ImageDTO> images;
-    private AddressDtoToFind address;
+    private AddressToFindDTO address;
 
 }
