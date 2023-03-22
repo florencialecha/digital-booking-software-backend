@@ -1,12 +1,9 @@
-deploy:
-  stage: deploy
-  image: ubuntu:latest
-  before_script:
-    - apt-get update && apt-get install -y openssh-client
-    - mkdir -p /root/.ssh
-    - touch /root/.ssh/known_hosts
-    - chmod 600 /root/.ssh/known_hosts
-    - echo "$(</home/ubuntu/.ssh/gitlab-runner)" > /root/.ssh/id_rsa && chmod 400 /root/.ssh/id_rsa
-    - ssh-keyscan 3.131.138.206 >> /root/.ssh/known_hosts
+stages:
+  - hello
+
+hello_world:
+  stage: hello
   script:
-    - ssh -o "StrictHostKeyChecking=no" -i /root/.ssh/id_rsa user@3.131.138.206 "echo 'Hello from GidtLab CI/CD!'"
+    - echo "Hello, World!"
+  only:
+    - main
