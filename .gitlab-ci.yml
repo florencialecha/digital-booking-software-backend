@@ -21,8 +21,10 @@ deploy:
     - pwd
     - JAR_FILE=$(find back/out/artifacts/back_jar/ -name "*.jar" | head -n 1)
     - cd ~
+    - ls -a
     - cd ..
-    - sudo -s 'cd /ubuntu'
+    - ls -a
+    - sudo -s 'cd home/ubuntu'
 
     - sudo rm -r /jarFolder/*
     - sudo cp -r $JAR_FILE jarFolder/
