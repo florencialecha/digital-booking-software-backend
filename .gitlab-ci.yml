@@ -9,13 +9,17 @@ stages:
 build:
   stage: build
   script:
+    - apt-get update && apt-get install -y maven
     - git clone https://gitlab.ctd.academy/ctd/hispanos/proyecto-integrador-1/proyecto-integrador-0223/0522ft-c3/grupo-06/-/tree/development/back
     - cd back
     - mvn clean package
+  tags:
+    - back
 
 deploy:
   stage: deploy
   script:
     - cp back/target/$JAR_NAME $JAR_FOLDER
     - systemctl restart ApiBack
-
+  tags:
+    - back
