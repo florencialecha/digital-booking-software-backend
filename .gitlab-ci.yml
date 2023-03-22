@@ -1,5 +1,3 @@
-
-
 stages:
   - BuildAndDeployBack
   - BuildAndDeployFront
@@ -11,11 +9,10 @@ BuildAndDeployBack:
     - sudo mvn clean package
     - sudo systemctl restart ApiBack.service
     - if [ -d "target" ]; then sudo rm -rf target; fi
-
-
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "development"'
   tags:
     - back
-
 
 BuildAndDeployFront:
   stage: BuildAndDeployFront
@@ -25,8 +22,7 @@ BuildAndDeployFront:
     - sudo npm install
     - sudo npm run build
     - sudo aws s3 sync dist/ s3://digital-booking-6 --delete
-
-
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "development"'
   tags:
     - front
-
