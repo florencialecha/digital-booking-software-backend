@@ -8,7 +8,7 @@ build:
   script:
     - cd back
     - mvn clean package
-    - systemctl restart ApiBack
+    - sudo systemctl restart ApiBack.service
 
   tags:
     - back
