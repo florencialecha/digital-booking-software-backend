@@ -23,6 +23,8 @@ BuildAndDeployFront:
     - sudo npm install
     - sudo npm run build
     - aws s3 sync /dist s3://digital-booking-6 --delete
+    - sudo rm -rf node_modules
+
 
 
   tags:
