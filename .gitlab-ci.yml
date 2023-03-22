@@ -9,8 +9,6 @@ stages:
 build:
   stage: build
   script:
-    - ls -a
-
     - cd back
     - mvn clean package
   tags:
@@ -19,7 +17,7 @@ build:
 deploy:
   stage: deploy
   script:
-    - sudo cp back/target/$JAR_NAME $JAR_FOLDER
+    - sudo cp back/out/artifacts/back_jar /$JAR_NAME $JAR_FOLDER
     - sudo systemctl restart ApiBack
   tags:
     - back
