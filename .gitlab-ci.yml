@@ -10,6 +10,8 @@ BuildAndDeployBack:
     - cd back
     - sudo mvn clean package
     - sudo systemctl restart ApiBack.service
+    - sudo rm -rf target
+
 
   tags:
     - back
