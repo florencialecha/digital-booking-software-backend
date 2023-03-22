@@ -23,7 +23,7 @@ deploy:
     - cd ~
     - cd ..
     - ls -a
-    - sudo -s 'cd ubuntu/'
+    - sudo -s 'cd ubuntu'
 
     - sudo rm -r /jarFolder/*
     - sudo cp -r $JAR_FILE jarFolder/
