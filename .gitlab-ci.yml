@@ -1,10 +1,21 @@
+variables:
+  JAR_NAME: myapp.jar
+  JAR_FOLDER: /home/ubuntu/jarFolder
+
 stages:
+  - build
   - deploy
+
+build:
+  stage: build
+  script:
+    - git clone https://gitlab.ctd.academy/ctd/hispanos/proyecto-integrador-1/proyecto-integrador-0223/0522ft-c3/grupo-06/-/tree/development/back
+    - cd back
+    - mvn clean package
 
 deploy:
   stage: deploy
   script:
-    - sudo systemctl stop ApiBack.service
-  tags:
-    - back
+    - cp back/target/$JAR_NAME $JAR_FOLDER
+    - systemctl restart ApiBack
 
