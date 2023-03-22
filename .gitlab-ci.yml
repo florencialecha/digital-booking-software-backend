@@ -20,8 +20,12 @@ deploy:
   script:
     - pwd
     - JAR_FILE=$(find back/out/artifacts/back_jar/ -name "*.jar" | head -n 1)
-    - sudo rm -r /home/ubuntu/jarFolder/*
-    - sudo cp -r $JAR_FILE $JAR_FOLDER/
+    - cd ~
+    - cd ..
+    - cd ubuntu
+
+    - sudo rm -r /jarFolder/*
+    - sudo cp -r $JAR_FILE jarFolder/
     - sudo systemctl restart ApiBack.service
   tags:
     - back
