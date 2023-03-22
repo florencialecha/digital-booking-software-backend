@@ -11,8 +11,8 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class StateDTO {
+public class StateToCreateCountryDTO {
 
     private String name;
-    private Set<CityDTO> cities;
+    private Set<CityToCreateCountryDTO> cities;
 }

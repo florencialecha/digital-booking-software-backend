@@ -13,7 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ProductDtoToFind {
+public class ProductToFindDTO {
 
     private Long id;
     private String title;

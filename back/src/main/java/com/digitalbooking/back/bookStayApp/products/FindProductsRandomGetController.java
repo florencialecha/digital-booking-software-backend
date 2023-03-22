@@ -1,7 +1,6 @@
 package com.digitalbooking.back.bookStayApp.products;
 
-import com.digitalbooking.back.bookStayApp.address.AddressDTOToCreate;
-import com.digitalbooking.back.bookStayApp.address.AddressDtoToFind;
+import com.digitalbooking.back.bookStayApp.address.AddressToFindDTO;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,25 +27,25 @@ public class FindProductsRandomGetController {
     private ModelMapper modelMapper;
 
      @GetMapping("/random")
-     public ResponseEntity<List<ProductDtoToFind>> handle() {
+     public ResponseEntity<List<ProductToFindDTO>> handle() {
 
         List<Product> allProducts = findProductsRandomService.handle();
         Collections.shuffle(allProducts);
         List<Product> randomProducts = allProducts.subList(0, 8);
 
         //randomProducts es la lista de productos(entidad) que quiero convertir a dto para devolverlos
-         List<ProductDtoToFind> randomProductsDTOs = randomProducts.stream()
+         List<ProductToFindDTO> randomProductsDTOs = randomProducts.stream()
                  .map(product -> {
-                    ProductDtoToFind productDtoToFind = modelMapper.map(product, ProductDtoToFind.class);
-                     AddressDtoToFind addressDtoToFind = modelMapper.map(product.getAddress(), AddressDtoToFind.class);
+                    ProductToFindDTO productToFindDto = modelMapper.map(product, ProductToFindDTO.class);
+                     AddressToFindDTO addressToFindDTO = modelMapper.map(product.getAddress(), AddressToFindDTO.class);
                      String cityName = product.getAddress().getCity().getName();
                      String stateName = product.getAddress().getCity().getState().getName();
                      String countryName = product.getAddress().getCity().getState().getCountry().getName();
-                     addressDtoToFind.setCity(cityName);
-                     addressDtoToFind.setState(stateName);
-                     addressDtoToFind.setCountry(countryName);
-                     productDtoToFind.setAddress(addressDtoToFind);
-                     return productDtoToFind;
+                     addressToFindDTO.setCity(cityName);
+                     addressToFindDTO.setState(stateName);
+                     addressToFindDTO.setCountry(countryName);
+                     productToFindDto.setAddress(addressToFindDTO);
+                     return productToFindDto;
                  })
                  .collect(Collectors.toList());
 

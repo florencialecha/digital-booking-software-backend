@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -13,7 +12,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class CountryDTO {
+public class CountryToCreateDTO {
     private String name;
-    private Set<StateDTO> states;
+    private Set<StateToCreateCountryDTO> states;
 }
