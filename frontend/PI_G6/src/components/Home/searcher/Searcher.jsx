@@ -8,16 +8,12 @@ import { GlobalContext } from "../../../utils/globalContext";
 
 const Searcher = () => {
   const [selected, setSelected] = useState("");
-  const [toggleCalendar, setToggleCalendar] = useState(false);
+
   const { dispatch } = useContext(GlobalContext);
 
   const handleSelectCity = () => {
     dispatch({ type: "city", payload: selected.split(",")[0] });
     dispatch({ type: "data", payload: "-1" });
-  };
-
-  const handleCalendar = () => {
-    setToggleCalendar(!toggleCalendar);
   };
 
   return (
@@ -28,11 +24,8 @@ const Searcher = () => {
           <SelectorTarget selected={selected} setSelected={setSelected} />
         </div>
         <div className="calendar" id="calendar">
-          <FontAwesomeIcon onClick={handleCalendar} icon={faCalendarDay} />
-          <DatePick
-            toggleCalendar={toggleCalendar}
-            handleCalendar={handleCalendar}
-          />
+          <FontAwesomeIcon icon={faCalendarDay} />
+          <DatePick />
         </div>
         <button onClick={handleSelectCity} id="btn-search">
           Buscar
