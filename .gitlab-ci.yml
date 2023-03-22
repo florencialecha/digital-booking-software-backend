@@ -1,32 +1,17 @@
-variables:
-  JAR_NAME: back.jar
-  JAR_FOLDER: /home/ubuntu/jarFolder
 
 
 stages:
-  - build
-  - deploy
+  - buildAndDeployBack
 
 build:
-  stage: build
+  stage: buildAndDeployBack
   script:
     - cd back
     - mvn clean package
+    - sudo rm -r /out/artifacts/back_jar 
+
+    - systemctl restart ApiBack
+
   tags:
     - back
 
-deploy:
-  stage: deploy
-  script:
-    - pwd
-    - JAR_FILE=$(find back/out/artifacts/back_jar/ -name "*.jar" | head -n 1)
-    - cd ~
-    - cd ..
-    - ls -a
-    - sudo -s 'cd ubuntu'
-
-    - sudo rm -r /jarFolder/*
-    - sudo cp -r $JAR_FILE jarFolder/
-    - sudo systemctl restart ApiBack.service
-  tags:
-    - back
