@@ -9,11 +9,7 @@ BuildAndDeployBack:
     - sudo chmod 755 ./out/artifacts/back_jar/back.jar
     - sudo systemctl restart ApiBack.service
 
-    
-  cache:
-    key: "${CI_COMMIT_REF_SLUG}"
-    paths:
-      - back/.m2/
+  
   rules:
     - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "development"'
   tags:
@@ -29,10 +25,6 @@ BuildAndDeployFront:
     - sudo npm ci
     - sudo npm run build
     - sudo aws s3 sync dist/ s3://digital-booking-6 --delete
-  cache:
-    key: "${CI_COMMIT_REF_SLUG}"
-    paths:
-      - frontend/PI_G6/node_modules/
   rules:
     - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "development"'
   tags:
