@@ -10,12 +10,10 @@ import java.time.LocalTime;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ReserveDTO {
+public class ReserveToFindDTO {
 
     private LocalTime startTime;
     private LocalDate checkIn;
     private LocalDate checkOut;
-    private Long product;
-    private Long user;
 
 }

@@ -1,6 +1,6 @@
 package com.digitalbooking.back.bookStayApp.images;
 
-import com.digitalbooking.back.bookStayApp.products.Product;
+import com.digitalbooking.back.bookStayApp.products.domain.Product;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

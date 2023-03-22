@@ -1,4 +1,4 @@
-package com.digitalbooking.back.bookStayApp.products;
+package com.digitalbooking.back.bookStayApp.products.service;
 
 //@Service
 //public class ProductService {

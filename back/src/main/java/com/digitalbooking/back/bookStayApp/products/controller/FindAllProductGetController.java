@@ -1,5 +1,7 @@
-package com.digitalbooking.back.bookStayApp.products;
+package com.digitalbooking.back.bookStayApp.products.controller;
 
+import com.digitalbooking.back.bookStayApp.products.service.FindAllProductService;
+import com.digitalbooking.back.bookStayApp.products.domain.Product;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

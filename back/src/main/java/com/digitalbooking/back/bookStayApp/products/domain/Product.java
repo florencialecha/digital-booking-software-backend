@@ -1,4 +1,4 @@
-package com.digitalbooking.back.bookStayApp.products;
+package com.digitalbooking.back.bookStayApp.products.domain;
 
 import com.digitalbooking.back.bookStayApp.address.Address;
 import com.digitalbooking.back.bookStayApp.images.Image;

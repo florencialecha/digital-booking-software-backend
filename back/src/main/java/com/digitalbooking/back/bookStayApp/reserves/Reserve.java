@@ -1,6 +1,6 @@
 package com.digitalbooking.back.bookStayApp.reserves;
 
-import com.digitalbooking.back.bookStayApp.products.Product;
+import com.digitalbooking.back.bookStayApp.products.domain.Product;
 import com.digitalbooking.back.management.users.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

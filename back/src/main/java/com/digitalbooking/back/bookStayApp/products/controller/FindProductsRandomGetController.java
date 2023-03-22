@@ -1,6 +1,8 @@
-package com.digitalbooking.back.bookStayApp.products;
+package com.digitalbooking.back.bookStayApp.products.controller;
 
 import com.digitalbooking.back.bookStayApp.address.AddressToFindDTO;
+import com.digitalbooking.back.bookStayApp.products.service.FindProductsRandomService;
+import com.digitalbooking.back.bookStayApp.products.domain.Product;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

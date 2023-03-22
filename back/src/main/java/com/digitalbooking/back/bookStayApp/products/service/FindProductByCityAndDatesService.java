@@ -1,5 +1,7 @@
-package com.digitalbooking.back.bookStayApp.products;
+package com.digitalbooking.back.bookStayApp.products.service;
 
+import com.digitalbooking.back.bookStayApp.products.domain.Product;
+import com.digitalbooking.back.bookStayApp.products.domain.ProductRepository;
 import com.digitalbooking.back.bookStayApp.reserves.Reserve;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
