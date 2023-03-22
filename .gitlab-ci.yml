@@ -7,8 +7,9 @@ build:
   stage: buildAndDeployBack
   script:
     - cd back
-    - mvn clean package
     - sudo rm -r /out/artifacts/back_jar 
+
+    - mvn clean package
 
     - systemctl restart ApiBack
 
