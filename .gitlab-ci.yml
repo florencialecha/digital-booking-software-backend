@@ -24,7 +24,7 @@ BuildAndDeployFront:
     - if [ -d "node_modules" ]; then sudo rm -rf node_modules; fi
     - sudo npm install
     - sudo npm run build
-    - aws s3 sync /dist s3://digital-booking-6 --delete
+    - aws s3 sync dist/ s3://digital-booking-6 --delete
 
 
   tags:
