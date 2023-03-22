@@ -19,7 +19,6 @@ BuildAndDeployFront:
   stage: BuildAndDeployFront
   script:
     - cd frontend/PI_G6
-    - sudo npm-clean
     - sudo npm install
     - sudo npm run build
     - aws s3 sync /dist s3://digital-booking-6 --delete
