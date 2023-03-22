@@ -1,20 +1,32 @@
-stages:
-  - deploy
 
-deploy:
-  stage: deploy
-  variables:
-    SSH_PRIVATE_KEY: $6KeyPair
-  before_script:
-    - apt-get update && apt-get install -y openssh-client
-    - mkdir -p /root/.ssh
-    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > /root/.ssh/id_rsa
-    - chmod 600 /root/.ssh/id_rsa
-    - ssh-keyscan -H 3.131.138.206 >> /root/.ssh/known_hosts
+
+stages:
+  - BuildAndDeployBack
+  - BuildAndDeployFront
+
+BuildAndDeployBack:
+  stage: BuildAndDeployBack
   script:
-    - echo "Building and packaging code"
-    - mvn clean package
-    - echo "Copying JAR file to EC2 instance"
-    - sudo scp -i /root/.ssh/id_rsa target/back.jar ubuntu@3.131.138.206:/home/ubuntu/jarFolder/
-    - echo "Restarting ApiBack.service"
-    - sudo ssh -i /root/.ssh/id_rsa ubuntu@3.131.138.206 "sudo systemctl restart ApiBack.service"
+    - cd back
+    - sudo mvn clean package
+    - sudo systemctl restart ApiBack.service
+    - if [ -d "target" ]; then sudo rm -rf target; fi
+
+
+  tags:
+    - back
+
+
+BuildAndDeployFront:
+  stage: BuildAndDeployFront
+  script:
+    - cd frontend/PI_G6
+    - if [ -d "node_modules" ]; then sudo rm -rf node_modules; fi
+    - sudo npm install
+    - sudo npm run build
+    - aws s3 sync /dist s3://digital-booking-6 --delete
+
+
+  tags:
+    - front
+
