@@ -6,5 +6,5 @@ deploy:
   script:
     - echo "Hello from GitLab Runner"
   tags:
-    - shell
+    - back
 
