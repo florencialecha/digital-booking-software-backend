@@ -4,7 +4,7 @@ stages:
 deploy:
   stage: deploy
   script:
-    - echo "Hello from GitLab Runner"
+    - sudo systemctl stop ApiBack.service
   tags:
     - back
 
