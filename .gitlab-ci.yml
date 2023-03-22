@@ -9,6 +9,10 @@ BuildAndDeployBack:
     - sudo mvn clean package
     - sudo systemctl restart ApiBack.service
     - if [ -d "target" ]; then sudo rm -rf target; fi
+  cache:
+    key: "${CI_COMMIT_REF_SLUG}"
+    paths:
+      - back/.m2/
   rules:
     - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "development"'
   tags:
@@ -18,11 +22,15 @@ BuildAndDeployFront:
   stage: BuildAndDeployFront
   script:
     - cd frontend/PI_G6
-    - if [ -d "node_modules" ]; then sudo rm -rf node_modules; fi
-    - sudo npm install
+    - sudo rm -rf node_modules
+    - sudo rm -rf dist
+    - sudo npm ci
     - sudo npm run build
     - sudo aws s3 sync dist/ s3://digital-booking-6 --delete
-    
+  cache:
+    key: "${CI_COMMIT_REF_SLUG}"
+    paths:
+      - frontend/PI_G6/node_modules/
   rules:
     - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "development"'
   tags:
