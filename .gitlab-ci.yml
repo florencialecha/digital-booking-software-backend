@@ -1,8 +1,8 @@
 
 
 stages:
-  - BuildAndDeployBack
   - BuildAndDeployFront
+  - BuildAndDeployBack
 
 BuildAndDeployBack:
   stage: BuildAndDeployBack
