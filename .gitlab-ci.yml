@@ -1,10 +1,11 @@
 
 
 stages:
-  - buildAndDeployBack
+  - BuildAndDeployBack
+  - BuildAndDeployFront
 
-build:
-  stage: buildAndDeployBack
+BuildAndDeployBack:
+  stage: BuildAndDeployBack
   script:
     - cd back
     - mvn clean package
@@ -12,4 +13,16 @@ build:
 
   tags:
     - back
+
+
+BuildAndDeployFront:
+  stage: BuildAndDeployFront
+  script:
+    - cd frontend/PI_G6
+    - npm run build
+    - aws s3 sync /dist s3://digital-booking-6 --delete
+
+
+  tags:
+    - front
 
