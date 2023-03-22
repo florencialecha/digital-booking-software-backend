@@ -7,7 +7,8 @@ BuildAndDeployBack:
   script:
     - cd back
     - sudo mvn clean package
-     - sudo cp target/back-0.0.1-SNAPSHOT.jar back_jar/back.jar
+    - sudo mkdir -p back_jar
+    - sudo cp target/back-0.0.1-SNAPSHOT.jar back_jar/back.jar
     - sudo systemctl restart ApiBack.service
     - if [ -d "target" ]; then sudo rm -rf target; fi
   cache:
