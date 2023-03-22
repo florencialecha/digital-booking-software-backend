@@ -18,6 +18,7 @@ build:
 deploy:
   stage: deploy
   script:
+    - pwd
     - JAR_FILE=$(find back/out/artifacts/back_jar/ -name "*.jar" | head -n 1)
     - sudo rm -r /home/ubuntu/jarFolder/*
     - sudo cp -r $JAR_FILE $JAR_FOLDER/
