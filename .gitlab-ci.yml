@@ -6,10 +6,12 @@ deploy:
   image: ubuntu:latest
   before_script:
     - apt-get update && apt-get install -y openssh-client
-  script:
-     
     - mkdir -p /root/.ssh
     - touch /root/.ssh/known_hosts
     - chmod 600 /root/.ssh/known_hosts
-    - ssh-keyscan 3.131.138.206 >> ~/.ssh/known_hosts
-    - ssh -i /home/ubuntu/.ssh/gitlab-runner ubuntu@<3.131.138.206> "echo 'Hello from GitLab CI/CD!'"
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > /root/.ssh/id_rsa
+    - chmod 600 /root/.ssh/id_rsa
+    - ssh-keyscan 3.131.138.206 >> /root/.ssh/known_hosts
+    - chmod 400 /root/.ssh/id_rsa
+  script:
+       - ssh -i /root/.ssh/id_rsa user@3.131.138.206 "echo 'Hello from GitLab CI/CD!'"
