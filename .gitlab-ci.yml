@@ -22,6 +22,7 @@ BuildAndDeployFront:
     - sudo npm install
     - sudo npm run build
     - sudo aws s3 sync dist/ s3://digital-booking-6 --delete
+    
   rules:
     - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "development"'
   tags:
