@@ -22,28 +22,27 @@ public class CreateCountryWithStatesAndCitiesPostController {
     private CreateCountryService createCountryService;
 
     @PostMapping
-    public void handle(@RequestBody CountryDTO countryDTO) {
+    public void handle(@RequestBody CountryToCreateDTO countryToCreateDTO) {
 
         try {
             //Create a new country with states and cities
             modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-
-            Country country = modelMapper.map(countryDTO, Country.class);
+            Country country = modelMapper.map(countryToCreateDTO, Country.class);
             //Create states
-            Set<StateDTO> statesDTO = countryDTO.getStates();
+            Set<StateToCreateCountryDTO> statesDTO = countryToCreateDTO.getStates();
             if (statesDTO != null) {
                 Set<State> states = new HashSet<>();
-                for (StateDTO stateDTO : statesDTO) {
-                    State state = modelMapper.map(stateDTO, State.class);
+                for (StateToCreateCountryDTO stateToCreateCountryDTO : statesDTO) {
+                    State state = modelMapper.map(stateToCreateCountryDTO, State.class);
                     state.setCountry(country);
                     states.add(state);
 
                     //Create cities
-                    Set<CityDTO> citiesDTO = stateDTO.getCities();
+                    Set<CityToCreateCountryDTO> citiesDTO = stateToCreateCountryDTO.getCities();
                     if (citiesDTO != null) {
                         Set<City> cities = new HashSet<>();
-                        for (CityDTO cityDTO : citiesDTO) {
-                            City city = modelMapper.map(cityDTO, City.class);
+                        for (CityToCreateCountryDTO cityToCreateCountryDTO : citiesDTO) {
+                            City city = modelMapper.map(cityToCreateCountryDTO, City.class);
                             city.setState(state);
                             cities.add(city);
                         }

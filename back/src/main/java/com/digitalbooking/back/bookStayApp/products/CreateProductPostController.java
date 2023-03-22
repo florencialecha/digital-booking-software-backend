@@ -1,7 +1,7 @@
 package com.digitalbooking.back.bookStayApp.products;
 
 import com.digitalbooking.back.bookStayApp.address.Address;
-import com.digitalbooking.back.bookStayApp.address.AddressDTO;
+import com.digitalbooking.back.bookStayApp.address.AddressToCreateDTO;
 import com.digitalbooking.back.bookStayApp.images.Image;
 import com.digitalbooking.back.bookStayApp.images.ImageDTO;
 import com.digitalbooking.back.bookStayApp.policies.Policy;
@@ -49,22 +49,22 @@ public class CreateProductPostController {
     private CityRepository cityRepository;
 
     @PostMapping
-    public void handle(@RequestBody ProductDTO productDTO) {
+    public void handle(@RequestBody ProductToCreateDTO productToCreateDTO) {
         try {
             modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-            Product product = modelMapper.map(productDTO, Product.class);
+            Product product = modelMapper.map(productToCreateDTO, Product.class);
 
             // Asignar categoría por id
-            Category category = categoryRepository.findById(productDTO.getCategory())
+            Category category = categoryRepository.findById(productToCreateDTO.getCategory())
                     .orElseThrow(() -> new RuntimeException("Category not found"));
             product.setCategory(category);
 
             // Asignar features por id's
-            List<Feature> features = featureRepository.findAllById(productDTO.getFeatures());
+            List<Feature> features = featureRepository.findAllById(productToCreateDTO.getFeatures());
             product.setFeatures(new HashSet<>(features));
 
             // Crear política
-            PolicyDTO policyDTO = productDTO.getPolicy();
+            PolicyDTO policyDTO = productToCreateDTO.getPolicy();
             if (policyDTO != null) {
                 Policy policy = modelMapper.map(policyDTO, Policy.class);
                 policyRepository.save(policy);
@@ -72,7 +72,7 @@ public class CreateProductPostController {
             }
 
             // Crear imágenes
-            List<ImageDTO> imagesDTO = productDTO.getImages();
+            List<ImageDTO> imagesDTO = productToCreateDTO.getImages();
             if (imagesDTO != null) {
                 List<Image> images = new ArrayList<>();
                 for (ImageDTO imageDTO : imagesDTO) {
@@ -85,12 +85,12 @@ public class CreateProductPostController {
             }
 
             // Crear dirección
-            AddressDTO addressDTO = productDTO.getAddress();
-            if (addressDTO != null) {
-                Address address = modelMapper.map(addressDTO, Address.class);
+            AddressToCreateDTO addressToCreateDTO = productToCreateDTO.getAddress();
+            if (addressToCreateDTO != null) {
+                Address address = modelMapper.map(addressToCreateDTO, Address.class);
 
                 // Asignar ciudad a la dirección por id
-                City city = cityRepository.findById(addressDTO.getCity())
+                City city = cityRepository.findById(addressToCreateDTO.getCity())
                         .orElseThrow(() -> new RuntimeException("City not found"));
                 address.setCity(city);
 
