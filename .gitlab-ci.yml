@@ -18,6 +18,7 @@ BuildAndDeployBack:
     - sudo chmod 777 ./back_jar
     - sudo systemctl restart ApiBack.service
     - if [ -d "target/" ]; then sudo rm -rf target/; fi
+    
 
   rules:
     - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "development"'
