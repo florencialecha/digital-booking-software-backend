@@ -14,7 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -39,7 +38,7 @@ public class FindProductByIdGetController {
         Product product = productOptional.orElseThrow(() ->
                 new ResourceNotFoundException("Don't find any product with id: " + id + ". Try again.")
         );
-        log.info("Product found: " + product);
+        log.info("Product found: " + product.getId());
 
         ProductWithDetailsToFindDTO productWithDetailsToFindDTO = modelMapper.map(product, ProductWithDetailsToFindDTO.class);
 

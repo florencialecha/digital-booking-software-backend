@@ -1,6 +1,5 @@
 package com.digitalbooking.back.bookStayApp.products.domain;
 
-import com.digitalbooking.back.bookStayApp.products.domain.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
