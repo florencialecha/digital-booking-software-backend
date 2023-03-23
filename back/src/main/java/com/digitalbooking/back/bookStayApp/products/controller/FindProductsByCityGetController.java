@@ -33,7 +33,6 @@ public class FindProductsByCityGetController {
             throw new ResourceNotFoundException("Can't find a products on this city.");
         }
 
-        //randomProducts es la lista de productos(entidad) que quiero convertir a dto para devolverlos
         List<ProductToFindDTO> productDTOS = products.stream()
                 .map(product -> {
                     ProductToFindDTO productToFindDto = modelMapper.map(product, ProductToFindDTO.class);
