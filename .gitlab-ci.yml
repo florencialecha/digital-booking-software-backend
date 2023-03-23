@@ -6,7 +6,7 @@ BuildAndDeployBack:
   stage: BuildAndDeployBack
   script:
     - cd back
-    - sudo rm -f back_jar/back.jar || true
+    - sudo rm -f back_jar/back.jar 2>/dev/null || true
     - sudo mvn clean package
     - sudo mkdir -p back_jar
     - sudo cp target/back-0.0.1-SNAPSHOT.jar back_jar/back.jar
