@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/casas")
+@RequestMapping("/category")
 @CrossOrigin("*")
 @Log4j2
 
