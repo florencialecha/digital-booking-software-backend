@@ -1,6 +1,6 @@
 stages:
-  - BuildAndDeployBack
   - BuildAndDeployFront
+  - BuildAndDeployBack
 
 BuildAndDeployBack:
   stage: BuildAndDeployBack
@@ -8,6 +8,7 @@ BuildAndDeployBack:
     - cd back
     - sudo mvn clean package
     - sudo mkdir -p back_jar
+    
     
     - sudo cp ./target/back-0.0.1-SNAPSHOT.jar ./back_jar/back.jar
     - sudo chmod 755 ./back_jar/back.jar
