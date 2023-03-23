@@ -6,14 +6,14 @@ BuildAndDeployBack:
   stage: BuildAndDeployBack
   script:
     - cd back
-    - sudo chmod 755 ./out/artifacts/back_jar/back.jar
-    - sudo systemctl restart ApiBack.service
-
+    - sudo mvn clean package
+    - sudo mkdir -p back_jar
     
-  cache:
-    key: "${CI_COMMIT_REF_SLUG}"
-    paths:
-      - back/.m2/
+    - sudo cp ./target/back-0.0.1-SNAPSHOT.jar ./back_jar/back.jar
+    - sudo chmod 755 ./back_jar/back.jar
+    - sudo systemctl restart ApiBack.service
+    - if [ -d "target/" ]; then sudo rm -rf target/; fi
+
   rules:
     - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "development"'
   tags:
@@ -29,10 +29,6 @@ BuildAndDeployFront:
     - sudo npm ci
     - sudo npm run build
     - sudo aws s3 sync dist/ s3://digital-booking-6 --delete
-  cache:
-    key: "${CI_COMMIT_REF_SLUG}"
-    paths:
-      - frontend/PI_G6/node_modules/
   rules:
     - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "development"'
   tags:
