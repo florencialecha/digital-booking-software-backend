@@ -1,5 +1,3 @@
-
-
 stages:
   - BuildAndDeployBack
   - BuildAndDeployFront
@@ -8,25 +6,34 @@ BuildAndDeployBack:
   stage: BuildAndDeployBack
   script:
     - cd back
+    - if [ -d ./back_jar ]; then sudo rm -rf ./back_jar; fi
+    
+
+    - if systemctl is-active --quiet ApiCategory; then sudo systemctl stop ApiCategory; fi
     - sudo mvn clean package
+    - sudo mkdir -p back_jar
+
+    - sudo cp target/back-0.0.1-SNAPSHOT.jar back_jar/back.jar
+    - sudo chmod 755 back_jar/back.jar
     - sudo systemctl restart ApiBack.service
-    - if [ -d "target" ]; then sudo rm -rf target; fi
+    - if [ -d "target/" ]; then sudo rm -rf target/; fi
 
-
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "development"'
   tags:
     - back
-
 
 BuildAndDeployFront:
   stage: BuildAndDeployFront
   script:
+
     - cd frontend/PI_G6
-    - if [ -d "node_modules" ]; then sudo rm -rf node_modules; fi
-    - sudo npm install
+    - sudo rm -rf node_modules
+    - sudo rm -rf dist
+    - sudo npm ci
     - sudo npm run build
     - sudo aws s3 sync dist/ s3://digital-booking-6 --delete
-
-
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "development"'
   tags:
     - front
-

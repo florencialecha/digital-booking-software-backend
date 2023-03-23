@@ -53,7 +53,6 @@ public class CreateProductPostController {
     @PostMapping
     public void handle(@RequestBody ProductToCreateDTO productToCreateDTO) {
         try {
-            modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
             Product product = modelMapper.map(productToCreateDTO, Product.class);
 
             // Asignar categoría por id

@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.digitalbooking.back.BackendApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.928 s - in com.digitalbooking.back.BackendApplicationTests
