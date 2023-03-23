@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 stages:
   - BuildAndDeployBack
   - BuildAndDeployFront
@@ -37,3 +38,5 @@ BuildAndDeployFront:
     - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "development"'
   tags:
     - front
+=======
+>>>>>>> df27aab2424c0910ac7a54eff9639fa3edbc2b4d
