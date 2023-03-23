@@ -6,7 +6,7 @@ BuildAndDeployBack:
   stage: BuildAndDeployBack
   script:
     - cd back
-    - if [ -f ./back_jar/back.jar ]; then sudo rm ./back_jar/back.jar; fi
+    - sudo rm ./back_jar/back.jar
     - if systemctl is-active --quiet ApiCategory; then sudo systemctl stop ApiCategory; fi
     - sudo mvn clean package
     - sudo mkdir -p back_jar
