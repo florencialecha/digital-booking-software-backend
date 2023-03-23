@@ -30,6 +30,7 @@ public class CreateUserPostController {
             // Asignar rol por id
             Role role = roleRepository.findById(userToCreateDTO.getRole())
                     .orElseThrow(() -> new RuntimeException("Role not found"));
+            user.setRole(role);
             createUserService.handle(user);
         } catch (Exception e) {
             log.error("Error creating user", e);
