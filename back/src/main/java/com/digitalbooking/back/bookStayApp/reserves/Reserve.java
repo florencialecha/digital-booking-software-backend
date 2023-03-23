@@ -2,6 +2,7 @@ package com.digitalbooking.back.bookStayApp.reserves;
 
 import com.digitalbooking.back.bookStayApp.products.domain.Product;
 import com.digitalbooking.back.management.users.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,10 +37,12 @@ public class Reserve {
     @Column(name = "CHECK_OUT")
     private LocalDate checkOut;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "PRODUCT_ID")
     private Product product;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID")
     private User user;

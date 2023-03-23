@@ -22,11 +22,11 @@ public class Policy {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "POLICY_ID")
     private Long id;
-    @Column(name = "RULES")
+    @Column(name = "RULES", length = 500)
     private String rules;
-    @Column(name = "SECURITY")
+    @Column(name = "SECURITY", length = 500)
     private String security;
-    @Column(name = "CANCELLATION")
+    @Column(name = "CANCELLATION", length = 500)
     private String cancellation;
 
     @JsonIgnore
