@@ -1,6 +1,6 @@
 package com.digitalbooking.back.bookStayApp.products.controller;
 
-//import com.digitalbooking.back.bookStayApp.address.AddressToFindDTO;
+import com.digitalbooking.back.bookStayApp.address.AddressToFindDTO;
 import com.digitalbooking.back.bookStayApp.products.service.FindAllProductService;
 import com.digitalbooking.back.bookStayApp.products.domain.Product;
 import lombok.extern.log4j.Log4j2;
@@ -36,14 +36,14 @@ public class FindAllProductGetController {
                     ProductToFindDTO productToFindDto = modelMapper.map(product, ProductToFindDTO.class);
                     String categoryName = product.getCategory().getTitle();
                     productToFindDto.setCategory(categoryName);
-                    //                    AddressToFindDTO addressToFindDTO = modelMapper.map(product.getAddress(), AddressToFindDTO.class);
-//                    String cityName = product.getAddress().getCity().getName();
-//                    String stateName = product.getAddress().getCity().getState().getName();
-//                    String countryName = product.getAddress().getCity().getState().getCountry().getName();
-//                    addressToFindDTO.setCity(cityName);
-//                    addressToFindDTO.setState(stateName);
-//                    addressToFindDTO.setCountry(countryName);
-//                    productToFindDto.setAddress(addressToFindDTO);
+                    AddressToFindDTO addressToFindDTO = modelMapper.map(product.getAddress(), AddressToFindDTO.class);
+                    String cityName = product.getAddress().getCity().getName();
+                    String stateName = product.getAddress().getCity().getState().getName();
+                    String countryName = product.getAddress().getCity().getState().getCountry().getName();
+                    addressToFindDTO.setCity(cityName);
+                    addressToFindDTO.setState(stateName);
+                    addressToFindDTO.setCountry(countryName);
+                    productToFindDto.setAddress(addressToFindDTO);
                     return productToFindDto;
                 })
                 .collect(Collectors.toList());
