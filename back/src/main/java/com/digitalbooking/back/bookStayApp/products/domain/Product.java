@@ -4,8 +4,9 @@ import com.digitalbooking.back.bookStayApp.address.Address;
 import com.digitalbooking.back.management.categories.Category;
 import com.digitalbooking.back.bookStayApp.policies.Policy;
 
+import com.digitalbooking.back.management.features.Feature;
 //import com.digitalbooking.back.bookStayApp.images.Image;
-//import com.digitalbooking.back.management.features.Feature;
+
 //import com.digitalbooking.back.bookStayApp.reserves.Reserve;
 
 import jakarta.persistence.*;
@@ -61,9 +62,9 @@ public class Product {
     @JoinColumn(name = "POLICY_ID")
     private Policy policy;
 
-//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//    @JoinTable(name = "PRODUCT_FEATURE")
-//    private Set<Feature> features = new HashSet<>();
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "PRODUCT_FEATURE")
+    private Set<Feature> features = new HashSet<>();
 //
 //    @OneToMany(fetch = FetchType.EAGER,
 //            mappedBy = "product",
