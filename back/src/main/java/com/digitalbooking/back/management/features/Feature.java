@@ -29,8 +29,8 @@ public class Feature {
     @Column(name = "NAME")
     private String title;
 
-    @JsonIgnore
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "features")
-    private Set<Product> products = new HashSet<>();
+//    @JsonIgnore
+//    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "features")
+//    private Set<Product> products = new HashSet<>();
 
 }

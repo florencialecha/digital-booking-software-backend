@@ -1,19 +1,19 @@
-package com.digitalbooking.back.bookStayApp.reserves;
-
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import java.time.LocalDate;
-import java.time.LocalTime;
-
-@Getter
-@Setter
-@NoArgsConstructor
-public class ReserveToFindDTO {
-
-    private LocalTime startTime;
-    private LocalDate checkIn;
-    private LocalDate checkOut;
-
-}
+//package com.digitalbooking.back.bookStayApp.reserves;
+//
+//import lombok.Getter;
+//import lombok.NoArgsConstructor;
+//import lombok.Setter;
+//
+//import java.time.LocalDate;
+//import java.time.LocalTime;
+//
+//@Getter
+//@Setter
+//@NoArgsConstructor
+//public class ReserveToFindDTO {
+//
+//    private LocalTime startTime;
+//    private LocalDate checkIn;
+//    private LocalDate checkOut;
+//
+//}
