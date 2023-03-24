@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 @CrossOrigin("*")
 @Log4j2
 
-public class FindAllProductGetController {
+public class FindAllProductsGetController {
 
     @Autowired
     private FindAllProductService findAllProductService;
