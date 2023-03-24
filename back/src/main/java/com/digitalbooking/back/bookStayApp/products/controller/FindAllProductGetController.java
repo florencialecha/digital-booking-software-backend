@@ -50,4 +50,5 @@ public class FindAllProductGetController {
 
         return ResponseEntity.ok(productsToFindDTOS);
     }
+
 }

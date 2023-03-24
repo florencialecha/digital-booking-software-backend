@@ -5,7 +5,7 @@ import com.digitalbooking.back.management.categories.Category;
 import com.digitalbooking.back.bookStayApp.policies.Policy;
 
 import com.digitalbooking.back.management.features.Feature;
-//import com.digitalbooking.back.bookStayApp.images.Image;
+import com.digitalbooking.back.bookStayApp.images.Image;
 
 //import com.digitalbooking.back.bookStayApp.reserves.Reserve;
 
@@ -65,12 +65,12 @@ public class Product {
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "PRODUCT_FEATURE")
     private Set<Feature> features = new HashSet<>();
-//
-//    @OneToMany(fetch = FetchType.EAGER,
-//            mappedBy = "product",
-//            cascade = CascadeType.ALL,
-//            orphanRemoval = true)
-//    private List<Image> images = new ArrayList<>();
+
+    @OneToMany(fetch = FetchType.LAZY,
+            mappedBy = "product",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private Set<Image> images = new HashSet<>();
 //
 //    @OneToMany(fetch = FetchType.LAZY,
 //          mappedBy = "product",
