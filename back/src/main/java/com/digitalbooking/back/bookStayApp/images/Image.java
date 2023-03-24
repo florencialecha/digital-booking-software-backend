@@ -30,8 +30,8 @@ public class Image {
     private String imageUrl;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "PRODUCT_ID", referencedColumnName = "PRODUCT_ID")
+    @ManyToOne
+    @JoinColumn(name = "PRODUCT_ID")
     private Product product;
 
 }

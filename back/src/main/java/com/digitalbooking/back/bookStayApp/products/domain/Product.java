@@ -1,11 +1,13 @@
 package com.digitalbooking.back.bookStayApp.products.domain;
 
 import com.digitalbooking.back.bookStayApp.address.Address;
-import com.digitalbooking.back.bookStayApp.images.Image;
-import com.digitalbooking.back.bookStayApp.policies.Policy;
-import com.digitalbooking.back.bookStayApp.reserves.Reserve;
 import com.digitalbooking.back.management.categories.Category;
+import com.digitalbooking.back.bookStayApp.policies.Policy;
+
 import com.digitalbooking.back.management.features.Feature;
+import com.digitalbooking.back.bookStayApp.images.Image;
+
+import com.digitalbooking.back.bookStayApp.reserves.Reserve;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -36,6 +38,10 @@ public class Product {
     @Column(name = "TITLE")
     private String title;
 
+    @OneToOne(fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL)
+    private Address address;
+
     @Column(name = "DESCRIPTION")
     private String description;
 
@@ -52,15 +58,15 @@ public class Product {
     @JoinColumn(name = "CATEGORY_ID")
     private Category category;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "PRODUCT_FEATURE")
-    private Set<Feature> features = new HashSet<>();
-
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "POLICY_ID")
     private Policy policy;
 
-    @OneToMany(fetch = FetchType.EAGER,
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "PRODUCT_FEATURE")
+    private Set<Feature> features = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY,
             mappedBy = "product",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
@@ -71,9 +77,5 @@ public class Product {
           cascade = CascadeType.ALL,
           orphanRemoval = true)
     private Set<Reserve> reserves = new HashSet<>();
-
-    @OneToOne(fetch = FetchType.EAGER,
-            cascade = CascadeType.ALL)
-    private Address address;
 
 }

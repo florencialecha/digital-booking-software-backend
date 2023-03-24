@@ -1,4 +1,4 @@
-package com.digitalbooking.back.bookStay.address;
+package com.digitalbooking.back.bookStayApp.address;
 
 import com.digitalbooking.back.bookStayApp.address.Address;
 import org.springframework.data.jpa.repository.JpaRepository;

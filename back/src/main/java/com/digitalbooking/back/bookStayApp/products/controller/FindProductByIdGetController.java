@@ -1,10 +1,10 @@
 package com.digitalbooking.back.bookStayApp.products.controller;
 
-import com.digitalbooking.back.bookStayApp.address.Address;
-import com.digitalbooking.back.bookStayApp.address.AddressToFindDTO;
 import com.digitalbooking.back.bookStayApp.products.service.FindProductByIdService;
 import com.digitalbooking.back.bookStayApp.products.domain.Product;
 import com.digitalbooking.back.bookStayApp.products.exception.ResourceNotFoundException;
+import com.digitalbooking.back.bookStayApp.address.Address;
+import com.digitalbooking.back.bookStayApp.address.AddressToFindDTO;
 import com.digitalbooking.back.bookStayApp.reserves.Reserve;
 import com.digitalbooking.back.bookStayApp.reserves.ReserveToFindDTO;
 import lombok.extern.log4j.Log4j2;
@@ -41,6 +41,10 @@ public class FindProductByIdGetController {
         log.info("Product found: " + product.getId());
 
         ProductWithDetailsToFindDTO productWithDetailsToFindDTO = modelMapper.map(product, ProductWithDetailsToFindDTO.class);
+
+        //Obtener objeto de categoría del objeto de productos
+        String categoryName = product.getCategory().getTitle();
+        productWithDetailsToFindDTO.setCategory(categoryName);
 
         //Obtener objeto dirección del objeto de productos
         Address address = product.getAddress();

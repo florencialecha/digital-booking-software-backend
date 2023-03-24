@@ -42,7 +42,7 @@ public class CreateReservePostController {
             reserve.setUser(user);
 
             createReserveService.handle(reserve);
-            log.info("Reserve created successfully" + reserve.getId());
+            log.info("Reserve created successfully with id: " + reserve.getId());
         } catch (Exception e) {
             log.error("Can't create a reserve: ", e);
         }

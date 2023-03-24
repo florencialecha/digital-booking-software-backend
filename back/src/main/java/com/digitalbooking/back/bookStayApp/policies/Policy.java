@@ -28,8 +28,8 @@ public class Policy {
     private String security;
     @Column(name = "CANCELLATION", length = 500)
     private String cancellation;
-
     @JsonIgnore
     @OneToOne(mappedBy = "policy")
     private Product product;
+
 }

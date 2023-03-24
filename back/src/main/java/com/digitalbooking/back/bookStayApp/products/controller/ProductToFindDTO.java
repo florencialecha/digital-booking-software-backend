@@ -1,9 +1,9 @@
 package com.digitalbooking.back.bookStayApp.products.controller;
 
 import com.digitalbooking.back.bookStayApp.address.AddressToFindDTO;
-import com.digitalbooking.back.bookStayApp.images.ImageDTO;
-import com.digitalbooking.back.management.categories.CategoryDTO;
 import com.digitalbooking.back.management.features.FeatureDTO;
+import com.digitalbooking.back.bookStayApp.images.ImageDTO;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,13 +17,13 @@ public class ProductToFindDTO {
 
     private Long id;
     private String title;
+    private AddressToFindDTO address;
     private String description;
     private Integer stars;
     private Integer scoring;
     private String review;
-    private CategoryDTO category;
+    private String category;
     private List<FeatureDTO> features;
     private List<ImageDTO> images;
-    private AddressToFindDTO address;
 
 }

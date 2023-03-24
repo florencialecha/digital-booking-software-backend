@@ -32,6 +32,7 @@ public class CreateUserPostController {
                     .orElseThrow(() -> new RuntimeException("Role not found"));
             user.setRole(role);
             createUserService.handle(user);
+            log.info("User created");
         } catch (Exception e) {
             log.error("Error creating user", e);
         }

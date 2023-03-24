@@ -38,7 +38,7 @@ public class FindProductsRandomGetController {
         //randomProducts es la lista de productos(entidad) que quiero convertir a dto para devolverlos
          List<ProductToFindDTO> randomProductsDTOs = randomProducts.stream()
                  .map(product -> {
-                    ProductToFindDTO productToFindDto = modelMapper.map(product, ProductToFindDTO.class);
+                     ProductToFindDTO productToFindDto = modelMapper.map(product, ProductToFindDTO.class);
                      AddressToFindDTO addressToFindDTO = modelMapper.map(product.getAddress(), AddressToFindDTO.class);
                      String cityName = product.getAddress().getCity().getName();
                      String stateName = product.getAddress().getCity().getState().getName();
