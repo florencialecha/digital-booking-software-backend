@@ -26,7 +26,7 @@ public class ProductToCreateDTO {
     private Long category;
     private Set<Long> features;
     private PolicyDTO policy;
-    private Set<ImageDTO> images;
+    private List<ImageDTO> images;
     private AddressToCreateDTO address;
 
 }

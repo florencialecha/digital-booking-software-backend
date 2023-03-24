@@ -15,7 +15,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -68,7 +70,7 @@ public class Product {
             mappedBy = "product",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
-    private Set<Image> images = new HashSet<>();
+    private List<Image> images = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.LAZY,
           mappedBy = "product",
