@@ -7,7 +7,7 @@ import com.digitalbooking.back.bookStayApp.policies.Policy;
 import com.digitalbooking.back.management.features.Feature;
 import com.digitalbooking.back.bookStayApp.images.Image;
 
-//import com.digitalbooking.back.bookStayApp.reserves.Reserve;
+import com.digitalbooking.back.bookStayApp.reserves.Reserve;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -15,9 +15,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -71,12 +69,11 @@ public class Product {
             cascade = CascadeType.ALL,
             orphanRemoval = true)
     private Set<Image> images = new HashSet<>();
-//
-//    @OneToMany(fetch = FetchType.LAZY,
-//          mappedBy = "product",
-//          cascade = CascadeType.ALL,
-//          orphanRemoval = true)
-//    private Set<Reserve> reserves = new HashSet<>();
-//
+
+    @OneToMany(fetch = FetchType.LAZY,
+          mappedBy = "product",
+          cascade = CascadeType.ALL,
+          orphanRemoval = true)
+    private Set<Reserve> reserves = new HashSet<>();
 
 }

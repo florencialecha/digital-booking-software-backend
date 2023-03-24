@@ -4,7 +4,7 @@ import com.digitalbooking.back.bookStayApp.policies.PolicyDTO;
 import com.digitalbooking.back.bookStayApp.address.AddressToFindDTO;
 import com.digitalbooking.back.management.features.FeatureDTO;
 import com.digitalbooking.back.bookStayApp.images.ImageDTO;
-//import com.digitalbooking.back.bookStayApp.reserves.ReserveToFindDTO;
+import com.digitalbooking.back.bookStayApp.reserves.ReserveToFindDTO;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,7 +29,6 @@ public class ProductWithDetailsToFindDTO {
     private PolicyDTO policy;
     private List<FeatureDTO> features;
     private List<ImageDTO> images;
-
-//    private Set<ReserveToFindDTO> reserve;
+    private Set<ReserveToFindDTO> reserve;
 
 }
