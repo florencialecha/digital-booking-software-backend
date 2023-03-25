@@ -19,11 +19,8 @@ BuildAndDeployBack:
     - sudo systemctl restart ApiBack.service
     - if [ -d "target/" ]; then sudo rm -rf target/; fi
     
-  only:
-    - development
-
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "development" && changes(''back/*/**'')'
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "development" && $CI_COMMIT_MESSAGE =~ /back\/.*/'
       when: always
   tags:
     - back
@@ -31,18 +28,15 @@ BuildAndDeployBack:
 BuildAndDeployFront:
   stage: BuildAndDeployFront
   script:
-
     - cd frontend/PI_G6
     - sudo rm -rf node_modules
     - sudo rm -rf dist
     - sudo npm ci
     - sudo npm run build
     - sudo aws s3 sync dist/ s3://digital-booking-6 --delete
-  only:
-    - development
 
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "development" && changes(''frontend/*/**'')'
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "development" && $CI_COMMIT_MESSAGE =~ /frontend\/.*/'
       when: always
 
   tags:
