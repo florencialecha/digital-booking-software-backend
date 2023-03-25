@@ -21,8 +21,11 @@ BuildAndDeployBack:
     
     
     
-  only:
-    - development 
+  rules:
+    - changes:
+        - back/**/*
+    - if: '$CI_COMMIT_BRANCH == "development"'
+
   tags:
     - back
 
@@ -36,8 +39,11 @@ BuildAndDeployFront:
     - sudo npm ci
     - sudo npm run build
     - sudo aws s3 sync dist/ s3://digital-booking-6 --delete
-  only:
-    - development 
+    
+  rules:
+    - changes:
+        - frontend/**/*
+    - if: '$CI_COMMIT_BRANCH == "development"'
 
   tags:
     - front
