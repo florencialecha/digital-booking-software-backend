@@ -40,7 +40,7 @@ const CardSuggested = ({ suggest, styles }) => {
         <div className={styles.cardInformation}>
           <div className={styles.cardTitle}>
             <div className={styles.productCategoryNameAndStars}>
-              <p className={styles.productCategory}>{suggest.category.title}</p>
+              <p className={styles.productCategory}>{suggest.category?.toUpperCase()}</p>
               <CardStars {...suggest} styles={styles}/>
               <p id={styles.suggestName}>{suggest.title}</p>
             </div>
