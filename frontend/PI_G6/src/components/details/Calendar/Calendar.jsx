@@ -90,7 +90,6 @@ function Calendar({ styles, reservations }) {
 
   const unavailable = alreadyReserved ? formateDate(alreadyReserved) : "";
   const formatedNewReservation = formateDate(newReservation);
-  console.log(selectDate);
 
   const unavailableDates = (i, month, year) => {
     const selected = format(

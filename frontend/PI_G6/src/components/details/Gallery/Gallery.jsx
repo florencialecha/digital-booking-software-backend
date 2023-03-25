@@ -18,14 +18,14 @@ const Gallery = ({ pictures }) => {
                 .slice(0, 5)
                 .map((img, i) => (
                   <img
-                    key={img.id}
+                    key={i}
                     className={`img${i + 1}`}
-                    src={img.imageUrl}
+                    src={img.title}
                   ></img>
                 ))
             : pictures.map((img, i) => (
                 <img
-                  key={img.id}
+                  key={i}
                   className={`img${i + 1}`}
                   src={img.imageUrl}
                 ></img>
