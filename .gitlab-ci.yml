@@ -19,10 +19,9 @@ BuildAndDeployBack:
     - sudo systemctl restart ApiBack.service
     - if [ -d "target/" ]; then sudo rm -rf target/; fi
     
-    
-    
-  only:
-    - development 
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "development" && changes(''back/*/**'')'
+      when: always
   tags:
     - back
 
