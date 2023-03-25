@@ -30,8 +30,8 @@ BuildAndDeployFront:
     - sudo npm run build
     - sudo aws s3 sync dist/ s3://digital-booking-6 --delete
   only:
-    - development
     changes:
       - frontend/**
+      - development 
   tags:
     - front
