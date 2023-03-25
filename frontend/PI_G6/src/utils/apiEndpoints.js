@@ -1,8 +1,8 @@
 
 
-export const path = 'http://localhost:8080'
+// export const path = 'http://localhost:8080'
 // const path = 'http://digital-booking-6.s3-website.us-east-2.amazonaws.com'
-// const path = 'http://3.131.138.206:8080'
+const path = 'http://3.131.138.206:8080'
 
 // Endpoints de las Apis necesarias.
 export const apiProductByCategory = (`${path}/product/byCategory/`)
