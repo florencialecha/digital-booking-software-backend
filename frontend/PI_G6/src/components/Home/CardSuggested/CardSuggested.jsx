@@ -23,8 +23,8 @@ const CardSuggested = ({ suggest, styles }) => {
   }
 
   const handleReserv = () => {
-    const hotelSelected = JSON.stringify(suggest)
-    localStorage.setItem('hotelSelected', hotelSelected)
+    // const hotelSelected = JSON.stringify(suggest)
+    // localStorage.setItem('hotelSelected', hotelSelected)
     window.location.href = `/product/${suggest.id}`
   }
 
@@ -61,10 +61,10 @@ const CardSuggested = ({ suggest, styles }) => {
           <div className={styles.cardAddress} id={styles.cardAddress} >
             <div>
               <FontAwesomeIcon icon={faLocationDot} />
-              <p>{suggest.address.street} {suggest.address.number}, {suggest.address.city.name}, {suggest.address.city.state.name}, {suggest.address.city.state.country.name}</p>
+              <p>{suggest.address.street} {suggest.address.number}, {suggest.address.city}, {suggest.address.state}, {suggest.address.country}</p>
             </div>
           </div>
-          <Features className={styles.serviceIcons} styles={styles} specs={suggest.featureList} />
+          <Features className={styles.serviceIcons} styles={styles} specs={suggest.features} />
           <div id={styles.cardDescription}>
             {suggest.description?.length > 30
               ? (

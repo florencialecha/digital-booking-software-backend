@@ -9,7 +9,7 @@ import { GlobalContext } from "../../../utils/globalContext";
 const Searcher = () => {
   const [selected, setSelected] = useState("");
   const [toggleCalendar, setToggleCalendar] = useState(false);
-  const { dispatch } = useContext(GlobalContext);
+  const { state, dispatch } = useContext(GlobalContext);
 
   const handleSelectCity = () => {
     dispatch({ type: "city", payload: selected.split(",")[0] });
@@ -34,7 +34,11 @@ const Searcher = () => {
             handleCalendar={handleCalendar}
           />
         </div>
-        <button onClick={handleSelectCity} id="btn-search">
+        <button
+          onClick={handleSelectCity}
+          disabled={selected ? false : true}
+          id="btn-search"
+        >
           Buscar
         </button>
       </section>

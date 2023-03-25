@@ -35,6 +35,8 @@ const checkInHours = [
 const HourSelector = ({ styles }) => {
   const [hourSelect, setHourSelect] = useState('')
 
+
+
   const { selectorRef, isActive, setIsActive } = useComponentVisible(false)
 
   return (
@@ -60,6 +62,7 @@ const HourSelector = ({ styles }) => {
                                         <div key={hour} className={styles.contentOption}>
                                             <p onClick={() => {
                                               setHourSelect(`${hour} ${amPm.type}`)
+                                              JSON.stringify(localStorage.setItem('hourSelect', hourSelect))
                                             }}>{hour} {amPm.type}</p>
                                         </div>
                                   )

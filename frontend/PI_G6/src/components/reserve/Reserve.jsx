@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import UserInfo from './UserInfo'
 import styles from './Reserve.module.css'
 import ProductHeader from '../details/ProductHeader/ProductHeader'
@@ -8,10 +8,68 @@ import Policies from '../details/ProductPolicies/Policies'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import CardStars from '../Home/CardSuggested/CardStars'
+import axios from 'axios'
+import { apiReserve } from '../../utils/apiEndpoints'
+import ReserveAlert from './ReserveAlert'
+import Swal from 'sweetalert2'
+
 
 const reserve = () => {
-  const product = JSON.parse(localStorage.getItem('hotelSelected'))
+  const [showAlert, setShowAlert] = useState(false);
+  const product = JSON.parse(localStorage.getItem('productSelected'))
+  const reservations = JSON.parse(localStorage.getItem('reservation'))
+  const newReservation = []
+  {console.log(newReservation)}
+  reservations?.map((reservation) => {
+    newReservation.push(reservation.replaceAll('/', '-'))
+  } )
+
   const categoryTitle = `${product.category.title}`.toUpperCase()
+
+  // const handleReservaExitosa = () => {
+  //   setShowAlert(true);
+  //   setTimeout(() => {
+  //     setShowAlert(false);
+  //   }, 3000);
+  // };
+
+  const onReserveConfirm = () => {
+    axios.post(apiReserve, { 
+      startTime: '12:00:23',
+      checkIn: newReservation[0],
+      checkOut: newReservation[1],
+      product: 7,
+      user: 1
+    })
+    .then(response => {
+      console.log(response);
+      // handleReservaExitosa()
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'center',
+        showConfirmButton: false,
+        timer: 2500,
+        width: '50%',
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      
+      Toast.fire({
+        icon: 'success',
+        title: '¡Muchas gracias!',
+        text: 'Su reserva se ha realizado con exito'
+      })
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+
+  
+
+
   return (
       <div className={styles.reserveGlobalContainer}>
         <ProductHeader generalInfo={product}/>
@@ -21,7 +79,7 @@ const reserve = () => {
             <div className={styles.reserveProduct}>
               <p>Detalles de la reserva</p>
               <div className={styles.cardContainer}>
-                <img src={product.imageList[0]?.imageUrl} alt='imagen del producto'/>
+                <img src={product.images[0]?.imageUrl} alt='imagen del producto'/>
                 <div>
                   <div className={styles.productinformation}>
                     <p className={styles.productCategory}>{categoryTitle}</p>
@@ -29,23 +87,26 @@ const reserve = () => {
                     <CardStars {...product} styles={styles} />
                     <div className={styles.productLocation}>
                       <FontAwesomeIcon icon={faLocationDot} />
-                      <p>{product.address.street} {product.address.number}, {product.address.city.name}, {product.address.city.state.name}, {product.address.city.state.country.name}</p>
+                      <p>{product.address?.street} {product.address?.number}, {product.address?.city}, {product.address?.state}, {product.address?.country}</p>
                     </div>
                   </div>
                   <div className={styles.reserveDates}>
                     <hr />
                     <div className={styles.reserveCheckIn}>
                       <p>Check in</p>
-                      <p>23/11/2021</p>
+                      <p>{reservations[0]}</p>
                     </div>
                     <hr />
                     <div className={styles.reserveCheckOut}>
                       <p>Check out</p>
-                      <p>27/11/2021</p>
+                      <p>{reservations[1]}</p>
                     </div>
                     <hr />
                   </div>
-                  <button className={styles.confirmReserveButton}>Confirmar reserva</button>
+                  <button className={styles.confirmReserveButton} onClick={onReserveConfirm}>Confirmar reserva</button>
+                  {/* <div className={ showAlert ? styles.alertTrue : styles.alertFalse}>
+                    <ReserveAlert styles={styles} />
+                  </div> */}
                 </div>
               </div>
             </div>

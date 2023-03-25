@@ -8,14 +8,23 @@ import './form.css'
 const LoginForm = () => {
   const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false)
+  const ifNonUserReserv = JSON.parse(localStorage.getItem('ifNonUserReserv'))
+  const userLoggedIn = JSON.parse(localStorage.getItem('userLoggedIn'))
+  const productReservedInLocal = JSON.parse(localStorage.getItem('productReservedInLocal'))
+
 
   const onSubmit = async (values, actions) => {
     await new Promise((resolve) => setTimeout(resolve, 1000))
     actions.resetForm()
     const user = JSON.parse(localStorage.getItem('user'))
     if (values.email === user.email && values.password === user.password) {
-      navigate('/')
-      localStorage.setItem('userLoggedIn', true)
+      if (productReservedInLocal) {
+        window.location.replace(productReservedInLocal)
+        localStorage.setItem('userLoggedIn', true)
+      } else {
+        navigate('/')
+        localStorage.setItem('userLoggedIn', true)
+      }
     } else {
       document.querySelector(
         '.failed-validation'
@@ -54,6 +63,7 @@ const LoginForm = () => {
 
   return (
     <div className="loginForm">
+      {ifNonUserReserv  && userLoggedIn ? '' : <p className='apiEndpointError'>Para realizar una reserva necesitas estar logueado</p>}
       <h1>Iniciar sesión</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Correo electrónico</label>

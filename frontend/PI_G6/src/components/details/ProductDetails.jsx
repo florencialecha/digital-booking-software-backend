@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "../details/ProductDetails.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -14,30 +14,56 @@ import Policies from "./ProductPolicies/Policies";
 import Calendar from "./Calendar/Calendar";
 import Map from "./Map/Map";
 import CardStars from "../Home/CardSuggested/CardStars";
+import { useNavigate, useParams } from "react-router";
+import { apiProductById } from "../../utils/apiEndpoints";
+import axios from "axios";
+import { GlobalContext } from "../../utils/globalContext";
 
 const ProductDetails = () => {
-  const product = JSON.parse(localStorage.getItem("hotelSelected"));
+  const loggedUser = JSON.parse(localStorage.getItem('userLoggedIn'))
+  const [product, setProduct] = useState(null);
+  const { id } = useParams();
+  const { state } = useContext(GlobalContext);
+  // const product = JSON.parse(localStorage.getItem("hotelSelected"));
 
-  // const reservations = [
-  //   {
-  //     id: 1,
-  //     fechaInicial: "2023/03/18",
-  //     fechaFinal: "2023/03/19",
-  //   },
-  //   {
-  //     id: 2,
-  //     fechaInicial: "2023/04/02",
-  //     fechaFinal: "2023/04/10",
-  //   },
-  //   {
-  //     id: 3,
-  //     fechaInicial: "2023/04/12",
-  //     fechaFinal: "2023/04/22",
-  //   },
-  // ];
+  const reservation = JSON.parse(localStorage.getItem("reservation"));
+  const navigate = useNavigate();
+  useEffect(() => {
+    axios
+      .get(`${apiProductById}${id}`)
+      .then((res) => setProduct(res.data))
+      .catch((error) => {
+        console.log(error);
+        axios
+          .get("/productID.json")
+          .then((res) => setProduct(res.data))
+          .catch((error) => console.log(error));
+      });
+  }, [id]);
+
+  const ifNonUserReserv = () => {
+    localStorage.setItem("ifNonUserReserv", JSON.stringify(true))
+    localStorage.setItem("productReservedInLocal", JSON.stringify(window.location.href))
+    navigate('/login')
+  }
+
+  const onProductSelect = () => {
+    const productSelected = JSON.stringify(product);
+
+    localStorage.setItem("productSelected", productSelected);
+
+    if (state.reservation.length === 2 || reservation.length === 2) {
+      if (state.reservation.length === 2) {
+        localStorage.setItem("reservation", JSON.stringify(state.reservation));
+      }
+      {loggedUser ? navigate(`/product/${product.id}/reserve`) : ifNonUserReserv() }
+      ;
+    }
+  };
 
   return (
     <>
+      {console.log(product)}
       {product ? (
         <div className={styles.detailsContainer}>
           <div className={styles.detailsHeader}>
@@ -51,12 +77,8 @@ const ProductDetails = () => {
                 </div>
                 <div className={styles.detailsLocationInfo}>
                   <p>
-                    {" "}
-                    {product.address.street} {product.address.number}
-                    {", "}
-                    {product.address.city.name}
-                    {", "}
-                    {product.address.city.state.country.name}
+                    {product.address?.street}, {""}
+                    {product.address?.city}, {product.address?.country}
                   </p>
                   <p className={styles.detailsDistance}>A 940 m del centro</p>
                 </div>
@@ -64,7 +86,7 @@ const ProductDetails = () => {
               <div className={styles.detailsScoring}>
                 <div className={styles.detailsReview}>
                   <p>{product.review}</p>
-                  <CardStars {...product} styles={styles} />{" "}
+                  <CardStars {...product} styles={styles} />
                 </div>
                 <div className={styles.detailsScore}>
                   <p>{product.scoring}</p>
@@ -80,17 +102,17 @@ const ProductDetails = () => {
                 <FontAwesomeIcon icon={faHeart} size="lg"></FontAwesomeIcon>
               </div>
               <div className={styles.detailsGalery}>
-                <Gallery pictures={product.imageList} />
+                <Gallery pictures={product.images} />
               </div>
             </div>
             <div className={styles.detailsDescription}>
-              <h2>Alójate en el corazón de {product.address.city.name}</h2>
+              <h2>Alójate en el corazón de {product.address?.city}</h2>
               <Description data={product} />
             </div>
             <h2>¿Qué ofrece este lugar?</h2>
             <hr className={styles.detailsLine} />
             <div className={styles.detailsChar}>
-              <Features styles={styles} specs={product.featureList} />
+              <Features styles={styles} specs={product.features} />
             </div>
             <div className={styles.detailsAvailableDates}>
               <h2>Fechas disponibles</h2>
@@ -101,8 +123,22 @@ const ProductDetails = () => {
               />
               <div className={styles.reservationDetails}>
                 <p>Agregá tus fechas de viaje para obtener precios exactos</p>
-                <button className={styles.reservationButton}>
-                  <a href={`/product/${product.id}/reserve`}>Iniciar reserva</a>
+                <button
+                  disabled={
+                    (state.reservation.length <= 1 &&
+                      reservation?.length === 0) ||
+                    !reservation
+                      ? true
+                      : false
+                  }
+                  className={styles.reservationButton}
+                >
+                  <a
+                    // href={`/product/${product.id}/reserve`}
+                    onClick={onProductSelect}
+                  >
+                    Iniciar reserva
+                  </a>
                 </button>
               </div>
             </div>
@@ -111,8 +147,7 @@ const ProductDetails = () => {
 
               <hr className={styles.detailsLine} />
               <p>
-                {product.address.city.name},{" "}
-                {product.address.city.state.country.name}
+                {product.address?.city}, {product.address?.country}
               </p>
               <Map address={product.address} />
             </div>
