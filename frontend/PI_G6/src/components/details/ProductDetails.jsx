@@ -24,7 +24,6 @@ const ProductDetails = () => {
   const [product, setProduct] = useState(null);
   const { id } = useParams();
   const { state } = useContext(GlobalContext);
-  // const product = JSON.parse(localStorage.getItem("hotelSelected"));
 
   const reservation = JSON.parse(localStorage.getItem("reservation"));
   const navigate = useNavigate();
@@ -63,7 +62,6 @@ const ProductDetails = () => {
 
   return (
     <>
-      {console.log(product)}
       {product ? (
         <div className={styles.detailsContainer}>
           <div className={styles.detailsHeader}>
