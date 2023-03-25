@@ -39,6 +39,8 @@ public class FindProductsRandomGetController {
          List<ProductToFindDTO> randomProductsDTOs = randomProducts.stream()
                  .map(product -> {
                      ProductToFindDTO productToFindDto = modelMapper.map(product, ProductToFindDTO.class);
+                     String categoryName = product.getCategory().getTitle();
+                     productToFindDto.setCategory(categoryName);
                      AddressToFindDTO addressToFindDTO = modelMapper.map(product.getAddress(), AddressToFindDTO.class);
                      String cityName = product.getAddress().getCity().getName();
                      String stateName = product.getAddress().getCity().getState().getName();
