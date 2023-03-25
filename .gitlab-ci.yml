@@ -45,4 +45,3 @@ BuildAndDeployFront:
   only:
     changes:
       - frontend/**/*
-
