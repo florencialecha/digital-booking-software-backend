@@ -5,12 +5,35 @@ import { GlobalContext } from "../../../utils/globalContext";
 import { format } from "date-fns/esm";
 import es from "date-fns/locale/es";
 
-const DatePick = ({ toggleCalendar, handleCalendar }) => {
+const DatePick = () => {
   const { state } = useContext(GlobalContext);
+  const [toggleCalendar, setToggleCalendar] = useState(false);
+
+  const handleCalendar = () => {
+    setToggleCalendar(!toggleCalendar);
+  };
 
   const handleSubmit = () => {
     handleCalendar();
     localStorage.setItem("reservation", JSON.stringify(state.reservation));
+  };
+
+  const confirmDate = () => {
+    if (toggleCalendar) {
+      if (
+        selectedRange[0] !== reservations[0] ||
+        selectedRange[1] !== reservations[1]
+      ) {
+        const btn = document.querySelector(`.${styles.btnDatePick}`);
+        btn.classList.add(`${styles.clickIt}`);
+        setTimeout(function () {
+          btn.classList.remove(`${styles.clickIt}`);
+        }, 1000);
+      }
+    } else {
+      const btn = document.querySelector(`.${styles.btnDatePick}`);
+      btn.classList.remove(`${styles.clickIt}`);
+    }
   };
 
   const reservation = JSON.parse(localStorage.getItem("reservation"));
@@ -30,7 +53,7 @@ const DatePick = ({ toggleCalendar, handleCalendar }) => {
           reservations?.length === 2 ||
           !reservation
             ? handleCalendar
-            : null
+            : confirmDate
         }
       >
         <label htmlFor="check-in"></label>
