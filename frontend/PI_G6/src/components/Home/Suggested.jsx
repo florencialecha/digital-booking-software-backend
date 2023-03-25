@@ -7,7 +7,6 @@ import { apiProductByCategory, apiProductRandom, apiProductByCityAndDates} from 
 
 const Suggested = () => {
   const { state, dispatch } = useContext(GlobalContext)
-
   const reservations = JSON.parse(localStorage.getItem('reservation'))
   const newReservation = []
   reservations?.map((reservation) => {
