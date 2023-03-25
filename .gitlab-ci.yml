@@ -23,6 +23,8 @@ BuildAndDeployBack:
   tags:
     - back
   only:
+    refs:
+      - development
     changes:
       - back/**/*
 
@@ -43,5 +45,7 @@ BuildAndDeployFront:
   tags:
     - front
   only:
+    refs:
+      - development
     changes:
       - frontend/**/*
