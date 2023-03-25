@@ -8,7 +8,7 @@ import Features from '../../details/ProductFeatures/Features'
 const CardSuggested = ({ suggest, styles }) => {
   const [isActive, setActive] = useState(false)
 
-  const handleToggleIcon = () => {
+  const handleToggle = () => {
     setActive(!isActive)
   }
 
@@ -33,7 +33,7 @@ const CardSuggested = ({ suggest, styles }) => {
       <FontAwesomeIcon
         className={styles.favIcon + ' ' + styles[`full-${isActive}`]}
         icon={faHeart}
-        onClick={handleToggleIcon}
+        onClick={handleToggle}
       />
       <section>
         <img src={suggest.images[0]?.imageUrl} />
