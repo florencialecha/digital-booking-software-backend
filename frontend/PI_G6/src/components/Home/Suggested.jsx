@@ -55,10 +55,15 @@ const Suggested = () => {
         } catch (error) {
           if (error.response.status === 500) {
             setSuggestMessage(`No encontramos recomendaciones para ${state.city} en las fechas seleccionadas, pero te dejamos estas recomendaciones que pueden ser de tu interes: `)
-          } else {
-            const fallbackData = await axios.get("/apiProducts.json");
-            dispatch({ type: "bd", payload: fallbackData.data });
-          }
+            try {
+              const res = await axios.get(apiProductRandom);
+              dispatch({ type: "bd", payload: res.data });
+            } catch (error) {
+              console.log('Tomando datos de json estatico');
+              const fallbackData = await axios.get("/apiProducts.json");
+              dispatch({ type: "bd", payload: fallbackData.data });
+            }
+          } 
           }
       }
     };
