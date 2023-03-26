@@ -45,3 +45,18 @@ BuildAndDeployFront:
         - frontend/**/*
   tags:
     - front
+
+NotifyOnRootChanges:
+  stage: notify
+  script:
+    - echo "Changes detected in the root folder, but not in the back or frontend folders!"
+  rules:
+    - exists:
+        - "*"
+      changes:
+        - back/**/*
+        - frontend/**/*
+      when: never
+    - exists:
+        - "*"
+      when: always
