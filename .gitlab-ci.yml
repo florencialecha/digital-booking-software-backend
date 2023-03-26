@@ -23,7 +23,7 @@ BuildAndDeployBack:
 
   rules:
     - changes:
-        - back//*
+        - back**/*
     - if: '$CI_COMMIT_BRANCH == "development"'
 
   tags:
@@ -42,7 +42,7 @@ BuildAndDeployFront:
 
   rules:
     - changes:
-        - frontend//*
+        - frontend**/*
     - if: '$CI_COMMIT_BRANCH == "development"'
 
   tags:
