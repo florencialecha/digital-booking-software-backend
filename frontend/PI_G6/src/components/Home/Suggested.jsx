@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import CardSuggested from "./CardSuggested/CardSuggested";
 import { GlobalContext } from "../../utils/globalContext";
 import styles from "../Home/Suggested.module.css";
@@ -11,6 +11,7 @@ import {
 
 const Suggested = () => {
   const { state, dispatch } = useContext(GlobalContext);
+  const [ suggestMessage, setSuggestMessage ] = useState(null)
 
   const reservations = JSON.parse(localStorage.getItem("reservation"));
   const newReservation = [];
@@ -52,12 +53,13 @@ const Suggested = () => {
           );
           dispatch({ type: "bd", payload: res.data });
         } catch (error) {
-          console.log(
-            "Error al obtener datos de la API. Usando datos estáticos..."
-          );
-          const fallbackData = await axios.get("/apiProducts.json");
-          dispatch({ type: "bd", payload: fallbackData.data });
-        }
+          if (error.response.status === 500) {
+            setSuggestMessage(`No encontramos recomendaciones para ${state.city} en las fechas seleccionadas, pero te dejamos estas recomendaciones que pueden ser de tu interes: `)
+          } else {
+            const fallbackData = await axios.get("/apiProducts.json");
+            dispatch({ type: "bd", payload: fallbackData.data });
+          }
+          }
       }
     };
     fetchData();
@@ -65,7 +67,7 @@ const Suggested = () => {
 
   return (
     <section className={styles.suggestedMainContainer}>
-      <p className={styles.recomendationContainer}>Recomendaciones</p>
+      <p className={styles.recomendationContainer}>{suggestMessage ?  suggestMessage : 'Recomendaciones'}</p>
       <section className={styles.suggestedRenderContainer}>
         {state.bd?.map((suggest) => (
           <CardSuggested key={suggest.id} suggest={suggest} styles={styles} />
