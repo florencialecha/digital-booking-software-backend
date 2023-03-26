@@ -21,9 +21,8 @@ BuildAndDeployBack:
 
 
   rules:
-    - changes:
-        - back**/*
-    - if: '$CI_COMMIT_BRANCH == "development"'
+       - if: '$CI_COMMIT_BRANCH == "development" && changes_match(:source, "back/**/*")'
+
 
   tags:
     - back
@@ -40,9 +39,8 @@ BuildAndDeployFront:
     - sudo aws s3 sync dist/ s3://digital-booking-6 --delete
 
   rules:
-    - changes:
-        - frontend**/*
-    - if: '$CI_COMMIT_BRANCH == "development"'
+     - if: '$CI_COMMIT_BRANCH == "development" && changes_match(:source, "frontend/**/*")'
+   
 
   tags:
     - front
