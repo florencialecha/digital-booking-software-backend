@@ -22,6 +22,8 @@ const selectorTarget = ({ setSelected }) => {
       .catch((error) => console.log(error));
   }, []);
 
+  console.log(data);
+
   const { selectorRef, isActive, setIsActive } = useComponentVisible(false);
 
   return (
