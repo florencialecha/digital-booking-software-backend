@@ -22,6 +22,10 @@ const selectorTarget = ({ setSelected }) => {
       .catch((error) => console.log(error));
   }, []);
 
+  const places = [
+    ...new Map(data.map((place) => [place.name, place])).values(),
+  ];
+
   const { selectorRef, isActive, setIsActive } = useComponentVisible(false);
 
   return (
@@ -42,7 +46,7 @@ const selectorTarget = ({ setSelected }) => {
           ></input>
         </div>
         <div id="options" className={isActive ? "active" : "inactive"}>
-          {data.map((countrys) => {
+          {places.map((countrys) => {
             return (
               <div key={countrys.id}>
                 {countrys.states.map((state) => {
