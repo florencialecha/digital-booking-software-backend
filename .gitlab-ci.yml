@@ -1,9 +1,8 @@
 stages:
-  - BuildAndDeployFront
-  - BuildAndDeployBack
+  - build
 
 BuildAndDeployBack:
-  stage: BuildAndDeployBack
+  stage: build 
   script:
     - cd back
     - sudo systemctl stop ApiBack.service
@@ -30,7 +29,7 @@ BuildAndDeployBack:
     - back
 
 BuildAndDeployFront:
-  stage: BuildAndDeployFront
+  stage: build 
   script:
 
     - cd frontend/PI_G6
