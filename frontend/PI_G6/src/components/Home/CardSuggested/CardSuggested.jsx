@@ -27,7 +27,6 @@ const CardSuggested = ({ suggest, styles }) => {
     // localStorage.setItem('hotelSelected', hotelSelected)
     window.location.href = `/product/${suggest.id}`;
   };
-  console.log(suggest);
 
   return (
     <div className={styles.cardContainer}>
