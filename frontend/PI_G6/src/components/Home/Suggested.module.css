@@ -254,6 +254,10 @@
     padding: 20px 10px;
   }
 
+  .suggestedMainContainer > p {
+    color: #dfe4ea;
+  }
+
   .suggestedRenderContainer {
     grid-template-columns: repeat(1, 1fr);
   }
