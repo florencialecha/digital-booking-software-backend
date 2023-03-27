@@ -46,6 +46,13 @@ function Calendar({ styles, reservations }) {
     });
   }, [selectDate]);
 
+  const booked = reservations?.map(
+    (res) => (
+      (res.checkIn = res.checkIn.replaceAll("-", "/")),
+      (res.checkOut = res.checkOut.replaceAll("-", "/"))
+    )
+  );
+
   const getDatesRange = (start, finish) => {
     const date = new Date(start);
     const finishDate = new Date(finish);
