@@ -24,11 +24,7 @@ const Gallery = ({ pictures }) => {
                   ></img>
                 ))
             : pictures.map((img, i) => (
-                <img
-                  key={i}
-                  className={`img${i + 1}`}
-                  src={img.imageUrl}
-                ></img>
+                <img key={i} className={`img${i + 1}`} src={img.imageUrl}></img>
               ))}
         </div>
         <div className="see-more-div">
