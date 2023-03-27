@@ -22,8 +22,9 @@ public class CreateFeaturePostController {
         try {
             Feature feature = modelMapper.map(featureDTO, Feature.class);
             createFeatureService.handle(feature);
+            log.info("Feature created successfully.");
         } catch (Exception e) {
-            log.error("Error al crear feature", e);
+            log.error("Internal Server Error: ", e);
         }
     }
 }
