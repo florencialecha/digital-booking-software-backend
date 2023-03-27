@@ -107,6 +107,21 @@ form div {
   display: flex;
 }
 
+.apiEndpointError {
+  justify-content: center;
+  display: flex;
+  color: red;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #f9e4e1;
+  padding: 20px;
+}
+
+
+.userInfoFormRegister {
+  gap: 10px;
+}
+
 .nameInput {
   display: flex;
   flex-direction: column;

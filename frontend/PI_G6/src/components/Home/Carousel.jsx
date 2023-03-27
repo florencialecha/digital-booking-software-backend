@@ -3,6 +3,7 @@ import React, { useRef, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import CardCategory from './CardCategory/CardCategory'
 import './CardCategory/CardCategory.css'
+import { apiCategory } from '../../utils/apiEndpoints'
 
 const Carousel = () => {
   const [width, setWidht] = useState(0)
@@ -17,7 +18,7 @@ const Carousel = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://3.131.138.206:8080/category')
+        const response = await axios.get(apiCategory)
         setCategorys(response.data)
       } catch (error) {
         console.log('Error al obtener datos de la API. Usando datos estáticos...')

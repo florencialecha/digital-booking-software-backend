@@ -1,15 +1,15 @@
 stages:
-  - BuildAndDeployFront
-  - BuildAndDeployBack
+  - build
+  - notify
 
 BuildAndDeployBack:
-  stage: BuildAndDeployBack
+  stage: build 
   script:
     - cd back
     - sudo systemctl stop ApiBack.service
     - if [ -d ./back_jar ]; then sudo rm -rf ./back_jar; fi
 
-    
+
     - sudo mvn clean package
     - sudo mkdir -p back_jar
 
@@ -18,16 +18,19 @@ BuildAndDeployBack:
     - sudo chmod 777 ./back_jar
     - sudo systemctl restart ApiBack.service
     - if [ -d "target/" ]; then sudo rm -rf target/; fi
-    
-    
-    
-  only:
-    - development 
+
+
+
+  rules:
+   - if: '$CI_COMMIT_BRANCH == "development"'
+     changes:
+        - back/**/*
+
   tags:
     - back
 
 BuildAndDeployFront:
-  stage: BuildAndDeployFront
+  stage: build 
   script:
 
     - cd frontend/PI_G6
@@ -36,8 +39,27 @@ BuildAndDeployFront:
     - sudo npm ci
     - sudo npm run build
     - sudo aws s3 sync dist/ s3://digital-booking-6 --delete
-  only:
-    - development 
 
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "development"'
+      changes:
+        - frontend/**/*
   tags:
     - front
+
+NotifyOnRootChanges:
+  stage: notify
+  script:
+    - echo "Changes detected in the root folder, but not in the back or frontend folders!"
+  rules:
+    - exists:
+        - "*"
+      changes:
+        - back/**/*
+        - frontend/**/*
+      when: never
+    - exists:
+        - "*"
+      when: always
+  tags:
+    - notify

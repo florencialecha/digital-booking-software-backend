@@ -35,7 +35,7 @@ const Features = ({ specs, styles }) => {
           location.pathname !== '/' ? `${styles.featuresBody}` : `${styles.featuresBodyHome}`
         }
       >
-        {specs.map((item) => {
+        {specs?.map((item) => {
           const iconos = icon.find(
             (i) => i.title.toLowerCase() === item.title.toLowerCase()
           )

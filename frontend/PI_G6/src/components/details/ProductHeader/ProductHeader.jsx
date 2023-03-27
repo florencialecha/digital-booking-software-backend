@@ -14,7 +14,6 @@ const ProductHeader = ({ generalInfo }) => {
     const host = window.location.origin
     const currentUrl = window.location.href
     const newUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/'))
-    console.log(currentUrl)
     if (currentUrl === `${host}/product/${generalInfo.id}`) {
       navigate('/')
     } else {
@@ -22,11 +21,12 @@ const ProductHeader = ({ generalInfo }) => {
     }
   }
 
+
   return (
     <div className="details-product-header">
       <div className="details-product-general-info">
         <div>
-          <p>{generalInfo.category.title.toUpperCase()}</p>
+          <p>{generalInfo.category?.toUpperCase()}</p>
           <p className="details-place-name">{generalInfo.title}</p>
         </div>
 

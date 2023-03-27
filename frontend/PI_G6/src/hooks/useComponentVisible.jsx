@@ -9,7 +9,7 @@ export default function useComponentVisible (initialValue) {
       setIsActive(false)
     }
   }
-
+  
   const handleClickOutsideOfSelect = (event) => {
     if (selectorRef.current && !selectorRef.current.contains(event.target)) {
       setIsActive(false)

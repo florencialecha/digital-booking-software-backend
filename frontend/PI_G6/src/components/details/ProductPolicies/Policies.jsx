@@ -2,9 +2,9 @@
 import React from 'react'
 
 const Policies = ({ policies, styles }) => {
-  const rules = policies.rulesDescription?.split('.')
-  const security = policies.securityDescription?.split('.')
-  const cancellation = policies.cancellationDescription?.split('.')
+  const rules = policies.rules?.split('.')
+  const security = policies.security?.split('.')
+  const cancellation = policies.cancellation?.split('.')
 
   return (
     <div className={styles.detailPolicies}>

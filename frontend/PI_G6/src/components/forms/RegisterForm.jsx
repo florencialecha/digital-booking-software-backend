@@ -3,17 +3,36 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import { BsEyeSlash, BsEye } from 'react-icons/bs'
+import { apiUser } from '../../utils/apiEndpoints'
+import axios from 'axios'
 
 const RegisterForm = () => {
   const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false)
+  const [conectionError, setConectionError] = useState('')
+  
   const onSubmit = async (values, actions) => {
     await new Promise((resolve) => setTimeout(resolve, 1000))
-
     actions.resetForm()
     localStorage.setItem('user', JSON.stringify(values))
-    navigate('/login')
+    postToApi(values)
   }
+
+  const postToApi = async (values) => {
+    try {
+      const response = await axios.post(apiUser, {
+        name: values.name,
+        lastName: values.lastName,
+        email: values.email,
+        password: values.password,
+        role: 1
+      });
+      navigate('/login')
+      console.log(response.status);
+    } catch (error) {
+      setConectionError('Lamentablemente no ha podido registrarse. Por favor intente más tarde')
+    }
+  };
 
   const schema = yup.object({
     name: yup.string().required('Este campo es obligatorio'),
@@ -59,8 +78,9 @@ const RegisterForm = () => {
   return (
       <div className="registerForm">
       <h1>Crear cuenta</h1>
+        {conectionError === '' ? '' : <p className='apiEndpointError'>{conectionError}</p>}
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className='userInfoFormRegister'>
           <div className="nameInput">
             <label htmlFor="name">Nombre</label>
             <input
