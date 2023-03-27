@@ -56,7 +56,7 @@ const Suggested = () => {
           setSuggestMessage(`Estas son nuestras recomendaciones para ${state.city} con disponiblidad entre ${newReservation[0]} y ${newReservation[1]}`)
         } catch (error) {
           if (error.response.status === 500) {
-            setSuggestMessage(`No encontramos recomendaciones para ${state.city} en las fechas seleccionadas, pero te dejamos estas recomendaciones que pueden ser de tu interes: `)
+            setSuggestMessage(`No encontramos resultados para ${state.city} en las fechas seleccionadas, pero te dejamos estas recomendaciones que pueden ser de tu interes: `)
             try {
               const res = await axios.get(apiProductRandom);
               dispatch({ type: "bd", payload: res.data });
