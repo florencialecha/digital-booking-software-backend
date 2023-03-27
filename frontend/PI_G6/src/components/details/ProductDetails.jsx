@@ -20,7 +20,7 @@ import axios from "axios";
 import { GlobalContext } from "../../utils/globalContext";
 
 const ProductDetails = () => {
-  const loggedUser = JSON.parse(localStorage.getItem('userLoggedIn'))
+  const loggedUser = JSON.parse(localStorage.getItem("userLoggedIn"));
   const [product, setProduct] = useState(null);
   const { id } = useParams();
   const { state } = useContext(GlobalContext);
@@ -41,10 +41,13 @@ const ProductDetails = () => {
   }, [id]);
 
   const ifNonUserReserv = () => {
-    localStorage.setItem("ifNonUserReserv", JSON.stringify(true))
-    localStorage.setItem("productReservedInLocal", JSON.stringify(window.location.href))
-    navigate('/login')
-  }
+    localStorage.setItem("ifNonUserReserv", JSON.stringify(true));
+    localStorage.setItem(
+      "productReservedInLocal",
+      JSON.stringify(window.location.href)
+    );
+    navigate("/login");
+  };
 
   const onProductSelect = () => {
     const productSelected = JSON.stringify(product);
@@ -55,8 +58,11 @@ const ProductDetails = () => {
       if (state.reservation.length === 2) {
         localStorage.setItem("reservation", JSON.stringify(state.reservation));
       }
-      {loggedUser ? navigate(`/product/${product.id}/reserve`) : ifNonUserReserv() }
-      ;
+      {
+        loggedUser
+          ? navigate(`/product/${product.id}/reserve`)
+          : ifNonUserReserv();
+      }
     }
   };
 
@@ -117,7 +123,7 @@ const ProductDetails = () => {
               <Calendar
                 product={product}
                 styles={styles}
-                reservations={product.availability}
+                reservations={product.reserve}
               />
               <div className={styles.reservationDetails}>
                 <p>Agregá tus fechas de viaje para obtener precios exactos</p>
