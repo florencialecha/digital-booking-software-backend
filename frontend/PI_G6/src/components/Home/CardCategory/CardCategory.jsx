@@ -5,14 +5,8 @@ import { GlobalContext } from '../../../utils/globalContext'
 const Carousel = (category) => {
   const { dispatch } = useContext(GlobalContext)
 
-  // const navigate = useNavigate()
-
-  const handleClickCategory = (e) => {
-    dispatch({ type: 'data', payload: e.target.id })
-  }
-
   return (
-    <div className='slider-item' id={category.id} onDoubleClick={handleClickCategory} >
+    <div className='slider-item' id={category.id} onDoubleClick={() => dispatch({ type: 'data', payload: {data: category.id, categorySelected: category.title}})} >
         <img src={category.imageUrl} alt='' />
         <div>
             <p className='category-title  '>{category.title}</p>

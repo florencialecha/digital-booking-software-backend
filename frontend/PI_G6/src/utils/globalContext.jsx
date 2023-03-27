@@ -12,7 +12,7 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case "data":
-      return { ...state, data: action.payload };
+      return { ...state, data: action.payload.data, categorySelected: action.payload.categorySelected };
     case "bd":
       return { ...state, bd: action.payload };
     case "city":
