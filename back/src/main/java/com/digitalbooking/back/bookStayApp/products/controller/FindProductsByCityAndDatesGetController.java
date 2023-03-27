@@ -39,6 +39,8 @@ public class FindProductsByCityAndDatesGetController {
         List<ProductToFindDTO> productDTOS = products.stream()
                 .map(product -> {
                     ProductToFindDTO productToFindDto = modelMapper.map(product, ProductToFindDTO.class);
+                    String categoryName = product.getCategory().getTitle();
+                    productToFindDto.setCategory(categoryName);
                     AddressToFindDTO addressToFindDTO = modelMapper.map(product.getAddress(), AddressToFindDTO.class);
                     String city = product.getAddress().getCity().getName();
                     String state = product.getAddress().getCity().getState().getName();
