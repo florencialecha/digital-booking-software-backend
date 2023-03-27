@@ -55,9 +55,6 @@
   grid-template-rows: 100%;
 }
 
-.searcher section div {
-  background-color: #fff;
-}
 
 .searcher section > div {
   border-radius: 5px;
@@ -75,17 +72,6 @@
   grid-row: 1;
   grid-column: 3 / 3;
   width: 100%;
-}
-
-.searcher section div select {
-  width: 90%;
-  height: 80%;
-  background-color: #dfe4ea;
-  border: none;
-}
-
-.searcher section div img {
-  max-height: 70%;
 }
 
 /* LOCATION FORM*/
@@ -128,7 +114,7 @@ a {
 }
 
 #select > svg {
-  padding: 5px;
+  margin: 5px;
   background-color: #fff;
 }
 
@@ -153,6 +139,7 @@ a {
 #options {
   overflow-y: scroll;
   display: none;
+  background-color: #fff;
 }
 
 #options::-webkit-scrollbar {

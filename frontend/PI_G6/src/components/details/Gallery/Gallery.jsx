@@ -20,7 +20,7 @@ const Gallery = ({ pictures }) => {
                   <img
                     key={i}
                     className={`img${i + 1}`}
-                    src={img.title}
+                    src={img.imageUrl}
                   ></img>
                 ))
             : pictures.map((img, i) => (

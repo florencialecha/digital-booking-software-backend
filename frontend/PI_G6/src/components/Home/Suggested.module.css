@@ -16,6 +16,7 @@
 
 .suggestedMainContainer > p {
   font-size: 24px;
+  padding-bottom: 20px;
   font-weight: bold;
 }
 
@@ -251,6 +252,10 @@
     border-radius: 20px;
     top: 10px;
     padding: 20px 10px;
+  }
+
+  .suggestedMainContainer > p {
+    color: #dfe4ea;
   }
 
   .suggestedRenderContainer {
