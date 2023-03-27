@@ -45,13 +45,4 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Reserve> reserves;
 
-    // Métodos para encriptar y desencriptar la contraseña
-    public void setPassword(String password) {
-        this.password = new BCryptPasswordEncoder().encode(password);
-    }
-
-    public boolean checkPassword(String password) {
-        return new BCryptPasswordEncoder().matches(password, this.password);
-    }
-
 }

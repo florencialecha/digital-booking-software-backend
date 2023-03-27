@@ -27,8 +27,6 @@ public class CreateUserPostController {
     @Autowired
     private RoleRepository roleRepository;
 
-
-
     @PostMapping
     public ResponseEntity<?> handle(@RequestBody UserToCreateDTO userToCreateDTO) {
         try {
@@ -53,25 +51,13 @@ public class CreateUserPostController {
 
             createUserService.handle(user);
             log.info("User created");
-            return ResponseEntity.ok().build();
+            // Develover código de estado 201 (CREATED)
+            return ResponseEntity.status(HttpStatus.CREATED).build();
 
         } catch (Exception e) {
             log.error("Error creating user", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error creating user");
         }
     }
-//    @PostMapping
-//    public void handle(@RequestBody UserToCreateDTO userToCreateDTO) {
-//        try {
-//            User user = modelMapper.map(userToCreateDTO, User.class);
-//            // Asignar rol por id
-//            Role role = roleRepository.findById(userToCreateDTO.getRole())
-//                    .orElseThrow(() -> new RuntimeException("Role not found"));
-//            user.setRole(role);
-//            createUserService.handle(user);
-//            log.info("User created");
-//        } catch (Exception e) {
-//            log.error("Error creating user", e);
-//        }
-//    }
 }
+
