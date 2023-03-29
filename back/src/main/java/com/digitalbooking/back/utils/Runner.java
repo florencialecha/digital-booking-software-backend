@@ -31,9 +31,9 @@ public class Runner implements CommandLineRunner {
         log.info("Authorities count: {}", this.authorityRepository.count());
         if (this.authorityRepository.count() == 0) {
             this.authorityRepository.saveAll(List.of(
-                    new Authority(AuthorityName.ADMIN),
-                    new Authority(AuthorityName.READ),
-                    new Authority(AuthorityName.WRITE)
+                    new Authority(AuthorityName.ROLE_ADMIN),
+                    new Authority(AuthorityName.ROLE_USER),
+                    new Authority(AuthorityName.ROLE_HOST)
             ));
             log.info("Authorities created");
         }
@@ -44,11 +44,11 @@ public class Runner implements CommandLineRunner {
             var encoders = PasswordEncoderFactories.createDelegatingPasswordEncoder();
             log.info("Users not found");
             this.userRepository.saveAll(List.of(
-                        new User("Florencia", "Lecha", "flecha", "flecha@gmail.com", encoders.encode("1234"), List.of(this.authorityRepository.findByName(AuthorityName.ADMIN).get())),
-                        new User("Ciro", "Rojas", "ciro", "ciro@gmail.com", "{noop}abcde", List.of(this.authorityRepository.findByName(AuthorityName.ADMIN).get())),
-                        new User("Manuel", "Godoy", "manumafisto", "manu@gmail.com", "password", List.of(this.authorityRepository.findByName(AuthorityName.ADMIN).get())),
-                        new User("Rocky", "xxxx", "dami", "dami@gmail.com", "1234", List.of(this.authorityRepository.findByName(AuthorityName.READ).get())),
-                        new User("Damián", "xxxx", "rocky", "rocky@gmail.com", "1234", List.of(this.authorityRepository.findByName(AuthorityName.WRITE).get()))
+                        new User("Florencia", "Lecha", "flecha", "flecha@gmail.com", encoders.encode("contrasenia1"), List.of(this.authorityRepository.findByName(AuthorityName.ROLE_ADMIN).get())),
+                        new User("Ciro", "Rojas", "ciro", "ciro@gmail.com", encoders.encode("contrasenia1"), List.of(this.authorityRepository.findByName(AuthorityName.ROLE_HOST).get())),
+                        new User("Manuel", "Godoy", "manu", "manu@gmail.com", encoders.encode("contrasenia1"), List.of(this.authorityRepository.findByName(AuthorityName.ROLE_HOST).get())),
+                        new User("Rocky", "xxxx", "dami", "dami@gmail.com", encoders.encode("contrasenia1"), List.of(this.authorityRepository.findByName(AuthorityName.ROLE_USER).get())),
+                        new User("Damián", "xxxx", "rocky", "rocky@gmail.com", encoders.encode("contrasenia1"), List.of(this.authorityRepository.findByName(AuthorityName.ROLE_USER).get()))
                     )
             );
             log.info("Users created");
