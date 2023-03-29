@@ -68,13 +68,11 @@ public class CreateUserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // Implementar la lógica para buscar el usuario en la base de datos y devolver sus detalles de autenticación
-        Optional<User> userOptional = userRepository.findByUsername(username);
-
-        User user = userOptional.orElseThrow(() ->
-                new UsernameNotFoundException("User not found: " + username)
-        );
-        log.info("User found: " + username);
-        return new SecurityUser(user);
+        var user = this.userRepository.findByUsername(username);
+        if(user.isPresent()){
+            return new SecurityUser(user.get());
+        }
+        throw new UsernameNotFoundException("User not found: " + username);
     }
+
 }

@@ -45,16 +45,16 @@ public class SecurityConfig {
                 //RECURSOS PARA USUARIOS
 
                 //GET /product/{id} - User autenticado
-                .requestMatchers(HttpMethod.GET,"/product/{id}").hasAuthority("USER")
+                .requestMatchers(HttpMethod.GET,"/product/{id}").hasRole("USER")
                 //GET /reserve/byProductId/{idProduct} - User autenticado
-                .requestMatchers(HttpMethod.GET,"/reserve/byProductId/{idProduct}").permitAll()
+                .requestMatchers(HttpMethod.GET,"/reserve/byProductId/{idProduct}").hasRole("USER")
                 //POST /reserve - User autenticado
-                .requestMatchers(HttpMethod.POST, "/reserve").hasAuthority("USER")
+                .requestMatchers(HttpMethod.POST, "/reserve").hasRole("USER")
 
                 //RECURSOS PARA HOSTS
 
                 //POST /product - Host autenticado
-                //.requestMatchers(HttpMethod.POST, "/product").hasAuthority("HOST")
+                //.requestMatchers(HttpMethod.POST, "/product").hasRole("HOST")
 
                 // RECURSOS PARA ADMINISTRADORES
 
@@ -70,29 +70,13 @@ public class SecurityConfig {
 
                 // CUALQUIER OTRA SOLICITUD NO ESPECIFICADA
 
-                .anyRequest().denyAll()
+                .anyRequest().permitAll()
 //                .and()
 //                .build();
 
                 //desabilitar csrf para poder hacer peticiones desde postman
                 .and().csrf().disable().build();
     }
-
-    //Se encarga de manejar los usuarios
-//    @Bean
-//    public UserDetailsService userDetailsService() {
-//        return new InMemoryUserDetailsManager(
-//                User.withUsername("user")
-//                        .password(passwordEncoder().encode("password123"))
-//                        .authorities("ROLE_USER")
-//                        .build(),
-//                User.withUsername("admin")
-//                        .password(passwordEncoder().encode("password123"))
-//                        .authorities("ROLE_ADMIN")
-//                        .build()
-//        );
-//    }
-
 
     //Se encarga de manejar las contraseñas
     @Bean

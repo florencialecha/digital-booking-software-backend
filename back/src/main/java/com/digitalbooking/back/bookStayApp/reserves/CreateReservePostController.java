@@ -4,6 +4,8 @@ import com.digitalbooking.back.bookStayApp.products.domain.Product;
 import com.digitalbooking.back.bookStayApp.products.domain.ProductRepository;
 //import com.digitalbooking.back.management.users.User;
 //import com.digitalbooking.back.management.users.UserRepository;
+import com.digitalbooking.back.management.users.User;
+import com.digitalbooking.back.management.users.UserRepository;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -22,8 +24,8 @@ public class CreateReservePostController {
     private CreateReserveService createReserveService;
     @Autowired
     private ProductRepository productRepository;
-//    @Autowired
-//    private UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     @PostMapping
     public void handle(@RequestBody ReserveToCreateDTO reserveToCreateDTO) {
@@ -36,10 +38,10 @@ public class CreateReservePostController {
                     .orElseThrow(() -> new RuntimeException("Product not found"));
             reserve.setProduct(product);
 
-//            // Asignar usuario por id
-//            User user = userRepository.findById(reserveToCreateDTO.getUser())
-//                    .orElseThrow(() -> new RuntimeException("User not found"));
-//            reserve.setUser(user);
+            // Asignar usuario por id
+            User user = userRepository.findById(reserveToCreateDTO.getUser())
+                    .orElseThrow(() -> new RuntimeException("User not found"));
+            reserve.setUser(user);
 
             createReserveService.handle(reserve);
             log.info("Reserve created successfully with id: " + reserve.getId());
