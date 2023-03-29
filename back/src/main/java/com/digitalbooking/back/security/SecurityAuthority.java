@@ -13,4 +13,5 @@ public class SecurityAuthority implements GrantedAuthority {
     public String getAuthority() {
         return authority.getName().toString();
     }
+
 }

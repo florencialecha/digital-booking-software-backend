@@ -6,6 +6,7 @@ import com.digitalbooking.back.management.users.User;
 import com.digitalbooking.back.management.users.UserRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -26,6 +27,7 @@ public class Runner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         log.info("Runner starts");
+
         log.info("Authorities count: {}", this.authorityRepository.count());
         if (this.authorityRepository.count() == 0) {
             this.authorityRepository.saveAll(List.of(
@@ -38,13 +40,15 @@ public class Runner implements CommandLineRunner {
 
         log.info("Users count: {}", this.userRepository.count());
         if (this.userRepository.count() == 0) {
+            //Spring Security 6.0 añade el administrador de contraseñas para codificar las contraseñas de distintos tipos
+            var encoders = PasswordEncoderFactories.createDelegatingPasswordEncoder();
             log.info("Users not found");
             this.userRepository.saveAll(List.of(
-                    new User("Florencia", "Lecha", "flecha", "flecha@gmail.com", "1234", List.of(this.authorityRepository.findByName(AuthorityName.ADMIN).get())),
-                    new User("Ciro", "Rojas", "ciro", "ciro@gmail.com", "abcde", List.of(this.authorityRepository.findByName(AuthorityName.ADMIN).get())),
-                    new User("Manuel", "Godoy", "manumafisto", "manu@gmail.com", "password", List.of(this.authorityRepository.findByName(AuthorityName.ADMIN).get())),
-                    new User("Rocky", "xxxx", "dami", "dami@gmail.com", "1234", List.of(this.authorityRepository.findByName(AuthorityName.READ).get())),
-                    new User("Damián", "xxxx", "rocky", "rocky@gmail.com", "1234", List.of(this.authorityRepository.findByName(AuthorityName.WRITE).get()))
+                        new User("Florencia", "Lecha", "flecha", "flecha@gmail.com", encoders.encode("1234"), List.of(this.authorityRepository.findByName(AuthorityName.ADMIN).get())),
+                        new User("Ciro", "Rojas", "ciro", "ciro@gmail.com", "{noop}abcde", List.of(this.authorityRepository.findByName(AuthorityName.ADMIN).get())),
+                        new User("Manuel", "Godoy", "manumafisto", "manu@gmail.com", "password", List.of(this.authorityRepository.findByName(AuthorityName.ADMIN).get())),
+                        new User("Rocky", "xxxx", "dami", "dami@gmail.com", "1234", List.of(this.authorityRepository.findByName(AuthorityName.READ).get())),
+                        new User("Damián", "xxxx", "rocky", "rocky@gmail.com", "1234", List.of(this.authorityRepository.findByName(AuthorityName.WRITE).get()))
                     )
             );
             log.info("Users created");
