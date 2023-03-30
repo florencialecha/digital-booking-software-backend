@@ -111,12 +111,12 @@ function Calendar({ styles, reservations, setToggleCalendar }) {
     } else if (
       (!unavailable.includes(selected) &&
         formatedNewReservation.includes(selected)) ||
-      resArray.includes(selected)
+      resArray.slice(1, -1).includes(selected)
     ) {
       return `${styles.selected}`;
     } else if (selected === today && !selectDate.includes(selected)) {
       return `${styles.today}`;
-    } else if (selectDate.includes(selected)) {
+    } else if (selectDate.includes(selected) || resArray.includes(selected)) {
       return `${styles.rangeLimits}`;
     }
 
