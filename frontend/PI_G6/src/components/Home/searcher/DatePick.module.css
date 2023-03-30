@@ -2,6 +2,7 @@
 
 .picker {
   width: 90%;
+  cursor: default;
 }
 
 .hideCalendar {
@@ -42,6 +43,7 @@
 .calendarLayout {
   width: 100%;
   padding-bottom: 40px;
+  background-color: white;
 }
 
 .checkInCheckOut input {
@@ -65,6 +67,25 @@
   align-self: center;
 }
 
+.clearDate {
+  position: absolute;
+  top: -40px;
+  left: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  border: none;
+}
+
+.dayOfMonth {
+  font-weight: normal;
+}
+
+.weekDays {
+  font-weight: normal;
+}
+
 .datePickCalendar {
   width: 605px;
   position: fixed;
@@ -75,6 +96,7 @@
   box-shadow: -2px 8px 17px -4px rgb(134, 133, 133);
   -webkit-box-shadow: -2px 8px 17px -4px rgb(134, 133, 133);
   -moz-box-shadow: -2px 8px 17px -4px rgb(134, 133, 133);
+  z-index: 2;
 }
 
 .calendarDetails {
@@ -109,8 +131,12 @@
 
 .gridFirstMonth {
   height: 100%;
+  border-right: none;
 }
 
+h4 {
+  padding-bottom: 15px;
+}
 .changeMonthButton:hover {
   background-color: transparent;
 }
@@ -141,6 +167,10 @@
   height: 75%;
 }
 
+.rangeLimits {
+  height: 75%;
+}
+
 @media only screen and (max-width: 1024px) {
   .datePickCalendar {
     width: 60vw;
@@ -167,6 +197,10 @@
   .checkInInput {
     width: 50px;
   }
+
+  .clearDate {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -183,91 +217,3 @@
     min-width: 315px;
   }
 }
-
-/* 
-.picker .ant-picker {
-    width: 100%;
-}
-
-.ant-picker-dropdown {
-    position: fixed;
-    width: 580px;
-    left: calc((100vw - 580px)/2) !important;
-}
-
-.ant-picker-range .ant-picker-range-separator {
-    display: none;
-    
-}
-
-.ant-picker .ant-picker-suffix {
-    display: none;
-}
-
-@media (max-width: 600px) {
-
-    .ant-picker-dropdown-placement-bottomLeft  {
-        max-width: 80vw;
-        height: auto;
-    }
-    .ant-picker-panel-layout {
-        max-width: 80vw;
-        height: auto    
-    }
-
-    .ant-picker-panel-layout div:first-child {
-        max-width: 80vw;
-        height: auto;
-    }
-
-    .ant-picker-panels {
-        max-width: 80vw;
-        height: auto;
-    }
-
-    .ant-picker-date-range-wrapper .ant-picker-panel-container {
-        margin-left: 0px !important;
-    }
-
-    .ant-picker-panels > .ant-picker-panel:last-child {
-        display: none;
-    }
-
-    .ant-picker-header * {
-        visibility: visible;
-    }
-
-    .ant-picker-dropdown {
-        position: absolute;
-        width: 290px;
-        left: calc((100vw - 290px)/2) !important;
-    }
-    
-} */
-
-/* @media (max-width: 1024px) and (min-width: 601px) { */
-/* Tablet */
-
-/* .ant-picker-dropdown-placement-bottomLeft  {
-        max-width: 590px;
-        height: auto;
-    }
-    .ant-picker-panel-layout {
-        max-width: 590px;
-        height: auto    
-    }
-
-    .ant-picker-panel-layout div:first-child {
-        max-width: 590px;
-        height: auto;
-    }
-
-    .ant-picker-panels {
-        max-width: 590px;
-        height: auto;
-    }
-
-    .ant-picker-panel {
-        max-width: 50%;
-    }
-} */

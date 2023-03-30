@@ -4,6 +4,8 @@ import styles from "./DatePick.module.css";
 import { GlobalContext } from "../../../utils/globalContext";
 import { format } from "date-fns/esm";
 import es from "date-fns/locale/es";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMinus } from "@fortawesome/free-solid-svg-icons";
 
 const DatePick = () => {
   const { state } = useContext(GlobalContext);
@@ -70,7 +72,7 @@ const DatePick = () => {
             reservation
               ? reservations[0]
                 ? reservations[0]
-                : selectedRange[0]
+                : toggleCalendar && selectedRange[0]
                 ? selectedRange[0]
                 : ""
               : ""
@@ -78,7 +80,7 @@ const DatePick = () => {
         />
 
         <label className={styles.checkOut} htmlFor="check-out">
-          -
+          <FontAwesomeIcon icon={faMinus} size="xs" />
         </label>
         <input
           className={styles.checkInInput}
@@ -102,11 +104,15 @@ const DatePick = () => {
       <div
         className={
           toggleCalendar
-            ? `${styles.datePickCalendar}`
+            ? `${styles.datePickCalendar} `
             : `${styles.hideCalendar}`
         }
       >
-        <Calendar styles={styles} />
+        <Calendar
+          setToggleCalendar={setToggleCalendar}
+          toggleCalendar={toggleCalendar}
+          styles={styles}
+        />
         <button
           className={styles.btnDatePick}
           disabled={selectedRange.length <= 1 ? true : false}

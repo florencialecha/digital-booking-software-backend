@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
   faChevronRight,
+  faCircleXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { format } from "date-fns";
 import { GlobalContext } from "../../../utils/globalContext";
@@ -30,7 +31,7 @@ const months = [
 
 const days = ["D", "L", "M", "M", "J", "V", "S"];
 
-function Calendar({ styles, reservations }) {
+function Calendar({ styles, reservations, setToggleCalendar }) {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectDate, setSelectDate] = useState([]);
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
@@ -46,7 +47,7 @@ function Calendar({ styles, reservations }) {
     });
   }, [selectDate]);
 
-  const booked = reservations?.map(
+  reservations?.map(
     (res) => (
       (res.checkIn = res.checkIn.replaceAll("-", "/")),
       (res.checkOut = res.checkOut.replaceAll("-", "/"))
@@ -96,7 +97,7 @@ function Calendar({ styles, reservations }) {
     : [];
 
   const unavailable = alreadyReserved ? formateDate(alreadyReserved) : "";
-  const formatedNewReservation = formateDate(newReservation);
+  const formatedNewReservation = formateDate(newReservation.slice(1, -1));
 
   const unavailableDates = (i, month, year) => {
     const selected = format(
@@ -110,12 +111,13 @@ function Calendar({ styles, reservations }) {
     } else if (
       (!unavailable.includes(selected) &&
         formatedNewReservation.includes(selected)) ||
-      selectDate.includes(selected) ||
       resArray.includes(selected)
     ) {
       return `${styles.selected}`;
-    } else if (selected === today) {
+    } else if (selected === today && !selectDate.includes(selected)) {
       return `${styles.today}`;
+    } else if (selectDate.includes(selected)) {
+      return `${styles.rangeLimits}`;
     }
 
     return `${styles.available}`;
@@ -197,8 +199,24 @@ function Calendar({ styles, reservations }) {
     setChangeMonth(!changeMonth);
   };
 
+  const handleClearDate = () => {
+    setSelectDate([]);
+    localStorage.setItem("reservation", JSON.stringify([]));
+    setToggleCalendar(false);
+  };
+
   return (
     <div className={styles.calendarLayout}>
+      <button
+        className={
+          selectDate?.length >= 1 || reservation?.length === 2
+            ? styles.clearDate
+            : styles.hideClearDate
+        }
+        onClick={handleClearDate}
+      >
+        <FontAwesomeIcon icon={faCircleXmark} size="lg" />
+      </button>
       <div className={styles.calendarDetails}>
         <button
           onClick={prevMonth}
