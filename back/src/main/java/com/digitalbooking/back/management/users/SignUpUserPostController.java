@@ -21,11 +21,11 @@ public class SignUpUserPostController {
     @Autowired
     ModelMapper modelMapper = new ModelMapper();
     @Autowired
-    private CreateUserService createUserService;
+    private UserService userService;
     @Autowired
     private AuthorityRepository authorityRepository;
 
-    @PostMapping("sign_up")
+    @PostMapping("/sign_up")
     public ResponseEntity<?> handle(@RequestBody UserToCreateDTO userToCreateDTO) {
         log.info("Creating user");
         try {
@@ -51,7 +51,7 @@ public class SignUpUserPostController {
             User user = modelMapper.map(userToCreateDTO, User.class);
 
             // Crear usuario
-            createUserService.handle(user);
+            userService.handle(user);
             log.info("User created");
 
             // Develover código de estado 201 (CREATED)
