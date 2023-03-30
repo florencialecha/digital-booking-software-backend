@@ -17,7 +17,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
-    //Recursos disponibles y quienes deben tener acceso a ellos
+    //MANAGE AUTHORIZATION
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
@@ -25,50 +25,56 @@ public class SecurityConfig {
                 .and()
                 .authorizeRequests()
 
-                //RECURSOS PÚBLICOS
+                //PUBLIC RESOURCES
 
-                //POST /user - Todos
-                .requestMatchers(HttpMethod.POST, "/signup").permitAll()
-                //GET /product/random - Todos
-                .requestMatchers(HttpMethod.GET,"/product/random").permitAll()
-                //GET /country - Todos
-                .requestMatchers(HttpMethod.GET, "/country").permitAll()
-                //GET /category - Todos
-                .requestMatchers(HttpMethod.GET,"/category").permitAll()
-                //GET /product/byCity/{cityName} - Todos
-                .requestMatchers(HttpMethod.GET,"/product/byCity/{cityName}").permitAll()
-                //GET /product/byCategory/{categoryId} - Todos
-                .requestMatchers(HttpMethod.GET,"/product/byCategory/{categoryId}").permitAll()
-                //GET /product/byCityAndDates/{cityName}/{checkIn}/{checkOut} - Todos
-                .requestMatchers(HttpMethod.GET,"/product/byCityAndDates/{cityName}/{checkIn}/{checkOut}").permitAll()
+                    //Sign up: new user
+                    .requestMatchers(HttpMethod.POST, "sign_up").permitAll()
+                    //Sign in: user existing
+                    .requestMatchers(HttpMethod.POST, "login").permitAll()
 
-                //RECURSOS PARA USUARIOS
+                    //Call on home page | Searcher component | List all cities with countries
+                    .requestMatchers(HttpMethod.GET,"/product/byCityAndDates/{cityName}/{checkIn}/{checkOut}").permitAll()
+                    //Call on home page | Searcher component | List all cities with countries
+                    .requestMatchers(HttpMethod.GET, "/country").permitAll()
+                    //Call on home page | Searcher component | List all cities with countries
+                    .requestMatchers(HttpMethod.GET,"/product/byCity/{cityName}").permitAll()
 
-                //GET /product/{id} - User autenticado
-                .requestMatchers(HttpMethod.GET,"/product/{id}").hasRole("USER")
-                //GET /reserve/byProductId/{idProduct} - User autenticado
-                .requestMatchers(HttpMethod.GET,"/reserve/byProductId/{idProduct}").hasRole("USER")
-                //POST /reserve - User autenticado
-                .requestMatchers(HttpMethod.POST, "/reserve").hasRole("USER")
+                    //Call on home page | Carrousel component | Get all categories of products
+                    .requestMatchers(HttpMethod.GET,"/category").permitAll()
 
-                //RECURSOS PARA HOSTS
+                    //Call on home page | Suggested products component | Get 8 products random
+                    .requestMatchers(HttpMethod.GET,"/product/random").permitAll()
+                    //Call on home page | Suggested products component | Select all products by category id
+                    .requestMatchers(HttpMethod.GET,"/product/byCategory/{categoryId}").permitAll()
 
-                //POST /product - Host autenticado
-                //.requestMatchers(HttpMethod.POST, "/product").hasRole("HOST")
+                //USER RESOURCES
 
-                // RECURSOS PARA ADMINISTRADORES
+                    //Call on product details page | Product details component | Get product by id with all data
+                    .requestMatchers(HttpMethod.GET,"/product/{id}").hasRole("USER")
+                    //Call on product details page | Product details component | Calendar reservations | Get all reservations by product id
+                    .requestMatchers(HttpMethod.GET,"/reserve/byProductId/{idProduct}").hasRole("USER")
 
-                //GET /product - Admin autenticado
-                .requestMatchers(HttpMethod.GET,"/product").hasRole("ADMIN")
-                //POST /feature - Admin autenticado
-                .requestMatchers(HttpMethod.POST, "/feature").hasRole("ADMIN")
-                //POST /country - Admin autenticado
-                .requestMatchers(HttpMethod.POST, "/country").hasRole("ADMIN")
-                //POST /category - Admin autenticado
-                .requestMatchers(HttpMethod.POST, "/category").hasRole("ADMIN")
+                    //Call on reserve page | Reserve component | Post new reserve with user info
+                    .requestMatchers(HttpMethod.POST, "/reserve").hasRole("USER")
 
+                //HOST RESOURCES
 
-                // CUALQUIER OTRA SOLICITUD NO ESPECIFICADA
+                    //Call on host page | New product component | Post new product
+                    //.requestMatchers(HttpMethod.POST, "/product").hasRole("HOST")
+
+                //ADMIN RESOURCES
+
+                    //Call on admin page | New feature component | Post new feature
+                    .requestMatchers(HttpMethod.POST, "/feature").hasRole("ADMIN")
+                    //Call on admin page | New country component | Post new country with states and cities
+                    .requestMatchers(HttpMethod.POST, "/country").hasRole("ADMIN")
+                    //Call on admin page | New category component | Post new category
+                    .requestMatchers(HttpMethod.POST, "/category").hasRole("ADMIN")
+
+                    //Don't call on any page | Admin component | Get all users
+                    .requestMatchers(HttpMethod.GET,"/product").hasRole("ADMIN")
+
+                //ANY OTHER REQUEST
 
                 .anyRequest().permitAll()
 //                .and()
@@ -78,7 +84,7 @@ public class SecurityConfig {
                 .and().csrf().disable().build();
     }
 
-    //Se encarga de manejar las contraseñas
+    //MANAGE PASSWORD
     @Bean
     public PasswordEncoder passwordEncoder() {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();

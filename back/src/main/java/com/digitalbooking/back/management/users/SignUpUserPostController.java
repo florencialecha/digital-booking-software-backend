@@ -12,11 +12,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/signup")
+@RequestMapping
 @CrossOrigin("*")
 @Log4j2
 
-public class CreateUserPostController {
+public class SignUpUserPostController {
 
     @Autowired
     ModelMapper modelMapper = new ModelMapper();
@@ -25,7 +25,7 @@ public class CreateUserPostController {
     @Autowired
     private AuthorityRepository authorityRepository;
 
-    @PostMapping
+    @PostMapping("sign_up")
     public ResponseEntity<?> handle(@RequestBody UserToCreateDTO userToCreateDTO) {
         log.info("Creating user");
         try {
