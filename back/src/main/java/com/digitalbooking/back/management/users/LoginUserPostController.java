@@ -16,7 +16,7 @@ public class LoginUserPostController {
     @PostMapping("login")
     public ResponseEntity<String> handle() {
         log.info("Signing in user");
-        return ResponseEntity.ok("User signed in");
+        return ResponseEntity.ok("User signed in: a jwt token will be returned here.");
     }
 
 }
