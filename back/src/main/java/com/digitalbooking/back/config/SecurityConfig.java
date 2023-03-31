@@ -1,20 +1,39 @@
 package com.digitalbooking.back.config;
 
+import com.digitalbooking.back.management.users.UserService;
+import com.digitalbooking.back.security.JwtAuthenticationFilter;
+import com.digitalbooking.back.utils.JwtUtil;
+import jakarta.servlet.Filter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 public class SecurityConfig {
+
+    @Value("${jwt.secret-key}")
+    private String secretKey;
+
+    @Value("${jwt.expiration-in-ms}")
+    private int jwtExpirationInMs;
+
+    @Autowired
+    private UserService userService;
 
     //MANAGE AUTHORIZATION
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
+                .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
                 .httpBasic()
                 .and()
                 .authorizeRequests()
@@ -78,11 +97,28 @@ public class SecurityConfig {
                 .and().csrf().disable().build();
     }
 
+
+    @Bean
+    public JwtAuthenticationFilter jwtAuthenticationFilter() {
+        return new JwtAuthenticationFilter(jwtUtil());
+    }
+
+    @Bean
+    public JwtUtil jwtUtil() {
+        return new JwtUtil(userService, secretKey, jwtExpirationInMs);
+    }
+
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
+        return auth.build();
+    }
+
     //MANAGE PASSWORD
     @Bean
     public PasswordEncoder passwordEncoder() {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
-    
+
 }
