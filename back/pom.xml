@@ -94,7 +94,7 @@
 			<version>1.7</version>
 		</dependency>
 
-		<!-- Para encriptar contraseñas -->
+		<!-- To improve authentication with jwt -->
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-api</artifactId>
