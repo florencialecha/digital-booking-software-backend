@@ -1,4 +1,4 @@
-package com.digitalbooking.back.management.locations;
+package com.digitalbooking.back.management.locations.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

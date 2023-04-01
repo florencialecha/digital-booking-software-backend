@@ -16,8 +16,8 @@
 //import com.digitalbooking.back.management.features.domain.FeatureRepository;
 //import com.digitalbooking.back.bookStayApp.address.domain.AddressRepository;
 //
-//import com.digitalbooking.back.management.locations.City;
-//import com.digitalbooking.back.management.locations.CityRepository;
+//import com.digitalbooking.back.management.locations.domain.City;
+//import com.digitalbooking.back.management.locations.domain.CityRepository;
 //import lombok.extern.log4j.Log4j2;
 //import org.modelmapper.ModelMapper;
 //import org.springframework.beans.factory.annotation.Autowired;

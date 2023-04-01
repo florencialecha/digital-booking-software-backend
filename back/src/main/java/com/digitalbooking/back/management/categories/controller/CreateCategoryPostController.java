@@ -24,7 +24,7 @@ public class CreateCategoryPostController {
 
     @PostMapping
     public void handle(@RequestBody CategoryToCreateDTO categoryToCreateDTO) throws ResourceNotFoundException {
-        log.info("Request recieved on CreateCategoryPostController");
+        log.info("Request received on CreateCategoryPostController");
 
         try {
             // Map DTO to Category entity with ModelMapper

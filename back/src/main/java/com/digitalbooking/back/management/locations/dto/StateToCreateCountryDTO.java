@@ -1,4 +1,4 @@
-package com.digitalbooking.back.management.locations;
+package com.digitalbooking.back.management.locations.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,8 +11,8 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+public class StateToCreateCountryDTO {
 
-public class CountryToCreateDTO {
     private String name;
-    private Set<StateToCreateCountryDTO> states;
+    private Set<CityToCreateCountryDTO> cities;
 }

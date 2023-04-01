@@ -1,4 +1,4 @@
-package com.digitalbooking.back.management.locations;
+package com.digitalbooking.back.management.locations.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

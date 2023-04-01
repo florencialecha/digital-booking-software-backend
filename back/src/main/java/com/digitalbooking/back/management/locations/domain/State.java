@@ -1,4 +1,4 @@
-package com.digitalbooking.back.management.locations;
+package com.digitalbooking.back.management.locations.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

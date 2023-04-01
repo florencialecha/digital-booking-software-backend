@@ -1,7 +1,7 @@
 package com.digitalbooking.back.bookStayApp.address.domain;
 
 import com.digitalbooking.back.bookStayApp.products.domain.Product;
-import com.digitalbooking.back.management.locations.City;
+import com.digitalbooking.back.management.locations.domain.City;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
