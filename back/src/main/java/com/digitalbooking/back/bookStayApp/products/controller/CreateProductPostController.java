@@ -1,20 +1,20 @@
 //package com.digitalbooking.back.bookStayApp.products.controller;
 //
-//import com.digitalbooking.back.bookStayApp.address.Address;
-//import com.digitalbooking.back.bookStayApp.address.AddressToCreateDTO;
-//import com.digitalbooking.back.bookStayApp.images.Image;
-//import com.digitalbooking.back.bookStayApp.images.ImageDTO;
-//import com.digitalbooking.back.bookStayApp.images.ImageRepository;
-//import com.digitalbooking.back.bookStayApp.policies.Policy;
-//import com.digitalbooking.back.bookStayApp.policies.PolicyDTO;
-//import com.digitalbooking.back.bookStayApp.policies.PolicyRepository;
+//import com.digitalbooking.back.bookStayApp.address.domain.Address;
+//import com.digitalbooking.back.bookStayApp.address.dto.AddressToCreateDTO;
+//import com.digitalbooking.back.bookStayApp.images.domain.Image;
+//import com.digitalbooking.back.bookStayApp.images.dto.ImageDTO;
+//import com.digitalbooking.back.bookStayApp.images.domain.ImageRepository;
+//import com.digitalbooking.back.bookStayApp.policies.domain.Policy;
+//import com.digitalbooking.back.bookStayApp.policies.dto.PolicyDTO;
+//import com.digitalbooking.back.bookStayApp.policies.domain.PolicyRepository;
 //import com.digitalbooking.back.bookStayApp.products.service.CreateProductService;
 //import com.digitalbooking.back.bookStayApp.products.domain.Product;
 //import com.digitalbooking.back.management.categories.Category;
 //import com.digitalbooking.back.management.categories.CategoryRepository;
 //import com.digitalbooking.back.management.features.Feature;
 //import com.digitalbooking.back.management.features.FeatureRepository;
-//import com.digitalbooking.back.bookStayApp.address.AddressRepository;
+//import com.digitalbooking.back.bookStayApp.address.domain.AddressRepository;
 //
 //import com.digitalbooking.back.management.locations.City;
 //import com.digitalbooking.back.management.locations.CityRepository;

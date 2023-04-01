@@ -1,13 +1,13 @@
 package com.digitalbooking.back.bookStayApp.products.domain;
 
-import com.digitalbooking.back.bookStayApp.address.Address;
+import com.digitalbooking.back.bookStayApp.address.domain.Address;
 import com.digitalbooking.back.management.categories.Category;
-import com.digitalbooking.back.bookStayApp.policies.Policy;
+import com.digitalbooking.back.bookStayApp.policies.domain.Policy;
 
 import com.digitalbooking.back.management.features.Feature;
-import com.digitalbooking.back.bookStayApp.images.Image;
+import com.digitalbooking.back.bookStayApp.images.domain.Image;
 
-import com.digitalbooking.back.bookStayApp.reserves.Reserve;
+import com.digitalbooking.back.bookStayApp.reserves.domain.Reserve;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -19,6 +19,12 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+// The Product class represents a product that can be booked on the platform. It contains
+// information such as the title, address, description, rating, category, policy, and features
+// associated with the product. It also has relationships with other entities, such as images
+// and reserves. This class is annotated with JPA annotations (not hibernate annotations) to map it to the corresponding
+// database table.
 
 @Entity
 @Table(name = "PRODUCT")
