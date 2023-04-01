@@ -31,6 +31,7 @@ public class FindProductsByCategoryIdGetController {
 
         //Retrieve all products by category id using the findProductsByCategoryIdService
         List<Product> products = findProductsByCategoryIdService.handle(categoryId);
+
         if (products.isEmpty()) {
             throw new ResourceNotFoundException("Can't find a products on this category.");
         }
