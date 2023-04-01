@@ -1,4 +1,4 @@
-package com.digitalbooking.back.management.features;
+package com.digitalbooking.back.management.features.domain;
 
 import com.digitalbooking.back.bookStayApp.products.domain.Product;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -18,7 +18,6 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
-
 public class Feature {
 
     @Id

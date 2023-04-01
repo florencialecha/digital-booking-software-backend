@@ -1,5 +1,6 @@
-package com.digitalbooking.back.management.locations;
+package com.digitalbooking.back.management.locations.controller;
 
+import com.digitalbooking.back.management.locations.*;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;

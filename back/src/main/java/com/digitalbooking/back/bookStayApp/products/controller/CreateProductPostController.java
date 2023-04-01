@@ -12,8 +12,8 @@
 //import com.digitalbooking.back.bookStayApp.products.domain.Product;
 //import com.digitalbooking.back.management.categories.domain.Category;
 //import com.digitalbooking.back.management.categories.domain.CategoryRepository;
-//import com.digitalbooking.back.management.features.Feature;
-//import com.digitalbooking.back.management.features.FeatureRepository;
+//import com.digitalbooking.back.management.features.domain.Feature;
+//import com.digitalbooking.back.management.features.domain.FeatureRepository;
 //import com.digitalbooking.back.bookStayApp.address.domain.AddressRepository;
 //
 //import com.digitalbooking.back.management.locations.City;

@@ -4,7 +4,7 @@ import com.digitalbooking.back.bookStayApp.address.domain.Address;
 import com.digitalbooking.back.management.categories.domain.Category;
 import com.digitalbooking.back.bookStayApp.policies.domain.Policy;
 
-import com.digitalbooking.back.management.features.Feature;
+import com.digitalbooking.back.management.features.domain.Feature;
 import com.digitalbooking.back.bookStayApp.images.domain.Image;
 
 import com.digitalbooking.back.bookStayApp.reserves.domain.Reserve;

@@ -18,7 +18,6 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-
 public class Category {
 
     @Id
