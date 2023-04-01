@@ -40,14 +40,14 @@ public class FindAllCategoryGetController {
 
         // Map the categories to CategoryToFindDTO using the modelMapper object
         List<CategoryToFindDTO> categoryToFindDTOS = categories.stream()
-                .map(category -> {
-                    // Map the category entity to CategoryToFindDTO
-                    CategoryToFindDTO categoryToFindDTO = modelMapper.map(category, CategoryToFindDTO.class);
+            .map(category -> {
+                // Map the category entity to CategoryToFindDTO
+                CategoryToFindDTO categoryToFindDTO = modelMapper.map(category, CategoryToFindDTO.class);
 
-                    // Return the categories as a list of CategoryToFindDTO
-                    return categoryToFindDTO;
-                })
-                .collect(Collectors.toList());
+                // Return the categories as a list of CategoryToFindDTO
+                return categoryToFindDTO;
+            })
+            .collect(Collectors.toList());
 
         log.info("Response sent from FindAllCategoryGetController");
         return ResponseEntity.ok(categoryToFindDTOS);

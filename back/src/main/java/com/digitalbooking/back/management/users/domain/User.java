@@ -1,4 +1,4 @@
-package com.digitalbooking.back.management.users;
+package com.digitalbooking.back.management.users.domain;
 
 import com.digitalbooking.back.bookStayApp.reserves.domain.Reserve;
 import jakarta.persistence.*;

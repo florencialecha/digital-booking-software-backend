@@ -14,7 +14,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-
 public class City {
 
     @Id

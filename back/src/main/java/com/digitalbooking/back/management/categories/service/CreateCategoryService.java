@@ -17,7 +17,7 @@ public class CreateCategoryService {
     public void handle(Category category) throws BadRequestException {
         log.info("Executing CreateCategoryService.handle()");
         categoryRepository.save(category);
-        log.info("Category created with id: {}", category.getId());
+        log.info("Category created with id: {} and name: {}", category.getId(), category.getTitle());
     }
 
 }

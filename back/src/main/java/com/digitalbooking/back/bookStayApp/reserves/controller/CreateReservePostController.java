@@ -6,8 +6,8 @@ import com.digitalbooking.back.bookStayApp.products.exception.ResourceNotFoundEx
 import com.digitalbooking.back.bookStayApp.reserves.service.CreateReserveService;
 import com.digitalbooking.back.bookStayApp.reserves.domain.Reserve;
 import com.digitalbooking.back.bookStayApp.reserves.dto.ReserveToCreateDTO;
-import com.digitalbooking.back.management.users.User;
-import com.digitalbooking.back.management.users.UserRepository;
+import com.digitalbooking.back.management.users.domain.User;
+import com.digitalbooking.back.management.users.domain.UserRepository;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
