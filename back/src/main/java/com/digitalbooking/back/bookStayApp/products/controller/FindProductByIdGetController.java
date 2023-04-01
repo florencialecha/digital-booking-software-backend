@@ -23,7 +23,6 @@ import java.util.Set;
 @RequestMapping("/product")
 @CrossOrigin("*")
 @Log4j2
-
 public class FindProductByIdGetController {
 
     @Autowired
@@ -36,11 +35,13 @@ public class FindProductByIdGetController {
         log.info("Request received on FindProductByIdGetController with id {} ", id);
 
         Optional<Product> productOptional = findProductByIdService.handle(id);
+
+        // If the product is not found, throw an exception
         Product product = productOptional.orElseThrow(() ->
                 new ResourceNotFoundException("Don't find any product with id: " + id + ". Try again.")
         );
-        log.info("Product found: " + product.getId());
 
+        log.info("Product found: " + product.getId());
         // Map the product (domain object) to ProductWithDetailsToFindDTO
         ProductWithDetailsToFindDTO productWithDetailsToFindDTO = modelMapper.map(product, ProductWithDetailsToFindDTO.class);
 

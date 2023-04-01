@@ -11,7 +11,6 @@ import java.util.Optional;
 @Service
 @Log4j2
 public class FindProductByIdService {
-
     @Autowired
     private ProductRepository productRepository;
 
@@ -21,5 +20,4 @@ public class FindProductByIdService {
         log.info("Found product with title: {} ", product.get().getTitle());
         return product;
     }
-
 }
