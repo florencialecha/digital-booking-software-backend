@@ -21,7 +21,6 @@ import java.util.stream.Collectors;
 @RequestMapping("/product")
 @CrossOrigin("*")
 @Log4j2
-
 public class FindAllProductsGetController {
 
     @Autowired

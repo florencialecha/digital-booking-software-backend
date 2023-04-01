@@ -3,7 +3,6 @@ package com.digitalbooking.back.bookStayApp.reserves.service;
 import com.digitalbooking.back.bookStayApp.reserves.domain.Reserve;
 import com.digitalbooking.back.bookStayApp.reserves.domain.ReserveRepository;
 
-import com.digitalbooking.back.bookStayApp.reserves.dto.ReservesUserDTO;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

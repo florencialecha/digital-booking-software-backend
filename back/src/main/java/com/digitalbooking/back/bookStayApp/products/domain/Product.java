@@ -1,7 +1,7 @@
 package com.digitalbooking.back.bookStayApp.products.domain;
 
 import com.digitalbooking.back.bookStayApp.address.domain.Address;
-import com.digitalbooking.back.management.categories.Category;
+import com.digitalbooking.back.management.categories.domain.Category;
 import com.digitalbooking.back.bookStayApp.policies.domain.Policy;
 
 import com.digitalbooking.back.management.features.Feature;

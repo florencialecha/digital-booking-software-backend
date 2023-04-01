@@ -10,8 +10,8 @@
 //import com.digitalbooking.back.bookStayApp.policies.domain.PolicyRepository;
 //import com.digitalbooking.back.bookStayApp.products.service.CreateProductService;
 //import com.digitalbooking.back.bookStayApp.products.domain.Product;
-//import com.digitalbooking.back.management.categories.Category;
-//import com.digitalbooking.back.management.categories.CategoryRepository;
+//import com.digitalbooking.back.management.categories.domain.Category;
+//import com.digitalbooking.back.management.categories.domain.CategoryRepository;
 //import com.digitalbooking.back.management.features.Feature;
 //import com.digitalbooking.back.management.features.FeatureRepository;
 //import com.digitalbooking.back.bookStayApp.address.domain.AddressRepository;

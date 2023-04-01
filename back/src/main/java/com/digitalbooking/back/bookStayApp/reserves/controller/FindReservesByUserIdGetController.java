@@ -1,6 +1,5 @@
 package com.digitalbooking.back.bookStayApp.reserves.controller;
 
-import com.digitalbooking.back.bookStayApp.products.dto.ProductToFindDTO;
 import com.digitalbooking.back.bookStayApp.products.exception.ResourceNotFoundException;
 import com.digitalbooking.back.bookStayApp.reserves.domain.Reserve;
 import com.digitalbooking.back.bookStayApp.reserves.dto.ReservesUserDTO;

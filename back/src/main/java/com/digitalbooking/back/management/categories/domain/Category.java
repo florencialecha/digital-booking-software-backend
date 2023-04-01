@@ -1,4 +1,4 @@
-package com.digitalbooking.back.management.categories;
+package com.digitalbooking.back.management.categories.domain;
 
 import com.digitalbooking.back.bookStayApp.products.domain.Product;
 import com.fasterxml.jackson.annotation.JsonIgnore;

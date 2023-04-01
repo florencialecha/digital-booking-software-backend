@@ -15,7 +15,6 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class ProductToFindDTO {
-
     private Long id;
     private String title;
     private AddressToFindDTO address;
@@ -26,5 +25,4 @@ public class ProductToFindDTO {
     private String category;
     private List<FeatureDTO> features;
     private List<ImageDTO> images;
-
 }

@@ -14,7 +14,6 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-
 public class ProductToCreateDTO {
 
     private String title;
