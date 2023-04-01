@@ -1,9 +1,13 @@
 //package com.digitalbooking.back.management.users;
 //
-//
-//import com.digitalbooking.back.management.authority.AuthorityRepository;
+//import com.digitalbooking.back.management.users.domain.User;
+//import com.digitalbooking.back.management.users.dto.UserToCreateDTO;
+//import com.digitalbooking.back.management.users.service.UserService;
 //import io.micrometer.common.util.StringUtils;
+//import jakarta.validation.ConstraintViolation;
 //import lombok.extern.log4j.Log4j2;
+//import org.apache.commons.validator.Validator;
+//import org.apache.commons.validator.ValidatorResults;
 //import org.apache.commons.validator.routines.EmailValidator;
 //import org.modelmapper.ModelMapper;
 //import org.springframework.beans.factory.annotation.Autowired;
@@ -11,50 +15,45 @@
 //import org.springframework.http.ResponseEntity;
 //import org.springframework.web.bind.annotation.*;
 //
+//import java.util.Set;
+//import java.util.stream.Collectors;
+//
 //@RestController
 //@RequestMapping
 //@CrossOrigin("*")
 //@Log4j2
 //
 //public class SignUpUserPostController {
-//
-//    @Autowired
-//    ModelMapper modelMapper = new ModelMapper();
 //    @Autowired
 //    private UserService userService;
 //    @Autowired
-//    private AuthorityRepository authorityRepository;
+//    private ModelMapper modelMapper;
+//    @Autowired
+//    private Validator validator;
 //
 //    @PostMapping("/sign_up")
 //    public ResponseEntity<?> handle(@RequestBody UserToCreateDTO userToCreateDTO) {
 //        log.info("Creating user");
 //        try {
-//            // Validar datos del usuario
-//            if (
-//                    StringUtils.isBlank(userToCreateDTO.getName()) ||
-//                    StringUtils.isBlank(userToCreateDTO.getLastName()) ||
-//                    StringUtils.isBlank(userToCreateDTO.getUsername()) ||
-//                    StringUtils.isBlank(userToCreateDTO.getEmail()) ||
-//                    StringUtils.isBlank(userToCreateDTO.getPassword()))
-//            {
-//                return ResponseEntity.badRequest().body("All fields are required");
-//            }
-//            if (!EmailValidator.getInstance().isValid(userToCreateDTO.getEmail())) {
-//                return ResponseEntity.badRequest().body("Invalid email address");
-//            }
-//            if (userToCreateDTO.getPassword().length() < 6) {
-//                return ResponseEntity.badRequest().body("Password must be at least 6 characters");
+//            // Validating user data
+//            ValidatorResults errors = validator.validate();
+//            if (!errors.isEmpty()) {
+//                String errorMsg = errors.stream()
+//                        .map(ConstraintViolation::getMessage)
+//                        .collect(Collectors.joining(", "));
+//                return ResponseEntity.badRequest().body(errorMsg);
 //            }
 //
 //            log.info("User data validated. Initializing user creation");
-//            // Mapear datos del usuario del dto a una entidad user
+//
+//            // Mapping user data from DTO to entity
 //            User user = modelMapper.map(userToCreateDTO, User.class);
 //
-//            // Crear usuario
+//            // Creating user
 //            userService.handle(user);
-//            log.info("User created");
+//            log.info("Response sent from SignUpUserPostController");
 //
-//            // Develover código de estado 201 (CREATED)
+//            // Returning status code 201 (CREATED)
 //            return ResponseEntity.status(HttpStatus.CREATED).build();
 //
 //        } catch (Exception e) {
@@ -62,5 +61,3 @@
 //            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error creating user");
 //        }
 //    }
-//}
-//
