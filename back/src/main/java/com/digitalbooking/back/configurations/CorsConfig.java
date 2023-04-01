@@ -10,7 +10,7 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("*")
+                .allowedOrigins("http://digital-booking-6.s3-website.us-east-2.amazonaws.com")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD")
                 .allowCredentials(true);
     }
