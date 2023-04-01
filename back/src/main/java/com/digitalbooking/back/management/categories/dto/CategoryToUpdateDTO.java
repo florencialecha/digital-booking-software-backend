@@ -7,7 +7,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-
-public class CategoryDTO {
+public class CategoryToUpdateDTO {
+    private Long id;
     private String title;
+    private String description;
+    private String quantity;
+    private String imageUrl;
 }

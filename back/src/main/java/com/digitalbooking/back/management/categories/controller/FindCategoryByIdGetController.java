@@ -1,6 +1,6 @@
 package com.digitalbooking.back.management.categories.controller;
 
-import com.digitalbooking.back.bookStayApp.reserves.dto.CategoryToFindDTO;
+import com.digitalbooking.back.management.categories.dto.CategoryToFindDTO;
 import com.digitalbooking.back.management.categories.domain.Category;
 import com.digitalbooking.back.management.categories.exception.ResourceNotFoundException;
 import com.digitalbooking.back.management.categories.service.FindCategoryByIdService;

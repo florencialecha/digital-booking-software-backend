@@ -1,4 +1,4 @@
-package com.digitalbooking.back.bookStayApp.reserves.dto;
+package com.digitalbooking.back.management.categories.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

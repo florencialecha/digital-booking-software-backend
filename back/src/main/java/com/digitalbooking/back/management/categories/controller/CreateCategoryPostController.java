@@ -1,6 +1,6 @@
 package com.digitalbooking.back.management.categories.controller;
 
-import com.digitalbooking.back.bookStayApp.reserves.dto.CategoryToCreateDTO;
+import com.digitalbooking.back.management.categories.dto.CategoryToCreateDTO;
 import com.digitalbooking.back.management.categories.domain.Category;
 import com.digitalbooking.back.management.categories.exception.ResourceNotFoundException;
 import com.digitalbooking.back.management.categories.service.CreateCategoryService;
@@ -15,7 +15,6 @@ import org.springframework.web.server.ResponseStatusException;
 @RequestMapping("/category")
 @CrossOrigin("*")
 @Log4j2
-
 public class CreateCategoryPostController {
 
     @Autowired
