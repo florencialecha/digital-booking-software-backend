@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/category")
 @CrossOrigin("*")
 @Log4j2
-public class FindAllCategoryGetController {
+public class FindAllCategoriesGetController {
 
     @Autowired
     private FindAllCategoryService findAllCategoryService;
