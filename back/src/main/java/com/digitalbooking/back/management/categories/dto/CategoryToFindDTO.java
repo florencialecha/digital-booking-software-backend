@@ -9,6 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class CategoryToFindDTO {
+    private Long id;
     private String title;
     private String description;
     private String quantity;
