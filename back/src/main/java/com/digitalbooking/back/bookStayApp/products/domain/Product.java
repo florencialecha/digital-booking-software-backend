@@ -39,8 +39,7 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PRODUCT_ID",
-            nullable = false,
-            unique = true)
+            nullable = false)
     private Long id;
 
     @Column(name = "TITLE",
