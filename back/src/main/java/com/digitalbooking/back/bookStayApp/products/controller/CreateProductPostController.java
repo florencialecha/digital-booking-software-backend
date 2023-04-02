@@ -14,7 +14,6 @@ import org.springframework.web.server.ResponseStatusException;
 @RequestMapping("/product")
 @CrossOrigin("*")
 @Log4j2
-
 public class CreateProductPostController {
     @Autowired
     private CreateProductService createProductService;
