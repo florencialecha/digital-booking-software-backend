@@ -29,7 +29,8 @@ public class Address {
     @Column(name = "NUMBER")
     private String number;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    //@ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "CITY_ID")
     private City city;
 

@@ -8,10 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-
-public class ImageDTO {
+public class ImageToCreateDTO {
     private String title;
     private String imageUrl;
-
 }

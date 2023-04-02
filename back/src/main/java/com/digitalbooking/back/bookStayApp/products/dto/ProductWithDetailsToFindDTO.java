@@ -1,9 +1,9 @@
 package com.digitalbooking.back.bookStayApp.products.dto;
 
-import com.digitalbooking.back.bookStayApp.policies.dto.PolicyDTO;
+import com.digitalbooking.back.bookStayApp.policies.dto.PolicyToCreateDTO;
 import com.digitalbooking.back.bookStayApp.address.dto.AddressToFindDTO;
 import com.digitalbooking.back.management.features.dto.FeatureToFindDTO;
-import com.digitalbooking.back.bookStayApp.images.dto.ImageDTO;
+import com.digitalbooking.back.bookStayApp.images.dto.ImageToCreateDTO;
 import com.digitalbooking.back.bookStayApp.reserves.dto.ReserveToFindDTO;
 
 import lombok.Getter;
@@ -27,9 +27,9 @@ public class ProductWithDetailsToFindDTO {
     private Integer scoring;
     private String review;
     private String category;
-    private PolicyDTO policy;
+    private PolicyToCreateDTO policy;
     private List<FeatureToFindDTO> features;
-    private List<ImageDTO> images;
+    private List<ImageToCreateDTO> images;
     private Set<ReserveToFindDTO> reserve;
 
 }

@@ -7,10 +7,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class PolicyDTO {
-
+public class PolicyToCreateDTO {
     private String rules;
     private String security;
     private String cancellation;

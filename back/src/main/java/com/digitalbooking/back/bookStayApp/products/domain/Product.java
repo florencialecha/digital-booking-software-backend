@@ -38,7 +38,7 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "PRODUCT_ID")
+    @Column(name = "PRODUCT_ID", nullable = false, unique = true)
     private Long id;
 
     @Column(name = "TITLE")
@@ -60,7 +60,8 @@ public class Product {
     @Column(name = "REVIEW")
     private String review;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+//    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "CATEGORY_ID")
     private Category category;
 
