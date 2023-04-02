@@ -92,14 +92,6 @@ public class CreateProductService {
         log.info("Address saved on product");
 
         // Save product
-        log.info("Product to save: title: {}, category: {}, features size: {}, police id: {}, address id: {}. city:{}",
-                product.getTitle(),
-                product.getCategory().getTitle(),
-                product.getFeatures().size(),
-                product.getPolicy().getId(),
-                product.getAddress().getId(),
-                product.getAddress().getCity().getName());
-
         productRepository.save(product);
         log.info("Product created with id: {} and title: {}", product.getId(), product.getTitle());
     }

@@ -26,11 +26,12 @@ public class Image {
     @Column(name = "TITLE")
     private String title;
 
-    @Column(name = "IMAGE_URL")
+    @Column(name = "IMAGE_URL", nullable = false)
     private String imageUrl;
 
     @JsonIgnore
-    @ManyToOne
+    @ManyToOne (optional = false,
+            cascade = CascadeType.ALL)
     @JoinColumn(name = "PRODUCT_ID")
     private Product product;
 

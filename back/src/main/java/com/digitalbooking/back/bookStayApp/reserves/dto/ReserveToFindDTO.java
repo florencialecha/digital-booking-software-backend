@@ -11,7 +11,6 @@ import java.time.LocalTime;
 @Setter
 @NoArgsConstructor
 public class ReserveToFindDTO {
-
     private LocalTime startTime;
     private LocalDate checkIn;
     private LocalDate checkOut;

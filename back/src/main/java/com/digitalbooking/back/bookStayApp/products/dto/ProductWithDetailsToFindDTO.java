@@ -18,7 +18,6 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 public class ProductWithDetailsToFindDTO {
-
     private Long id;
     private String title;
     private AddressToFindDTO address;
@@ -31,5 +30,4 @@ public class ProductWithDetailsToFindDTO {
     private List<FeatureToFindDTO> features;
     private List<ImageToCreateDTO> images;
     private Set<ReserveToFindDTO> reserve;
-
 }

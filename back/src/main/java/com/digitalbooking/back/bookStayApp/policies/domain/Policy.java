@@ -17,7 +17,6 @@ import lombok.Setter;
 @Setter
 
 public class Policy {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "POLICY_ID")
@@ -29,7 +28,8 @@ public class Policy {
     @Column(name = "CANCELLATION", length = 500)
     private String cancellation;
     @JsonIgnore
-    @OneToOne(mappedBy = "policy")
+    @OneToOne(mappedBy = "policy",
+            optional = false,
+            cascade = CascadeType.ALL)
     private Product product;
-
 }

@@ -29,13 +29,15 @@ public class Address {
     @Column(name = "NUMBER")
     private String number;
 
-    //@ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER,
+            optional = false)
     @JoinColumn(name = "CITY_ID")
     private City city;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "address")
+    @OneToOne(mappedBy = "address",
+            optional = false,
+            cascade = CascadeType.ALL)
     private Product product;
 
 }

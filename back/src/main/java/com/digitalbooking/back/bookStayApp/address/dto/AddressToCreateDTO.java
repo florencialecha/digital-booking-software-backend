@@ -7,11 +7,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-
 public class AddressToCreateDTO {
-
     private String street;
     private String number;
     private Long city;
-
 }

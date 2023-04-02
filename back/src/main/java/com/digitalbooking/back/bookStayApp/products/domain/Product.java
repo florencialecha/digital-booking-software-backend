@@ -38,10 +38,13 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "PRODUCT_ID", nullable = false, unique = true)
+    @Column(name = "PRODUCT_ID",
+            nullable = false,
+            unique = true)
     private Long id;
 
-    @Column(name = "TITLE")
+    @Column(name = "TITLE",
+            nullable = false)
     private String title;
 
     @OneToOne(fetch = FetchType.EAGER,
@@ -60,16 +63,18 @@ public class Product {
     @Column(name = "REVIEW")
     private String review;
 
-//    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER,
+            optional = false)
     @JoinColumn(name = "CATEGORY_ID")
     private Category category;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL)
     @JoinColumn(name = "POLICY_ID")
     private Policy policy;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
     @JoinTable(name = "PRODUCT_FEATURE")
     private Set<Feature> features = new HashSet<>();
 

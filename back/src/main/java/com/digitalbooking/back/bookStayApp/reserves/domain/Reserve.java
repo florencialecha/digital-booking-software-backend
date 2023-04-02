@@ -29,22 +29,22 @@ public class Reserve {
     @Column(name = "RESERVE_ID")
     private Long id;
 
-    @Column(name = "START_TIME")
+    @Column(name = "START_TIME", nullable = false)
     private LocalTime startTime;
 
-    @Column(name = "CHECK_IN")
+    @Column(name = "CHECK_IN", nullable = false)
     private LocalDate checkIn;
 
-    @Column(name = "CHECK_OUT")
+    @Column(name = "CHECK_OUT", nullable = false)
     private LocalDate checkOut;
 
-    @JsonIgnore // exclude this property from serialization/deserialization
-    @ManyToOne // many reserves can be associated with one product
+    @JsonIgnore
+    @ManyToOne(optional = false)
     @JoinColumn(name = "PRODUCT_ID")
     private Product product;
 
-    @JsonIgnore // exclude this property from serialization/deserialization
-    @ManyToOne // many reserves can be associated with one user
+    @JsonIgnore
+    @ManyToOne(optional = false)
     @JoinColumn(name = "USER_ID")
     private User user;
 

@@ -9,11 +9,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class AddressToFindDTO {
-
         private String street;
         private String number;
         private String city;
         private String state;
         private String country;
-
 }
