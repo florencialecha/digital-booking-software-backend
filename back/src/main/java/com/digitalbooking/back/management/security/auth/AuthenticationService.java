@@ -22,11 +22,18 @@ public class AuthenticationService {
 
     public AuthenticationResponse register(RegisterRequest request) {
         log.info("Executing AuthenticationService.register()");
+
+        // Verifica si el nombre de usuario ya existe
+        if (userRepository.findByUsername(request.getUsername()).isPresent()) {
+            log.error("Username already exists");
+            throw new IllegalArgumentException("Username already exists");
+        }
+
         //todo: esto se podría hacer con el ModelMapper?
         var user = User.builder()
-                .firstname(request.getFirstName())
+                .firstname(request.getFirstname())
                 .lastName(request.getLastName())
-                .username(request.getUserName())
+                .username(request.getUsername())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.USER)
