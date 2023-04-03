@@ -27,8 +27,6 @@ public class SecurityConfig {
 
                 //PUBLIC RESOURCES
 
-                    //Swagger documentation
-                    .requestMatchers("swagger-ui.html").permitAll()
                     //Sign up: new user and Login: existing user
                     .requestMatchers("/auth/**").permitAll()
                     //Call on home page | Searcher component | List all cities with countries
