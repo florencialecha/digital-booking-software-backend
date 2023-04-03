@@ -24,7 +24,7 @@ public class AuthenticationController {
 
     //todo: cambiar a endpoint login
     //todo: separar controladores
-    @PostMapping("/authenticate")
+    @PostMapping("/login")
     public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
         log.info("Request received on AuthenticationController");
         return ResponseEntity.ok(authenticationService.authenticate(request));
