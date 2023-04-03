@@ -2,7 +2,7 @@ package com.digitalbooking.back.bookStayApp.reserves.domain;
 
 import com.digitalbooking.back.bookStayApp.products.domain.Product;
 //import com.digitalbooking.back.management.users.domain.User;
-import com.digitalbooking.back.management.security.users.domain.User;
+import com.digitalbooking.back.management.security.users.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

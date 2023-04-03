@@ -1,9 +1,9 @@
 package com.digitalbooking.back.management.security.auth;
 
 import com.digitalbooking.back.management.security.config.JwtService;
-import com.digitalbooking.back.management.security.users.domain.Role;
-import com.digitalbooking.back.management.security.users.domain.User;
-import com.digitalbooking.back.management.security.users.domain.UserRepository;
+import com.digitalbooking.back.management.security.users.Role;
+import com.digitalbooking.back.management.security.users.User;
+import com.digitalbooking.back.management.security.users.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.authentication.AuthenticationManager;

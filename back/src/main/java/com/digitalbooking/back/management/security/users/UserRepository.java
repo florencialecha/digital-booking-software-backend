@@ -1,4 +1,4 @@
-package com.digitalbooking.back.management.security.users.domain;
+package com.digitalbooking.back.management.security.users;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

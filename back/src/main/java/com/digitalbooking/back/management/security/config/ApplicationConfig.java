@@ -1,6 +1,6 @@
 package com.digitalbooking.back.management.security.config;
 
-import com.digitalbooking.back.management.security.users.domain.UserRepository;
+import com.digitalbooking.back.management.security.users.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
