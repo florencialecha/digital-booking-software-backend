@@ -1,17 +1,22 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CardStars from "./CardStars";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot, faHeart } from "@fortawesome/free-solid-svg-icons";
+import {
+  faLocationDot,
+  faHeart,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
+
 import Features from "../../details/ProductFeatures/Features";
+import { GlobalContext } from "../../../utils/globalContext";
+import { useNavigate } from "react-router";
 
 const CardSuggested = ({ suggest, styles }) => {
-  const [isActive, setActive] = useState(false);
-
-  const handleToggle = () => {
-    setActive(!isActive);
-  };
-
+  const { state, handleFav } = useContext(GlobalContext);
+  const [openLogin, setOpenLogin] = useState(false);
+  const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("JWT"));
   const handleClickMap = () => {
     window.open(
       `https://www.google.com/maps/embed/v1/place?key=AIzaSyDO5woQG6Ni56if3gOVoVoP3coiwxg4huI
@@ -28,12 +33,67 @@ const CardSuggested = ({ suggest, styles }) => {
     window.location.href = `/product/${suggest.id}`;
   };
 
+  const handleRedirect = () => {
+    setOpenLogin(!openLogin);
+
+    handleFav(suggest);
+    localStorage.setItem("goToFavs", JSON.stringify(true));
+  };
+
+  const handleFavorites = () => {
+    user ? handleFav(suggest) : handleRedirect();
+  };
+
+  const closePopUp = () => {
+    setOpenLogin(!openLogin);
+    localStorage.removeItem("goToFavs");
+  };
+
   return (
     <div className={styles.cardContainer}>
+      <div
+        className={
+          openLogin ? `${styles.loginFavContainer}` : `${styles.hideLogin}`
+        }
+      >
+        <div className={styles.loginFav}>
+          <button className={styles.closePopup} onClick={closePopUp}>
+            <FontAwesomeIcon icon={faXmark} size="2xl"></FontAwesomeIcon>
+          </button>
+          <img
+            src="https://i.ibb.co/W5J7Jy6/logo-orange.png"
+            alt="Logo from Digital Booking"
+          />
+          <h2>¡Te damos la bienvenida a Db!</h2>
+
+          <h4>Inicia sesión para organizar tu viaje</h4>
+          <div className={styles.loginRegisterButtons}>
+            <a className={styles.loginButtonFav} href="/login">
+              Iniciar sesión
+            </a>
+            <p>
+              ¿Aún no tienes cuenta?{" "}
+              <a href="/register" className={styles.registerButtonFav}>
+                Registrate
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
       <FontAwesomeIcon
-        className={styles.favIcon + " " + styles[`full-${isActive}`]}
+        className={
+          styles.favIcon +
+          " " +
+          styles[
+            `full-${
+              state.favs?.find((fav) => fav.id === suggest.id) && user
+                ? true
+                : false
+            }`
+          ]
+        }
         icon={faHeart}
-        onClick={handleToggle}
+        onClick={handleFavorites}
       />
       <section>
         <img src={suggest.images[0]?.imageUrl} />
@@ -48,7 +108,7 @@ const CardSuggested = ({ suggest, styles }) => {
             </div>
             <div className={styles.valorationInfo}>
               <p>{suggest.scoring}</p>
-              <p>{suggest.review}</p>
+              <p className={styles.review}>{suggest.review}</p>
             </div>
           </div>
           <div className={styles.cardLocation} id={styles.cardLocation}>

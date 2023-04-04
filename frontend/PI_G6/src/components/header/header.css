@@ -1,7 +1,6 @@
 nav div {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-end;
   gap: 10px;
 }
 
@@ -9,10 +8,15 @@ nav div {
   padding-top: 5px;
 }
 
+.slogan {
+  align-self: flex-end;
+  font-style: italic;
+}
+
 nav p {
   font-size: 20px;
   font-weight: 300;
-  font-style: italic;
+
   padding-bottom: 3px;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -23,7 +27,6 @@ nav button {
   border-radius: 7px;
   color: #f0572d;
   border: 1px #f0572d solid;
-  font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
@@ -44,6 +47,10 @@ nav a:visited {
   color: inherit;
 }
 
+.navMenu {
+  height: 100%;
+}
+
 .profileInfo {
   display: flex;
   flex-direction: column;
@@ -60,7 +67,6 @@ nav a:visited {
 }
 
 .profileName {
-  font-style: normal;
   text-shadow: none;
   font-weight: 500;
   font-size: 16px;
@@ -83,8 +89,11 @@ nav a:visited {
   height: 37px;
   padding: 0;
   font-weight: 700;
-  font-style: normal;
   font-size: 16px;
+  align-self: center;
+}
+
+.formButtons {
   align-self: center;
 }
 
@@ -148,13 +157,103 @@ nav .socials {
   display: none;
 }
 
+.favContainer {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-shadow: none;
+  width: 50px;
+  justify-content: flex-end;
+}
+
+.favsMenu {
+  display: none;
+  align-self: flex-start;
+  position: fixed;
+  top: 10%;
+  right: 10vw;
+  height: fit-content;
+  max-height: calc(55% + 50px);
+  width: 470px;
+  background-color: white;
+  overflow-y: scroll;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: -1px 7px 18px 2px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: -1px 7px 18px 2px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: -1px 7px 18px 2px rgba(0, 0, 0, 0.6);
+}
+
+.favButtonDiv {
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  z-index: 999;
+  text-align: center;
+  background-color: #ffffff;
+  height: 50px;
+  display: flex;
+  box-shadow: 0 -4px 12px 0 rgba(0, 0, 0, 0.25);
+}
+
+.favButtonDiv a {
+  align-self: center;
+  font-weight: bold;
+}
+
+.favButtonDiv a:hover {
+  transform: scale(1.02);
+}
+
+.hideButton {
+  display: none;
+}
+
+.favsMenu::-webkit-scrollbar {
+  display: none;
+}
+
+.favContainer:hover .favsMenu {
+  display: block;
+}
+
+.hideFavsMenu {
+  display: none;
+}
+
+.favContainer:hover .favIcon svg > * {
+  color: #f0572d;
+}
+
+.favsMenu h4 {
+  padding: 10px 20px;
+}
+
 @media only screen and (max-width: 1024px) {
   .slogan {
+    display: none;
+  }
+
+  .favContainer:hover .favsMenu {
     display: none;
   }
 }
 
 @media only screen and (max-width: 600px) {
+  div.favContainer {
+    position: absolute;
+    height: 50px;
+    top: 175px;
+  }
+
+  .favLink {
+    padding: 20px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
   .navMenuMobile {
     position: fixed;
     display: flex;
@@ -176,7 +275,6 @@ nav .socials {
     width: 206px;
     height: 40px;
     border: none;
-    font-style: normal;
     font-weight: 700;
     font-size: 16px;
     line-height: 19px;
@@ -229,7 +327,7 @@ nav .socials {
     position: absolute;
     bottom: 100px;
     color: #191b1d;
-    font-style: normal;
+
     font-size: 18px;
   }
 
@@ -240,8 +338,11 @@ nav .socials {
   }
 
   .formButtons {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
   }
 
   button.btn {

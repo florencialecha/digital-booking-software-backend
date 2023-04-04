@@ -46,8 +46,8 @@ const reserve = () => {
         startTime: "12:00:23",
         checkIn: newReservation[0],
         checkOut: newReservation[1],
-        product: 7,
-        user: 1,
+        productId: 7,
+        userId: 1,
       })
       .then((response) => {
         console.log(response);

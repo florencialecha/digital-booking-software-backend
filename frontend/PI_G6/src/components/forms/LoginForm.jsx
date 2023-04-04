@@ -1,44 +1,43 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { useFormik } from 'formik'
-import * as yup from 'yup'
-import { BsEyeSlash, BsEye } from 'react-icons/bs'
-import './form.css'
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
+import * as yup from "yup";
+import { BsEyeSlash, BsEye } from "react-icons/bs";
+import "./form.css";
+import { apiUserLogin } from "../../utils/apiEndpoints";
+import axios from "axios";
 
 const LoginForm = () => {
-  const navigate = useNavigate()
-  const [showPassword, setShowPassword] = useState(false)
-  const ifNonUserReserv = JSON.parse(localStorage.getItem('ifNonUserReserv'))
-  const userLoggedIn = JSON.parse(localStorage.getItem('userLoggedIn'))
-  const productReservedInLocal = JSON.parse(localStorage.getItem('productReservedInLocal'))
+  const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+  const ifNonUserReserv = JSON.parse(localStorage.getItem("ifNonUserReserv"));
+  const userLoggedIn = JSON.parse(localStorage.getItem("JWT"));
+  const productReservedInLocal = JSON.parse(
+    localStorage.getItem("productReservedInLocal")
+  );
+  const redirectFav = JSON.parse(localStorage.getItem("goToFavs"));
 
+  const onSubmit = async (values) => {
+    try {
+      const response = await axios.post(apiUserLogin, {
+        username: values.username,
 
-  const onSubmit = async (values, actions) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    actions.resetForm()
-    const user = JSON.parse(localStorage.getItem('user'))
-    if (values.email === user.email && values.password === user.password) {
-      if (productReservedInLocal) {
-        window.location.replace(productReservedInLocal)
-        localStorage.setItem('userLoggedIn', true)
-      } else {
-        navigate('/')
-        localStorage.setItem('userLoggedIn', true)
+        password: values.password,
+      });
+      if (response.data.token && redirectFav) navigate("/favorites");
+      else {
+        navigate("/");
       }
-    } else {
-      document.querySelector(
-        '.failed-validation'
-      ).innerHTML = '<p>Por favor vuelva a intentarlo, sus credenciales son inválidas.</p>'
+      localStorage.setItem("JWT", JSON.stringify(response.data.token));
+    } catch (error) {
+      console.log(error);
     }
-  }
+  };
 
   const schema = yup.object({
-    email: yup
-      .string()
-      .email('El correo electrónico ingresado no es válido')
-      .required('Este campo es obligatorio'),
-    password: yup.string().required('Este campo es obligatorio')
-  })
+    username: yup.string().required("Este campo es obligatorio"),
+    password: yup.string().required("Este campo es obligatorio"),
+  });
 
   const {
     values,
@@ -47,53 +46,65 @@ const LoginForm = () => {
     handleSubmit,
     handleChange,
     handleBlur,
-    isSubmitting
+    isSubmitting,
   } = useFormik({
     initialValues: {
-      email: '',
-      password: ''
+      username: "",
+      password: "",
     },
     validationSchema: schema,
-    onSubmit
-  })
+    onSubmit,
+  });
 
   const handleShowPassword = () => {
-    setShowPassword(!showPassword)
-  }
+    setShowPassword(!showPassword);
+  };
 
   return (
     <div className="loginForm">
-      {ifNonUserReserv  && userLoggedIn ? '' : <p className='apiEndpointError'>Para realizar una reserva necesitas estar logueado</p>}
+      {ifNonUserReserv && !userLoggedIn ? (
+        ""
+      ) : (
+        <p className="apiEndpointError">
+          Para realizar una reserva necesitas estar logueado
+        </p>
+      )}
       <h1>Iniciar sesión</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Correo electrónico</label>
+        <label htmlFor="username">Username</label>
         <input
-          type="email"
-          id="email"
-          name="email"
-          value={values.email}
+          type="username"
+          id="username"
+          name="username"
+          value={values.username}
           onChange={handleChange}
           onBlur={handleBlur}
-          className={errors.email && touched.email ? 'input-error' : ''}
+          className={errors.username && touched.username ? "input-error" : ""}
         />
 
-        {errors.email && touched.email && (
-          <p className="error">{errors.email}</p>
+        {errors.username && touched.username && (
+          <p className="error">{errors.username}</p>
         )}
         <label htmlFor="password">Contraseña</label>
         <div id="showPass">
-            <input
-            type={showPassword ? 'text' : 'password'}
+          <input
+            type={showPassword ? "text" : "password"}
             placeholder=""
             id="password"
             name="password"
             value={values.password}
             onChange={handleChange}
             onBlur={handleBlur}
-            className={errors.password && touched.password ? 'input-error' : ''}
-            />
-            <span className='showPass' onClick={handleShowPassword}>{showPassword ? <BsEye className="showIcon"/> : <BsEyeSlash className="showIcon"/>}</span>
-          </div>
+            className={errors.password && touched.password ? "input-error" : ""}
+          />
+          <span className="showPass" onClick={handleShowPassword}>
+            {showPassword ? (
+              <BsEye className="showIcon" />
+            ) : (
+              <BsEyeSlash className="showIcon" />
+            )}
+          </span>
+        </div>
         {errors.password && touched.password && (
           <p className="error">{errors.password}</p>
         )}
@@ -107,7 +118,7 @@ const LoginForm = () => {
         </p>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default LoginForm
+export default LoginForm;

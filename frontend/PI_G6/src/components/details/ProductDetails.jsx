@@ -18,12 +18,14 @@ import { useNavigate, useParams } from "react-router";
 import { apiProductById } from "../../utils/apiEndpoints";
 import axios from "axios";
 import { GlobalContext } from "../../utils/globalContext";
+import Share from "./socialMediaShare/Share";
 
 const ProductDetails = () => {
-  const loggedUser = JSON.parse(localStorage.getItem("userLoggedIn"));
+  const loggedUser = JSON.parse(localStorage.getItem("JWT"));
   const [product, setProduct] = useState(null);
   const { id } = useParams();
-  const { state } = useContext(GlobalContext);
+  const { state, handleFav } = useContext(GlobalContext);
+  const [showSocialIcons, setShowSocialIcons] = useState(false);
 
   const reservation = JSON.parse(localStorage.getItem("reservation"));
   const navigate = useNavigate();
@@ -66,6 +68,10 @@ const ProductDetails = () => {
     }
   };
 
+  const handleSocialMedia = () => {
+    setShowSocialIcons(!showSocialIcons);
+  };
+
   return (
     <>
       {product ? (
@@ -100,10 +106,36 @@ const ProductDetails = () => {
             <div>
               <div className={styles.detailsShare}>
                 <FontAwesomeIcon
+                  className={styles.shareIcon}
                   icon={faShareNodes}
                   size="lg"
+                  onClick={handleSocialMedia}
                 ></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faHeart} size="lg"></FontAwesomeIcon>
+                <div
+                  className={
+                    showSocialIcons
+                      ? `${styles.socialIconsWrapper}`
+                      : `${styles.hideSocialIconsWrapper}`
+                  }
+                >
+                  <Share styles={styles} />
+                </div>
+
+                <FontAwesomeIcon
+                  className={
+                    styles.favIcon +
+                    " " +
+                    styles[
+                      `full-${
+                        state.favs?.find((fav) => fav.id === product.id)
+                          ? true
+                          : false
+                      }`
+                    ]
+                  }
+                  icon={faHeart}
+                  onClick={() => handleFav(product)}
+                />
               </div>
               <div className={styles.detailsGalery}>
                 <Gallery pictures={product.images} />
