@@ -60,6 +60,8 @@ public class SecurityConfig {
 
                     //Call on host page | New product component | Post new product
                     .requestMatchers(HttpMethod.POST, "/product").hasAuthority("HOST")
+                    //Call on host page | New product component| Find all feature
+                    .requestMatchers(HttpMethod.GET, "/feature").hasAuthority("HOST")
 
                 //ADMIN RESOURCES
 
