@@ -15,6 +15,5 @@ public class ReserveToCreateDTO {
     private LocalDate checkIn;
     private LocalDate checkOut;
     private Long productId;
-    private Long userId;
 
 }

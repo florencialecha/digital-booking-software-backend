@@ -12,8 +12,11 @@ import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/reserve")
@@ -31,7 +34,7 @@ public class CreateReservePostController {
     private ModelMapper modelMapper;
 
     @PostMapping
-    public void handle(@RequestBody ReserveToCreateDTO reserveToCreateDTO) {
+    public void handle(@RequestBody ReserveToCreateDTO reserveToCreateDTO, @AuthenticationPrincipal User user) {
         log.info("Request received on CreateReservePostController");
 
         try {
@@ -43,9 +46,8 @@ public class CreateReservePostController {
                     .orElseThrow(() -> new ResourceNotFoundException("Product not found"));
             reserve.setProduct(product);
 
-            // Assign the user to the reserve using the user ID
-            User user = userRepository.findById(reserveToCreateDTO.getUserId())
-                    .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+            // Assign the user to the reserve using the token received on the request header
+            log.info("User name: {} ", user.getUsername());
             reserve.setUser(user);
 
             // Create the reserve using the createReserveService
