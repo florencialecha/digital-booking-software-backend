@@ -134,7 +134,11 @@ const ProductDetails = () => {
                     ]
                   }
                   icon={faHeart}
-                  onClick={() => handleFav(product)}
+                  onClick={
+                    loggedUser
+                      ? () => handleFav(product)
+                      : () => navigate("/login")
+                  }
                 />
               </div>
               <div className={styles.detailsGalery}>

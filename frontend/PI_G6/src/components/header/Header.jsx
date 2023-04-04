@@ -144,16 +144,10 @@ const Header = () => {
                 ></FontAwesomeIcon>
               </div>
               <div className="profile-info-web">
-                <p className="profileAvatar">
-                  {user.name.slice(0, 1)}
-                  {user.lastName.slice(0, 1)}
-                </p>
+                <p className="profileAvatar">JD</p>
                 <p className="profileName">
                   Hola, <br></br>
-                  <span>
-                    {user.name}
-                    {""} {user.lastName}
-                  </span>
+                  <span>John Doe</span>
                 </p>
               </div>
               <p className="logoutMobile">

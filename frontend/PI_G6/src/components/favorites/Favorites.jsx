@@ -26,7 +26,7 @@ const Favorites = () => {
             </div>
           ))
         ) : (
-          <p className={styles.noFav}>No se encontraron resultados</p>
+          <p className={styles.noFav}>No se encontraron resultados...</p>
         )}
       </div>
     </div>
