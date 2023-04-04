@@ -1,5 +1,6 @@
 package com.digitalbooking.back.management.security.auth;
 
+import com.digitalbooking.back.management.security.config.JwtService;
 import io.micrometer.common.util.StringUtils;
 import lombok.RequiredArgsConstructor;
 
@@ -7,6 +8,7 @@ import lombok.extern.log4j.Log4j2;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -46,6 +48,7 @@ public class AuthenticationController {
     @PostMapping("/login")
     public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
         log.info("Request received on AuthenticationController");
-        return ResponseEntity.ok(authenticationService.authenticate(request));
+        AuthenticationResponse response = authenticationService.authenticate(request);
+        return ResponseEntity.ok(response);
     }
 }
