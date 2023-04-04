@@ -55,6 +55,7 @@ public class CreateReservePostController {
 
         } catch (ResourceNotFoundException e) {
             log.error("Can't create a reserve, product or user don't found: " + e.getMessage());
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Product or user not found", e);
 
         } catch (Exception e) {
             log.error("Can't create a reserve: " + e.getMessage());

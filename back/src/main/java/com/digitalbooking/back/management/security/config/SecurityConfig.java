@@ -52,7 +52,7 @@ public class SecurityConfig {
                     //Call on product details page | Product details component | Calendar reservations | Get all reservations by product id
                     .requestMatchers(HttpMethod.GET,"/reserve/byProductId/{idProduct}").authenticated()
                     //Call on user details page | My reserves | Get all reservations by user id
-                    .requestMatchers(HttpMethod.GET,"/reserve/byUserId/{idUser}").authenticated()
+                    .requestMatchers(HttpMethod.GET,"/reserve/byUserId").authenticated()
                     //Call on reserve page | Reserve component | Post new reserve with user info
                     .requestMatchers(HttpMethod.POST, "/reserve").authenticated()
 

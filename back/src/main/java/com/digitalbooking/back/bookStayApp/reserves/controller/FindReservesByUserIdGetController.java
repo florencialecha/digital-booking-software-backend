@@ -4,10 +4,12 @@ import com.digitalbooking.back.bookStayApp.products.exception.ResourceNotFoundEx
 import com.digitalbooking.back.bookStayApp.reserves.domain.Reserve;
 import com.digitalbooking.back.bookStayApp.reserves.dto.ReservesUserDTO;
 import com.digitalbooking.back.bookStayApp.reserves.service.FindReservesByUserIdService;
+import com.digitalbooking.back.management.security.users.User;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,12 +26,12 @@ public class FindReservesByUserIdGetController {
     @Autowired
     private ModelMapper modelMapper;
 
-    @GetMapping("/byUserId/{idUser}")
-    public ResponseEntity<List<ReservesUserDTO>> handle(@PathVariable Long idUser) throws ResourceNotFoundException {
+    @GetMapping("/byUserId")
+    public ResponseEntity<List<ReservesUserDTO>> handle(@AuthenticationPrincipal User user) throws ResourceNotFoundException {
         log.info("Request received on FindReservesByUserIdGetController");
-
+        log.info("Received User id: {} by JWT", user.getId());
         // Retrieve all reserves by user id using the findReservesByUserIdService
-        List<Reserve> reserves = findReservesByUserIdService.handle(idUser);
+        List<Reserve> reserves = findReservesByUserIdService.handle(user.getId());
 
         if (reserves.isEmpty()) {
             throw new ResourceNotFoundException("Can't find a reserves on this user.");
