@@ -44,7 +44,6 @@ const Header = () => {
     );
     if (confirmLogout) {
       localStorage.removeItem("JWT");
-      localStorage.removeItem("goToFavs");
       navigate("/");
     }
   };

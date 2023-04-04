@@ -6,6 +6,8 @@ import { BsEyeSlash, BsEye } from "react-icons/bs";
 import "./form.css";
 import { apiUserLogin } from "../../utils/apiEndpoints";
 import axios from "axios";
+import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -24,10 +26,18 @@ const LoginForm = () => {
 
         password: values.password,
       });
-      if (response.data.token && redirectFav) navigate("/favorites");
-      else {
-        navigate("/");
+      if (response.data.token) {
+        if (redirectFav) {
+          navigate("/favorites");
+        } else if (!redirectFav && productReservedInLocal) {
+          window.location.replace(productReservedInLocal);
+        } else {
+          navigate("/");
+        }
+        localStorage.removeItem("goToFavs");
+        localStorage.removeItem("productReservedInLocal");
       }
+
       localStorage.setItem("JWT", JSON.stringify(response.data.token));
     } catch (error) {
       console.log(error);
@@ -62,12 +72,19 @@ const LoginForm = () => {
 
   return (
     <div className="loginForm">
-      {ifNonUserReserv && !userLoggedIn ? (
+      {!productReservedInLocal && !userLoggedIn ? (
         ""
       ) : (
-        <p className="apiEndpointError">
-          Para realizar una reserva necesitas estar logueado
-        </p>
+        <div className="alertContainer">
+          <FontAwesomeIcon
+            icon={faCircleExclamation}
+            style={{ color: "#ba0d0d" }}
+            size="2xl"
+          />
+          <p className="apiEndpointError">
+            Para realizar una reserva necesitas estar logueado
+          </p>
+        </div>
       )}
       <h1>Iniciar sesión</h1>
       <form onSubmit={handleSubmit}>
