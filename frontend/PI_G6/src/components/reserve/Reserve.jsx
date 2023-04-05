@@ -10,20 +10,17 @@ import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import CardStars from "../Home/CardSuggested/CardStars";
 import axios from "axios";
 import { apiReserve } from "../../utils/apiEndpoints";
-import ReserveAlert from "./ReserveAlert";
 import Swal from "sweetalert2";
 import { GlobalContext } from "../../utils/globalContext";
 
 const reserve = () => {
-  const [showAlert, setShowAlert] = useState(false);
+  const [hourSelect, setHourSelect] = useState("");
   const product = JSON.parse(localStorage.getItem("productSelected"));
   const { state } = useContext(GlobalContext);
   const reservations = JSON.parse(localStorage.getItem("reservation"));
   const token = JSON.parse(localStorage.getItem("JWT"));
   const newReservation = [];
-  {
-    console.log(newReservation);
-  }
+
   state.reservation.length === 2
     ? state.reservation.map((reservation) => {
         newReservation.push(reservation.replaceAll("/", "-"));
@@ -39,7 +36,7 @@ const reserve = () => {
       .post(
         apiReserve,
         {
-          startTime: "12:00:23",
+          startTime: hourSelect,
           checkIn: newReservation[0],
           checkOut: newReservation[1],
           productId: product.id,
@@ -53,7 +50,7 @@ const reserve = () => {
       )
       .then((response) => {
         console.log(response);
-        // handleReservaExitosa()
+
         const Toast = Swal.mixin({
           toast: true,
           position: "center",
@@ -76,9 +73,6 @@ const reserve = () => {
         console.log(error);
       });
   };
-
-  console.log(token);
-  console.log(product.id);
 
   return (
     <div className={styles.reserveGlobalContainer}>
@@ -145,7 +139,11 @@ const reserve = () => {
         </div>
         <div className={styles.arrivalTime}>
           <p>Tu Horario de llegada</p>
-          <ArrivalInfo styles={styles} />
+          <ArrivalInfo
+            hourSelect={hourSelect}
+            setHourSelect={setHourSelect}
+            styles={styles}
+          />
         </div>
       </div>
       <div className={styles.haveToKnow}>
