@@ -10,7 +10,6 @@ import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import CardStars from "../Home/CardSuggested/CardStars";
 import axios from "axios";
 import { apiReserve } from "../../utils/apiEndpoints";
-import ReserveAlert from "./ReserveAlert";
 import Swal from "sweetalert2";
 import { GlobalContext } from "../../utils/globalContext";
 

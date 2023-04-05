@@ -65,7 +65,7 @@ const AdminPage = () => {
   }, [productImages])
   
   const handleCreateProductClick = async () => {
-    const token = localStorage.getItem('JWT');
+    const token =  JSON.parse(localStorage.getItem('JWT'));
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -86,7 +86,7 @@ const AdminPage = () => {
           cancellation: cancellation
       },
       images: imageList,
-        address: {  
+        address: {
           street: `${splitAddress(productAddress).street}`,
           number: `${splitAddress(productAddress).number}`,
           city: productCity,
