@@ -30,7 +30,6 @@ const reserve = () => {
       });
 
   const categoryTitle = `${product.category.title}`.toUpperCase();
-
   const onReserveConfirm = () => {
     axios
       .post(
@@ -127,9 +126,6 @@ const reserve = () => {
               >
                 Confirmar reserva
               </button>
-              {/* <div className={ showAlert ? styles.alertTrue : styles.alertFalse}>
-                    <ReserveAlert styles={styles} />
-                  </div> */}
             </div>
           </div>
         </div>
