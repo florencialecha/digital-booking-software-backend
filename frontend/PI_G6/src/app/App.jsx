@@ -8,6 +8,7 @@ import Register from '../routes/Register'
 import ProductDetails from '../components/details/ProductDetails'
 import Reserve from '../components/reserve/Reserve'
 import '../index.css'
+import AdminPage from '../components/administration/AdminPage'
 
 function App () {
   return (
@@ -17,6 +18,7 @@ function App () {
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/administration" element={<AdminPage />} />
         <Route path='/product/:id' element={ <ProductDetails/> }/>
         <Route path='/product/:id/reserve' className='reserve' element={ <Reserve/> }/>
       </Route>

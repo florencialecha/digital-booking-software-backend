@@ -15,7 +15,7 @@ const CardSuggested = ({ suggest, styles }) => {
   const handleClickMap = () => {
     window.open(
       `https://www.google.com/maps/embed/v1/place?key=AIzaSyDO5woQG6Ni56if3gOVoVoP3coiwxg4huI
-  &q=${suggest.address.street}+${suggest.address.number},${suggest.address.city.name}+${suggest.address.city.state.name}+${suggest.address.city.state.country.name}&zoom=19`,
+  &q=${suggest.address.street}+${suggest.address.number},${suggest.address.city}+${suggest.address.state}+${suggest.address.country}&zoom=19`,
       "register",
       'width=800,height=600, top=0, left=960"'
     );
@@ -23,8 +23,6 @@ const CardSuggested = ({ suggest, styles }) => {
   };
 
   const handleReserv = () => {
-    // const hotelSelected = JSON.stringify(suggest)
-    // localStorage.setItem('hotelSelected', hotelSelected)
     window.location.href = `/product/${suggest.id}`;
   };
 

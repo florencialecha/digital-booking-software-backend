@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import "./Searcher.css";
+import styles from "./Searcher.module.css";
 import SelectorTarget from "./SelectorTarget";
 import DatePick from "./DatePick";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,29 +8,30 @@ import { GlobalContext } from "../../../utils/globalContext";
 
 const Searcher = () => {
   const [selected, setSelected] = useState("");
-
-  const { dispatch } = useContext(GlobalContext);
+  const { state, dispatch } = useContext(GlobalContext);
+  const [citySelected, setCitySelected] = useState("")
 
   const handleSelectCity = () => {
     dispatch({ type: "city", payload: selected.split(",")[0] });
     dispatch({ type: "data", payload: "-1" });
   };
 
+
   return (
-    <section className="searcher">
+    <section className={styles.searcher}>
       <h1>Busca ofertas en hoteles, casas y mucho más</h1>
-      <section className="searcher-input-grid">
-        <div className="location-container">
-          <SelectorTarget selected={selected} setSelected={setSelected} />
+      <section className={styles.searcherInputGrid}>
+        <div className={styles.locationContainer}>
+          <SelectorTarget selected={selected} setSelected={setSelected} styles={styles} setCitySelected={setCitySelected}/>
         </div>
-        <div className="calendar" id="calendar">
+        <div className={styles.calendar} id={styles.calendar}>
           <FontAwesomeIcon icon={faCalendarDay} />
           <DatePick />
         </div>
         <button
           onClick={handleSelectCity}
           disabled={selected ? false : true}
-          id="btn-search"
+          id={styles.btnSearch}
         >
           Buscar
         </button>

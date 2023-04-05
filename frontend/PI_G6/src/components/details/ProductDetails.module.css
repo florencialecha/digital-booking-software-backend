@@ -7,6 +7,18 @@
   overflow-y: scroll;
 }
 
+.detailsContainer::-webkit-scrollbar {
+  display: block;
+  width: 10px;
+  background-color: rgba(0,0,0,.15);
+}
+
+.detailsContainer::-webkit-scrollbar-thumb {
+  background-color: rgba(240, 87 ,45, .7);
+  border-radius: 20px;
+}
+
+
 .detailsContainer h2 {
   padding: 25px 50px;
   margin: 0;

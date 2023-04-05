@@ -6,6 +6,11 @@ import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 import './header.css'
 
 const Header = () => {
+
+  //Hardcode hasta que funcione la seguridad
+  const userAdmin = true
+  
+  
   const loggedUser = JSON.parse(localStorage.getItem('userLoggedIn'))
   const user = JSON.parse(localStorage.getItem('user'))
   const [openMenu, setOpenMenu] = useState(false)
@@ -76,24 +81,31 @@ const Header = () => {
         {loggedUser
           ? (
           <div className="profileInfo">
-            <div className="logout">
-              <FontAwesomeIcon
-                onClick={handleLogout}
-                icon={faXmark}
-              ></FontAwesomeIcon>
-            </div>
-            <div className="profile-info-web">
-              <p className="profileAvatar">
-                {user.name.slice(0, 1)}
-                {user.lastName.slice(0, 1)}
-              </p>
-              <p className="profileName">
-                Hola, <br></br>
-                <span>
-                  {user.name}
-                  {''} {user.lastName}
-                </span>
-              </p>
+            <div className='sessionInfo'>
+              {userAdmin ? 
+                <div className='administration' onClick={() => navigate('/administration')}>
+                  Administración
+                </div>
+              : ''}
+              <div className="logout">
+                <FontAwesomeIcon
+                  onClick={handleLogout}
+                  icon={faXmark}
+                ></FontAwesomeIcon>
+              </div>
+              <div className="profile-info-web">
+                <p className="profileAvatar">
+                  {user.name.slice(0, 1)}
+                  {user.lastName.slice(0, 1)}
+                </p>
+                <p className="profileName">
+                  Hola, <br></br>
+                  <span>
+                    {user.name}
+                    {''} {user.lastName}
+                  </span>
+                </p>
+              </div>
             </div>
             <p className="logoutMobile">
               ¿Deseas <span onClick={handleLogout}>cerrar sesión</span>?

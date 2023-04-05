@@ -48,10 +48,11 @@ const Features = ({ specs, styles }) => {
                   : `${styles.featureIconsHome}`
               }
             >
+              {iconos ? 
               <FontAwesomeIcon
                 icon={iconos?.iconName}
                 size="lg"
-              ></FontAwesomeIcon>
+              /> : null}
               <span
                 className={
                   location.pathname === '/' ? `${styles.hideIconTitle}` : `${styles.iconName}`

@@ -88,6 +88,16 @@ nav a:visited {
   align-self: center;
 }
 
+.administration {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.administration:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+}
+
 .profile-info-web {
   display: flex;
   justify-content: space-evenly;
@@ -97,6 +107,7 @@ nav a:visited {
 .logout {
   position: absolute;
   top: 15px;
+  right: 10px;
   padding-right: 20px;
   font-weight: 700;
   font-size: 22px;
@@ -117,15 +128,6 @@ button.hidden {
 
 .menuHeading {
   display: none;
-}
-
-.logout {
-  position: absolute;
-  top: 15px;
-  padding-right: 20px;
-  font-weight: 700;
-  font-size: 22px;
-  color: #31363f;
 }
 
 .logoutMobile {
