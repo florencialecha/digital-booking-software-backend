@@ -87,7 +87,6 @@ public class CreateProductService {
         }
 
         address.setCity(city.get());
-        //address.setProduct(product);
         product.setAddress(address);
         log.info("Address saved on product");
 
