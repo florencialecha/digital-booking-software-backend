@@ -34,17 +34,12 @@ BuildAndDeployFront:
   stage: build 
   script:
   - if [ -d "node_modules" ]; then sudo chmod -R 777 node_modules; sudo chmod ugo+rwx node_modules; sudo rm -rf node_modules; fi
-  
-  - if [ -d "dist" ]; then
-    sudo rm -rf dist
-    fi
+  - if [ -d "dist" ]; then sudo rm -rf dist; fi
   - sudo npm ci --unsafe-perm
   - sudo npm run build --unsafe-perm
   - sudo aws s3 sync dist/ s3://digital-booking-6 --delete
   - if [ -d "node_modules" ]; then sudo chmod -R 777 node_modules; sudo chmod ugo+rwx node_modules; sudo rm -rf node_modules; fi
-  - if [ -d "dist" ]; then
-    sudo rm -rf dist
-    fi
+  - if [ -d "dist" ]; then sudo rm -rf dist; fi
   rules:
     - if: '$CI_COMMIT_BRANCH == "development"'
       changes:
