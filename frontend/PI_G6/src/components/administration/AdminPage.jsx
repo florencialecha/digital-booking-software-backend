@@ -110,6 +110,7 @@ const AdminPage = () => {
           <FeatureSelector props={productProp} />
           <ProductPoliciesDetails props={productProp} />
           <ProductInputImages props={productProp} />
+          <div>En un cumple 24/7</div>
           <button
             className={styles.createProductButton}
             onClick={handleCreateProductClick}
