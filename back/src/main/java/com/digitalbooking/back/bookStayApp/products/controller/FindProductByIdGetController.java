@@ -1,12 +1,13 @@
 package com.digitalbooking.back.bookStayApp.products.controller;
 
+import com.digitalbooking.back.bookStayApp.products.dto.ProductWithDetailsToFindDTO;
 import com.digitalbooking.back.bookStayApp.products.service.FindProductByIdService;
 import com.digitalbooking.back.bookStayApp.products.domain.Product;
 import com.digitalbooking.back.bookStayApp.products.exception.ResourceNotFoundException;
-import com.digitalbooking.back.bookStayApp.address.Address;
-import com.digitalbooking.back.bookStayApp.address.AddressToFindDTO;
-import com.digitalbooking.back.bookStayApp.reserves.Reserve;
-import com.digitalbooking.back.bookStayApp.reserves.ReserveToFindDTO;
+import com.digitalbooking.back.bookStayApp.address.domain.Address;
+import com.digitalbooking.back.bookStayApp.address.dto.AddressToFindDTO;
+import com.digitalbooking.back.bookStayApp.reserves.domain.Reserve;
+import com.digitalbooking.back.bookStayApp.reserves.dto.ReserveToFindDTO;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +18,10 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-
 @RestController
 @RequestMapping("/product")
 @CrossOrigin("*")
 @Log4j2
-
 public class FindProductByIdGetController {
 
     @Autowired
@@ -32,35 +31,37 @@ public class FindProductByIdGetController {
 
     @GetMapping("{id}")
     public ResponseEntity<ProductWithDetailsToFindDTO> findById(@PathVariable Long id) throws ResourceNotFoundException {
+        log.info("Request received on FindProductByIdGetController with id {} ", id);
 
-        log.info("Find product by id: " + id);
-        Optional<Product> productOptional = findProductByIdService.findById(id);
+        Optional<Product> productOptional = findProductByIdService.handle(id);
+
+        // If the product is not found, throw an exception
         Product product = productOptional.orElseThrow(() ->
                 new ResourceNotFoundException("Don't find any product with id: " + id + ". Try again.")
         );
-        log.info("Product found: " + product.getId());
 
+        log.info("Product found: " + product.getId());
+        // Map the product (domain object) to ProductWithDetailsToFindDTO
         ProductWithDetailsToFindDTO productWithDetailsToFindDTO = modelMapper.map(product, ProductWithDetailsToFindDTO.class);
 
-        //Obtener objeto de categoría del objeto de productos
+        // Get the category name object from the product object and set it in the dto
         String categoryName = product.getCategory().getTitle();
         productWithDetailsToFindDTO.setCategory(categoryName);
 
-        //Obtener objeto dirección del objeto de productos
+        // Get the address object from the product object and map it to an AddressToFindDTO object
         Address address = product.getAddress();
-        //Mapear dirección a direcciónDTO  y establecer los valores de ciudad, estado y país a partir del objeto de dirección obtenido
         AddressToFindDTO addressToFindDTO = modelMapper.map(address, AddressToFindDTO.class);
+
+        // Set the city, state, and country values from the address object to the AddressToFindDTO object
         String cityName = address.getCity().getName();
         String stateName = address.getCity().getState().getName();
         String countryName = address.getCity().getState().getCountry().getName();
         addressToFindDTO.setCity(cityName);
         addressToFindDTO.setState(stateName);
         addressToFindDTO.setCountry(countryName);
-
-        //Establecer direcciónDTO en el objeto de productosDTO
         productWithDetailsToFindDTO.setAddress(addressToFindDTO);
 
-        // Obtener las reservas correspondientes al producto
+        // Get the reserves corresponding to the product and map them to ReserveToFindDTO objects
         Set<Reserve> reserves = product.getReserves();
         Set<ReserveToFindDTO> reserveToFindDTOs = new HashSet<>();
         for (Reserve reserve : reserves) {
@@ -69,7 +70,7 @@ public class FindProductByIdGetController {
         }
         productWithDetailsToFindDTO.setReserve(reserveToFindDTOs);
 
+        log.info("Response sent from FindProductsByIdGetController");
         return ResponseEntity.status(200).body(productWithDetailsToFindDTO);
     }
-
 }
