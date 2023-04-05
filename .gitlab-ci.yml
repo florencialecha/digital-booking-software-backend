@@ -43,6 +43,7 @@ BuildAndDeployFront:
      - sudo rm -rf dist
     - fi
 
+
     - sudo npm ci
     - sudo npm run build
     - sudo aws s3 sync dist/ s3://digital-booking-6 --delete
