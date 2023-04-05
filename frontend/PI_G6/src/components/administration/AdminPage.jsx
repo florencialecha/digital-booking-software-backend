@@ -6,7 +6,6 @@ import ProductoInfo from './adminPageComponents/ProductoInfo';
 import FeatureSelector from './adminPageComponents/FeatureSelector';
 import ProductPoliciesDetails from './adminPageComponents/ProductPoliciesDetails';
 import ProductInputImages from './adminPageComponents/ProductInputImages';
-import { apiProduct } from '../../utils/apiEndpoints';
 
 const AdminPage = () => {
   const [productName, setProductName] = useState('');
@@ -74,27 +73,28 @@ const AdminPage = () => {
       },
     };
     const data = {
-      title: {productName},
-      description: {productDescription},
+      title: productName,
+      description: productDescription,
       stars: 3,
       scoring: 7,
       review: 'Muy bueno',
-      category: {productCategory},
-      features: {features},
+      category: productCategory,
+      features: features,
       policy: {
-          rules: {rules},
-          security: {security},
-          cancellation: {cancellation}
+          rules: rules,
+          security: security,
+          cancellation: cancellation
       },
-      images: {imageList},
-        address: {
-        street: `${splitAddress(productAddress).street}`,
-        number: `${splitAddress(productAddress).number}`,
-        city: {productCity}
+      images: imageList,
+        address: {  
+          street: `${splitAddress(productAddress).street}`,
+          number: `${splitAddress(productAddress).number}`,
+          city: productCity,
         }
       }
+      console.log(data)
     try {
-      const response = await axios.post(apiProduct, data, config);
+      const response = await axios.post('http://3.131.138.206:8080/product', data, config);
     } catch (error) {
       console.error(error);
     }
