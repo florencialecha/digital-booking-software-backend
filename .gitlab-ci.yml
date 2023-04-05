@@ -35,7 +35,6 @@ BuildAndDeployFront:
 
     - cd frontend/PI_G6
     - sudo chmod -R 777 node_modules/
-    - sudo chmod ugo+rwx node_modules/
     - sudo rm -rf node_modules
     - sudo rm -rf dist
     - sudo npm ci
