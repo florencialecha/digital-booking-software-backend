@@ -12,6 +12,7 @@ import axios from "axios";
 import { apiReserve } from "../../utils/apiEndpoints";
 import Swal from "sweetalert2";
 import { GlobalContext } from "../../utils/globalContext";
+import { useNavigate } from 'react-router';
 
 const reserve = () => {
   const [showAlert, setShowAlert] = useState(false);
@@ -20,9 +21,8 @@ const reserve = () => {
   const reservations = JSON.parse(localStorage.getItem("reservation"));
   const token = JSON.parse(localStorage.getItem("JWT"));
   const newReservation = [];
-  {
-    console.log(newReservation);
-  }
+  const navigate = useNavigate('/myreserves')
+
   state.reservation.length === 2
     ? state.reservation.map((reservation) => {
         newReservation.push(reservation.replaceAll("/", "-"));
@@ -69,6 +69,8 @@ const reserve = () => {
           icon: "success",
           title: "¡Muchas gracias!",
           text: "Su reserva se ha realizado con exito",
+        }).then(() => {
+          navigate('/myreserves');
         });
       })
       .catch((error) => {

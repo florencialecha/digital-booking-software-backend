@@ -383,7 +383,7 @@
     max-height: 350px;
     box-shadow: 0 5px 10px rgb(0 0 0 / 30%);
     border-radius: 5px;
-    
+    z-index: 100;   
 }
 
 .texts {

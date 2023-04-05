@@ -7,6 +7,8 @@ import FeatureSelector from './adminPageComponents/FeatureSelector';
 import ProductPoliciesDetails from './adminPageComponents/ProductPoliciesDetails';
 import ProductInputImages from './adminPageComponents/ProductInputImages';
 import { apiProduct } from '../../utils/apiEndpoints';
+import Swal from "sweetalert2";
+import { useNavigate } from 'react-router';
 
 const AdminPage = () => {
   const [productName, setProductName] = useState('');
@@ -20,6 +22,7 @@ const AdminPage = () => {
   const [cancellation, setCancellation] = useState('')
   const [productImages, setProductImages] = useState([])
   const [imageList, setImageList] = useState([])
+  const navigate = useNavigate('/myreserves')
 
   const productProp = {
     styles: styles,
@@ -64,45 +67,63 @@ const AdminPage = () => {
       setImageList([...imageList, imageObjet])
     })
   }, [productImages])
-  
-  const handleCreateProductClick = async () => {
-<<<<<<< HEAD
-    const token =  JSON.parse(localStorage.getItem('JWT'));
-=======
+
+  const handleCreateProductClick = () => {
     const token = JSON.parse(localStorage.getItem('JWT'));
->>>>>>> bd50e5add65bebdbd4d4dd7fab16989fa01f36f8
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-    };
-    const data = {
-      title: productName,
-      description: productDescription,
-      stars: 3,
-      scoring: 7,
-      review: 'Muy bueno',
-      category: productCategory,
-      features: features,
-      policy: {
-          rules: rules,
-          security: security,
-          cancellation: cancellation
-      },
-      images: imageList,
-        address: {
-          street: `${splitAddress(productAddress).street}`,
-          number: `${splitAddress(productAddress).number}`,
-          city: productCity,
+    axios
+      .post(
+        apiProduct,
+        {
+          title: productName,
+          description: productDescription,
+          stars: 3,
+          scoring: 7,
+          review: 'Muy bueno',
+          category: productCategory,
+          features: features,
+          policy: {
+              rules: rules,
+              security: security,
+              cancellation: cancellation
+          },
+          images: imageList,
+          address: {  
+            street: `${splitAddress(productAddress).street}`,
+            number: `${splitAddress(productAddress).number}`,
+            city: productCity,
+          }
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
         }
-      }
-      console.log(data)
-    try {
-      const response = await axios.post(apiProduct, data, config);
-    } catch (error) {
-      console.error(error);
-    }
+      )
+      .then((response) => {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "center",
+          showConfirmButton: false,
+          timer: 2500,
+          width: "50%",
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+        
+        Toast.fire({
+          icon: "success",
+          title: "¡Muchas gracias!",
+          text: "Su reserva se ha realizado con éxito",
+        }).then(() => {
+          navigate('/');
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
