@@ -106,7 +106,7 @@ const Header = () => {
         {loggedUser ? (
           <>
             <div className="sessionInfo">
-              {userInfo.role === "HOST" ? (
+              {userInfo && userInfo?.role === "HOST" ? (
                 <div
                   className="administration"
                   onClick={() => navigate("/administration")}
