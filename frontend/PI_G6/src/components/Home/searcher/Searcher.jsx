@@ -22,7 +22,7 @@ const Searcher = () => {
       <h1>Busca ofertas en hoteles, casas y mucho más</h1>
       <section className={styles.searcherInputGrid}>
         <div className={styles.locationContainer}>
-          <SelectorTarget selected={selected} setSelected={setSelected} styles={styles} setCitySelected={setCitySelected}/>
+          <SelectorTarget selected={selected} setSelected={setSelected} styles={styles}/>
         </div>
         <div className={styles.calendar} id={styles.calendar}>
           <FontAwesomeIcon icon={faCalendarDay} />
