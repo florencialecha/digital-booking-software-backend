@@ -232,6 +232,10 @@ nav .socials {
   padding: 10px 20px;
 }
 
+.sessionInfo {
+  align-self: center;
+}
+
 @media only screen and (max-width: 1024px) {
   .slogan {
     display: none;
