@@ -46,7 +46,7 @@ BuildAndDeployFront:
     - sudo npm ci
     - sudo npm run build
     - sudo aws s3 sync dist/ s3://digital-booking-6 --delete
-     if [ -d "node_modules" ]; then
+    - if [ -d "node_modules" ]; then
      - sudo chmod -R 777 node_modules
      - sudo chmod ugo+rwx node_modules
      - sudo rm -rf node_modules
