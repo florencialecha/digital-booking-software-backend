@@ -18,7 +18,8 @@ const Header = () => {
   const location = useLocation();
   const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false);
-  const userAdmin = true;
+
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
   const toggleMenu = () => {
     setOpenMenu(!openMenu);
@@ -105,7 +106,7 @@ const Header = () => {
         {loggedUser ? (
           <>
             <div className="sessionInfo">
-              {userAdmin ? (
+              {userInfo.role === "HOST" ? (
                 <div
                   className="administration"
                   onClick={() => navigate("/administration")}
@@ -156,10 +157,16 @@ const Header = () => {
                 ></FontAwesomeIcon>
               </div>
               <div className="profile-info-web">
-                <p className="profileAvatar">JD</p>
+                <p className="profileAvatar">
+                  {userInfo.firstname.toUpperCase().slice(0, 1)}
+                  {userInfo.lastname.toUpperCase().slice(0, 1)}
+                </p>
                 <p className="profileName">
                   Hola, <br></br>
-                  <span>John Doe</span>
+                  <span>
+                    {userInfo.firstname}
+                    {''} {userInfo.lastname}
+                  </span>
                 </p>
               </div>
               <p className="logoutMobile">

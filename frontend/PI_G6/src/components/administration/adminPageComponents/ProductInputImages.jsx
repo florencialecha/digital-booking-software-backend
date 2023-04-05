@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const ProductInputImages = ({ props }) => {
-  const { styles } = props
+  const { styles, setProductImages } = props
     const [inputValue, setInputValue] = useState("");
   const [imageUrls, setImageUrls] = useState([]);
 
@@ -14,6 +14,7 @@ const ProductInputImages = ({ props }) => {
   const handleAddButtonClick = () => {
     if (inputValue.trim() !== "") {
       setImageUrls([...imageUrls, inputValue]);
+      setProductImages([...imageUrls, inputValue])
       setInputValue("");
     }
   };
@@ -39,7 +40,7 @@ const ProductInputImages = ({ props }) => {
         {imageUrls.length > 0 ? (
           <div className={styles.imagePreviewContainer}>
             {imageUrls.map((url, index) => (
-              <div className={styles.imageContainer}>
+              <div key={index} className={styles.imageContainer}>
                 <div className={styles.imageWrapper}>
                   <img src={url} alt="" />
                   <FontAwesomeIcon className={styles.removeImageButton} type="button" onClick={() => handleDeleteButtonClick(index)} icon={faTimes}/>
