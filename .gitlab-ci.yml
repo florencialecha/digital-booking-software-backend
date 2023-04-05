@@ -34,6 +34,7 @@ BuildAndDeployFront:
   script:
 
     - cd frontend/PI_G6
+    - sudo chown -R gitlab-runner:gitlab-runner .
     - sudo chmod -R 777 node_modules
     - sudo chmod ugo+rwx node_modules
     - sudo rm -rf node_modules
