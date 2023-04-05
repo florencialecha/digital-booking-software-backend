@@ -50,7 +50,7 @@ const ProductInputImages = ({ props }) => {
         ) : null}
       </div>
     </div>
-  );
+  )
 }
 
 export default ProductInputImages
