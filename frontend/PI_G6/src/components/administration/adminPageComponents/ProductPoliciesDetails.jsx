@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
 
 
-const ProductPoliciesDetails = ({ styles }) => {
-
-    // se las tengo que pasar desde el padre
-    const [rules, setRules] = useState('')
-    const [security, setSecurity] = useState('')
-    const [cancellation, setCancellation] = useState('')
+const ProductPoliciesDetails = ({ props }) => {
+    
+    const { styles, rules, setRules, security, setSecurity, cancellation, setCancellation} = props
 
   return (
     <div className={styles.policiesContainer}>
