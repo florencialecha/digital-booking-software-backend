@@ -12,7 +12,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const LoginForm = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-  const ifNonUserReserv = JSON.parse(localStorage.getItem("ifNonUserReserv"));
   const userLoggedIn = JSON.parse(localStorage.getItem("JWT"));
   const productReservedInLocal = JSON.parse(
     localStorage.getItem("productReservedInLocal")
@@ -39,6 +38,7 @@ const LoginForm = () => {
       }
 
       localStorage.setItem("JWT", JSON.stringify(response.data.token));
+      {console.log(response.data)}
     } catch (error) {
       console.log(error);
     }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './AdminPage.module.css';
 import ProductHeader from '../details/ProductHeader/ProductHeader.jsx';
@@ -6,6 +6,8 @@ import ProductoInfo from './adminPageComponents/ProductoInfo';
 import FeatureSelector from './adminPageComponents/FeatureSelector';
 import ProductPoliciesDetails from './adminPageComponents/ProductPoliciesDetails';
 import ProductInputImages from './adminPageComponents/ProductInputImages';
+import { apiProduct } from '../../utils/apiEndpoints';
+
 const AdminPage = () => {
   const [productName, setProductName] = useState('');
   const [productCategory, setProductCategory] = useState('');
@@ -16,6 +18,8 @@ const AdminPage = () => {
   const [rules, setRules] = useState('')
   const [security, setSecurity] = useState('')
   const [cancellation, setCancellation] = useState('')
+  const [productImages, setProductImages] = useState([])
+  const [imageList, setImageList] = useState([])
 
   const productProp = {
     styles: styles,
@@ -28,6 +32,7 @@ const AdminPage = () => {
     rules: rules,
     security: security,
     cancellation: cancellation, 
+    productImages: productImages,
     setProductName: setProductName,
     setProductCategory: setProductCategory,
     setProductAddress: setProductAddress,
@@ -37,6 +42,7 @@ const AdminPage = () => {
     setRules: setRules,
     setSecurity: setSecurity,
     setCancellation: setCancellation,
+    setProductImages: setProductImages,
   }
 
   function splitAddress(address) {
@@ -52,42 +58,15 @@ const AdminPage = () => {
     return { address };
   }
 
-  const productJson = {
-    "title": `${productName}`,
-    "description": `${productDescription}`,
-    "stars": 3,
-    "scoring": 7,
-    "review": "Muy bueno",
-    "category": `${productCategory}`,
-    "features": `${features}`,
-    "policy": {
-        "rules": `${rules}`,
-        "security": `${security}`,
-        "cancellation": `${cancellation}`
-    },
-    "images": [
-        {
-            "title": "Esta es la foto de un hotel",
-            "imageUrl": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-        },
-        {
-            "title": "Esta es la foto de un hotel",
-            "imageUrl": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-        },
-        {
-            "title": "Esta es la foto de un hotel",
-            "imageUrl": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-        }
-    ],
-      "address": {
-      "street": `${splitAddress(productAddress).street}`,
-      "number": `${splitAddress(productAddress).number}`,
-      "city": `${productCity}`
-      }
-    }
+  useEffect(() => {
+    productImages.map((image, i) => {
+      const imageObjet = { title: `Esta es la foto ${i+1} del producto`, imageUrl: `${image}`}
+      setImageList([...imageList, imageObjet])
+    })
+  }, [productImages])
   
   const handleCreateProductClick = async () => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('JWT');
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -95,17 +74,27 @@ const AdminPage = () => {
       },
     };
     const data = {
-      title: productName,
-      category: productCategory,
-      description: productDescription,
-      features: features.map(feature => feature.id),
-      address: {
-        street: productAddress,
-        city: productCity,
+      title: {productName},
+      description: {productDescription},
+      stars: 3,
+      scoring: 7,
+      review: 'Muy bueno',
+      category: {productCategory},
+      features: {features},
+      policy: {
+          rules: {rules},
+          security: {security},
+          cancellation: {cancellation}
       },
-    };
+      images: {imageList},
+        address: {
+        street: `${splitAddress(productAddress).street}`,
+        number: `${splitAddress(productAddress).number}`,
+        city: {productCity}
+        }
+      }
     try {
-      const response = await axios.post('/api/products', data, config);
+      const response = await axios.post(apiProduct, data, config);
     } catch (error) {
       console.error(error);
     }
@@ -119,10 +108,8 @@ const AdminPage = () => {
         <div className={styles.createProductAdminContainer}>
           <ProductoInfo props={productProp}/>
           <FeatureSelector props={productProp} />
-          {console.log(productJson)}
           <ProductPoliciesDetails props={productProp} />
           <ProductInputImages props={productProp} />
-          {console.log(productJson)}
           <button
             className={styles.createProductButton}
             onClick={handleCreateProductClick}
