@@ -34,7 +34,7 @@ public class CreateProductPostController {
                 productToCreateDTO.getAddress().getCity() == null ||
                 productToCreateDTO.getCategory() == null
         ) {
-            return ResponseEntity.badRequest().body("Name is required");
+            return ResponseEntity.badRequest().body("Invalid product data. Verify the data and try again.");
         }
 
 
