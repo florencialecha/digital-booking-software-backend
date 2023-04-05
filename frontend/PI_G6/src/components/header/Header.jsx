@@ -158,14 +158,14 @@ const Header = () => {
               </div>
               <div className="profile-info-web">
                 <p className="profileAvatar">
-                  {userInfo.firstname.toUpperCase().slice(0, 1)}
-                  {userInfo.lastname.toUpperCase().slice(0, 1)}
+                  {userInfo? userInfo.firstname.toUpperCase().slice(0, 1) : null}
+                  {userInfo? userInfo.lastname.toUpperCase().slice(0, 1) : null}
                 </p>
                 <p className="profileName">
                   Hola, <br></br>
                   <span>
-                    {userInfo.firstname}
-                    {''} {userInfo.lastname}
+                    {userInfo ? userInfo.firstname : null}
+                    {userInfo ? userInfo.lastname : null}
                   </span>
                 </p>
               </div>
