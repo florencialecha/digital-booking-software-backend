@@ -44,6 +44,7 @@ public class AuthenticationController {
     }
 
     //todo: cambiar a endpoint login
+    
     //todo: separar controladores
     @PostMapping("/login")
     public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
