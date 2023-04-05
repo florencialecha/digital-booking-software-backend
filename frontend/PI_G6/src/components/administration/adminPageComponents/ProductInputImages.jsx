@@ -2,7 +2,8 @@ import React, {useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 
-const ProductInputImages = ({ styles }) => {
+const ProductInputImages = ({ props }) => {
+  const { styles } = props
     const [inputValue, setInputValue] = useState("");
   const [imageUrls, setImageUrls] = useState([]);
 

@@ -15,7 +15,7 @@ const AdminPage = () => {
   const [features, setFeatures] = useState([]);
   const [rules, setRules] = useState('')
   const [security, setSecurity] = useState('')
-  const [cancellation, Setcancellation] = useState('')
+  const [cancellation, setCancellation] = useState('')
 
   const productProp = {
     styles: styles,
@@ -36,7 +36,7 @@ const AdminPage = () => {
     setFeatures: setFeatures,
     setRules: setRules,
     setSecurity: setSecurity,
-    Setcancellation: Setcancellation,
+    setCancellation: setCancellation,
   }
 
   function splitAddress(address) {
@@ -62,8 +62,8 @@ const AdminPage = () => {
     "features": `${features}`,
     "policy": {
         "rules": `${rules}`,
-        "security": "Mantén tus pertenencias personales seguras en todo momento, especialmente si viajas con objetos de valor. Usa la caja fuerte del hotel para guardar tus objetos de valor y no los dejes en lugares visibles.Si planeas hacer transacciones financieras en línea mientras estás hospedado, asegúrate de utilizar una conexión segura y evitar hacerlo en computadoras públicas o en redes Wi-Fi abiertas.",
-        "cancellation": "Política de cancelación flexible: permite cancelar la reserva sin cargo alguno si se realiza dentro de un plazo determinado antes de la fecha de llegada, por ejemplo, 24 o 48 horas antes de la llegada."
+        "security": `${security}`,
+        "cancellation": `${cancellation}`
     },
     "images": [
         {
@@ -120,8 +120,8 @@ const AdminPage = () => {
           <ProductoInfo props={productProp}/>
           <FeatureSelector props={productProp} />
           {console.log(productJson)}
-          <ProductPoliciesDetails styles={styles} />
-          <ProductInputImages styles={styles} />
+          <ProductPoliciesDetails props={productProp} />
+          <ProductInputImages props={productProp} />
           {console.log(productJson)}
           <button
             className={styles.createProductButton}
