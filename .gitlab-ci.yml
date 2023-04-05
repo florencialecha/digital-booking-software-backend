@@ -33,6 +33,7 @@ BuildAndDeployBack:
 BuildAndDeployFront:
   stage: build 
   script:
+  - cd frontend/PI_G6
   - if [ -d "node_modules" ]; then sudo chmod -R 777 node_modules; sudo chmod ugo+rwx node_modules; sudo rm -rf node_modules; fi
   - if [ -d "dist" ]; then sudo rm -rf dist; fi
   - sudo npm install --unsafe-perm
