@@ -20,22 +20,22 @@ const AdminPage = () => {
   const productProp = {
     styles: styles,
     productName: productName,
-    setProductName: setProductName,
     productCategory: productCategory,
-    setProductCategory: setProductCategory,
     productAddress: productAddress,
-    setProductAddress: setProductAddress,
     productCity: productCity,
-    setProductCity: setProductCity,
     productDescription: productDescription,
-    setProductDescription: setProductDescription,
     features: features,
-    setFeatures: setFeatures,
     rules: rules,
-    setRules: setRules,
     security: security,
-    setSecurity: setSecurity,
     cancellation: cancellation, 
+    setProductName: setProductName,
+    setProductCategory: setProductCategory,
+    setProductAddress: setProductAddress,
+    setProductCity: setProductCity,
+    setProductDescription: setProductDescription,
+    setFeatures: setFeatures,
+    setRules: setRules,
+    setSecurity: setSecurity,
     Setcancellation: Setcancellation,
   }
 
@@ -61,7 +61,7 @@ const AdminPage = () => {
     "category": `${productCategory}`,
     "features": `${features}`,
     "policy": {
-        "rules": "No fumar en las habitaciones o áreas comunes.No se permiten mascotas.No se permiten fiestas o eventos en las instalaciones.Se deben respetar las normas de convivencia y el descanso de los demás huéspedes.  ",
+        "rules": `${rules}`,
         "security": "Mantén tus pertenencias personales seguras en todo momento, especialmente si viajas con objetos de valor. Usa la caja fuerte del hotel para guardar tus objetos de valor y no los dejes en lugares visibles.Si planeas hacer transacciones financieras en línea mientras estás hospedado, asegúrate de utilizar una conexión segura y evitar hacerlo en computadoras públicas o en redes Wi-Fi abiertas.",
         "cancellation": "Política de cancelación flexible: permite cancelar la reserva sin cargo alguno si se realiza dentro de un plazo determinado antes de la fecha de llegada, por ejemplo, 24 o 48 horas antes de la llegada."
     },
@@ -119,6 +119,7 @@ const AdminPage = () => {
         <div className={styles.createProductAdminContainer}>
           <ProductoInfo props={productProp}/>
           <FeatureSelector props={productProp} />
+          {console.log(productJson)}
           <ProductPoliciesDetails styles={styles} />
           <ProductInputImages styles={styles} />
           {console.log(productJson)}
