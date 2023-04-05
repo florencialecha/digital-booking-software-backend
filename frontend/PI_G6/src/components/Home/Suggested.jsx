@@ -56,11 +56,16 @@ const Suggested = () => {
           setSuggestMessage(`Estas son nuestras recomendaciones para ${state.city} con disponiblidad entre ${newReservation[0]} y ${newReservation[1]}`)
         } catch (error) {
           if (error.response.status === 500) {
-            setSuggestMessage(`No encontramos recomendaciones para ${state.city} en las fechas seleccionadas, pero te dejamos estas recomendaciones que pueden ser de tu interes: `)
-          } else {
-            const fallbackData = await axios.get("/apiProducts.json");
-            dispatch({ type: "bd", payload: fallbackData.data });
-          }
+            setSuggestMessage(`No encontramos resultados para ${state.city} en las fechas seleccionadas, pero te dejamos estas recomendaciones que pueden ser de tu interes: `)
+            try {
+              const res = await axios.get(apiProductRandom);
+              dispatch({ type: "bd", payload: res.data });
+            } catch (error) {
+              console.log('Tomando datos de json estatico');
+              const fallbackData = await axios.get("/apiProducts.json");
+              dispatch({ type: "bd", payload: fallbackData.data });
+            }
+          } 
           }
       }
     };

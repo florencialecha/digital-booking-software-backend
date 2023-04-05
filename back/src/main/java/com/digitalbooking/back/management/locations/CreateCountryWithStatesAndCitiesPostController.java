@@ -52,6 +52,7 @@ public class CreateCountryWithStatesAndCitiesPostController {
                 country.setStates(states);
             }
             createCountryService.handle(country);
+            log.info("Country created successfully");
 
         } catch (Exception e) {
             log.error("Internal Server Error: {}", e.getMessage());

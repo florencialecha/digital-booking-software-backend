@@ -31,7 +31,7 @@
   display: flex;
 }
 
-#btn-search {
+#btnSearch {
   border-radius: 5px;
   border: none;
   background-color: rgb(240, 87, 45);
@@ -40,7 +40,7 @@
   cursor: pointer;
 }
 
-.searcher-input-grid {
+.searcherInputGrid {
   grid-row: 2;
   width: 100%;
   display: grid;
@@ -60,11 +60,11 @@
   display: grid;
 }
 
-.location-container {
+.locationContainer {
   grid-row: 1;
 }
 
-#btn-search {
+#btnSearch {
   grid-row: 1;
   grid-column: 3 / 3;
   width: 100%;
@@ -109,7 +109,7 @@ a {
 }
 
 #select > svg {
-  padding: 5px;
+  margin: 5px;
   background-color: #fff;
 }
 
@@ -118,20 +118,21 @@ a {
   background-color: #fff;
 }
 
-.select-content {
+.selectContent {
   background-color: #dfe4ea;
   height: 90%;
   outline: none;
-  padding: 0;
+  padding: 0 10px;
 }
 
-.select-content > p {
+.selectContent > p {
   font-size: 20px;
   color: #191b1d;
 }
 
 #options {
   overflow-y: scroll;
+  overflow-x: hidden;
   display: none;
   background-color: #fff;
 }
@@ -149,29 +150,31 @@ a {
 
 #options > div {
   display: grid;
+  
 }
 
-.content-option:hover {
-  transform: scale(1.0005);
+.contentOption:hover {
+  transform: scale(1.05);
 }
 
 #options.active {
   display: block;
 }
 
-.content-option {
+.contentOption {
   width: 100%;
   height: 60px;
   align-items: center;
   transition: 0.2s ease all;
-  transform: scale(0.92);
+  padding: 0 20px;
   border-bottom: 2px solid rgba(240, 87, 45, 0.7);
 
   display: grid;
-  grid-template-columns: 10% 90%;
+  grid-template-columns: auto 1fr;
+  gap: 15px;
 }
 
-.content-option .texts {
+.contentOption .texts {
   display: grid;
   grid-template-rows: 50% 50%;
 }
@@ -181,7 +184,7 @@ a {
   padding: 0;
 }
 
-#btn-search:hover {
+#btnSearch:hover {
   transform: scale(1.02);
   opacity: 90%;
 }
@@ -220,7 +223,7 @@ a {
     font-size: 1.1em;
   }
 
-  .searcher-input-grid {
+  .searcherInputGrid {
     position: absolute;
     grid-column: 1;
     width: auto;
@@ -229,7 +232,7 @@ a {
     grid-template-columns: 80%;
   }
 
-  .location-container {
+  .locationContainer {
     height: 100%;
     width: 100%;
     grid-column: 1;
@@ -243,7 +246,7 @@ a {
     grid-row: 2;
   }
 
-  #btn-search {
+  #btnSearch {
     min-height: 100%;
     width: 100%;
     grid-column: 1;
@@ -254,11 +257,11 @@ a {
     position: relative;
   }
 
-  .content-option {
+  .contentOption {
     flex-direction: row;
   }
 
-  #btn-search {
+  #btnSearch {
     width: 100%;
     height: 20%;
   }

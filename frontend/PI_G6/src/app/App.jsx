@@ -9,6 +9,8 @@ import ProductDetails from "../components/details/ProductDetails";
 import Reserve from "../components/reserve/Reserve";
 import "../index.css";
 import FavComponent from "../components/favorites/FavComponent";
+import AdminPage from '../components/administration/AdminPage'
+
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
           element={<Reserve />}
         />
         <Route path="/favorites" element={<FavComponent />} />
+        <Route path="/administration" element={<AdminPage />} />
       </Route>
       {/* <Route path="/*" element={<NotFound />} /> */}
     </Routes>

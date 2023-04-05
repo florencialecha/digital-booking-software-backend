@@ -1,0 +1,138 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+import styles from './AdminPage.module.css';
+import ProductHeader from '../details/ProductHeader/ProductHeader.jsx';
+import ProductoInfo from './adminPageComponents/ProductoInfo';
+import FeatureSelector from './adminPageComponents/featureSelector';
+import ProductPoliciesDetails from './adminPageComponents/ProductPoliciesDetails';
+import ProductInputImages from './adminPageComponents/ProductInputImages';
+
+const AdminPage = () => {
+  const [productName, setProductName] = useState('');
+  const [productCategory, setProductCategory] = useState('');
+  const [productAddress, setProductAddress] = useState('');
+  const [productCity, setProductCity] = useState('');
+  const [productDescription, setProductDescription] = useState('');
+  const [features, setFeatures] = useState([]);
+  const [rules, setRules] = useState('')
+  const [security, setSecurity] = useState('')
+  const [cancellation, Setcancellation] = useState('')
+
+  const productProp = {
+    styles: styles,
+    productName: productName,
+    setProductName: setProductName,
+    productCategory: productCategory,
+    setProductCategory: setProductCategory,
+    productAddress: productAddress,
+    setProductAddress: setProductAddress,
+    productCity: productCity,
+    setProductCity: setProductCity,
+    productDescription: productDescription,
+    setProductDescription: setProductDescription,
+    features: features,
+    setFeatures: setFeatures,
+    rules: rules,
+    setRules: setRules,
+    security: security,
+    setSecurity: setSecurity,
+    cancellation: cancellation, 
+    Setcancellation: Setcancellation,
+  }
+
+  function splitAddress(address) {
+    const stringToSplit = address.split(' ');
+    const iNumber = stringToSplit.findIndex(stringSplited => !isNaN(stringSplited) && parseInt(stringSplited) > 0);
+    
+    if (iNumber > -1) {
+      const number = stringToSplit[iNumber];
+      const street = stringToSplit.slice(0, iNumber).join(' ');
+      return { number, street };
+    }
+    // Si no se encuentra un número, se devuelve la dirección completa
+    return { address };
+  }
+
+  const productJson = {
+    "title": `${productName}`,
+    "description": `${productDescription}`,
+    "stars": 3,
+    "scoring": 7,
+    "review": "Muy bueno",
+    "category": `${productCategory}`,
+    "features": `${features}`,
+    "policy": {
+        "rules": "No fumar en las habitaciones o áreas comunes.No se permiten mascotas.No se permiten fiestas o eventos en las instalaciones.Se deben respetar las normas de convivencia y el descanso de los demás huéspedes.  ",
+        "security": "Mantén tus pertenencias personales seguras en todo momento, especialmente si viajas con objetos de valor. Usa la caja fuerte del hotel para guardar tus objetos de valor y no los dejes en lugares visibles.Si planeas hacer transacciones financieras en línea mientras estás hospedado, asegúrate de utilizar una conexión segura y evitar hacerlo en computadoras públicas o en redes Wi-Fi abiertas.",
+        "cancellation": "Política de cancelación flexible: permite cancelar la reserva sin cargo alguno si se realiza dentro de un plazo determinado antes de la fecha de llegada, por ejemplo, 24 o 48 horas antes de la llegada."
+    },
+    "images": [
+        {
+            "title": "Esta es la foto de un hotel",
+            "imageUrl": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+        },
+        {
+            "title": "Esta es la foto de un hotel",
+            "imageUrl": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+        },
+        {
+            "title": "Esta es la foto de un hotel",
+            "imageUrl": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+        }
+    ],
+      "address": {
+      "street": `${splitAddress(productAddress).street}`,
+      "number": `${splitAddress(productAddress).number}`,
+      "city": `${productCity}`
+      }
+    }
+  
+  const handleCreateProductClick = async () => {
+    const token = localStorage.getItem('token');
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    };
+    const data = {
+      title: productName,
+      category: productCategory,
+      description: productDescription,
+      features: features.map(feature => feature.id),
+      address: {
+        street: productAddress,
+        city: productCity,
+      },
+    };
+    try {
+      const response = await axios.post('/api/products', data, config);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  return (
+    <div className={styles.adminContainer}>
+      <ProductHeader generalInfo={{ title: 'Administración' }} />
+      <div className={styles.productCreateContainer}>
+        <h2>Crear Propiedad</h2>
+        <div className={styles.createProductAdminContainer}>
+          <ProductoInfo props={productProp}/>
+          <FeatureSelector props={productProp} />
+          <ProductPoliciesDetails styles={styles} />
+          <ProductInputImages styles={styles} />
+          {console.log(productJson)}
+          <button
+            className={styles.createProductButton}
+            onClick={handleCreateProductClick}
+          >
+            Crear
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default AdminPage;

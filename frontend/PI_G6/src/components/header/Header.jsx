@@ -18,6 +18,7 @@ const Header = () => {
   const location = useLocation();
   const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false);
+  const userAdmin = true;
 
   const toggleMenu = () => {
     setOpenMenu(!openMenu);
@@ -103,6 +104,18 @@ const Header = () => {
         </div>
         {loggedUser ? (
           <>
+            <div className="sessionInfo">
+              {userAdmin ? (
+                <div
+                  className="administration"
+                  onClick={() => navigate("/administration")}
+                >
+                  Administración
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
             <div
               onMouseLeave={reset}
               onMouseEnter={loadFavs}

@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
-import "./Searcher.css";
 import axios from "axios";
 import useComponentVisible from "../../../hooks/useComponentVisible";
 import { apiCountry } from "../../../utils/apiEndpoints";
 
-const selectorTarget = ({ setSelected }) => {
-  // const [isActive, setIsActive] = useState(true)
+const SelectorTarget = ({ styles, setSelected , setProductCity }) => {
+  const { selectorRef, isActive, setIsActive } = useComponentVisible(false);
   const [search, setSearch] = useState("");
   const [data, setData] = useState([]);
 
@@ -26,32 +25,30 @@ const selectorTarget = ({ setSelected }) => {
     ...new Map(data.map((place) => [place.name, place])).values(),
   ];
 
-  const { selectorRef, isActive, setIsActive } = useComponentVisible(false);
-
   return (
-    <form action="" className="formClass">
+    <form action="" className={styles.formClass}>
       <div
         ref={selectorRef}
-        className="selectbox"
+        className={styles.selectbox}
         onClick={() => setIsActive((prev) => !prev)}
       >
-        <div id="select" className="select">
+        <div id={styles.select} className={styles.select}>
           <FontAwesomeIcon icon={faLocationDot} />
           <input
-            className="select-content"
+            className={styles.selectContent}
             value={search}
             onClick={() => setSearch("")}
             onChange={inputToSearch}
             placeholder="A donde vamos"
           ></input>
         </div>
-        <div id="options" className={isActive ? "active" : "inactive"}>
+        <div id={styles.options} className={isActive ? styles.active : styles.inactive}>
           {places.map((countrys) => {
             return (
               <div key={countrys.id}>
                 {countrys.states.map((state) => {
                   return (
-                    <div key={state.id} className="states">
+                    <div key={state.id} className={styles.states}>
                       {state.cities
                         .filter((city) => {
                           if (!search) {
@@ -69,13 +66,15 @@ const selectorTarget = ({ setSelected }) => {
                               href="#"
                               key={city.id}
                               onClick={() => {
-                                setSearch(`${city.name}, ${countrys.name}`);
-                                setSelected(`${city.name}, ${countrys.name}`);
+                                setSearch(`${city.name}, ${countrys.name}`)
+                                setSelected(`${city.name}, ${countrys.name}`)
+                                setProductCity(`${city.id}`)
+                                ;
                               }}
                             >
-                              <div className="content-option">
+                              <div className={styles.contentOption}>
                                 <FontAwesomeIcon icon={faLocationDot} />
-                                <div className="texts">
+                                <div className={styles.texts}>
                                   <p>{city.name} </p>
                                   <p>{countrys.name}</p>
                                 </div>
@@ -95,4 +94,4 @@ const selectorTarget = ({ setSelected }) => {
   );
 };
 
-export default selectorTarget;
+export default SelectorTarget;
