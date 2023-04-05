@@ -105,50 +105,61 @@ const Header = () => {
         </div>
         {loggedUser ? (
           <>
-            <div className="sessionInfo">
-              {userInfo && userInfo?.role === "HOST" ? (
-                <div
-                  className="administration"
-                  onClick={() => navigate("/administration")}
-                >
-                  Administración
+            <div className="buttonContainer">
+              <div className="sessionInfo">
+                {userInfo.role === "HOST" ? (
+                  <div
+                    className="administration"
+                    onClick={() => navigate("/administration")}
+                  >
+                    Administración
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
+              <div
+                className="reserveButton"
+                onClick={() => navigate("/myreserves")}
+              >
+                Reservas
+              </div>
+              <div
+                onMouseLeave={reset}
+                onMouseEnter={loadFavs}
+                className={
+                  location.pathname === "/favorites" ? "hide" : "favContainer"
+                }
+              >
+                <div className="favIcon" onClick={handleFavs}>
+                  {!openMenu ? (
+                    <FontAwesomeIcon className="fav" icon={faHeart} size="xl" />
+                  ) : (
+                    <p className="favLink">Favoritos</p>
+                  )}
                 </div>
-              ) : (
-                ""
-              )}
-            </div>
-            <div
-              onMouseLeave={reset}
-              onMouseEnter={loadFavs}
-              className={
-                location.pathname === "/favorites" ? "hide" : "favContainer"
-              }
-            >
-              <div className="favIcon" onClick={handleFavs}>
-                {!openMenu ? (
-                  <FontAwesomeIcon className="fav" icon={faHeart} size="xl" />
-                ) : (
-                  <p className="favLink">Favoritos</p>
-                )}
-              </div>
-              <div className="favsMenu">
-                <h4>Favoritos</h4>
-                {show && loading ? (
-                  <>
-                    <Favorites />
-                    <div
-                      className={
-                        state.favs.length === 0 ? "hideButton" : "favButtonDiv"
-                      }
-                    >
-                      <a href="/favorites">Ver todos</a>
-                    </div>
-                  </>
-                ) : (
-                  <Spinner />
-                )}
+                <div className="favsMenu">
+                  <h4>Favoritos</h4>
+                  {show && loading ? (
+                    <>
+                      <Favorites />
+                      <div
+                        className={
+                          state.favs.length === 0
+                            ? "hideButton"
+                            : "favButtonDiv"
+                        }
+                      >
+                        <a href="/favorites">Ver todos</a>
+                      </div>
+                    </>
+                  ) : (
+                    <Spinner />
+                  )}
+                </div>
               </div>
             </div>
+
             <div className="profileInfo">
               <div className="logout">
                 <FontAwesomeIcon
@@ -158,8 +169,12 @@ const Header = () => {
               </div>
               <div className="profile-info-web">
                 <p className="profileAvatar">
-                  {userInfo? userInfo.firstname.toUpperCase().slice(0, 1) : null}
-                  {userInfo? userInfo.lastname.toUpperCase().slice(0, 1) : null}
+                  {userInfo
+                    ? userInfo.firstname.toUpperCase().slice(0, 1)
+                    : null}
+                  {userInfo
+                    ? userInfo.lastname.toUpperCase().slice(0, 1)
+                    : null}
                 </p>
                 <p className="profileName">
                   Hola, <br></br>

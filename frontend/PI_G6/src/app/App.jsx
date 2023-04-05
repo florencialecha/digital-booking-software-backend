@@ -9,8 +9,8 @@ import ProductDetails from "../components/details/ProductDetails";
 import Reserve from "../components/reserve/Reserve";
 import "../index.css";
 import FavComponent from "../components/favorites/FavComponent";
-import AdminPage from '../components/administration/AdminPage'
-
+import AdminPage from "../components/administration/AdminPage";
+import MyReserves from "../components/myReserves/MyReserves";
 
 function App() {
   return (
@@ -28,6 +28,7 @@ function App() {
         />
         <Route path="/favorites" element={<FavComponent />} />
         <Route path="/administration" element={<AdminPage />} />
+        <Route path="/myreserves" element={<MyReserves />} />
       </Route>
       {/* <Route path="/*" element={<NotFound />} /> */}
     </Routes>

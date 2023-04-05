@@ -97,11 +97,24 @@ nav a:visited {
   align-self: center;
 }
 .administration {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
 }
 
 .administration:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+}
+
+.reserveButton {
+  font-size: 20px;
+
+  font-weight: bold;
+  display: flex;
+  align-self: center;
+}
+
+.reserveButton:hover {
   cursor: pointer;
   transform: scale(1.03);
 }
@@ -166,7 +179,7 @@ nav .socials {
   align-items: center;
   text-shadow: none;
   width: 50px;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .favsMenu {
@@ -247,10 +260,21 @@ nav .socials {
 }
 
 @media only screen and (max-width: 600px) {
+  .buttonContainer {
+    display: flex;
+    padding-right: 5px;
+    padding-top: 10px;
+    flex-direction: column;
+  }
   div.favContainer {
     position: absolute;
     height: 50px;
-    top: 175px;
+    right: 20px;
+    top: 250px;
+  }
+
+  .reserveButton {
+    align-self: flex-end;
   }
 
   .favLink {
@@ -358,10 +382,11 @@ nav .socials {
   }
 
   .profileInfo {
-    margin-top: -100px;
+    margin-top: -185px;
     color: white;
     width: 100%;
   }
+
   .profileInfo span {
     color: #31363f;
   }
