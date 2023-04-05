@@ -3,10 +3,9 @@ import axios from 'axios';
 import styles from './AdminPage.module.css';
 import ProductHeader from '../details/ProductHeader/ProductHeader.jsx';
 import ProductoInfo from './adminPageComponents/ProductoInfo';
-import FeatureSelector from './adminPageComponents/featureSelector';
+import FeatureSelector from './adminPageComponents/FeatureSelector';
 import ProductPoliciesDetails from './adminPageComponents/ProductPoliciesDetails';
 import ProductInputImages from './adminPageComponents/ProductInputImages';
-
 const AdminPage = () => {
   const [productName, setProductName] = useState('');
   const [productCategory, setProductCategory] = useState('');
