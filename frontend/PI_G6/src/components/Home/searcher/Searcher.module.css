@@ -26,9 +26,9 @@
 }
 
 #calendar {
-  padding: 0px 10px;
-  align-items: center;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
 }
 
 #btnSearch {
