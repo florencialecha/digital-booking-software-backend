@@ -33,7 +33,7 @@ const RegisterForm = () => {
       console.log(response);
     } catch (error) {
       setConectionError(
-        "Lamentablemente no ha podido registrarse. Por favor intente más tarde"
+        "Lamentablemente no ha podido registrarse. Por favor, intente más tarde"
       );
     }
   };
@@ -45,6 +45,7 @@ const RegisterForm = () => {
       .string()
       .email("El correo electrónico ingresado no es válido")
       .required("Este campo es obligatorio"),
+    username: yup.string().required("Este campo es obligatorio"),
     password: yup
       .string()
       .min(7, "La contraseña debe contener más de 6 caracteres")
