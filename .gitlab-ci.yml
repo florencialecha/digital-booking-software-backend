@@ -57,6 +57,7 @@ BuildAndDeployFront:
     - fi
 
 
+
   rules:
     - if: '$CI_COMMIT_BRANCH == "development"'
       changes:
