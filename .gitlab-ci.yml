@@ -19,6 +19,7 @@ BuildAndDeployBack:
     - sudo chmod 777 ./back_jar
     - sudo systemctl daemon-reload
     - sudo systemctl reset-failed
+    - sudo systemctl enable ApiBack.service
     - sudo systemctl restart ApiBack.service
     - if [ -d "target/" ]; then sudo rm -rf target/; fi
 
