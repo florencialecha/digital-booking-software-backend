@@ -175,6 +175,11 @@ input {
   cursor: pointer;
 }
 
+.apiEndpointError {
+  text-align: center;
+  color: red;
+}
+
 @media only screen and (max-width: 768px) {
   form button {
     height: 40px;

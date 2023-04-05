@@ -13,4 +13,4 @@ export const apiCategory = `${path}/category`;
 export const apiProduct = `${path}/product`;
 export const apiCountry = `${path}/country`;
 export const apiReserve = `${path}/reserve`;
-
+export const apiMyReserves = `${path}/reserve/byUserId`;
