@@ -57,10 +57,16 @@ public class AuthenticationService {
         );
         var user = userRepository.findByUsername(request.getUsername())
                 .orElseThrow();
+        var firstname = user.getFirstname();
+        var lastname = user.getLastName();
+        var email = user.getEmail();
         var jwtToken = jwtService.generateToken(user);
         var role = user.getRole().toString();
         log.info("User authenticated with id: {}, username: {} and role: {}", user.getId(), user.getUsername(), role);
         return AuthenticationResponse.builder()
+                .firstname(firstname)
+                .lastname(lastname)
+                .email(email)
                 .token(jwtToken)
                 .role(role)
                 .build();
