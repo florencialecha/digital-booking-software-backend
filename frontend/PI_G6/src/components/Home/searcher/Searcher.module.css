@@ -28,10 +28,7 @@
 #calendar {
   padding: 0px 10px;
   align-items: center;
-  grid-row: 1;
-  grid-column: 2 / 3;
-  display: grid;
-  grid-template-columns: 10% 90%;
+  display: flex;
 }
 
 #btnSearch {
@@ -54,7 +51,6 @@
   grid-template-columns: 30% 30% 20%;
   grid-template-rows: 100%;
 }
-
 
 .searcher section > div {
   border-radius: 5px;
@@ -110,7 +106,6 @@ a {
   grid-template-rows: 100%;
   align-items: center;
   background-color: #fff;
-
 }
 
 #select > svg {
@@ -121,7 +116,6 @@ a {
 #select > input {
   width: 95%;
   background-color: #fff;
-
 }
 
 .selectContent {
