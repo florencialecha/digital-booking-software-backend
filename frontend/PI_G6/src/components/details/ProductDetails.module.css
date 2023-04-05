@@ -122,6 +122,52 @@
   padding: 15px 50px 0;
   display: flex;
   gap: 15px;
+  align-items: center;
+  height: 70px;
+  width: fit-content;
+}
+
+.shareIcons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  animation-duration: 3s;
+  animation-name: slidein;
+  position: relative;
+  width: fit-content;
+  animation-duration: 1s;
+  animation-name: slidein;
+}
+
+.shareIcon {
+  cursor: pointer;
+}
+
+.shareIcon:hover {
+  transform: scale(1.05);
+}
+
+.shareIcons button {
+  width: 100%;
+}
+
+.socialIconsWrapper {
+  display: block;
+  width: fit-content;
+}
+
+@keyframes slidein {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.hideSocialIconsWrapper {
+  display: none;
 }
 
 .detailsLine {
@@ -221,6 +267,7 @@
   align-items: center;
   border-radius: 5px;
   border: 1px solid transparent;
+  cursor: pointer;
 }
 .dayOfOtherMonth {
   display: flex;
@@ -356,21 +403,10 @@
   padding: 25px 50px;
 }
 
-.featuresHome {
-  margin: 0;
-}
-
 .featuresBody {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-template-rows: 1fr 1fr;
-}
-
-.featuresBodyHome {
-  padding: 0;
-  grid-template-columns: repeat(8, minmax(0, 1fr));
-  display: flex;
-  gap: 15px;
 }
 
 .featureIcons {
@@ -379,16 +415,6 @@
   height: 50px;
   font-weight: bold;
   align-items: center;
-}
-
-.featureIconsHome {
-  display: flex;
-  font-weight: bold;
-  align-items: center;
-}
-
-.hideIconTitle {
-  display: none;
 }
 
 .iconName {
@@ -401,6 +427,30 @@
 
 .featureIcons > svg > * {
   color: #f0572d;
+}
+
+.favIcon {
+  font-size: 25px;
+  animation: pulse 0.7s infinite;
+  cursor: pointer;
+}
+
+.favIcon > path:hover {
+  color: rgb(236, 153, 130);
+}
+
+@keyframes pulse {
+  10% {
+    transform: scale(1.1);
+  }
+}
+
+.full-false > path {
+  color: rgb(0, 0, 0);
+}
+
+.full-true > path {
+  color: rgb(240, 87, 45);
 }
 
 /* Policies */

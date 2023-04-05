@@ -28,44 +28,25 @@ const icon = [
 const Features = ({ specs, styles }) => {
   const location = useLocation()
 
-  return (
-    <div className={location.pathname !== '/' ? '' : ''}>
-      <div
-        className={
-          location.pathname !== '/' ? `${styles.featuresBody}` : `${styles.featuresBodyHome}`
-        }
-      >
+return (
+    <div>
+      <div className={styles.featuresBody}>
         {specs?.map((item) => {
           const iconos = icon.find(
             (i) => i.title.toLowerCase() === item.title.toLowerCase()
-          )
+          );
           return (
-            <div
-              key={item.title}
-              className={
-                location.pathname !== '/'
-                  ? `${styles.featureIcons}`
-                  : `${styles.featureIconsHome}`
-              }
-            >
-              {iconos ? 
-              <FontAwesomeIcon
-                icon={iconos?.iconName}
-                size="lg"
-              /> : null}
-              <span
-                className={
-                  location.pathname === '/' ? `${styles.hideIconTitle}` : `${styles.iconName}`
-                }
-              >
-                {iconos?.title}
-              </span>
+            <div key={item.title} className={styles.featureIcons}>
+              {iconos ? (
+                <FontAwesomeIcon icon={iconos?.iconName} size="lg" />
+              ) : null}
+              <span className={styles.iconName}>{iconos?.title}</span>
             </div>
-          )
+          );
         })}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Features

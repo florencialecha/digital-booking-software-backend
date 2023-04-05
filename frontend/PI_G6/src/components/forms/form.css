@@ -107,16 +107,26 @@ form div {
   display: flex;
 }
 
-.apiEndpointError {
+.alertContainer {
   justify-content: center;
   display: flex;
-  color: red;
-  font-size: 18px;
+  gap: 10px;
+  font-size: 16px;
   font-weight: bold;
-  background-color: #f9e4e1;
-  padding: 20px;
+  background-color: #efe2e2cc;
+  padding: 15px 10px;
+  width: fit-content;
+  border-radius: 5px;
 }
 
+.alertContainer p {
+  color: #ba0d0d;
+  align-self: center;
+}
+
+.alertContainer svg > * {
+  color: #ba0d0d;
+}
 
 .userInfoFormRegister {
   gap: 10px;

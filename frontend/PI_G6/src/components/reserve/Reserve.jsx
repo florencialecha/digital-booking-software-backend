@@ -19,6 +19,7 @@ const reserve = () => {
   const product = JSON.parse(localStorage.getItem("productSelected"));
   const { state } = useContext(GlobalContext);
   const reservations = JSON.parse(localStorage.getItem("reservation"));
+  const token = JSON.parse(localStorage.getItem("JWT"));
   const newReservation = [];
   {
     console.log(newReservation);
@@ -42,13 +43,21 @@ const reserve = () => {
 
   const onReserveConfirm = () => {
     axios
-      .post(apiReserve, {
-        startTime: "12:00:23",
-        checkIn: newReservation[0],
-        checkOut: newReservation[1],
-        product: 7,
-        user: 1,
-      })
+      .post(
+        apiReserve,
+        {
+          startTime: "12:00:23",
+          checkIn: newReservation[0],
+          checkOut: newReservation[1],
+          productId: product.id,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((response) => {
         console.log(response);
         // handleReservaExitosa()
@@ -74,6 +83,9 @@ const reserve = () => {
         console.log(error);
       });
   };
+
+  console.log(token);
+  console.log(product.id);
 
   return (
     <div className={styles.reserveGlobalContainer}>
