@@ -6,6 +6,7 @@ import ProductoInfo from './adminPageComponents/ProductoInfo';
 import FeatureSelector from './adminPageComponents/FeatureSelector';
 import ProductPoliciesDetails from './adminPageComponents/ProductPoliciesDetails';
 import ProductInputImages from './adminPageComponents/ProductInputImages';
+import { apiProduct } from '../../utils/apiEndpoints';
 
 const AdminPage = () => {
   const [productName, setProductName] = useState('');
@@ -65,7 +66,7 @@ const AdminPage = () => {
   }, [productImages])
   
   const handleCreateProductClick = async () => {
-    const token = localStorage.getItem('JWT');
+    const token = JSON.parse(localStorage.getItem('JWT'));
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -94,7 +95,7 @@ const AdminPage = () => {
       }
       console.log(data)
     try {
-      const response = await axios.post('http://3.131.138.206:8080/product', data, config);
+      const response = await axios.post(apiProduct, data, config);
     } catch (error) {
       console.error(error);
     }
@@ -110,7 +111,6 @@ const AdminPage = () => {
           <FeatureSelector props={productProp} />
           <ProductPoliciesDetails props={productProp} />
           <ProductInputImages props={productProp} />
-          <div>En un cumple 24/7</div>
           <button
             className={styles.createProductButton}
             onClick={handleCreateProductClick}
