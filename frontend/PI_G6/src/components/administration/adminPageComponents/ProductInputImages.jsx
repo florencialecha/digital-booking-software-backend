@@ -39,7 +39,7 @@ const ProductInputImages = ({ props }) => {
         {imageUrls.length > 0 ? (
           <div className={styles.imagePreviewContainer}>
             {imageUrls.map((url, index) => (
-              <div className={styles.imageContainer}>
+              <div key={index} className={styles.imageContainer}>
                 <div className={styles.imageWrapper}>
                   <img src={url} alt="" />
                   <FontAwesomeIcon className={styles.removeImageButton} type="button" onClick={() => handleDeleteButtonClick(index)} icon={faTimes}/>
