@@ -15,6 +15,7 @@ import org.springframework.web.server.ResponseStatusException;
 @RequestMapping("/category")
 @CrossOrigin("*")
 @Log4j2
+
 public class CreateCategoryPostController {
 
     @Autowired
