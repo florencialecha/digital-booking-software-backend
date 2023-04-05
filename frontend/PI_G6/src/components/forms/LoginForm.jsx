@@ -37,7 +37,8 @@ const LoginForm = () => {
         localStorage.removeItem("productReservedInLocal");
       }
 
-      localStorage.setItem("JWT", JSON.stringify(response.data.token));
+      localStorage.setItem("JWT", JSON.stringify(response.data.token))
+      localStorage.setItem("userInfo", JSON.stringify(response.data))
       {console.log(response.data)}
     } catch (error) {
       console.log(error);

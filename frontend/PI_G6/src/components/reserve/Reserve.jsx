@@ -34,13 +34,6 @@ const reserve = () => {
 
   const categoryTitle = `${product.category.title}`.toUpperCase();
 
-  // const handleReservaExitosa = () => {
-  //   setShowAlert(true);
-  //   setTimeout(() => {
-  //     setShowAlert(false);
-  //   }, 3000);
-  // };
-
   const onReserveConfirm = () => {
     axios
       .post(
