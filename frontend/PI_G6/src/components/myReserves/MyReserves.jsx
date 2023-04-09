@@ -5,6 +5,7 @@ import { apiMyReserves } from "../../utils/apiEndpoints";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router";
+import axios from 'axios'
 
 const MyReserves = () => {
   const [reserves, setReserves] = useState([]);
@@ -16,27 +17,28 @@ const MyReserves = () => {
     navigate("/");
   };
 
-  //   useEffect(() => {
-  //     axios
-  //       .get(apiMyReserves, {
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //       })
-  //       .then((response) => {
-  //         console.log(response);
-  //         // setReserves();
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-  //   });
+    useEffect(() => {
+      axios
+        .get(apiMyReserves, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          console.log(response);
+          setReserves(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, []);
+    
 
   return (
     <div className={styles.reserveWrapper}>
       <div className={styles.reserveHeader}>
-        <h1>Mis reservas</h1>
+        <h3>Mis reservas</h3>
         <FontAwesomeIcon
           onClick={goBack}
           inverse
@@ -45,11 +47,13 @@ const MyReserves = () => {
         />
       </div>
       <div className={styles.reserveCardContainer}>
-        <ReserveCard reserves={reserves} styles={styles} />
-        <ReserveCard reserves={reserves} styles={styles} />
-        <ReserveCard reserves={reserves} styles={styles} />
-        <ReserveCard reserves={reserves} styles={styles} />
-        <ReserveCard reserves={reserves} styles={styles} />
+        {reserves.map((reserve, i) => {
+          return (
+            <div key={i}>
+              <ReserveCard reserve={reserve} styles={styles} />
+            </div>
+          )
+        })}
       </div>
     </div>
   );
