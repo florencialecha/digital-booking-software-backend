@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./MyReserves.css";
+import styles from "./MyReserves.module.css";
 import ReserveCard from "./ReserveCard";
 import { apiMyReserves } from "../../utils/apiEndpoints";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -34,8 +34,8 @@ const MyReserves = () => {
   //   });
 
   return (
-    <div className="reserveWrapper">
-      <div className="reserveHeader">
+    <div className={styles.reserveWrapper}>
+      <div className={styles.reserveHeader}>
         <h1>Mis reservas</h1>
         <FontAwesomeIcon
           onClick={goBack}
@@ -44,12 +44,12 @@ const MyReserves = () => {
           size="2xl"
         />
       </div>
-      <div className="reserveCardContainer">
-        <ReserveCard reserves={reserves} />
-        <ReserveCard reserves={reserves} />
-        <ReserveCard reserves={reserves} />
-        <ReserveCard reserves={reserves} />
-        <ReserveCard reserves={reserves} />
+      <div className={styles.reserveCardContainer}>
+        <ReserveCard reserves={reserves} styles={styles} />
+        <ReserveCard reserves={reserves} styles={styles} />
+        <ReserveCard reserves={reserves} styles={styles} />
+        <ReserveCard reserves={reserves} styles={styles} />
+        <ReserveCard reserves={reserves} styles={styles} />
       </div>
     </div>
   );

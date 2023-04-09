@@ -1,10 +1,11 @@
+
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Social from "../socials/Social";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
-import "./header.css";
+import styles from "./Header.module.css";
 import { GlobalContext } from "../../utils/globalContext";
 import Favorites from "../favorites/Favorites";
 import Spinner from "../favorites/Spinner";
@@ -73,53 +74,78 @@ const Header = () => {
     setShow(false);
     setLoading(false);
   };
+  
 
   return (
-    <nav className="header">
+    <nav className='header'>
       <Link to={"/"}>
-        <div className="logo">
+        <div className={styles.logo}>
           <img
             src="https://i.ibb.co/W5J7Jy6/logo-orange.png"
             alt="Logo from Digital Booking"
           />
-          <p className="slogan">Sentite como en tu hogar</p>
+          <p className={styles.slogan}>Sentite como en tu hogar</p>
         </div>
       </Link>
-      <button onClick={handleMenu} className="hamburgerMenu">
+      <button onClick={handleMenu} className={styles.hamburgerMenu}>
         <FontAwesomeIcon icon={faBars} size="2xl"></FontAwesomeIcon>
       </button>
       <div
         className={`${
-          window.screen.width > 600 && !openMenu ? "navMenu" : ""
+          window.screen.width > 600 && !openMenu ? styles.navMenu : null
         } ${
           window.screen.width <= 600 && openMenu
-            ? "navMenuMobile slide-in"
-            : "hideMenu"
+            ? `${styles.navMenuMobile} ${styles.slideIn}`
+            : styles.hideMenu
         }`}
       >
-        <div className="menuHeader">
-          <button onClick={handleMenu} className="closeMenu">
+        <div className={styles.menuHeader}>
+          <button onClick={handleMenu} className={styles.closeMenu}>
             <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
           </button>
-          <h3 className={`${loggedUser ? "hide" : "menuHeading"}`}>MENÚ</h3>
+          <h3 className={`${loggedUser ? styles.hide : styles.menuHeading}`}>
+            MENÚ
+          </h3>
+          {loggedUser ? 
+            <div className={styles.profileInfo}>
+            <div className={styles.logout}>
+            <FontAwesomeIcon onClick={handleLogout} icon={faXmark}></FontAwesomeIcon>
+            </div>
+            <div className={styles.profileInfoWeb}>
+              <p className={styles.profileAvatar}>
+              {userInfo ? userInfo.firstname.toUpperCase().slice(0, 1) : null}
+              {userInfo ? userInfo.lastname.toUpperCase().slice(0, 1) : null}
+              </p>
+              <p className={styles.profileName}>
+                Hola, <br></br>
+              <span>
+                {userInfo ? userInfo.firstname : null}
+                {userInfo ? userInfo.lastname : null}
+              </span>
+            </p>
+            </div>
+            <p className={styles.logoutMobile}>
+              ¿Deseas <span onClick={handleLogout}>cerrar sesión</span>?
+            </p>
+            <hr />
+          </div>
+          : null }
         </div>
         {loggedUser ? (
           <>
-            <div className="buttonContainer">
-              <div className="sessionInfo">
-                {userInfo.role === "HOST" ? (
-                  <div
-                    className="administration"
-                    onClick={() => navigate("/administration")}
-                  >
-                    Administración
-                  </div>
-                ) : (
-                  ""
-                )}
-              </div>
+            <div className={styles.buttonContainer}>
+              {userInfo.role === "HOST" ? (
+                <div
+                  className={styles.administration}
+                  onClick={() => navigate("/administration")}
+                >
+                  Administración
+                </div>
+              ) : (
+                ""
+              )}
               <div
-                className="reserveButton"
+                className={styles.reserveButton}
                 onClick={() => navigate("/myreserves")}
               >
                 Reservas
@@ -128,26 +154,30 @@ const Header = () => {
                 onMouseLeave={reset}
                 onMouseEnter={loadFavs}
                 className={
-                  location.pathname === "/favorites" ? "hide" : "favContainer"
+                  location.pathname === "/favorites"
+                    ? styles.hide
+                    : styles.favContainer
                 }
               >
-                <div className="favIcon" onClick={handleFavs}>
-                  {!openMenu ? (
-                    <FontAwesomeIcon className="fav" icon={faHeart} size="xl" />
-                  ) : (
-                    <p className="favLink">Favoritos</p>
-                  )}
+                <div className={styles.favIcon} >
+                    <FontAwesomeIcon
+                      onClick={handleFavs}
+                      className={styles.fav}
+                      icon={faHeart}
+                      size="xl"
+                    />
+                    <p className={styles.favLink}>Favoritos</p>
                 </div>
-                <div className="favsMenu">
-                  <h4>Favoritos</h4>
+                <div className={styles.favsMenu}>
+                  {/* <h4>Favoritos</h4> */}
                   {show && loading ? (
                     <>
                       <Favorites />
                       <div
                         className={
                           state.favs.length === 0
-                            ? "hideButton"
-                            : "favButtonDiv"
+                            ? styles.hideButton
+                            : styles.favButtonDiv
                         }
                       >
                         <a href="/favorites">Ver todos</a>
@@ -159,57 +189,35 @@ const Header = () => {
                 </div>
               </div>
             </div>
-
-            <div className="profileInfo">
-              <div className="logout">
-                <FontAwesomeIcon
-                  onClick={handleLogout}
-                  icon={faXmark}
-                ></FontAwesomeIcon>
-              </div>
-              <div className="profile-info-web">
-                <p className="profileAvatar">
-                  {userInfo? userInfo.firstname.toUpperCase().slice(0, 1) : null}
-                  {userInfo? userInfo.lastname.toUpperCase().slice(0, 1) : null}
-                </p>
-                <p className="profileName">
-                  Hola, <br></br>
-                  <span>
-                    {userInfo ? userInfo.firstname : null}
-                    {userInfo ? userInfo.lastname : null}
-                  </span>
-                </p>
-              </div>
-              <p className="logoutMobile">
-                ¿Deseas <span onClick={handleLogout}>cerrar sesión</span>?
-              </p>
-              <hr />
-            </div>
           </>
         ) : (
-          <div className="formButtons">
+          <div className={styles.formButtons}>
             <button
-              className={location.pathname !== "/register" ? "btn" : "hidden"}
+              className={location.pathname !== "/register" ? `${styles.btn}` : `${styles.hidden}`}
               onClick={handleRegister}
             >
-              Crear cuenta
+              <p>
+                Crear cuenta
+              </p>
             </button>
             <hr
               className={
                 location.pathname !== "/" || window.screen.width > 600
-                  ? "hide"
-                  : "hr"
+                  ? `${styles.hide}`
+                  : `${styles.hr}`
               }
             />
             <button
-              className={location.pathname === "/login" ? "hidden" : "btn"}
+              className={location.pathname === "/login" ? `${styles.hidden}` : `${styles.btn}`}
               onClick={handleLogin}
             >
-              Iniciar Sesión
+              <p>
+                Iniciar Sesión
+              </p>
             </button>
           </div>
         )}
-        <Social />
+        <Social styles={styles}/>
       </div>
     </nav>
   );

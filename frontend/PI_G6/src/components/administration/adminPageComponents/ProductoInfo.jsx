@@ -53,7 +53,7 @@ const ProductoInfo = ({ props }) => {
   return (
     <div className={styles.adminGridContainer}>
       {formElements.map(({ label, placeholder, baseClass, elementType }) => (
-        <div key={label} className={inputClass(baseClass)}>
+        <div key={label} className={inputClass(baseClass)} >
           <div>{label}</div>
           {elementType === 'input' ? (
             baseClass === 'productName' ? 
@@ -64,7 +64,8 @@ const ProductoInfo = ({ props }) => {
               onChange={(e) => {
                 setProductName(e.target.value)
               }
-              }
+            }
+            required
               />
               )
               : (
@@ -75,6 +76,7 @@ const ProductoInfo = ({ props }) => {
                   setProductAddress(e.target.value)
                 }
                 }
+                required
                 />
                 )
             ) : elementType === 'textarea' ? (
@@ -83,6 +85,7 @@ const ProductoInfo = ({ props }) => {
               value={productDescription}
               className={styles.textarea}
               onChange={(e) => setProductDescription(e.target.value)}
+              required
               >
             </textarea>
           ) : elementType === 'customSelectCategory' ? (
@@ -97,6 +100,7 @@ const ProductoInfo = ({ props }) => {
                 onClick={() => {
                   setFilteredCategories(categories);
                 }}
+                required
               />
               {filteredCategories.length > 0 && (
                 <div id={styles.showCategoriesList} className={isActive ? `${styles.active}` : `${styles.inactive}`}>

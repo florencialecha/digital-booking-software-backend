@@ -40,6 +40,7 @@ const SelectorTarget = ({ styles, setSelected , setProductCity }) => {
             onClick={() => setSearch("")}
             onChange={inputToSearch}
             placeholder="A donde vamos"
+            required
           ></input>
         </div>
         <div id={styles.options} className={isActive ? styles.active : styles.inactive}>

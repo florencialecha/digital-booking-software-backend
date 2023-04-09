@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "./CardCategory.css";
+import styles from "./CardCategory.module.css";
 import { GlobalContext } from "../../../utils/globalContext";
 
 const Carousel = (category) => {
@@ -7,8 +7,7 @@ const Carousel = (category) => {
 
   return (
     <div
-      className="slider-item"
-      id={category.id}
+      className={styles.sliderItem}
       onDoubleClick={() =>
         dispatch({
           type: "data",
@@ -17,8 +16,8 @@ const Carousel = (category) => {
       }
     >
       <img src={category.imageUrl} alt="" />
-      <div>
-        <p className="category-title  ">{category.title}</p>
+      <div className={styles.categoryInfo}>
+        <p className={styles.categoryTitle}>{category.title}</p>
         <p>{category.quantity} disponibles</p>
       </div>
     </div>

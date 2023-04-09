@@ -57,7 +57,6 @@ const AdminPage = () => {
       const street = stringToSplit.slice(0, iNumber).join(' ');
       return { number, street };
     }
-    // Si no se encuentra un número, se devuelve la dirección completa
     return { address };
   }
 
@@ -68,68 +67,96 @@ const AdminPage = () => {
     })
   }, [productImages])
 
-  const handleCreateProductClick = () => {
-    const token = JSON.parse(localStorage.getItem('JWT'));
-    axios
-      .post(
-        apiProduct,
-        {
-          title: productName,
-          description: productDescription,
-          stars: 3,
-          scoring: 7,
-          review: 'Muy bueno',
-          category: productCategory,
-          features: features,
-          policy: {
-              rules: rules,
-              security: security,
-              cancellation: cancellation
+  const handleCreateProductClick = (event) => {
+    event.preventDefault();
+    const form = event.target.form;
+    if (form.checkValidity()) {
+      const token = JSON.parse(localStorage.getItem('JWT'));
+      axios
+        .post(
+          apiProduct,
+          {
+            title: productName,
+            description: productDescription,
+            stars: 3,
+            scoring: 7,
+            review: 'Muy bueno',
+            category: productCategory,
+            features: features,
+            policy: {
+                rules: rules,
+                security: security,
+                cancellation: cancellation
+            },
+            images: imageList,
+            address: {  
+              street: `${splitAddress(productAddress).street}`,
+              number: `${splitAddress(productAddress).number}`,
+              city: productCity,
+            }
           },
-          images: imageList,
-          address: {  
-            street: `${splitAddress(productAddress).street}`,
-            number: `${splitAddress(productAddress).number}`,
-            city: productCity,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
           }
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
+        )
+        .then((response) => {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "center",
+            showConfirmButton: false,
+            timer: 2500,
+            width: "50%",
+            didOpen: (toast) => {
+              toast.addEventListener("mouseenter", Swal.stopTimer);
+              toast.addEventListener("mouseleave", Swal.resumeTimer);
+            },
+          });
+          
+          Toast.fire({
+            icon: "success",
+            title: "¡Muchas gracias!",
+            text: "Su reserva se ha realizado con éxito",
+          }).then(() => {
+            navigate('/');
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      const requiredInputs = form.querySelectorAll("input[required]");
+      requiredInputs.forEach((input) => {
+        if (!input.checkValidity()) {
+          input.classList.add(styles.requiredInput);
+        } else {
+          input.classList.remove(styles.requiredInput);
         }
-      )
-      .then((response) => {
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "center",
-          showConfirmButton: false,
-          timer: 2500,
-          width: "50%",
-          didOpen: (toast) => {
-            toast.addEventListener("mouseenter", Swal.stopTimer);
-            toast.addEventListener("mouseleave", Swal.resumeTimer);
-          },
-        });
-        
-        Toast.fire({
-          icon: "success",
-          title: "¡Muchas gracias!",
-          text: "Su reserva se ha realizado con éxito",
-        }).then(() => {
-          navigate('/');
-        });
-      })
-      .catch((error) => {
-        console.log(error);
       });
+
+      const textarea = form.querySelectorAll("textarea[required]");
+      textarea.forEach((text) => {
+        if (!text.checkValidity()) {
+          text.classList.add(styles.requiredInput);
+        } else {
+          text.classList.remove(styles.requiredInput);
+        }
+      });
+      // const textarea = form.querySelector("textarea[required]");
+      // if (!textarea.checkValidity()) {
+      //   textarea.classList.add(styles.requiredInput);
+      // } else {
+      //   textarea.classList.remove(styles.requiredInput);
+      // }
+    }
   };
 
   return (
     <div className={styles.adminContainer}>
       <ProductHeader generalInfo={{ title: 'Administración' }} />
-      <div className={styles.productCreateContainer}>
+      <form className={styles.productCreateContainer}>
         <h2>Crear Propiedad</h2>
         <div className={styles.createProductAdminContainer}>
           <ProductoInfo props={productProp}/>
@@ -139,11 +166,12 @@ const AdminPage = () => {
           <button
             className={styles.createProductButton}
             onClick={handleCreateProductClick}
+            type='submit'
           >
             Crear
           </button>
         </div>
-      </div>
+      </form>
     </div>
   )
 };

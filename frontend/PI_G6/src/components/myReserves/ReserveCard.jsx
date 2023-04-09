@@ -1,9 +1,8 @@
 import React from "react";
-import "./ReserveCard.css";
 
-const ReserveCard = ({ reserves }) => {
+const ReserveCard = ({ styles }) => {
   return (
-    <div className="reserveCard">
+    <div className={styles.reserveCard}>
       <h1>Titulo del producto</h1>
       <p>Check In</p>
       <p>Check Out</p>

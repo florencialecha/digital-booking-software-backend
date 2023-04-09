@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import CardStars from "./CardStars";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -63,7 +63,6 @@ const CardSuggested = ({ suggest, styles }) => {
             alt="Logo from Digital Booking"
           />
           <h2>¡Te damos la bienvenida a Db!</h2>
-
           <h4>Inicia sesión para organizar tu viaje</h4>
           <div className={styles.loginRegisterButtons}>
             <a className={styles.loginButtonFav} href="/login">
