@@ -38,9 +38,6 @@ BuildAndDeployFront:
   script:
   - cd frontend/PI_G6
   - if [ -d "node_modules" ]; then sudo chmod -R 777 node_modules; sudo chmod ugo+rwx node_modules; sudo rm -rf node_modules; fi
-  - if [ -d "dist" ]; then sudo rm -rf dist; fi
-  - sudo npm install --unsafe-perm
-  - sudo npm run build --unsafe-perm
   - sudo npm cache clean --force
 
   - sudo aws s3 sync dist/ s3://digital-booking-6 --delete

@@ -29,7 +29,7 @@ const Features = ({ specs, styles }) => {
   const location = useLocation()
 
 return (
-    <div>
+    <div className={styles.featureContainers}>
       <div className={styles.featuresBody}>
         {specs?.map((item) => {
           const iconos = icon.find(

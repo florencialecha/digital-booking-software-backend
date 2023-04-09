@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useRef, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import CardCategory from './CardCategory/CardCategory'
-import './CardCategory/CardCategory.css'
+import styles from './CardCategory/CardCategory.module.css'
 import { apiCategory } from '../../utils/apiEndpoints'
 
 const Carousel = () => {
@@ -30,13 +30,13 @@ const Carousel = () => {
   }, [])
 
   return (
-    <motion.div ref={carousel} className='carousel' whileTap={{ cursor: 'grabbing' }}>
+    <motion.div ref={carousel} className={styles.carousel} whileTap={{ cursor: 'grabbing' }}>
       <article>
         <p>Buscar por tipo de alojamiento</p>
       </article>
-      <motion.div drag='x' dragConstraints={{ right: 0, left: -width }} className='slider-categories' id='slider-categories' >
+      <motion.div drag='x' dragConstraints={{ right: 0, left: -width }} className={styles.sliderCategories} id={styles.sliderCategories} >
         {categorys.map((category) => (
-          <CardCategory key={category.id} {...category}/>
+          <CardCategory key={category.id} {...category} styles={styles}/>
         ))}
       </motion.div>
     </motion.div>

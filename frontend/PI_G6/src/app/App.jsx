@@ -4,7 +4,7 @@ import Layout from "../routes/Layout";
 import Home from "../routes/Home/Home";
 import Login from "../routes/Login";
 import Register from "../routes/Register";
-// import NotFound from '../routes/NotFound'
+import NotFound from '../routes/NotFound'
 import ProductDetails from "../components/details/ProductDetails";
 import Reserve from "../components/reserve/Reserve";
 import "../index.css";
@@ -29,8 +29,8 @@ function App() {
         <Route path="/favorites" element={<FavComponent />} />
         <Route path="/administration" element={<AdminPage />} />
         <Route path="/myreserves" element={<MyReserves />} />
+        <Route path="/*" element={<NotFound />} />
       </Route>
-      {/* <Route path="/*" element={<NotFound />} /> */}
     </Routes>
   );
 }

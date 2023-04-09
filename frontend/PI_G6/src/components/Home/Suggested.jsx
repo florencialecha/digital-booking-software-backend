@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
-import CardSuggested from "./CardSuggested/CardSuggested";
+import CardSuggested from './CardSuggested/CardSuggested';
 import { GlobalContext } from "../../utils/globalContext";
 import styles from "../Home/Suggested.module.css";
 import axios from "axios";
