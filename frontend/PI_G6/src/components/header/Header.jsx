@@ -12,13 +12,24 @@ import Spinner from "../favorites/Spinner";
 
 const Header = () => {
   const loggedUser = JSON.parse(localStorage.getItem("JWT"));
-  const user = JSON.parse(localStorage.getItem("user"));
+  const location = useLocation();
+  const [showFavsMenu, setShowFavsMenu] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { state } = useContext(GlobalContext);
   const navigate = useNavigate();
-  const location = useLocation();
-  const [loading, setLoading] = useState(false);
-  const [show, setShow] = useState(false);
+  
+
+  const handleMouseEnter = () => {
+    loadFavs()
+    setShowFavsMenu(true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowFavsMenu(false);
+    setLoading(false);
+
+  };
 
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
@@ -63,18 +74,11 @@ const Header = () => {
   };
 
   const loadFavs = () => {
-    if (!show)
+    if (!showFavsMenu)
       setTimeout(() => {
-        setLoading(!loading);
+        setLoading(true);
       }, 1000);
-    setShow(true);
-  };
-
-  const reset = () => {
-    setShow(false);
-    setLoading(false);
-  };
-  
+  };  
 
   return (
     <nav className='header'>
@@ -151,8 +155,7 @@ const Header = () => {
                 Reservas
               </div>
               <div
-                onMouseLeave={reset}
-                onMouseEnter={loadFavs}
+                onMouseEnter={handleMouseEnter}
                 className={
                   location.pathname === "/favorites"
                     ? styles.hide
@@ -168,24 +171,30 @@ const Header = () => {
                     />
                     <p className={styles.favLink}>Favoritos</p>
                 </div>
-                <div className={styles.favsMenu}>
-                  {/* <h4>Favoritos</h4> */}
-                  {show && loading ? (
-                    <>
-                      <Favorites />
+                <div 
+                className={showFavsMenu ? styles.favsMenu : styles.noFavsMenu}
+                onMouseLeave={handleMouseLeave}
+                
+                >
+                  <h4>Favoritos</h4>
+                  {showFavsMenu && loading ? (
+                    <div 
+                    className={styles.showFavorite}    
+                    >
+                      <Favorites/>
                       <div
                         className={
-                          state.favs.length === 0
+                          state.favngth === 0
                             ? styles.hideButton
                             : styles.favButtonDiv
                         }
                       >
                         <a href="/favorites">Ver todos</a>
                       </div>
-                    </>
-                  ) : (
+                    </div>
+                   ) : 
                     <Spinner />
-                  )}
+                  } 
                 </div>
               </div>
             </div>

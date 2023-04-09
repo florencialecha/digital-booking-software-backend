@@ -3,15 +3,14 @@ import styles from "../favorites/Favorites.module.css";
 import CardSuggested from "../Home/CardSuggested/CardSuggested";
 import { GlobalContext } from "../../utils/globalContext";
 import { useLocation, useNavigate } from "react-router";
-import ProductHeader from "../details/ProductHeader/ProductHeader";
-
 const Favorites = () => {
   const { state } = useContext(GlobalContext);
   const location = useLocation();
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div
+    >
       <div
         className={
           location.pathname === "/favorites"
