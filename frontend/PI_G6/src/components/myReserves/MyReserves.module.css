@@ -59,7 +59,7 @@
 @media (max-width: 600px) {
   .reserveCardContainer {
     grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(auto-fill, 200px)
+    grid-template-rows: repeat(auto-fill, 400px)
   }
 }
 
