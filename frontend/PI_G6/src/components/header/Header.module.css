@@ -61,7 +61,8 @@ nav a:visited {
   grid-template-columns: repeat(2, auto);
 }
 
-.hideMenu, .navMenuMobile {
+.hideMenu,
+.navMenuMobile {
   display: grid;
 }
 
@@ -189,6 +190,7 @@ nav .socials {
   position: relative;
   display: inline-block;
   height: 100%;
+  width: 40px;
   display: flex;
   align-items: center;
   text-shadow: none;
@@ -284,7 +286,7 @@ nav .socials {
 }
 
 .buttonContainer {
-  padding: 10px;
+  padding: 0 10px;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -306,6 +308,10 @@ nav .socials {
     justify-self: flex-end;
   }
 
+  .logout {
+    display: none;
+  }
+
   .reserveButton {
     align-self: flex-end;
   }
@@ -323,6 +329,7 @@ nav .socials {
 
   .favContainer {
     justify-content: flex-end;
+    width: fit-content;
   }
 
   .navMenuMobile {

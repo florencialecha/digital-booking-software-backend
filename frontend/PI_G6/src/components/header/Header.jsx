@@ -160,6 +160,7 @@ const Header = () => {
               </div>
               <div
                 onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
                 className={
                   location.pathname === "/favorites"
                     ? styles.hide
@@ -173,11 +174,12 @@ const Header = () => {
                     icon={faHeart}
                     size="xl"
                   />
-                  <p className={styles.favLink}>Favoritos</p>
+                  <p onClick={handleFavs} className={styles.favLink}>
+                    Favoritos
+                  </p>
                 </div>
                 <div
                   className={showFavsMenu ? styles.favsMenu : styles.noFavsMenu}
-                  onMouseLeave={handleMouseLeave}
                 >
                   <h4>Favoritos</h4>
                   {showFavsMenu && loading ? (

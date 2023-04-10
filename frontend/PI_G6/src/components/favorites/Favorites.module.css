@@ -72,6 +72,10 @@
   font-style: normal;
 }
 
+.favContainerHome .cardContainer img {
+  height: 80%;
+}
+
 .favContainerHome p#suggestName {
   font-size: 14px;
 }
@@ -86,6 +90,10 @@
 
 .favContainerHome .cardInformation div p {
   font-size: 12px;
+}
+
+.favContainerHome .cardInformation {
+  height: 200px;
 }
 
 .favContainerHome .seeMore {
