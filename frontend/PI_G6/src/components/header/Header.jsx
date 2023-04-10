@@ -70,6 +70,13 @@ const Header = () => {
     }
   };
 
+  const handleReserve = () => {
+    navigate("/myreserves");
+    if (window.screen.width <= 600) {
+      toggleMenu();
+    }
+  };
+
   const loadFavs = () => {
     if (!showFavsMenu)
       setTimeout(() => {
@@ -152,10 +159,7 @@ const Header = () => {
               ) : (
                 ""
               )}
-              <div
-                className={styles.reserveButton}
-                onClick={() => navigate("/myreserves")}
-              >
+              <div className={styles.reserveButton} onClick={handleReserve}>
                 Reservas
               </div>
               <div

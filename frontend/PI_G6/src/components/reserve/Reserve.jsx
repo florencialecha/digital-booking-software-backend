@@ -31,7 +31,7 @@ const reserve = () => {
         newReservation.push(reservation.replaceAll("/", "-"));
       });
 
-  const categoryTitle = `${product.category.title}`.toUpperCase();
+  const categoryTitle = `${product.category}`.toUpperCase();
   const onReserveConfirm = () => {
     axios
       .post(

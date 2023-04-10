@@ -309,7 +309,7 @@ nav .socials {
   }
 
   .logout {
-    display: none;
+    visibility: hidden;
   }
 
   .reserveButton {
@@ -329,7 +329,7 @@ nav .socials {
 
   .favContainer {
     justify-content: flex-end;
-    width: fit-content;
+    width: 100%;
   }
 
   .navMenuMobile {
