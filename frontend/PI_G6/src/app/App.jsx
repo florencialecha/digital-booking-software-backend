@@ -11,6 +11,7 @@ import "../index.css";
 import FavComponent from "../components/favorites/FavComponent";
 import AdminPage from "../components/administration/AdminPage";
 import MyReserves from "../components/myReserves/MyReserves";
+import AboutUs from "../components/aboutUs/AboutUs";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/favorites" element={<FavComponent />} />
         <Route path="/administration" element={<AdminPage />} />
         <Route path="/myreserves" element={<MyReserves />} />
+        <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/*" element={<NotFound />} />
       </Route>
     </Routes>
