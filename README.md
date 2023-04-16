@@ -1,6 +1,8 @@
 # 🏨 Hotel Reservation App | Backend software
 
-This repository features a scalable and clean backend solution for managing hotel reservations, built with Java 17, Maven, Spring Boot 3.0, and Hibernate.
+⚠️ This repository features a scalable and clean backend solution for managing hotel reservations, built with Java 17, Maven, Spring Boot 3.0, and Hibernate.
+Please note that this repository only contains information about the backend. If you wish to access the complete project, send me a message.
+
 
 Digital Booking is a hotel reservation platform focused on user-friendly experience and efficient business management. The backend adheres to SOLID principles and Domain Driven Design, using Java, Spring Boot, Hibernate, and SQL.
 
@@ -9,17 +11,17 @@ Visit the [project's wiki 📚](https://github.com/florencialecha/digital-bookin
 [🖥️ View Live Demo](http://digital-booking-6.s3-website.us-east-2.amazonaws.com/) |
 [📃 API Documentation](http://3.131.138.206:8080/swagger-ui/index.html#/)
 
-⚠️Please note that this repository only contains information about the backend. If you wish to access the complete project, send me a message.
+
 
 ## 📚 Table of Contents
 
-1. [Features](#features)
-2. [Introduction](#Introduction)
-3. [Technologies](#technologies)
-4. [Installation](#installation)
-5. [Usage](#usage)
-7. [API Documentation](#api-documentation)
-8. [About the Developer](#about-the-developer)
+1. [🌟 Features](https://github.com/florencialecha/digital-booking-software-backend/blob/development/README.md#-features)
+2. [🎯 Overview](https://github.com/florencialecha/digital-booking-software-backend/blob/development/README.md#--overview)
+3. [💻 Technologies](https://github.com/florencialecha/digital-booking-software-backend/blob/development/README.md#-technologies)
+4. [⚙️ Setup](https://github.com/florencialecha/digital-booking-software-backend/blob/development/README.md#%EF%B8%8F-setup)
+5. [🚀 Usage](https://github.com/florencialecha/digital-booking-software-backend/blob/development/README.md#-usage)
+7. [📃 API Documentation](https://github.com/florencialecha/digital-booking-software-backend/blob/development/README.md#-api-documentation)
+8. [👩‍💻 About the Developer](https://github.com/florencialecha/digital-booking-software-backend/blob/development/README.md#-about-the-developer)
 
 ## 🌟 Features
 
