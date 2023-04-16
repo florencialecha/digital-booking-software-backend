@@ -1,23 +1,11 @@
-<p align="center">
-  <a href="http://digital-booking-6.s3-website.us-east-2.amazonaws.com/">
-    <img alt="App preview" src="https://user-images.githubusercontent.com/106263642/232263815-89525607-681f-4e01-8ca3-5235380b44ad.png" width="300px" height="92px"/>
-  </a>
-</p>
+#🏨 Hotel Reservation App Backend 
 
-<h1 align="center">
-🏨 Hotel Reservation App Backend 
-</h1>
-
-<p align="center">
 A robust, scalable, and clean backend solution for managing hotel reservations, built with Java, Spring Boot, and Hibernate. Streamline your hotel booking experience and improve overall efficiency with maintainable and efficient code.
-
-
 
 [View Live Demo](http://digital-booking-6.s3-website.us-east-2.amazonaws.com/) |
 [API Documentation](http://3.131.138.206:8080/swagger-ui/index.html#/)
-</p>
 
-## Table of Contents
+##📚 Table of Contents
 
 1. [Features](#features)
 2. [Technologies](#technologies)
@@ -27,7 +15,7 @@ A robust, scalable, and clean backend solution for managing hotel reservations, 
 6. [API Documentation](#api-documentation)
 7. [About the Developer](#about-the-developer)
 
-## Features
+##🌟 Features
 
 - User registration and authentication
 - Browse and search for available hotels
@@ -35,7 +23,7 @@ A robust, scalable, and clean backend solution for managing hotel reservations, 
 - Admin panel for hotel management
 - Clean and maintainable code
 
-## Technologies
+##💻 Technologies
 
 - **Java 17:** The programming language used for backend development.
 - **Spring Boot 3.0:** A framework that simplifies the development of Java applications by providing production-ready defaults and easy integration with other Spring modules.
@@ -53,7 +41,7 @@ A robust, scalable, and clean backend solution for managing hotel reservations, 
 - **Hibernate Validator:** A library for performing bean validation in Java applications using Hibernate ORM.
 - **JSON Web Token (JWT):** A standard for securely transmitting information between parties as a JSON object, used for authentication and authorization in this application.
 
-## Setup
+##⚙️ Setup
 1. Clone the repository
 2. Install Java 17 and Maven
 3. Configure MySQL database
@@ -61,14 +49,14 @@ A robust, scalable, and clean backend solution for managing hotel reservations, 
 5. Build the project using Maven: mvn clean install
 6. Run the application: mvn spring-boot:run
 
-## Usage
+##🚀 Usage
 Once the application is running, access the Swagger UI at http://localhost:8080/swagger-ui.html to view and test the available API endpoints.
 
-## API Documentation
+##📃 API Documentation
 
 View the API documentation at [http://3.131.138.206:8080/swagger-ui/index.html#/](http://3.131.138.206:8080/swagger-ui/index.html#/)
 
-## About the Developer
+##👩‍💻 About the Developer
 
 Hi, I'm [Florencia](https://www.linkedin.com/in/florencialecha/), the developer of this project. I'm a full-stack programmer with a strong focus on backend development. My passion lies in creating clean, maintainable, and efficient software architectures, following best practices like Domain-Driven Design (DDD) and SOLID principles. I continuously strive to enhance my skills and deliver high-quality solutions that meet both business and user needs.
 
