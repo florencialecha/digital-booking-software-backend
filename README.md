@@ -1,6 +1,12 @@
 # 🏨 Hotel Reservation App Backend 
 
-A robust, scalable, and clean backend solution for managing hotel reservations, built with Java, Spring Boot, and Hibernate. Streamline your hotel booking experience and improve overall efficiency with maintainable and efficient code.
+A robust, scalable, and clean backend solution for managing hotel reservations, built with Java 17, Maven, Spring Boot 3.0, and Hibernate. Streamline your hotel booking experience and improve overall efficiency with maintainable and efficient code.
+
+Digital Booking is a hotel reservation platform aiming to provide a user-friendly experience and efficient business management. The main goal is to create a scalable and maintainable application, adhering to SOLID principles and Domain Driven Design in its backend.
+
+This project's backend is built using technologies such as Java, Spring Boot, Hibernate, and SQL. Key architectural decisions include adopting patterns like MVC (Model-View-Controller) and DDD (Domain Driven Design), which facilitate code organization and allow for greater scalability and maintainability.
+
+For detailed documentation on project objectives, architecture, data modeling, and more, visit the [project's wiki](https://github.com/florencialecha/digital-booking-software-backend/wiki).
 
 [View Live Demo](http://digital-booking-6.s3-website.us-east-2.amazonaws.com/) |
 [API Documentation](http://3.131.138.206:8080/swagger-ui/index.html#/)
@@ -8,7 +14,7 @@ A robust, scalable, and clean backend solution for managing hotel reservations, 
 ## 📚 Table of Contents
 
 1. [Features](#features)
-2. [Overview](#Overview)
+2. [Introduction](#Introduction)
 3. [Technologies](#technologies)
 4. [Installation](#installation)
 5. [Usage](#usage)
@@ -24,12 +30,24 @@ A robust, scalable, and clean backend solution for managing hotel reservations, 
 - Clean and maintainable code
 
 ## 🎯  Overview
+📚 For 8️⃣ weeks, my 4️⃣ teammates and I immersed ourselves in the adventure 🚀 of developing our first application from start 🏁 to finish, completely from scratch.
 
-Digital Booking is a hotel reservation platform aiming to provide a user-friendly experience and efficient business management. The main goal is to create a scalable and maintainable application, adhering to SOLID principles and Domain Driven Design in its backend.
+👥**Squad:**
+* **Damian Dell'Acqua -** Front-End Developer 💻
+* **Rocky Montero -** Front-End Developer 💻
+* **Manuel Godoy -** Testing 🧪
+* **Ciro Rojas -** Infrastructure 🏗️
+* **Florencia Lecha -** Back-End Developer 🔧
 
-This project's backend is built using technologies such as Java, Spring Boot, Hibernate, and SQL. Key architectural decisions include adopting patterns like MVC (Model-View-Controller) and DDD (Domain Driven Design), which facilitate code organization and allow for greater scalability and maintainability.
+🔍 What you will find in this wiki is a sample of why each technical decision was made and how we organized ourselves to keep the focus on what was important:
+- **Keep it simple and functional:** 🏆 MVP always working with constant increments. 
+- **Taking care of the basics:** ✅ good practices, code readability, clean architectures that make the business logic explicit.
+- **Easily scalable and maintainable** without over-engineering (probably the most difficult challenge)🌟.
+- **Have fun and improve:** 🔑 key to face the challenges we faced.
 
-For detailed documentation on project objectives, architecture, data modeling, and more, visit the Project Wiki.
+🎯In this sense, we achieved a robust hotel booking platform 🏨 with a focus on creating a user-friendly experience 😊 and efficient business management 📈.
+
+💪 In addition to this, we achieved a **solid and clean backend, following SOLID and Domain Driven Design principles**🔐 as well as a **unified frontend** at the style level and consistent at the code level and a continuous integration pipline that made it very easy for us to implement features🚀.
 
 Feel free to explore the [project's wiki](https://github.com/florencialecha/digital-booking-software-backend/wiki) for a deeper understanding of the development process and the decisions made throughout the creation of this hotel reservation application.
 
