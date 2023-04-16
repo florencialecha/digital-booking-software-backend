@@ -2,7 +2,7 @@
 
 A robust, scalable, and clean backend solution for managing hotel reservations, built with Java, Spring Boot, and Hibernate. Streamline your hotel booking experience and improve overall efficiency with maintainable and efficient code.
 
-![App preview]((https://user-images.githubusercontent.com/106263642/232263406-efc1e40d-16d2-4561-b92e-c9190e87e0fc.png))
+[App preview]((https://user-images.githubusercontent.com/106263642/232263406-efc1e40d-16d2-4561-b92e-c9190e87e0fc.png))
 [View Live Demo](http://digital-booking-6.s3-website.us-east-2.amazonaws.com/)
 
 ## Table of Contents
@@ -58,6 +58,6 @@ View the API documentation at [http://3.131.138.206:8080/swagger-ui/index.html#/
 
 ## About the Developer
 
-Hi, I'm ([Florencia](https://www.linkedin.com/in/florencialecha/)), the developer of this project. I'm a full-stack programmer with a strong focus on backend development. My passion lies in creating clean, maintainable, and efficient software architectures, following best practices like Domain-Driven Design (DDD) and SOLID principles. I continuously strive to enhance my skills and deliver high-quality solutions that meet both business and user needs.
+Hi, I'm [Florencia](https://www.linkedin.com/in/florencialecha/)), the developer of this project. I'm a full-stack programmer with a strong focus on backend development. My passion lies in creating clean, maintainable, and efficient software architectures, following best practices like Domain-Driven Design (DDD) and SOLID principles. I continuously strive to enhance my skills and deliver high-quality solutions that meet both business and user needs.
 
 Feel free to connect with me on [LinkedIn]([your-linkedin-profile-url](https://www.linkedin.com/in/florencialecha/))) or check out my [GitHub](https://github.com/florencialecha) for more projects.
