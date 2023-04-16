@@ -15,13 +15,13 @@ Visit the [project's wiki 📚](https://github.com/florencialecha/digital-bookin
 
 ## 📚 Table of Contents
 
-1. [Features](#features)
-2. [Introduction](#Introduction)
-3. [Technologies](#technologies)
-4. [Installation](#installation)
-5. [Usage](#usage)
-7. [API Documentation](#api-documentation)
-8. [About the Developer](#about-the-developer)
+1. [🌟 Features](https://github.com/florencialecha/digital-booking-software-backend/blob/development/README.md#-features)
+2. [🎯 Overview](https://github.com/florencialecha/digital-booking-software-backend/blob/development/README.md#--overview)
+3. [💻 Technologies](https://github.com/florencialecha/digital-booking-software-backend/blob/development/README.md#-technologies)
+4. [⚙️ Setup](https://github.com/florencialecha/digital-booking-software-backend/blob/development/README.md#%EF%B8%8F-setup)
+5. [🚀 Usage](https://github.com/florencialecha/digital-booking-software-backend/blob/development/README.md#-usage)
+7. [📃 API Documentation](https://github.com/florencialecha/digital-booking-software-backend/blob/development/README.md#-api-documentation)
+8. [👩‍💻 About the Developer](https://github.com/florencialecha/digital-booking-software-backend/blob/development/README.md#-about-the-developer)
 
 ## 🌟 Features
 
