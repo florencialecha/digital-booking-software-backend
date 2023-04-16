@@ -1,15 +1,16 @@
+<h1 align="center">
+🏨 Hotel Reservation App Backend 
+</h1>
 
-
-
-# Hotel Reservation App Backend 🏨
-
+<p align="center">
 A robust, scalable, and clean backend solution for managing hotel reservations, built with Java, Spring Boot, and Hibernate. Streamline your hotel booking experience and improve overall efficiency with maintainable and efficient code.
 
 <img src="https://user-images.githubusercontent.com/106263642/232263815-89525607-681f-4e01-8ca3-5235380b44ad.png"/>
-<img align="left" width="0" height="192px" hspace="10"/>
+<img align="center" width="0" height="192px" hspace="10"/>
 
 [View Live Demo](http://digital-booking-6.s3-website.us-east-2.amazonaws.com/) |
 [API Documentation](http://3.131.138.206:8080/swagger-ui/index.html#/)
+</p>
 
 ## Table of Contents
 
