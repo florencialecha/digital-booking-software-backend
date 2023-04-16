@@ -25,21 +25,21 @@ A robust, scalable, and clean backend solution for managing hotel reservations, 
 
 ## 💻 Technologies
 
-- **Java 17:**
-- **Spring Boot 3.0:**
-- **Hibernate:**
-- **Maven:**
-- **Spring Security 6.0:**
-- **JUnit:**
-- **SQL:**
-- **MySQL:**
-- **Lombok:**
-- **Swagger:**
-- **ModelMapper:**
-- **Spring Boot Starter Security:**
-- **Commons Validator:**
-- **Hibernate Validator:**
-- **JSON Web Token (JWT):**
+- **Java 17**
+- **Spring Boot 3.0**
+- **Hibernate**
+- **Maven**
+- **Spring Security 6.0**
+- **JUnit**
+- **SQL**
+- **MySQL**
+- **Lombok**
+- **Swagger**
+- **ModelMapper**
+- **Spring Boot Starter Security**
+- **Commons Validator**
+- **Hibernate Validator**
+- **JSON Web Token (JWT)**
 
 ## ⚙️ Setup
 1. Clone the repository
