@@ -25,21 +25,21 @@ A robust, scalable, and clean backend solution for managing hotel reservations, 
 
 ## 💻 Technologies
 
-- **Java 17:** The programming language used for backend development.
-- **Spring Boot 3.0:** A framework that simplifies the development of Java applications by providing production-ready defaults and easy integration with other Spring modules.
-- **Hibernate:** A Java-based Object-Relational Mapping (ORM) tool that simplifies database access and manipulation in Java applications.
-- **Maven:** A build automation tool that manages dependencies and builds Java projects.
-- **Spring Security 6.0:** A framework for securing Java applications, providing authentication, authorization, and other security features.
-- **JUnit:** A testing framework for Java applications, used for writing and running unit tests.
-- **SQL:** The language used for managing and querying relational databases.
-- **MySQL:** The database management system used for storing and retrieving data.
-- **Lombok:** A Java library that helps reduce boilerplate code, such as getters, setters, and constructors.
-- **Swagger:** A tool for generating API documentation, making it easier for developers to understand and interact with the API.
-- **ModelMapper:** A library for mapping Java objects, simplifying the conversion between different object models.
-- **Spring Boot Starter Security:** A starter for securing Spring Boot applications, which automatically configures security features such as authentication and authorization.
-- **Commons Validator:** A general-purpose library for validating data, such as email addresses, in Java applications.
-- **Hibernate Validator:** A library for performing bean validation in Java applications using Hibernate ORM.
-- **JSON Web Token (JWT):** A standard for securely transmitting information between parties as a JSON object, used for authentication and authorization in this application.
+- **Java 17:**
+- **Spring Boot 3.0:**
+- **Hibernate:**
+- **Maven:**
+- **Spring Security 6.0:**
+- **JUnit:**
+- **SQL:**
+- **MySQL:**
+- **Lombok:**
+- **Swagger:**
+- **ModelMapper:**
+- **Spring Boot Starter Security:**
+- **Commons Validator:**
+- **Hibernate Validator:**
+- **JSON Web Token (JWT):**
 
 ## ⚙️ Setup
 1. Clone the repository
