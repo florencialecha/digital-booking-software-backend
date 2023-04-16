@@ -2,7 +2,7 @@
 
 This repository features a scalable and clean backend solution for managing hotel reservations, built with Java 17, Maven, Spring Boot 3.0, and Hibernate.
 
-Digital Booking 📱 is a hotel reservation platform focused on user-friendly experience 😊 and efficient business management 📈. The backend 🔧 adheres to SOLID principles and Domain Driven Design, using Java, Spring Boot, Hibernate, and SQL.
+Digital Booking 📱 is a hotel reservation platform focused on user-friendly experience 😊 and efficient business management 📈. The backend adheres to SOLID principles and Domain Driven Design, using Java, Spring Boot, Hibernate, and SQL.
 
 Visit the [project's wiki 📚](https://github.com/florencialecha/digital-booking-software-backend/wiki) for detailed documentation.
 
