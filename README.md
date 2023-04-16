@@ -60,4 +60,4 @@ View the API documentation at [http://3.131.138.206:8080/swagger-ui/index.html#/
 
 Hi, I'm [Florencia](https://www.linkedin.com/in/florencialecha/), the developer of this project. I'm a full-stack programmer with a strong focus on backend development. My passion lies in creating clean, maintainable, and efficient software architectures, following best practices like Domain-Driven Design (DDD) and SOLID principles. I continuously strive to enhance my skills and deliver high-quality solutions that meet both business and user needs.
 
-Feel free to connect with me on [LinkedIn]([your-linkedin-profile-url](https://www.linkedin.com/in/florencialecha/)) or check out my [GitHub](https://github.com/florencialecha) for more projects.
+Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/florencialecha/) or check out my [GitHub](https://github.com/florencialecha) for more projects.
