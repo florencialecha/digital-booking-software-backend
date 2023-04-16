@@ -1,4 +1,4 @@
-# 🏨 Hotel Reservation App Backend 
+# 🏨 Hotel Reservation App
 
 A robust, scalable, and clean backend solution for managing hotel reservations, built with Java 17, Maven, Spring Boot 3.0, and Hibernate. Streamline your hotel booking experience and improve overall efficiency with maintainable and efficient code.
 
