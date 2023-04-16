@@ -2,7 +2,7 @@
 
 This repository features a scalable and clean backend solution for managing hotel reservations, built with Java 17, Maven, Spring Boot 3.0, and Hibernate.
 
-Digital Booking 📱 is a hotel reservation platform focused on user-friendly experience 😊 and efficient business management 📈. The backend adheres to SOLID principles and Domain Driven Design, using Java, Spring Boot, Hibernate, and SQL.
+Digital Booking is a hotel reservation platform focused on user-friendly experience and efficient business management. The backend adheres to SOLID principles and Domain Driven Design, using Java, Spring Boot, Hibernate, and SQL.
 
 Visit the [project's wiki 📚](https://github.com/florencialecha/digital-booking-software-backend/wiki) for detailed documentation.
 
@@ -39,15 +39,14 @@ Visit the [project's wiki 📚](https://github.com/florencialecha/digital-bookin
 * **Ciro Rojas -** Infrastructure 🏗️
 * **Florencia Lecha -** Back-End Developer 🔧
 
-🔍In this repository you will find the application's backend software created by Florencia Lecha along with all the details, why she made each technical decision and how it was organized to keep the focus on what is important:
+🔍In this repository, you will find the application's backend software created by Florencia Lecha, along with details on why each technical decision was made and how the focus was kept on essential aspects:
 - **Keep it simple and functional:** 🏆 MVP always working with constant increments. 
-- **Taking care of the basics:** ✅ good practices, code readability, clean architectures that make the business logic explicit.
+- **Taking care of the basics:** ✅ Good practices, code readability, clean architectures that make the business logic explicit.
 - **Easily scalable and maintainable** without over-engineering (probably the most difficult challenge)🌟.
 - **Have fun and improve:** 🔑 key to face the challenges we faced.
 
-🎯In this sense, we achieved a robust hotel booking platform 🏨 with a focus on creating a user-friendly experience 😊 and efficient business management 📈.
-
-💪 In addition to this, we achieved a **solid and clean backend, following SOLID and Domain Driven Design principles**🔐 as well as a **unified frontend** at the style level and consistent at the code level and a continuous integration pipline that made it very easy for us to implement features🚀.
+🎯We achieved a robust hotel booking platform 🏨 with a focus on creating a user-friendly experience and efficient business management.
+In addition to this, we achieved a **solid and clean backend, following SOLID and Domain Driven Design principles** as well as a **unified frontend** at the style level and consistent at the code level and a continuous integration pipline that made it very easy for us to implement features.
 
 Feel free to explore the [project's wiki](https://github.com/florencialecha/digital-booking-software-backend/wiki) for a deeper understanding of the development process and the decisions made throughout the creation of this hotel reservation application.
 
