@@ -1,15 +1,15 @@
-# 🏨 Hotel Reservation App
+# 🏨 Hotel Reservation App | Backend software
 
-A robust, scalable, and clean backend solution for managing hotel reservations, built with Java 17, Maven, Spring Boot 3.0, and Hibernate. Streamline your hotel booking experience and improve overall efficiency with maintainable and efficient code.
+This repository features a scalable and clean backend solution for managing hotel reservations, built with Java 17, Maven, Spring Boot 3.0, and Hibernate.
 
-Digital Booking is a hotel reservation platform aiming to provide a user-friendly experience and efficient business management. The main goal is to create a scalable and maintainable application, adhering to SOLID principles and Domain Driven Design in its backend.
+Digital Booking 📱 is a hotel reservation platform focused on user-friendly experience 😊 and efficient business management 📈. The backend 🔧 adheres to SOLID principles and Domain Driven Design, using Java, Spring Boot, Hibernate, and SQL.
 
-This project's backend is built using technologies such as Java, Spring Boot, Hibernate, and SQL. Key architectural decisions include adopting patterns like MVC (Model-View-Controller) and DDD (Domain Driven Design), which facilitate code organization and allow for greater scalability and maintainability.
+Visit the [project's wiki 📚](https://github.com/florencialecha/digital-booking-software-backend/wiki) for detailed documentation.
 
-For detailed documentation on project objectives, architecture, data modeling, and more, visit the [project's wiki](https://github.com/florencialecha/digital-booking-software-backend/wiki).
+[🖥️ View Live Demo](http://digital-booking-6.s3-website.us-east-2.amazonaws.com/) |
+[📃 API Documentation](http://3.131.138.206:8080/swagger-ui/index.html#/)
 
-[View Live Demo](http://digital-booking-6.s3-website.us-east-2.amazonaws.com/) |
-[API Documentation](http://3.131.138.206:8080/swagger-ui/index.html#/)
+⚠️Please note that this repository only contains information about the backend. If you wish to access the complete project, send me a message.
 
 ## 📚 Table of Contents
 
