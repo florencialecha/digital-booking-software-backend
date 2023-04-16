@@ -39,7 +39,7 @@ For detailed documentation on project objectives, architecture, data modeling, a
 * **Ciro Rojas -** Infrastructure 🏗️
 * **Florencia Lecha -** Back-End Developer 🔧
 
-🔍 What you will find in this wiki is a sample of why each technical decision was made and how we organized ourselves to keep the focus on what was important:
+🔍In this repository you will find the application's backend software created by Florencia Lecha along with all the details, why she made each technical decision and how it was organized to keep the focus on what is important:
 - **Keep it simple and functional:** 🏆 MVP always working with constant increments. 
 - **Taking care of the basics:** ✅ good practices, code readability, clean architectures that make the business logic explicit.
 - **Easily scalable and maintainable** without over-engineering (probably the most difficult challenge)🌟.
