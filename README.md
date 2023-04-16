@@ -2,8 +2,9 @@
 
 A robust, scalable, and clean backend solution for managing hotel reservations, built with Java, Spring Boot, and Hibernate. Streamline your hotel booking experience and improve overall efficiency with maintainable and efficient code.
 
-[App preview]((https://user-images.githubusercontent.com/106263642/232263406-efc1e40d-16d2-4561-b92e-c9190e87e0fc.png))
-[View Live Demo](http://digital-booking-6.s3-website.us-east-2.amazonaws.com/)
+[App preview](https://user-images.githubusercontent.com/106263642/232263406-efc1e40d-16d2-4561-b92e-c9190e87e0fc.png) | 
+[View Live Demo](http://digital-booking-6.s3-website.us-east-2.amazonaws.com/) |
+[API Documentation](http://3.131.138.206:8080/swagger-ui/index.html#/)
 
 ## Table of Contents
 
