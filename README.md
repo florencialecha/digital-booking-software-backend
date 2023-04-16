@@ -8,12 +8,13 @@ A robust, scalable, and clean backend solution for managing hotel reservations, 
 ## 📚 Table of Contents
 
 1. [Features](#features)
-2. [Technologies](#technologies)
-3. [Installation](#installation)
-4. [Usage](#usage)
-5. [Testing](#testing)
-6. [API Documentation](#api-documentation)
-7. [About the Developer](#about-the-developer)
+2. [Overview](#Overview)
+3. [Technologies](#technologies)
+4. [Installation](#installation)
+5. [Usage](#usage)
+6. [Testing](#testing)
+7. [API Documentation](#api-documentation)
+8. [About the Developer](#about-the-developer)
 
 ## 🌟 Features
 
@@ -22,6 +23,16 @@ A robust, scalable, and clean backend solution for managing hotel reservations, 
 - Book and manage reservations
 - Admin panel for hotel management
 - Clean and maintainable code
+
+## 🎯  Overview
+
+Digital Booking is a hotel reservation platform aiming to provide a user-friendly experience and efficient business management. The main goal is to create a scalable and maintainable application, adhering to SOLID principles and Domain Driven Design in its backend.
+
+This project's backend is built using technologies such as Java, Spring Boot, Hibernate, and SQL. Key architectural decisions include adopting patterns like MVC (Model-View-Controller) and DDD (Domain Driven Design), which facilitate code organization and allow for greater scalability and maintainability.
+
+For detailed documentation on project objectives, architecture, data modeling, and more, visit the Project Wiki.
+
+Feel free to explore the project's wiki for a deeper understanding of the development process and the decisions made throughout the creation of this hotel reservation application.
 
 ## 💻 Technologies
 
