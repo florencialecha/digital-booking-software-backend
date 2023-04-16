@@ -12,7 +12,6 @@ A robust, scalable, and clean backend solution for managing hotel reservations, 
 3. [Technologies](#technologies)
 4. [Installation](#installation)
 5. [Usage](#usage)
-6. [Testing](#testing)
 7. [API Documentation](#api-documentation)
 8. [About the Developer](#about-the-developer)
 
@@ -32,7 +31,7 @@ This project's backend is built using technologies such as Java, Spring Boot, Hi
 
 For detailed documentation on project objectives, architecture, data modeling, and more, visit the Project Wiki.
 
-Feel free to explore the project's wiki for a deeper understanding of the development process and the decisions made throughout the creation of this hotel reservation application.
+Feel free to explore the [project's wiki](https://github.com/florencialecha/digital-booking-software-backend/wiki) for a deeper understanding of the development process and the decisions made throughout the creation of this hotel reservation application.
 
 ## 💻 Technologies
 
