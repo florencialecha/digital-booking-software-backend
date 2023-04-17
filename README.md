@@ -11,7 +11,7 @@ Visit the [project's wiki 📚](https://github.com/florencialecha/digital-bookin
 [🖥️ View Live Demo](http://digital-booking-6.s3-website.us-east-2.amazonaws.com/) |
 [📃 API Documentation](http://3.131.138.206:8080/swagger-ui/index.html#/)
 
-
+![repository-open-graph-template1](https://user-images.githubusercontent.com/106263642/232552110-9a8794a9-c19e-48ca-8736-865dac9dc407.png)
 
 ## 📚 Table of Contents
 
