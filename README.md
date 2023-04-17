@@ -32,15 +32,8 @@ Visit the [project's wiki 📚](https://github.com/florencialecha/digital-bookin
 - Clean and maintainable code
 
 ## 🎯  Overview
+
 📚 For 8️⃣ weeks, my 4️⃣ teammates and I immersed ourselves in the adventure 🚀 of developing our first application from start 🏁 to finish, completely from scratch.
-
-👥**Squad:**
-* **Damian Dell'Acqua -** Front-End Developer 💻
-* **Rocky Montero -** Front-End Developer 💻
-* **Manuel Godoy -** Testing 🧪
-* **Ciro Rojas -** Infrastructure 🏗️
-* **Florencia Lecha -** Back-End Developer 🔧
-
 🔍In this repository, you will find the application's backend software created by Florencia Lecha, along with details on why each technical decision was made and how the focus was kept on essential aspects:
 - **Keep it simple and functional:** 🏆 MVP always working with constant increments. 
 - **Taking care of the basics:** ✅ Good practices, code readability, clean architectures that make the business logic explicit.
@@ -85,7 +78,14 @@ Once the application is running, access the Swagger UI at http://localhost:8080/
 
 View the API documentation at [http://3.131.138.206:8080/swagger-ui/index.html#/](http://3.131.138.206:8080/swagger-ui/index.html#/)
 
-## 👩‍💻 About the Developer
+## 👥 Squad
+* **Damian Dell'Acqua -** Front-End Developer 💻
+* **Rocky Montero -** Front-End Developer 💻
+* **Manuel Godoy -** Testing 🧪
+* **Ciro Rojas -** Infrastructure 🏗️
+* **Florencia Lecha -** Back-End Developer 🔧
+
+## 👩‍💻 About the Backend Developer
 
 Hi, I'm [Florencia](https://www.linkedin.com/in/florencialecha/), the developer of this project. I'm a full-stack programmer with a strong focus on backend development. My passion lies in creating clean, maintainable, and efficient software architectures, following best practices like Domain-Driven Design (DDD) and SOLID principles. I continuously strive to enhance my skills and deliver high-quality solutions that meet both business and user needs.
 
