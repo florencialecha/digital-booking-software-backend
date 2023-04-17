@@ -9,7 +9,9 @@ Visit the [project's wiki 📚](https://github.com/florencialecha/digital-bookin
 [🖥️ View Live Demo](http://digital-booking-6.s3-website.us-east-2.amazonaws.com/) |
 [📃 API Documentation](http://3.131.138.206:8080/swagger-ui/index.html#/)
 
-![repository-open-graph-template1](https://user-images.githubusercontent.com/106263642/232552110-9a8794a9-c19e-48ca-8736-865dac9dc407.png)
+Library | Loom - 17 April 2023 - Watch Video
+
+<div style="position: relative; padding-bottom: 53.28125%; height: 0;"><iframe src="https://www.loom.com/embed/157987d051fe4fb3b454b29b9222a725" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 ## 📚 Table of Contents
 
