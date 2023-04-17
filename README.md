@@ -9,11 +9,10 @@ Visit the [project's wiki 📚](https://github.com/florencialecha/digital-bookin
 [🖥️ View Live Demo](http://digital-booking-6.s3-website.us-east-2.amazonaws.com/) |
 [📃 API Documentation](http://3.131.138.206:8080/swagger-ui/index.html#/)
 
+<img src="https://user-images.githubusercontent.com/106263642/232561907-ca963573-41f6-44d1-bc40-4520aca7ecd2.gif" align="left">
 
 ## 📚 Table of Contents
-<p>
-<img src="https://user-images.githubusercontent.com/106263642/232561907-ca963573-41f6-44d1-bc40-4520aca7ecd2.gif" align="left">
-  
+ 
 1. [🌟 Features](https://github.com/florencialecha/digital-booking-software-backend/blob/development/README.md#-features)
 2. [🎯 Overview](https://github.com/florencialecha/digital-booking-software-backend/blob/development/README.md#--overview)
 3. [💻 Technologies](https://github.com/florencialecha/digital-booking-software-backend/blob/development/README.md#-technologies)
@@ -21,7 +20,6 @@ Visit the [project's wiki 📚](https://github.com/florencialecha/digital-bookin
 5. [🚀 Usage](https://github.com/florencialecha/digital-booking-software-backend/blob/development/README.md#-usage)
 7. [📃 API Documentation](https://github.com/florencialecha/digital-booking-software-backend/blob/development/README.md#-api-documentation)
 8. [👩‍💻 About the Developer](https://github.com/florencialecha/digital-booking-software-backend/blob/development/README.md#-about-the-developer)
-</p>
 
 ## 🌟 Features
 
