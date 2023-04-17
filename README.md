@@ -2,8 +2,7 @@
 
 ⚠️ This repository only contains information about the backend. If you wish to access the complete project, send me a message.
 
-<p>
-<img src="https://user-images.githubusercontent.com/106263642/232561907-ca963573-41f6-44d1-bc40-4520aca7ecd2.gif" align="left">
+<img src="https://user-images.githubusercontent.com/106263642/232561907-ca963573-41f6-44d1-bc40-4520aca7ecd2.gif" align="center">
   
 Digital Booking is a hotel reservation platform focused on user-friendly experience and efficient business management. The backend adheres to SOLID principles and Domain Driven Design, using Java, Spring Boot, Hibernate, and SQL. This repository features a scalable and clean backend solution for managing hotel reservations, built with Java 17, Maven, Spring Boot 3.0, and Hibernate.
 
@@ -11,8 +10,6 @@ Visit the [project's wiki 📚](https://github.com/florencialecha/digital-bookin
 
 [🖥️ View Live Demo](http://digital-booking-6.s3-website.us-east-2.amazonaws.com/) |
 [📃 API Documentation](http://3.131.138.206:8080/swagger-ui/index.html#/)
-
-</p>
 
 ## 📚 Table of Contents
 
