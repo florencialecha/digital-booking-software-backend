@@ -9,8 +9,7 @@ Visit the [project's wiki 📚](https://github.com/florencialecha/digital-bookin
 [🖥️ View Live Demo](http://digital-booking-6.s3-website.us-east-2.amazonaws.com/) |
 [📃 API Documentation](http://3.131.138.206:8080/swagger-ui/index.html#/)
 
-<p>
-<img src="https://user-images.githubusercontent.com/106263642/232561907-ca963573-41f6-44d1-bc40-4520aca7ecd2.gif" align="right" margin="10px">
+<img src="https://user-images.githubusercontent.com/106263642/232561907-ca963573-41f6-44d1-bc40-4520aca7ecd2.gif">
 
 ## 📚 Table of Contents
  
@@ -21,7 +20,7 @@ Visit the [project's wiki 📚](https://github.com/florencialecha/digital-bookin
 5. [🚀 Usage](https://github.com/florencialecha/digital-booking-software-backend/blob/development/README.md#-usage)
 7. [📃 API Documentation](https://github.com/florencialecha/digital-booking-software-backend/blob/development/README.md#-api-documentation)
 8. [👩‍💻 About the Developer](https://github.com/florencialecha/digital-booking-software-backend/blob/development/README.md#-about-the-developer)
-</p>
+
 
 
 ## 🌟 Features
