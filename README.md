@@ -10,7 +10,7 @@ Visit the [project's wiki 📚](https://github.com/florencialecha/digital-bookin
 [📃 API Documentation](http://3.131.138.206:8080/swagger-ui/index.html#/)
 
 <p>
-<img src="https://user-images.githubusercontent.com/106263642/232561907-ca963573-41f6-44d1-bc40-4520aca7ecd2.gif" align="right" marginleft="10px">
+<img src="https://user-images.githubusercontent.com/106263642/232561907-ca963573-41f6-44d1-bc40-4520aca7ecd2.gif" align="right" margin="10px">
 
 ## 📚 Table of Contents
  
